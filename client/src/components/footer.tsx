@@ -1,0 +1,88 @@
+import { Instagram, Youtube, Music, MapPin, Phone, Mail } from "lucide-react";
+
+export default function Footer() {
+  return (
+    <footer className="bg-deep-black text-white py-16">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          
+          {/* Company Info */}
+          <div>
+            <div className="font-serif text-xl font-bold mb-4">
+              Elite <span className="golden-bronze">Barber</span> Academy
+            </div>
+            <p className="text-gray-400 mb-6 leading-relaxed">
+              Transforming passionate individuals into skilled professional barbers through comprehensive training and mentorship.
+            </p>
+            <div className="flex space-x-4">
+              <a href="#" className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-[var(--golden-bronze)] hover:text-black transition-colors">
+                <Instagram className="h-4 w-4" />
+              </a>
+              <a href="#" className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-[var(--golden-bronze)] hover:text-black transition-colors">
+                <Youtube className="h-4 w-4" />
+              </a>
+              <a href="#" className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-[var(--golden-bronze)] hover:text-black transition-colors">
+                <Music className="h-4 w-4" />
+              </a>
+            </div>
+          </div>
+          
+          {/* Programs */}
+          <div>
+            <h4 className="font-semibold text-lg mb-4">Programs</h4>
+            <ul className="space-y-2 text-gray-400">
+              <li><a href="#" className="hover:text-[var(--golden-bronze)] transition-colors">Barber Fundamentals</a></li>
+              <li><a href="#" className="hover:text-[var(--golden-bronze)] transition-colors">Master Techniques</a></li>
+              <li><a href="#" className="hover:text-[var(--golden-bronze)] transition-colors">Business Mastery</a></li>
+              <li><a href="#" className="hover:text-[var(--golden-bronze)] transition-colors">Private Lessons</a></li>
+            </ul>
+          </div>
+          
+          {/* Quick Links */}
+          <div>
+            <h4 className="font-semibold text-lg mb-4">Quick Links</h4>
+            <ul className="space-y-2 text-gray-400">
+              <li><a href="#" className="hover:text-[var(--golden-bronze)] transition-colors">About Us</a></li>
+              <li><a href="#" className="hover:text-[var(--golden-bronze)] transition-colors">Admissions</a></li>
+              <li><a href="#" className="hover:text-[var(--golden-bronze)] transition-colors">Financial Aid</a></li>
+              <li><a href="#" className="hover:text-[var(--golden-bronze)] transition-colors">Student Portal</a></li>
+            </ul>
+          </div>
+          
+          {/* Contact Info */}
+          <div>
+            <h4 className="font-semibold text-lg mb-4">Contact</h4>
+            <div className="space-y-3 text-gray-400">
+              <div className="flex items-center space-x-2">
+                <MapPin className="golden-bronze h-4 w-4" />
+                <span className="text-sm">123 Barber Academy Drive</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Phone className="golden-bronze h-4 w-4" />
+                <span className="text-sm">(555) 123-BARBER</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Mail className="golden-bronze h-4 w-4" />
+                <span className="text-sm">info@elitebarber.academy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-800 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="text-gray-400 text-sm">
+              © 2024 Elite Barber Academy. All rights reserved.
+            </div>
+            <div className="flex space-x-6 text-sm text-gray-400">
+              <a href="#" className="hover:text-[var(--golden-bronze)] transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-[var(--golden-bronze)] transition-colors">Terms of Service</a>
+              <a href="#" className="hover:text-[var(--golden-bronze)] transition-colors">Student Handbook</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
