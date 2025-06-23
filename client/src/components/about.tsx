@@ -14,7 +14,7 @@ export default function About() {
             </h2>
             
             <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-              For over 15 years, Elite Barber Academy has been the gold standard in professional barber education. 
+              For over 15 years, K&K Barber Academy has been the gold standard in professional barber education. 
               Our comprehensive programs combine traditional techniques with modern innovations, ensuring our graduates 
               are ready to excel in today's competitive market.
             </p>

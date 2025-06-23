@@ -25,7 +25,7 @@ const courses = [
     duration: "16 weeks • 640 hours",
     certification: "Master certification",
     image: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-    buttonStyle: "bg-[var(--golden-bronze)] text-black hover:bg-yellow-500",
+    buttonStyle: "bg-[var(--golden-bronze)] text-black hover:bg-[var(--golden-bronze)]/80",
     icon: <Trophy className="golden-bronze mr-2 h-4 w-4" />
   },
   {
@@ -90,7 +90,7 @@ export default function Courses() {
                   </div>
                 </div>
                 
-                <Button className={`w-full py-3 rounded-full font-medium transition-colors ${course.buttonStyle}`}>
+                <Button className={`w-full py-3 rounded-full font-medium transition-all ${course.buttonStyle}`}>
                   Enroll Now
                 </Button>
               </div>
@@ -108,10 +108,10 @@ export default function Courses() {
               Join hundreds of successful graduates who've transformed their lives through our comprehensive training programs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-[var(--golden-bronze)] text-black px-8 py-3 rounded-full font-medium hover:bg-yellow-500">
+              <Button className="bg-[var(--golden-bronze)] text-black px-8 py-3 rounded-full font-medium hover:bg-[var(--golden-bronze)]/80 transition-all">
                 Schedule a Tour
               </Button>
-              <Button variant="outline" className="border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-black">
+              <Button variant="outline" className="border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-black transition-all">
                 Download Brochure
               </Button>
             </div>

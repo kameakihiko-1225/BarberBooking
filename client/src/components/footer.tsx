@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <div className="font-serif text-xl font-bold mb-4">
-              Elite <span className="golden-bronze">Barber</span> Academy
+              K&K <span className="golden-bronze">Barber</span> Academy
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Transforming passionate individuals into skilled professional barbers through comprehensive training and mentorship.
@@ -73,7 +73,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
-              © 2024 Elite Barber Academy. All rights reserved.
+              © 2024 K&K Barber Academy. All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm text-gray-400">
               <a href="#" className="hover:text-[var(--golden-bronze)] transition-colors">Privacy Policy</a>

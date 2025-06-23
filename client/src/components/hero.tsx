@@ -25,7 +25,7 @@ export default function Hero() {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button className="bg-[var(--golden-bronze)] text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-yellow-500 transition-all transform hover:scale-105 min-w-[200px]">
+          <Button className="bg-[var(--golden-bronze)] text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-[var(--golden-bronze)]/80 transition-all transform hover:scale-105 min-w-[200px]">
             Start Your Journey
           </Button>
           <Button 
