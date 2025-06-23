@@ -37,7 +37,7 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className={`fixed top-0 w-full z-50 px-4 py-4 md:py-6 transition-all duration-300 ${
+      <nav className={`fixed top-0 w-full z-50 px-4 py-2 md:py-3 transition-all duration-300 ${
         isScrolled 
           ? 'bg-white/95 backdrop-blur-sm shadow-lg' 
           : 'bg-deep-black/95 backdrop-blur-sm'
@@ -47,7 +47,7 @@ export default function Navigation() {
             <img 
               src={logoWhite} 
               alt="K&K Academy Logo" 
-              className={`h-20 md:h-24 lg:h-28 transition-all duration-500 ease-in-out ${
+              className={`h-24 md:h-28 lg:h-32 transition-all duration-500 ease-in-out ${
                 isScrolled ? 'brightness-0 contrast-200' : 'brightness-100 logo-glow'
               }`}
             />
