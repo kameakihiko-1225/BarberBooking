@@ -99,7 +99,11 @@ export default function Navigation() {
             </button>
           </div>
           
-          <Button className="hidden md:block bg-[var(--golden-bronze)] text-black hover:bg-[var(--golden-bronze)]/80 px-6 py-2 rounded-full font-medium transition-all">
+          <Button className={`hidden md:block px-6 py-2 rounded-full font-medium transition-all ${
+            isScrolled 
+              ? 'bg-black text-white hover:bg-gray-800' 
+              : 'bg-[var(--golden-bronze)] text-black hover:bg-[var(--golden-bronze)]/80'
+          }`}>
             Enroll Now
           </Button>
         </div>
