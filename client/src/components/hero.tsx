@@ -5,9 +5,15 @@ import { useEffect, useState } from "react";
 
 export default function Hero() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [animateNumbers, setAnimateNumbers] = useState(false);
 
   useEffect(() => {
     setIsLoaded(true);
+    // Trigger number animation after hero content loads
+    const timer = setTimeout(() => {
+      setAnimateNumbers(true);
+    }, 1500);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -61,24 +67,52 @@ export default function Hero() {
         </div>
         
         {/* Stats */}
-        <div className={`grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-8 border-t border-gray-600 transform transition-all duration-1000 delay-1000 ${
+        <div className={`grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-12 border-t-2 border-[var(--premium-accent)]/30 transform transition-all duration-1000 delay-1000 ${
           isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold premium-accent font-serif">500+</div>
-            <div className="text-gray-300 text-sm md:text-base">Graduates</div>
+          <div className={`text-center transform transition-all duration-700 ${
+            animateNumbers ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
+          }`} style={{ transitionDelay: '100ms' }}>
+            <div className="relative">
+              <div className="text-4xl md:text-5xl font-bold premium-accent font-serif mb-2 relative z-10">
+                500+
+              </div>
+              <div className="absolute inset-0 bg-[var(--premium-accent)]/10 rounded-full blur-xl scale-150"></div>
+            </div>
+            <div className="text-gray-200 text-sm md:text-base font-medium tracking-wider">Graduates</div>
           </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold premium-accent font-serif">15+</div>
-            <div className="text-gray-300 text-sm md:text-base">Years Experience</div>
+          <div className={`text-center transform transition-all duration-700 ${
+            animateNumbers ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
+          }`} style={{ transitionDelay: '200ms' }}>
+            <div className="relative">
+              <div className="text-4xl md:text-5xl font-bold premium-accent font-serif mb-2 relative z-10">
+                15+
+              </div>
+              <div className="absolute inset-0 bg-[var(--premium-accent)]/10 rounded-full blur-xl scale-150"></div>
+            </div>
+            <div className="text-gray-200 text-sm md:text-base font-medium tracking-wider">Years Experience</div>
           </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold premium-accent font-serif">95%</div>
-            <div className="text-gray-300 text-sm md:text-base">Job Placement</div>
+          <div className={`text-center transform transition-all duration-700 ${
+            animateNumbers ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
+          }`} style={{ transitionDelay: '300ms' }}>
+            <div className="relative">
+              <div className="text-4xl md:text-5xl font-bold premium-accent font-serif mb-2 relative z-10">
+                95%
+              </div>
+              <div className="absolute inset-0 bg-[var(--premium-accent)]/10 rounded-full blur-xl scale-150"></div>
+            </div>
+            <div className="text-gray-200 text-sm md:text-base font-medium tracking-wider">Job Placement</div>
           </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold premium-accent font-serif">10+</div>
-            <div className="text-gray-300 text-sm md:text-base">Master Instructors</div>
+          <div className={`text-center transform transition-all duration-700 ${
+            animateNumbers ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
+          }`} style={{ transitionDelay: '400ms' }}>
+            <div className="relative">
+              <div className="text-4xl md:text-5xl font-bold premium-accent font-serif mb-2 relative z-10">
+                10+
+              </div>
+              <div className="absolute inset-0 bg-[var(--premium-accent)]/10 rounded-full blur-xl scale-150"></div>
+            </div>
+            <div className="text-gray-200 text-sm md:text-base font-medium tracking-wider">Master Instructors</div>
           </div>
         </div>
       </div>
