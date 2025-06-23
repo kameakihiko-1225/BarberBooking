@@ -43,7 +43,7 @@ export default function Navigation() {
           : 'bg-deep-black/95 backdrop-blur-sm'
       }`}>
         <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <div className="flex items-center">
+          <div className="flex items-center justify-center flex-1 md:flex-none">
             <img 
               src={logoWhite} 
               alt="K&K Academy Logo" 
