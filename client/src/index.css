@@ -234,6 +234,27 @@ section {
   scroll-margin-top: 5rem;
 }
 
+/* Mobile Navigation Improvements */
+@media (max-width: 768px) {
+  .stat-card-inner {
+    @apply p-4;
+  }
+  
+  .stat-card {
+    @apply mx-2;
+  }
+  
+  /* Better button sizing for mobile */
+  .mobile-btn {
+    @apply py-4 px-6 text-lg;
+  }
+  
+  /* Course card improvements */
+  .course-card {
+    @apply mx-2;
+  }
+}
+
 /* Mobile-first responsive breakpoints */
 @media (max-width: 640px) {
   .mobile-padding {
@@ -246,6 +267,15 @@ section {
   
   .mobile-hidden {
     @apply hidden;
+  }
+  
+  /* Stats section mobile improvements */
+  .hero-stats {
+    @apply gap-4 px-2;
+  }
+  
+  .stat-card-inner {
+    @apply p-3;
   }
 }
 

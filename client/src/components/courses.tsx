@@ -127,21 +127,26 @@ export default function Courses() {
         </div>
         
         {/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="bg-deep-black rounded-2xl p-8 md:p-12 text-white">
-            <h3 className="font-serif text-2xl md:text-3xl font-bold mb-4">
-              Ready to Start Your <span className="golden-bronze">Barber Journey?</span>
-            </h3>
-            <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-              Join hundreds of successful graduates who've transformed their lives through our comprehensive training programs.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-[var(--golden-bronze)] text-black px-8 py-3 rounded-full font-medium hover:bg-[var(--golden-bronze)]/80 transition-all">
-                Schedule a Tour
-              </Button>
-              <Button variant="outline" className="border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-black transition-all">
-                Download Brochure
-              </Button>
+        <div className={`text-center mt-16 transform transition-all duration-1000 delay-800 ${
+          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+        }`}>
+          <div className="bg-deep-black rounded-2xl p-8 md:p-12 text-white relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-[var(--premium-accent)]/10 to-transparent"></div>
+            <div className="relative z-10">
+              <h3 className="font-serif text-2xl md:text-3xl font-bold mb-4">
+                Ready to Start Your <span className="premium-accent">Barber Journey?</span>
+              </h3>
+              <p className="text-gray-300 mb-8 max-w-2xl mx-auto text-base md:text-lg">
+                Join hundreds of successful graduates who've transformed their lives through our comprehensive training programs.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button className="bg-[var(--premium-accent)] text-black px-8 py-4 text-base md:text-lg rounded-full font-medium hover:bg-[var(--premium-accent)]/90 hover:scale-105 transition-all duration-300 shadow-lg">
+                  Schedule a Tour
+                </Button>
+                <Button variant="outline" className="border-2 border-[var(--premium-accent)] text-[var(--premium-accent)] px-8 py-4 text-base md:text-lg rounded-full font-medium hover:bg-[var(--premium-accent)] hover:text-black transition-all duration-300">
+                  Download Brochure
+                </Button>
+              </div>
             </div>
           </div>
         </div>

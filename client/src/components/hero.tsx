@@ -67,17 +67,17 @@ export default function Hero() {
         </div>
         
         {/* Stats */}
-        <div className={`grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 pt-12 border-t-2 border-[var(--premium-accent)]/30 transform transition-all duration-1000 delay-1000 ${
+        <div className={`hero-stats grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-16 pt-12 border-t-2 border-[var(--premium-accent)]/30 transform transition-all duration-1000 delay-1000 ${
           isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}>
           <div className={`stat-card group cursor-pointer transform transition-all duration-700 ${
             animateNumbers ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
           }`} style={{ transitionDelay: '100ms' }}>
             <div className="stat-card-inner">
-              <div className="text-4xl md:text-5xl font-bold premium-accent font-serif mb-2">
+              <div className="text-3xl md:text-5xl font-bold premium-accent font-serif mb-2">
                 500+
               </div>
-              <div className="text-gray-200 text-sm md:text-base font-medium tracking-wider">Graduates</div>
+              <div className="text-gray-200 text-xs md:text-base font-medium tracking-wider">Graduates</div>
               <div className="stat-card-glow"></div>
             </div>
           </div>
@@ -85,10 +85,10 @@ export default function Hero() {
             animateNumbers ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
           }`} style={{ transitionDelay: '200ms' }}>
             <div className="stat-card-inner">
-              <div className="text-4xl md:text-5xl font-bold premium-accent font-serif mb-2">
+              <div className="text-3xl md:text-5xl font-bold premium-accent font-serif mb-2">
                 15+
               </div>
-              <div className="text-gray-200 text-sm md:text-base font-medium tracking-wider">Years Experience</div>
+              <div className="text-gray-200 text-xs md:text-base font-medium tracking-wider">Years Experience</div>
               <div className="stat-card-glow"></div>
             </div>
           </div>
@@ -96,10 +96,10 @@ export default function Hero() {
             animateNumbers ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
           }`} style={{ transitionDelay: '300ms' }}>
             <div className="stat-card-inner">
-              <div className="text-4xl md:text-5xl font-bold premium-accent font-serif mb-2">
+              <div className="text-3xl md:text-5xl font-bold premium-accent font-serif mb-2">
                 95%
               </div>
-              <div className="text-gray-200 text-sm md:text-base font-medium tracking-wider">Job Placement</div>
+              <div className="text-gray-200 text-xs md:text-base font-medium tracking-wider">Job Placement</div>
               <div className="stat-card-glow"></div>
             </div>
           </div>
@@ -107,10 +107,10 @@ export default function Hero() {
             animateNumbers ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
           }`} style={{ transitionDelay: '400ms' }}>
             <div className="stat-card-inner">
-              <div className="text-4xl md:text-5xl font-bold premium-accent font-serif mb-2">
+              <div className="text-3xl md:text-5xl font-bold premium-accent font-serif mb-2">
                 10+
               </div>
-              <div className="text-gray-200 text-sm md:text-base font-medium tracking-wider">Master Instructors</div>
+              <div className="text-gray-200 text-xs md:text-base font-medium tracking-wider">Master Instructors</div>
               <div className="stat-card-glow"></div>
             </div>
           </div>
