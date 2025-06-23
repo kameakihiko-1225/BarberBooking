@@ -55,7 +55,7 @@ export default function Navigation() {
           <Button
             variant="ghost"
             size="icon"
-            className={`md:hidden hover:bg-white/10 transition-colors ${
+            className={`md:hidden hover:bg-white/10 transition-colors pl-[-40px] pr-[-40px] ${
               isScrolled ? 'text-black' : 'text-white'
             }`}
             onClick={toggleMenu}
