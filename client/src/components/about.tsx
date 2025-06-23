@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Check, Award } from "lucide-react";
-import logoWhite from "@assets/K&K_Vertical_logotype_white_1750662689464.png";
+import logoWhite from "@assets/K&K_Full_logotype_white_1750662193930.png";
 
 export default function About() {
   return (
@@ -10,7 +10,7 @@ export default function About() {
           <img 
             src={logoWhite} 
             alt="K&K Academy Logo" 
-            className="h-16 md:h-20 mx-auto mb-6 brightness-0 contrast-200 hover:scale-110 transition-all duration-500"
+            className="h-24 md:h-32 lg:h-40 mx-auto mb-6 brightness-0 contrast-200 hover:scale-105 transition-all duration-500"
           />
         </div>
         
