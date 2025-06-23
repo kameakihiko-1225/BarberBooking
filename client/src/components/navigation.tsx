@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useMobileMenu } from "@/hooks/use-mobile-menu";
 import { useEffect, useState } from "react";
-import logoWhite from "@assets/K&K_Full_logotype_white_1750662193930.png";
+import logoWhite from "@assets/K&K_Vertical_logotype_white_1750662689464.png";
 
 export default function Navigation() {
   const { isOpen, toggleMenu, closeMenu } = useMobileMenu();
@@ -37,7 +37,7 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className={`fixed top-0 w-full z-50 px-4 py-6 md:py-8 transition-all duration-300 ${
+      <nav className={`fixed top-0 w-full z-50 px-4 py-4 md:py-6 transition-all duration-300 ${
         isScrolled 
           ? 'bg-white/95 backdrop-blur-sm shadow-lg' 
           : 'bg-deep-black/95 backdrop-blur-sm'
@@ -47,7 +47,7 @@ export default function Navigation() {
             <img 
               src={logoWhite} 
               alt="K&K Academy Logo" 
-              className={`h-20 md:h-28 lg:h-36 transition-all duration-500 ease-in-out ${
+              className={`h-12 md:h-16 lg:h-20 transition-all duration-500 ease-in-out ${
                 isScrolled ? 'brightness-0 contrast-200' : 'brightness-100 logo-glow'
               }`}
             />

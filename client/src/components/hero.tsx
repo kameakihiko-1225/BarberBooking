@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
-import logoWhite from "@assets/K&K_Full_logotype_white_1750662193930.png";
+import logoWhite from "@assets/K&K_Vertical_logotype_white_1750662689464.png";
 
 export default function Hero() {
   return (
