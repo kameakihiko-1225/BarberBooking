@@ -64,7 +64,7 @@ export default function Navigation() {
           </Button>
           
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-8 mt-[0px] mb-[0px] pl-[74px] pr-[74px]">
             <button
               onClick={() => scrollToSection('courses')}
               className={`hover:text-[var(--golden-bronze)] transition-colors ${
