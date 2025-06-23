@@ -47,9 +47,7 @@ export default function Navigation() {
             <img 
               src={logoWhite} 
               alt="K&K Academy Logo" 
-              className={`h-24 md:h-28 lg:h-32 transition-all duration-500 ease-in-out ${
-                isScrolled ? 'brightness-0 contrast-200' : 'brightness-100 logo-glow'
-              }`}
+              className="h-24 md:h-28 lg:h-32 transition-all duration-500 ease-in-out brightness-100 logo-glow pl-[50px] pr-[50px]"
             />
           </div>
           
@@ -106,7 +104,6 @@ export default function Navigation() {
           </Button>
         </div>
       </nav>
-
       {/* Mobile Menu Overlay */}
       <div className={`fixed inset-0 bg-deep-black/95 backdrop-blur-sm z-50 transition-transform duration-300 md:hidden ${
         isOpen ? 'translate-x-0' : 'translate-x-full'
