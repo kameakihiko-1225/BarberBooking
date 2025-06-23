@@ -9,11 +9,11 @@ export default function Footer() {
           
           {/* Company Info */}
           <div>
-            <div className="mb-4">
+            <div className="mb-6">
               <img 
                 src={logoWhite} 
                 alt="K&K Academy Logo" 
-                className="h-8 md:h-10"
+                className="h-12 md:h-16 logo-glow hover:scale-105 hover:logo-glow-gold transition-all duration-300"
               />
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">

@@ -14,11 +14,11 @@ export default function Hero() {
       />
       
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <div className="mb-8">
+        <div className="mb-12">
           <img 
             src={logoWhite} 
             alt="K&K Academy Logo" 
-            className="h-16 md:h-20 mx-auto mb-6"
+            className="h-20 md:h-28 lg:h-32 mx-auto mb-8 logo-glow animate-pulse hover:animate-none transition-all duration-700 hover:scale-110 hover:logo-glow-gold"
           />
         </div>
         <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">

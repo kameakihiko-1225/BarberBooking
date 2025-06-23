@@ -47,8 +47,8 @@ export default function Navigation() {
             <img 
               src={logoWhite} 
               alt="K&K Academy Logo" 
-              className={`h-8 md:h-10 transition-all duration-300 ${
-                isScrolled ? 'brightness-0' : 'brightness-100'
+              className={`h-10 md:h-12 lg:h-14 transition-all duration-500 ease-in-out ${
+                isScrolled ? 'brightness-0 contrast-200' : 'brightness-100 logo-glow'
               }`}
             />
           </div>
