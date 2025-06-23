@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
+import logoWhite from "@assets/K&K_Full_logotype_white_1750662193930.png";
 
 export default function Hero() {
   return (
@@ -13,6 +14,13 @@ export default function Hero() {
       />
       
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+        <div className="mb-8">
+          <img 
+            src={logoWhite} 
+            alt="K&K Academy Logo" 
+            className="h-16 md:h-20 mx-auto mb-6"
+          />
+        </div>
         <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
           Master the Art of{" "}
           <span className="golden-bronze">Professional</span>{" "}
@@ -30,7 +38,7 @@ export default function Hero() {
           </Button>
           <Button 
             variant="outline" 
-            className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-black transition-all min-w-[200px]"
+            className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-black transition-all min-w-[200px] bg-black/50 backdrop-blur-sm shadow-xl"
           >
             <Play className="mr-2 h-5 w-5" />
             Watch Our Story

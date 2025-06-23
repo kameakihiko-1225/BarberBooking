@@ -1,4 +1,5 @@
 import { Instagram, Youtube, Music, MapPin, Phone, Mail } from "lucide-react";
+import logoWhite from "@assets/K&K_Full_logotype_white_1750662193930.png";
 
 export default function Footer() {
   return (
@@ -8,8 +9,12 @@ export default function Footer() {
           
           {/* Company Info */}
           <div>
-            <div className="font-serif text-xl font-bold mb-4">
-              K&K <span className="golden-bronze">Barber</span> Academy
+            <div className="mb-4">
+              <img 
+                src={logoWhite} 
+                alt="K&K Academy Logo" 
+                className="h-8 md:h-10"
+              />
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Transforming passionate individuals into skilled professional barbers through comprehensive training and mentorship.

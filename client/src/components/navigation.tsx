@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useMobileMenu } from "@/hooks/use-mobile-menu";
 import { useEffect, useState } from "react";
+import logoWhite from "@assets/K&K_Full_logotype_white_1750662193930.png";
 
 export default function Navigation() {
   const { isOpen, toggleMenu, closeMenu } = useMobileMenu();
@@ -42,10 +43,14 @@ export default function Navigation() {
           : 'bg-deep-black/95 backdrop-blur-sm'
       }`}>
         <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <div className={`font-serif text-xl font-bold transition-colors duration-300 ${
-            isScrolled ? 'text-black' : 'text-white'
-          }`}>
-            K&K <span className="golden-bronze">Barber</span> Academy
+          <div className="flex items-center">
+            <img 
+              src={logoWhite} 
+              alt="K&K Academy Logo" 
+              className={`h-8 md:h-10 transition-all duration-300 ${
+                isScrolled ? 'brightness-0' : 'brightness-100'
+              }`}
+            />
           </div>
           
           {/* Mobile Menu Button */}
