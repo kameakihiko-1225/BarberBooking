@@ -1,21 +1,41 @@
 import { Button } from "@/components/ui/button";
 import { Check, Award } from "lucide-react";
-import logoWhite from "@assets/K&K_Full_logotype_white_1750662193930.png";
+import { useEffect, useRef, useState } from "react";
 
 export default function About() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="about" className="py-20 bg-gray-50">
+    <section 
+      ref={sectionRef}
+      id="about" 
+      className="py-20 bg-gray-50 transition-all duration-1000"
+    >
       <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <img 
-            src={logoWhite} 
-            alt="K&K Academy Logo" 
-            className="h-24 md:h-32 lg:h-40 mx-auto mb-6 brightness-0 contrast-200 hover:scale-105 transition-all duration-500"
-          />
-        </div>
+
         
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
+          <div className={`transform transition-all duration-1000 ${
+            isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
+          }`}>
             <h2 className="font-serif text-3xl md:text-5xl font-bold mb-6">
               Elevate Your Skills at the{" "}
               <span className="premium-accent">Premier</span>{" "}
@@ -54,7 +74,9 @@ export default function About() {
             </Button>
           </div>
           
-          <div className="relative">
+          <div className={`relative transform transition-all duration-1000 delay-300 ${
+            isVisible ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'
+          }`}>
             <img 
               src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
               alt="Barber academy classroom with students learning" 

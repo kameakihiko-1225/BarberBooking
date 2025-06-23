@@ -105,6 +105,16 @@
   }
 }
 
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Section transitions */
+section {
+  scroll-margin-top: 5rem;
+}
+
 /* Mobile-first responsive breakpoints */
 @media (max-width: 640px) {
   .mobile-padding {

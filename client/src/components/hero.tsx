@@ -1,8 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
 import logoWhite from "@assets/K&K_Vertical_logotype_white_1750662689464.png";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -14,25 +21,33 @@ export default function Hero() {
       />
       
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <div className="mb-12">
+        <div className={`mb-12 transform transition-all duration-1000 ${
+          isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+        }`}>
           <img 
             src={logoWhite} 
             alt="K&K Academy Logo" 
             className="h-20 md:h-28 lg:h-32 mx-auto mb-8 logo-glow animate-pulse hover:animate-none transition-all duration-700 hover:scale-110 hover:logo-glow-copper"
           />
         </div>
-        <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+        <h1 className={`font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight transform transition-all duration-1000 delay-300 ${
+          isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+        }`}>
           Master the Art of{" "}
           <span className="premium-accent">Professional</span>{" "}
           Barbering
         </h1>
         
-        <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed">
+        <p className={`text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed transform transition-all duration-1000 delay-500 ${
+          isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+        }`}>
           Transform your passion into a profitable career with our comprehensive barber training programs. 
           Learn from industry experts and join the next generation of elite barbers.
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center transform transition-all duration-1000 delay-700 ${
+          isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+        }`}>
           <Button className="bg-[var(--premium-accent)] text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-[var(--premium-accent)]/80 transition-all transform hover:scale-105 min-w-[200px]">
             Start Your Journey
           </Button>
@@ -46,7 +61,9 @@ export default function Hero() {
         </div>
         
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-8 border-t border-gray-600">
+        <div className={`grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-8 border-t border-gray-600 transform transition-all duration-1000 delay-1000 ${
+          isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+        }`}>
           <div className="text-center">
             <div className="text-3xl md:text-4xl font-bold premium-accent font-serif">500+</div>
             <div className="text-gray-300 text-sm md:text-base">Graduates</div>

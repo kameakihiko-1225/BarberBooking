@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Clock, IdCard, Trophy, Briefcase } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const courses = [
   {
