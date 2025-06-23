@@ -21,11 +21,11 @@ const courses = [
     description: "Advance your skills with complex fading techniques, creative styling, straight razor mastery, and business development fundamentals.",
     price: "$3,200",
     badge: "Advanced Course",
-    badgeColor: "bg-[var(--premium-accent)] text-white",
+    badgeColor: "bg-[var(--premium-accent)] text-black",
     duration: "16 weeks • 640 hours",
     certification: "Master certification",
     image: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-    buttonStyle: "bg-[var(--premium-accent)] text-white hover:bg-[var(--premium-accent)]/80",
+    buttonStyle: "bg-[var(--premium-accent)] text-black hover:bg-[var(--premium-accent)]/80",
     icon: <Trophy className="premium-accent mr-2 h-4 w-4" />
   },
   {

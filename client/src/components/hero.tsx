@@ -18,7 +18,7 @@ export default function Hero() {
           <img 
             src={logoWhite} 
             alt="K&K Academy Logo" 
-            className="h-20 md:h-28 lg:h-32 mx-auto mb-8 logo-glow animate-pulse hover:animate-none transition-all duration-700 hover:scale-110 hover:logo-glow-blue"
+            className="h-20 md:h-28 lg:h-32 mx-auto mb-8 logo-glow animate-pulse hover:animate-none transition-all duration-700 hover:scale-110 hover:logo-glow-copper"
           />
         </div>
         <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
@@ -33,7 +33,7 @@ export default function Hero() {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button className="bg-[var(--premium-accent)] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[var(--premium-accent)]/80 transition-all transform hover:scale-105 min-w-[200px]">
+          <Button className="bg-[var(--premium-accent)] text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-[var(--premium-accent)]/80 transition-all transform hover:scale-105 min-w-[200px]">
             Start Your Journey
           </Button>
           <Button 

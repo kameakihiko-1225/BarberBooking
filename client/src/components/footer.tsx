@@ -13,7 +13,7 @@ export default function Footer() {
               <img 
                 src={logoWhite} 
                 alt="K&K Academy Logo" 
-                className="h-12 md:h-16 logo-glow hover:scale-105 hover:logo-glow-blue transition-all duration-300"
+                className="h-12 md:h-16 logo-glow hover:scale-105 hover:logo-glow-copper transition-all duration-300"
               />
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">

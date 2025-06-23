@@ -65,7 +65,7 @@ export default function About() {
             <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl border border-gray-100">
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-[var(--premium-accent)] rounded-full flex items-center justify-center">
-                  <Award className="text-white h-6 w-6" />
+                  <Award className="text-black h-6 w-6" />
                 </div>
                 <div>
                   <div className="font-semibold text-deep-black">Certified Excellence</div>
