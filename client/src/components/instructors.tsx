@@ -1,4 +1,5 @@
 import { Instagram, Youtube, Linkedin, Music } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const instructors = [
   {
@@ -37,13 +38,38 @@ const instructors = [
 ];
 
 export default function Instructors() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="instructors" className="py-20 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-16">
+    <section ref={sectionRef} id="instructors" className="py-20 bg-gray-50 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-tl from-transparent via-[var(--premium-accent)]/3 to-transparent"></div>
+      <div className="max-w-6xl mx-auto px-4 relative z-10">
+        <div className="section-divider"></div>
+        
+        <div className={`text-center mb-16 transform transition-all duration-1000 ${
+          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+        }`}>
           <h2 className="font-serif text-3xl md:text-5xl font-bold mb-6">
             Learn from{" "}
-            <span className="golden-bronze">Master</span>{" "}
+            <span className="premium-accent">Master</span>{" "}
             Instructors
           </h2>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
@@ -52,8 +78,10 @@ export default function Instructors() {
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {instructors.map((instructor) => (
-            <div key={instructor.id} className="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300">
+          {instructors.map((instructor, index) => (
+            <div key={instructor.id} className={`bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-700 transform hover:scale-105 hover:border hover:border-[hsl(25,80%,60%)]/30 ${
+              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
+            }`} style={{ transitionDelay: `${index * 200}ms` }}>
               <img 
                 src={instructor.image}
                 alt={`Master barber instructor ${instructor.name}`}

@@ -1,4 +1,5 @@
 import { Quote } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const testimonials = [
   {
@@ -45,13 +46,38 @@ const showcaseWorks = [
 ];
 
 export default function Testimonials() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-16">
+    <section ref={sectionRef} className="py-20 bg-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[var(--premium-accent)]/5 to-transparent"></div>
+      <div className="max-w-6xl mx-auto px-4 relative z-10">
+        <div className="section-divider"></div>
+        
+        <div className={`text-center mb-16 transform transition-all duration-1000 ${
+          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+        }`}>
           <h2 className="font-serif text-3xl md:text-5xl font-bold mb-6">
             Student{" "}
-            <span className="golden-bronze">Success</span>{" "}
+            <span className="premium-accent">Success</span>{" "}
             Stories
           </h2>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
@@ -60,9 +86,11 @@ export default function Testimonials() {
         </div>
         
         <div className="grid md:grid-cols-2 gap-8 mb-12">
-          {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="bg-gray-50 rounded-2xl p-8 relative">
-              <div className="absolute top-6 left-6 golden-bronze text-4xl">
+          {testimonials.map((testimonial, index) => (
+            <div key={testimonial.id} className={`bg-gray-50 rounded-2xl p-8 relative hover:shadow-xl transition-all duration-700 transform hover:scale-105 hover:bg-white hover:border hover:border-[hsl(25,80%,60%)]/30 ${
+              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
+            }`} style={{ transitionDelay: `${index * 200}ms` }}>
+              <div className="absolute top-6 left-6 premium-accent text-4xl">
                 <Quote className="h-8 w-8" />
               </div>
               

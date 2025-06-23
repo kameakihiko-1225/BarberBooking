@@ -45,13 +45,38 @@ const courses = [
 ];
 
 export default function Courses() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="courses" className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-16">
+    <section ref={sectionRef} id="courses" className="py-20 bg-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[var(--premium-accent)]/5 to-transparent"></div>
+      <div className="max-w-6xl mx-auto px-4 relative z-10">
+        <div className="section-divider"></div>
+        
+        <div className={`text-center mb-16 transform transition-all duration-1000 ${
+          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+        }`}>
           <h2 className="font-serif text-3xl md:text-5xl font-bold mb-6">
             Professional Training{" "}
-            <span className="golden-bronze">Programs</span>
+            <span className="premium-accent">Programs</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
             Choose from our comprehensive range of barber training courses designed to take you from beginner to professional in record time.
@@ -59,8 +84,10 @@ export default function Courses() {
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {courses.map((course) => (
-            <div key={course.id} className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden group hover:shadow-2xl transition-all duration-300">
+          {courses.map((course, index) => (
+            <div key={course.id} className={`bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden group hover:shadow-2xl transition-all duration-700 hover:scale-105 hover:border-[var(--premium-accent)]/30 ${
+              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
+            }`} style={{ transitionDelay: `${index * 200}ms` }}>
               <img 
                 src={course.image}
                 alt={course.title}

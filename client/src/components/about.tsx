@@ -30,7 +30,7 @@ export default function About() {
       className="py-20 bg-gray-50 transition-all duration-1000"
     >
       <div className="max-w-6xl mx-auto px-4">
-
+        <div className="section-divider"></div>
         
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className={`transform transition-all duration-1000 ${

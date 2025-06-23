@@ -4,7 +4,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { MapPin, Phone, Mail, Clock, Instagram, Youtube, Music, Facebook } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useToast } from "@/hooks/use-toast";
 
 export default function Contact() {
@@ -51,16 +51,41 @@ export default function Contact() {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="contact" className="py-20 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4">
+    <section ref={sectionRef} id="contact" className="py-20 bg-gray-50 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-[var(--premium-accent)]/5 to-transparent"></div>
+      <div className="max-w-6xl mx-auto px-4 relative z-10">
+        <div className="section-divider"></div>
+        
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           
           {/* Contact Information */}
-          <div>
+          <div className={`transform transition-all duration-1000 delay-300 ${
+            isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
+          }`}>
             <h2 className="font-serif text-3xl md:text-5xl font-bold mb-6">
               Start Your{" "}
-              <span className="golden-bronze">Journey</span>{" "}
+              <span className="premium-accent">Journey</span>{" "}
               Today
             </h2>
             
@@ -70,7 +95,7 @@ export default function Contact() {
             
             <div className="space-y-6 mb-8">
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-[var(--golden-bronze)] rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-[var(--premium-accent)] rounded-full flex items-center justify-center">
                   <MapPin className="text-black h-6 w-6" />
                 </div>
                 <div>
@@ -80,7 +105,7 @@ export default function Contact() {
               </div>
               
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-[var(--golden-bronze)] rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-[var(--premium-accent)] rounded-full flex items-center justify-center">
                   <Phone className="text-black h-6 w-6" />
                 </div>
                 <div>
@@ -90,7 +115,7 @@ export default function Contact() {
               </div>
               
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-[var(--golden-bronze)] rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-[var(--premium-accent)] rounded-full flex items-center justify-center">
                   <Mail className="text-black h-6 w-6" />
                 </div>
                 <div>
@@ -100,7 +125,7 @@ export default function Contact() {
               </div>
               
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-[var(--golden-bronze)] rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-[var(--premium-accent)] rounded-full flex items-center justify-center">
                   <Clock className="text-black h-6 w-6" />
                 </div>
                 <div>
