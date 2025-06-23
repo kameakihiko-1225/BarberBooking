@@ -104,7 +104,7 @@ export default function Navigation() {
           <Button className={`hidden md:block px-6 py-2 rounded-full font-medium transition-all ${
             isScrolled 
               ? 'bg-black text-white hover:bg-gray-800' 
-              : 'bg-[var(--golden-bronze)] text-black hover:bg-[var(--golden-bronze)]/80'
+              : 'bg-[var(--premium-accent)] text-white hover:bg-[var(--premium-accent)]/80'
           }`}>
             Enroll Now
           </Button>
@@ -139,7 +139,7 @@ export default function Navigation() {
           >
             Contact
           </button>
-          <Button className="bg-[var(--golden-bronze)] text-black px-8 py-3 rounded-full font-medium mt-8 hover:bg-[var(--golden-bronze)]/80 transition-all">
+          <Button className="bg-[var(--premium-accent)] text-white px-8 py-3 rounded-full font-medium mt-8 hover:bg-[var(--premium-accent)]/80 transition-all">
             Enroll Now
           </Button>
         </div>

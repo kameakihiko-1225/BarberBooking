@@ -8,12 +8,12 @@ const courses = [
     description: "Master the essential techniques of professional barbering including classic cuts, fades, beard trimming, and client consultation skills.",
     price: "$2,500",
     badge: "Foundation Course",
-    badgeColor: "bg-[var(--golden-bronze)]/10 text-[var(--golden-bronze)]",
+    badgeColor: "bg-[var(--premium-accent)]/10 text-[var(--premium-accent)]",
     duration: "12 weeks • 480 hours",
     certification: "State certification included",
     image: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
     buttonStyle: "bg-deep-black text-white hover:bg-gray-800",
-    icon: <IdCard className="golden-bronze mr-2 h-4 w-4" />
+    icon: <IdCard className="premium-accent mr-2 h-4 w-4" />
   },
   {
     id: 2,
@@ -21,12 +21,12 @@ const courses = [
     description: "Advance your skills with complex fading techniques, creative styling, straight razor mastery, and business development fundamentals.",
     price: "$3,200",
     badge: "Advanced Course",
-    badgeColor: "bg-[var(--golden-bronze)] text-black",
+    badgeColor: "bg-[var(--premium-accent)] text-white",
     duration: "16 weeks • 640 hours",
     certification: "Master certification",
     image: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-    buttonStyle: "bg-[var(--golden-bronze)] text-black hover:bg-[var(--golden-bronze)]/80",
-    icon: <Trophy className="golden-bronze mr-2 h-4 w-4" />
+    buttonStyle: "bg-[var(--premium-accent)] text-white hover:bg-[var(--premium-accent)]/80",
+    icon: <Trophy className="premium-accent mr-2 h-4 w-4" />
   },
   {
     id: 3,

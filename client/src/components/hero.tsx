@@ -18,12 +18,12 @@ export default function Hero() {
           <img 
             src={logoWhite} 
             alt="K&K Academy Logo" 
-            className="h-20 md:h-28 lg:h-32 mx-auto mb-8 logo-glow animate-pulse hover:animate-none transition-all duration-700 hover:scale-110 hover:logo-glow-gold"
+            className="h-20 md:h-28 lg:h-32 mx-auto mb-8 logo-glow animate-pulse hover:animate-none transition-all duration-700 hover:scale-110 hover:logo-glow-blue"
           />
         </div>
         <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
           Master the Art of{" "}
-          <span className="golden-bronze">Professional</span>{" "}
+          <span className="premium-accent">Professional</span>{" "}
           Barbering
         </h1>
         
@@ -33,7 +33,7 @@ export default function Hero() {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button className="bg-[var(--golden-bronze)] text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-[var(--golden-bronze)]/80 transition-all transform hover:scale-105 min-w-[200px]">
+          <Button className="bg-[var(--premium-accent)] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[var(--premium-accent)]/80 transition-all transform hover:scale-105 min-w-[200px]">
             Start Your Journey
           </Button>
           <Button 
@@ -48,19 +48,19 @@ export default function Hero() {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-8 border-t border-gray-600">
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold golden-bronze font-serif">500+</div>
+            <div className="text-3xl md:text-4xl font-bold premium-accent font-serif">500+</div>
             <div className="text-gray-300 text-sm md:text-base">Graduates</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold golden-bronze font-serif">15+</div>
+            <div className="text-3xl md:text-4xl font-bold premium-accent font-serif">15+</div>
             <div className="text-gray-300 text-sm md:text-base">Years Experience</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold golden-bronze font-serif">95%</div>
+            <div className="text-3xl md:text-4xl font-bold premium-accent font-serif">95%</div>
             <div className="text-gray-300 text-sm md:text-base">Job Placement</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold golden-bronze font-serif">10+</div>
+            <div className="text-3xl md:text-4xl font-bold premium-accent font-serif">10+</div>
             <div className="text-gray-300 text-sm md:text-base">Master Instructors</div>
           </div>
         </div>

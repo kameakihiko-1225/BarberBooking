@@ -21,9 +21,9 @@
   --accent-foreground: hsl(222.2, 84%, 4.9%);
   --destructive: hsl(0, 84.2%, 60.2%);
   --destructive-foreground: hsl(210, 40%, 98%);
-  --ring: hsl(37, 77%, 58%);
+  --ring: hsl(215, 85%, 55%);
   --radius: 0.5rem;
-  --golden-bronze: hsl(37, 77%, 58%);
+  --premium-accent: hsl(215, 85%, 55%);
   --deep-black: hsl(0, 0%, 0%);
   --dark-gray: hsl(0, 0%, 10%);
 }
@@ -39,16 +39,16 @@
   --card-foreground: hsl(210, 40%, 98%);
   --border: hsl(217.2, 32.6%, 17.5%);
   --input: hsl(217.2, 32.6%, 17.5%);
-  --primary: hsl(37, 77%, 58%);
-  --primary-foreground: hsl(0, 0%, 0%);
+  --primary: hsl(215, 85%, 55%);
+  --primary-foreground: hsl(0, 0%, 100%);
   --secondary: hsl(217.2, 32.6%, 17.5%);
   --secondary-foreground: hsl(210, 40%, 98%);
   --accent: hsl(217.2, 32.6%, 17.5%);
   --accent-foreground: hsl(210, 40%, 98%);
   --destructive: hsl(0, 62.8%, 30.6%);
   --destructive-foreground: hsl(210, 40%, 98%);
-  --ring: hsl(37, 77%, 58%);
-  --golden-bronze: hsl(37, 77%, 58%);
+  --ring: hsl(215, 85%, 55%);
+  --premium-accent: hsl(215, 85%, 55%);
   --deep-black: hsl(0, 0%, 0%);
   --dark-gray: hsl(0, 0%, 10%);
 }
@@ -72,16 +72,16 @@
 }
 
 @layer utilities {
-  .golden-bronze {
-    color: var(--golden-bronze);
+  .premium-accent {
+    color: var(--premium-accent);
   }
   
-  .bg-golden-bronze {
-    background-color: var(--golden-bronze);
+  .bg-premium-accent {
+    background-color: var(--premium-accent);
   }
   
-  .border-golden-bronze {
-    border-color: var(--golden-bronze);
+  .border-premium-accent {
+    border-color: var(--premium-accent);
   }
   
   .text-deep-black {
@@ -100,8 +100,8 @@
     filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
   }
   
-  .logo-glow-gold {
-    filter: drop-shadow(0 0 15px rgba(229, 165, 77, 0.4));
+  .logo-glow-blue {
+    filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.4));
   }
 }
 
