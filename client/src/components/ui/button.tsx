@@ -42,10 +42,26 @@ export interface ButtonProps
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
+
+    function handlePointerDown(e: React.PointerEvent<HTMLButtonElement>) {
+      const target = e.currentTarget;
+      const rect = target.getBoundingClientRect();
+      const ripple = document.createElement("span");
+      const diameter = Math.max(rect.width, rect.height);
+      const radius = diameter / 2;
+      ripple.classList.add("ripple");
+      ripple.style.width = ripple.style.height = `${diameter}px`;
+      ripple.style.left = `${e.clientX - rect.left - radius}px`;
+      ripple.style.top = `${e.clientY - rect.top - radius}px`;
+      target.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 600);
+    }
+
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
+        onPointerDown={handlePointerDown}
         {...props}
       />
     )

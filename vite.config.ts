@@ -34,4 +34,15 @@ export default defineConfig({
       deny: ["**/.*"],
     },
   },
+  assetsInclude: [
+    "**/*.JPG",
+    "**/*.JPEG",
+    "**/*.PNG",
+    "**/*.HEIC",
+    "**/*.MOV",
+    "**/*.MP4",
+    "**/*.heic",
+    "**/*.mov",
+    "**/*.mp4",
+  ],
 });

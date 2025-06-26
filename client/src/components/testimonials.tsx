@@ -1,5 +1,8 @@
 import { Quote } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import TestimonialsCarousel from "@/components/testimonials-carousel";
+import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 
 const testimonials = [
   {
@@ -85,34 +88,10 @@ export default function Testimonials() {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          {testimonials.map((testimonial, index) => (
-            <div key={testimonial.id} className={`bg-gray-50 rounded-2xl p-8 relative hover:shadow-xl transition-all duration-700 transform hover:scale-105 hover:bg-white hover:border hover:border-[hsl(25,80%,60%)]/30 ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
-            }`} style={{ transitionDelay: `${index * 200}ms` }}>
-              <div className="absolute top-6 left-6 premium-accent text-4xl">
-                <Quote className="h-8 w-8" />
-              </div>
-              
-              <div className="pt-6">
-                <p className="text-gray-700 text-lg mb-6 leading-relaxed">
-                  "{testimonial.quote}"
-                </p>
-                
-                <div className="flex items-center space-x-4">
-                  <img 
-                    src={testimonial.image}
-                    alt={`Graduate ${testimonial.name}`}
-                    className="w-12 h-12 rounded-full object-cover"
-                  />
-                  <div>
-                    <div className="font-semibold text-deep-black">{testimonial.name}</div>
-                    <div className="text-sm text-gray-600">{testimonial.title}</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+        <div className={`mb-12 transform transition-all duration-1000 ${
+          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+        }`}>
+          <TestimonialsCarousel />
         </div>
         
         {/* Before/After Showcase */}
@@ -128,11 +107,11 @@ export default function Testimonials() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {showcaseWorks.map((work) => (
-              <div key={work.id} className="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
+              <div key={work.id} className="bg-white/10 rounded-xl p-4 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <img 
                   src={work.image}
                   alt={`${work.title} - ${work.subtitle}`}
-                  className="w-full h-32 object-cover rounded-lg mb-3"
+                  className="w-full h-32 object-cover rounded-lg mb-3 transition-transform duration-300 hover:scale-110 hover:brightness-110"
                 />
                 <div className="text-center">
                   <div className="text-sm golden-bronze font-medium">{work.title}</div>
@@ -140,6 +119,14 @@ export default function Testimonials() {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="text-center mt-10">
+            <Button asChild className="bg-[var(--premium-accent)] text-black px-8 py-3 rounded-full font-semibold hover:bg-[var(--premium-accent)]/80 transition-colors">
+              <Link href="/students-gallery">See All Student Works</Link>
+            </Button>
+            <Button asChild className="ml-4 bg-deep-black text-white px-8 py-3 rounded-full font-semibold hover:bg-deep-black/80 transition-colors border border-white/20">
+              <Link href="/success-stories">All Success Stories</Link>
+            </Button>
           </div>
         </div>
       </div>

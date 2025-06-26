@@ -1,52 +1,31 @@
+import "keen-slider/keen-slider.min.css";
 import { Button } from "@/components/ui/button";
-import { Clock, IdCard, Trophy, Briefcase } from "lucide-react";
+import { Clock, IdCard, Trophy, Briefcase, ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { useKeenSlider } from "keen-slider/react";
+import { courses } from '@/data/courses';
 
-const courses = [
-  {
-    id: 1,
-    title: "Professional Barber Fundamentals",
-    description: "Master the essential techniques of professional barbering including classic cuts, fades, beard trimming, and client consultation skills.",
-    price: "$2,500",
-    badge: "Foundation Course",
-    badgeColor: "bg-[var(--premium-accent)]/10 text-[var(--premium-accent)]",
-    duration: "12 weeks • 480 hours",
-    certification: "State certification included",
-    image: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-    buttonStyle: "bg-deep-black text-white hover:bg-gray-800",
-    icon: <IdCard className="premium-accent mr-2 h-4 w-4" />
-  },
-  {
-    id: 2,
-    title: "Master Barber Techniques",
-    description: "Advance your skills with complex fading techniques, creative styling, straight razor mastery, and business development fundamentals.",
-    price: "$3,200",
-    badge: "Advanced Course",
-    badgeColor: "bg-[var(--premium-accent)] text-black",
-    duration: "16 weeks • 640 hours",
-    certification: "Master certification",
-    image: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-    buttonStyle: "bg-[var(--premium-accent)] text-black hover:bg-[var(--premium-accent)]/80",
-    icon: <Trophy className="premium-accent mr-2 h-4 w-4" />
-  },
-  {
-    id: 3,
-    title: "Barbershop Business Mastery",
-    description: "Learn the business side of barbering including shop management, marketing strategies, client retention, and financial planning for success.",
-    price: "$1,800",
-    badge: "Business Course",
-    badgeColor: "bg-green-100 text-green-800",
-    duration: "8 weeks • 120 hours",
-    certification: "Business certification",
-    image: "https://images.unsplash.com/photo-1542125387-c71274d94f0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-    buttonStyle: "bg-deep-black text-white hover:bg-gray-800",
-    icon: <Briefcase className="golden-bronze mr-2 h-4 w-4" />
-  }
-];
+// map icon string to actual component for display
+const iconMap: Record<string, JSX.Element> = {
+  'id-card': <IdCard className="text-[var(--golden-bronze)] mr-2 h-4 w-4" />,
+  'trophy': <Trophy className="text-[var(--golden-bronze)] mr-2 h-4 w-4" />,
+  'briefcase': <Briefcase className="text-[var(--golden-bronze)] mr-2 h-4 w-4" />,
+};
 
 export default function Courses() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+
+  const [sliderRef, slider] = useKeenSlider({
+    loop: true,
+    slides: { perView: 1.15, spacing: 16 },
+    breakpoints: {
+      "(min-width: 640px)": { slides: { perView: 1.5, spacing: 24 } },
+      "(min-width: 1024px)": { slides: { perView: 2.5, spacing: 32 } },
+      "(min-width: 1280px)": { slides: { perView: 3.3, spacing: 40 } },
+    },
+    renderMode: "performance",
+  });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -83,47 +62,66 @@ export default function Courses() {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {courses.map((course, index) => (
-            <div key={course.id} className={`bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden group hover:shadow-2xl transition-all duration-700 hover:scale-105 hover:border-[var(--premium-accent)]/30 ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
-            }`} style={{ transitionDelay: `${index * 200}ms` }}>
-              <img 
-                src={course.image}
-                alt={course.title}
-                className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${course.badgeColor}`}>
-                    {course.badge}
-                  </span>
-                  <span className="text-2xl font-bold text-deep-black">{course.price}</span>
-                </div>
-                
-                <h3 className="font-serif text-xl font-bold mb-3">{course.title}</h3>
-                <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                  {course.description}
-                </p>
-                
-                <div className="space-y-2 mb-6">
-                  <div className="flex items-center text-sm text-gray-600">
-                    <Clock className="golden-bronze mr-2 h-4 w-4" />
-                    <span>{course.duration}</span>
+        <div className="relative">
+          {/* Slider container */}
+          <div ref={sliderRef} className="keen-slider pb-8">
+            {courses.map((course, index) => (
+              <div key={course.id} className="keen-slider__slide">
+                <div className={`bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden group hover:shadow-2xl transition-all duration-700 flex flex-col h-full ${
+                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
+                }`} style={{ transitionDelay: `${index * 150}ms` }}>
+                  <img 
+                    src={course.image}
+                    alt={course.title}
+                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300 hover:brightness-110"
+                  />
+                  
+                  <div className="p-6 flex flex-col flex-grow">
+                    <div className="flex items-center justify-between mb-4">
+                      <span className={`px-3 py-1 rounded-full text-sm font-medium ${course.badgeColor}`}>
+                        {course.badge}
+                      </span>
+                      <span className="text-2xl font-bold text-deep-black">{course.price}</span>
+                    </div>
+                    
+                    <h3 className="font-serif text-xl font-bold mb-3 min-h-[3.5rem] flex items-start">{course.title}</h3>
+                    <p className="text-gray-600 mb-4 text-sm leading-relaxed flex-grow min-h-[4.5rem]">
+                      {course.description}
+                    </p>
+                    
+                    <div className="space-y-2 mb-6">
+                      <div className="flex items-center text-sm text-gray-600">
+                        <Clock className="text-[var(--golden-bronze)] mr-2 h-4 w-4" />
+                        <span>{course.duration}</span>
+                      </div>
+                      <div className="flex items-center text-sm text-gray-600">
+                        {course.icon ? iconMap[course.icon] : null}
+                        <span>{course.certification}</span>
+                      </div>
+                    </div>
+                    
+                    <Button asChild className={`btn-shimmer w-full py-3 rounded-full font-medium transition-all hover:scale-105 hover:shadow-lg mt-auto ${course.buttonStyle}`}>
+                      <a href={`/courses/${course.id}`}>Enroll Now</a>
+                    </Button>
                   </div>
-                  <div className="flex items-center text-sm text-gray-600">
-                    {course.icon}
-                    <span>{course.certification}</span>
-                  </div>
                 </div>
-                
-                <Button className={`w-full py-3 rounded-full font-medium transition-all ${course.buttonStyle}`}>
-                  Enroll Now
-                </Button>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* Arrows */}
+          <button
+            className="absolute -left-6 top-1/2 -translate-y-1/2 md:-left-10 w-9 h-9 md:w-11 md:h-11 rounded-full bg-white/10 backdrop-blur-md border border-white/30 flex items-center justify-center group hover:bg-[var(--premium-accent)]/15 hover:border-[var(--premium-accent)]/50 transition-all shadow-lg hover:shadow-[0_0_12px_var(--premium-accent)]"
+            onClick={() => slider.current?.prev()}
+          >
+            <ChevronLeft className="h-5 w-5 text-[var(--premium-accent)] transition-colors" />
+          </button>
+          <button
+            className="absolute -right-6 top-1/2 -translate-y-1/2 md:-right-10 w-9 h-9 md:w-11 md:h-11 rounded-full bg-white/10 backdrop-blur-md border border-white/30 flex items-center justify-center group hover:bg-[var(--premium-accent)]/15 hover:border-[var(--premium-accent)]/50 transition-all shadow-lg hover:shadow-[0_0_12px_var(--premium-accent)]"
+            onClick={() => slider.current?.next()}
+          >
+            <ChevronRight className="h-5 w-5 text-[var(--premium-accent)] transition-colors" />
+          </button>
         </div>
         
         {/* Call to Action */}
@@ -140,10 +138,10 @@ export default function Courses() {
                 Join hundreds of successful graduates who've transformed their lives through our comprehensive training programs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="bg-[var(--premium-accent)] text-black px-8 py-4 text-base md:text-lg rounded-full font-medium hover:bg-[var(--premium-accent)]/90 hover:scale-105 transition-all duration-300 shadow-lg">
+                <Button className="btn-shimmer bg-[var(--premium-accent)] text-black px-8 py-4 text-base md:text-lg rounded-full font-medium hover:bg-[var(--premium-accent)]/90 hover:scale-105 transition-all duration-300 shadow-lg">
                   Schedule a Tour
                 </Button>
-                <Button variant="outline" className="border-2 border-[var(--premium-accent)] text-[var(--premium-accent)] px-8 py-4 text-base md:text-lg rounded-full font-medium hover:bg-[var(--premium-accent)] hover:text-black transition-all duration-300">
+                <Button variant="outline" className="btn-shimmer border-2 border-[var(--premium-accent)] text-[var(--premium-accent)] px-8 py-4 text-base md:text-lg rounded-full font-medium hover:bg-[var(--premium-accent)] hover:text-black transition-all duration-300">
                   Download Brochure
                 </Button>
               </div>

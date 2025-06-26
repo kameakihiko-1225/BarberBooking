@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "chrome",
+            "name": "https://meet.google.com/pcc-brnq-knk",
+            "request": "launch",
+            "url": "https://meet.google.com/pcc-brnq-knk"
+        }
+    ]
+}

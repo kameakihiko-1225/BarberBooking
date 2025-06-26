@@ -3,10 +3,28 @@ import { Menu, X } from "lucide-react";
 import { useMobileMenu } from "@/hooks/use-mobile-menu";
 import { useEffect, useState } from "react";
 import logoWhite from "@assets/K&K_Vertical_logotype_white_1750662689464.png";
+import { useLocation, Link } from "wouter";
 
 export default function Navigation() {
   const { isOpen, toggleMenu, closeMenu } = useMobileMenu();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("courses");
+  const [location] = useLocation();
+  const isHome = location === "/";
+  const isAbout = location === "/about-us";
+
+  const getInitialSection = () => {
+    if (location === "/") return "courses"; // default on home
+    if (location.startsWith("/about-us")) return "about";
+    if (location.startsWith("/barber")) return "instructors";
+    // gallery or other pages: none highlighted
+    return "";
+  };
+
+  useEffect(() => {
+    setActiveSection(getInitialSection());
+    // Reset scroll position highlight when navigating pages
+  }, [location]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -16,39 +34,107 @@ export default function Navigation() {
     };
 
     const handleScroll = () => {
+      if (!isHome) return; // only run scrollspy on home page
       setIsScrolled(window.scrollY > 50);
+      // Scrollspy logic
+      const sectionIds = ["about", "courses", "instructors", "blog", "contact"];
+      let found = false;
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sectionIds[i]);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 80) {
+            setActiveSection(sectionIds[i]);
+            found = true;
+            break;
+          }
+        }
+      }
+      if (!found) setActiveSection(sectionIds[0]);
     };
 
     window.addEventListener('resize', handleResize);
-    window.addEventListener('scroll', handleScroll);
+    if (isHome) {
+      window.addEventListener('scroll', handleScroll);
+    }
     return () => {
       window.removeEventListener('resize', handleResize);
-      window.removeEventListener('scroll', handleScroll);
+      if (isHome) {
+        window.removeEventListener('scroll', handleScroll);
+      }
     };
   }, [closeMenu]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const targetPosition = element.offsetTop - 80; // Account for navbar height
+      const startPosition = window.pageYOffset;
+      const distance = targetPosition - startPosition;
+      const duration = 1200; // Custom duration in ms
+      let start: number | null = null;
+
+      // Custom easing function (ease-in-out-cubic)
+      const easeInOutCubic = (t: number): number => {
+        return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+      };
+
+      const animateScroll = (timestamp: number) => {
+        if (!start) start = timestamp;
+        const progress = timestamp - start;
+        const progressPercentage = Math.min(progress / duration, 1);
+        const easedProgress = easeInOutCubic(progressPercentage);
+
+        window.scrollTo(0, startPosition + distance * easedProgress);
+
+        if (progress < duration) {
+          requestAnimationFrame(animateScroll);
+        }
+      };
+
+      requestAnimationFrame(animateScroll);
       closeMenu();
+    } else {
+      // If the section isn't on the current page, navigate to the homepage and let the browser scroll
+      window.location.href = `/#${sectionId}`;
     }
   };
 
+  // Build nav items depending on route
+  const homeSectionItems = [
+    { id: "about", label: "About" },
+    { id: "courses", label: "Courses" },
+    { id: "instructors", label: "Instructors" },
+    { id: "blog", label: "Blog" },
+    { id: "contact", label: "Contact" },
+  ];
+
+  const pageItems = [
+    { href: "/", label: "Home" },
+    { href: "/about-us", label: "About" },
+    { href: "/courses", label: "Courses" },
+    { href: "/gallery", label: "Gallery" },
+    { href: "/contacts", label: "Contact" },
+  ];
+
   return (
     <>
-      <nav className={`fixed top-0 w-full z-50 px-4 py-2 md:py-3 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/95 backdrop-blur-sm shadow-lg' 
-          : 'bg-deep-black/95 backdrop-blur-sm'
-      }`}>
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <div className="flex items-center justify-center flex-1 md:flex-none">
+      <nav
+        className={`fixed top-0 w-full z-50 px-4 ${isHome ? 'py-2 md:py-3' : 'py-1 md:py-2'} transition-all duration-300 ${
+          isHome
+            ? (isScrolled ? 'bg-deep-black backdrop-blur-sm shadow-lg' : 'bg-deep-black/80 backdrop-blur-sm')
+            : 'bg-deep-black backdrop-blur-sm'
+        }`}
+        style={{}}
+      >
+        <div className="w-full px-6 lg:px-12 flex items-center relative justify-between">
+          {/* Logo */}
+          <div className="mx-auto md:mx-0">
             <img 
               src={logoWhite} 
               alt="K&K Academy Logo" 
-              className={`h-24 md:h-28 lg:h-32 transition-all duration-500 ease-in-out ${
-                isScrolled ? 'brightness-0' : 'brightness-100 logo-glow'
+              className={`${isHome ? 'h-24 md:h-28 lg:h-32' : 'h-20 md:h-24 lg:h-28'} transition-all duration-500 ease-in-out hover:scale-110 hover:drop-shadow-lg brightness-100 ${
+                isHome && !isScrolled ? 'logo-glow' : ''
               }`}
             />
           </div>
@@ -57,8 +143,8 @@ export default function Navigation() {
           <Button
             variant="ghost"
             size="icon"
-            className={`md:hidden hover:bg-white/10 transition-colors pl-[-40px] pr-[-40px] ${
-              isScrolled ? 'text-black' : 'text-white'
+            className={`md:hidden absolute right-4 top-1/2 -translate-y-1/2 rounded-full border border-white/20 bg-white/15 hover:bg-[var(--premium-accent)]/20 transition-all p-0 w-10 h-10 hover:scale-110 hover:shadow-lg ${
+              'text-white'
             }`}
             onClick={toggleMenu}
           >
@@ -66,90 +152,116 @@ export default function Navigation() {
           </Button>
           
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8 mt-[0px] mb-[0px] pl-[74px] pr-[74px]">
-            <button
-              onClick={() => scrollToSection('courses')}
-              className={`hover:text-[var(--golden-bronze)] transition-colors ${
-                isScrolled ? 'text-black' : 'text-white'
-              }`}
-            >
-              Courses
-            </button>
-            <button
-              onClick={() => scrollToSection('about')}
-              className={`hover:text-[var(--golden-bronze)] transition-colors ${
-                isScrolled ? 'text-black' : 'text-white'
-              }`}
-            >
-              About
-            </button>
-            <button
-              onClick={() => scrollToSection('instructors')}
-              className={`hover:text-[var(--golden-bronze)] transition-colors ${
-                isScrolled ? 'text-black' : 'text-white'
-              }`}
-            >
-              Instructors
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className={`hover:text-[var(--golden-bronze)] transition-colors ${
-                isScrolled ? 'text-black' : 'text-white'
-              }`}
-            >
-              Contact
-            </button>
+          <div className="hidden md:flex flex-1 justify-center space-x-12">
+            {isHome
+              ? homeSectionItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className={`relative text-lg lg:text-xl px-2 py-1 flex items-center justify-center transition-all duration-150 ease-out hover:-translate-y-0.5 hover:text-[var(--premium-accent)] hover:shadow-[0_2px_4px_var(--premium-accent)/30] font-medium ${
+                      isScrolled ? 'text-white' : 'text-white'
+                    }`}
+                    style={{ zIndex: 1 }}
+                  >
+                    <span
+                      className={`relative z-10 transition-all duration-300 ${
+                        activeSection === item.id ? 'scale-110 font-bold text-[var(--premium-accent)] drop-shadow-lg' : 'scale-100 opacity-80'
+                      }`}
+                    >
+                      {item.label}
+                    </span>
+                  </button>
+                ))
+              : pageItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={`relative text-lg lg:text-xl px-2 py-1 flex items-center justify-center transition-all duration-150 ease-out hover:-translate-y-0.5 hover:text-[var(--premium-accent)] hover:shadow-[0_2px_4px_var(--premium-accent)/30] font-medium text-white ${
+                      location === item.href ? 'font-bold text-[var(--premium-accent)]' : ''
+                    }`}
+                    style={{ zIndex: 1 }}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
           </div>
           
-          <Button className={`hidden md:block px-6 py-2 rounded-full font-medium transition-all ${
-            isScrolled 
-              ? 'bg-black text-white hover:bg-gray-800' 
-              : 'bg-[var(--premium-accent)] text-black hover:bg-[var(--premium-accent)]/80'
+          <Button className={`hidden md:block px-10 py-3 h-auto leading-none rounded-full font-semibold text-lg transition-all hover:scale-110 hover:shadow-lg ml-auto ${
+            isHome && !isScrolled
+              ? 'bg-[var(--premium-accent)] text-black hover:bg-[var(--premium-accent)]/80'
+              : 'bg-[var(--premium-accent)] text-black hover:bg-[var(--premium-accent)]/70'
           }`}>
             Enroll Now
           </Button>
         </div>
       </nav>
       {/* Mobile Menu Overlay */}
-      <div className={`fixed inset-0 bg-deep-black/95 backdrop-blur-sm z-50 transition-transform duration-300 md:hidden ${
-        isOpen ? 'translate-x-0' : 'translate-x-full'
+      <div className={`fixed inset-0 bg-black/90 backdrop-blur-sm z-50 transition-all duration-500 md:hidden ${
+        isOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
       }`}>
         <div className="flex flex-col items-center justify-center h-full space-y-8 text-2xl">
-          <button
-            onClick={() => scrollToSection('courses')}
-            className="text-white hover:text-[var(--golden-bronze)] transition-colors"
-          >
-            Courses
-          </button>
-          <button
-            onClick={() => scrollToSection('about')}
-            className="text-white hover:text-[var(--golden-bronze)] transition-colors"
-          >
-            About
-          </button>
-          <button
-            onClick={() => scrollToSection('instructors')}
-            className="text-white hover:text-[var(--golden-bronze)] transition-colors"
-          >
-            Instructors
-          </button>
-          <button
-            onClick={() => scrollToSection('contact')}
-            className="text-white hover:text-[var(--golden-bronze)] transition-colors"
-          >
-            Contact
-          </button>
-          <Button className="bg-[var(--premium-accent)] text-black px-8 py-3 rounded-full font-medium mt-8 hover:bg-[var(--premium-accent)]/80 transition-all">
+          {isHome
+            ? homeSectionItems.map((item, index) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`relative text-white transition-all duration-150 ease-out transform hover:-translate-y-0.5 hover:text-[var(--premium-accent)] hover:shadow-[0_2px_4px_var(--premium-accent)/30] ${
+                    isOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                  }`}
+                  style={{
+                    transitionDelay: isOpen ? `${index * 100 + 200}ms` : '0ms',
+                    transitionProperty: 'color, transform, opacity',
+                  }}
+                >
+                  <span
+                    className={`relative transition-all duration-300 ${
+                      activeSection === item.id ? 'text-[var(--premium-accent)] font-bold scale-110 drop-shadow-lg' : ''
+                    }`}
+                  >
+                    {item.label}
+                  </span>
+                </button>
+              ))
+            : pageItems.map((item, index) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={closeMenu}
+                  className={`relative text-white transition-all duration-150 ease-out transform hover:-translate-y-0.5 hover:text-[var(--premium-accent)] hover:shadow-[0_2px_4px_var(--premium-accent)/30] ${
+                    isOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                  }`}
+                  style={{
+                    transitionDelay: isOpen ? `${index * 100 + 200}ms` : '0ms',
+                    transitionProperty: 'color, transform, opacity',
+                  }}
+                >
+                  {item.label}
+                </Link>
+              ))}
+          {isHome && (
+          <Button className={`bg-[var(--premium-accent)] text-black px-8 py-3 rounded-full font-medium mt-8 hover:bg-[var(--premium-accent)]/80 transition-all hover:scale-105 hover:shadow-lg transform ${
+            isOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+          }`}
+          style={{ 
+            transitionDelay: isOpen ? '600ms' : '0ms',
+            transitionProperty: 'transform, opacity, background-color, box-shadow'
+          }}>
             Enroll Now
-          </Button>
+          </Button>) }
         </div>
         <Button
           variant="ghost"
           size="icon"
-          className="absolute top-6 right-6 text-white hover:bg-white/10"
+          className={`absolute top-6 right-6 text-white hover:bg-white/10 transition-all hover:scale-110 hover:shadow-lg transform ${
+            isOpen ? 'rotate-0 opacity-100' : 'rotate-180 opacity-0'
+          }`}
+          style={{ 
+            transitionDelay: isOpen ? '100ms' : '0ms',
+            transitionProperty: 'transform, opacity, background-color'
+          }}
           onClick={closeMenu}
         >
-          <X className="h-6 w-6" />
+          <X className="h-6 w-6 transition-transform duration-200 group-hover:scale-125" />
         </Button>
       </div>
     </>

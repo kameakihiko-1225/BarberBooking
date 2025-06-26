@@ -139,16 +139,16 @@ export default function Contact() {
             <div>
               <div className="font-semibold text-deep-black mb-4">Follow Our Journey</div>
               <div className="flex space-x-4">
-                <a href="#" className="w-10 h-10 bg-deep-black rounded-full flex items-center justify-center text-white hover:bg-[var(--golden-bronze)] hover:text-black transition-colors">
+                <a href="#" className="w-10 h-10 bg-deep-black rounded-full flex items-center justify-center text-white hover:bg-[var(--golden-bronze)] hover:text-black transition-colors hover:scale-110 duration-200">
                   <Instagram className="h-5 w-5" />
                 </a>
-                <a href="#" className="w-10 h-10 bg-deep-black rounded-full flex items-center justify-center text-white hover:bg-[var(--golden-bronze)] hover:text-black transition-colors">
+                <a href="#" className="w-10 h-10 bg-deep-black rounded-full flex items-center justify-center text-white hover:bg-[var(--golden-bronze)] hover:text-black transition-colors hover:scale-110 duration-200">
                   <Youtube className="h-5 w-5" />
                 </a>
-                <a href="#" className="w-10 h-10 bg-deep-black rounded-full flex items-center justify-center text-white hover:bg-[var(--golden-bronze)] hover:text-black transition-colors">
+                <a href="#" className="w-10 h-10 bg-deep-black rounded-full flex items-center justify-center text-white hover:bg-[var(--golden-bronze)] hover:text-black transition-colors hover:scale-110 duration-200">
                   <Music className="h-5 w-5" />
                 </a>
-                <a href="#" className="w-10 h-10 bg-deep-black rounded-full flex items-center justify-center text-white hover:bg-[var(--golden-bronze)] hover:text-black transition-colors">
+                <a href="#" className="w-10 h-10 bg-deep-black rounded-full flex items-center justify-center text-white hover:bg-[var(--golden-bronze)] hover:text-black transition-colors hover:scale-110 duration-200">
                   <Facebook className="h-5 w-5" />
                 </a>
               </div>
@@ -249,9 +249,12 @@ export default function Contact() {
                 />
               </div>
               
-              <Button 
+              <Button
                 type="submit"
-                className="w-full bg-[var(--golden-bronze)] text-black py-4 rounded-lg font-semibold text-lg hover:bg-yellow-500 transition-colors"
+                className="w-full py-4 rounded-full font-semibold text-lg
+                           bg-gradient-to-r from-[var(--premium-accent)] via-[var(--golden-bronze)] to-[var(--premium-accent)]
+                           text-black shadow-[0_0_12px_var(--golden-bronze)/60] hover:shadow-[0_0_18px_var(--golden-bronze)/80]
+                           transition-all hover:scale-105"
               >
                 Send Message
               </Button>

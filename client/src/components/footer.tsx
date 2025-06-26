@@ -13,14 +13,14 @@ export default function Footer() {
               <img 
                 src={logoWhite} 
                 alt="K&K Academy Logo" 
-                className="h-12 md:h-16 logo-glow hover:scale-105 hover:logo-glow-copper transition-all duration-300"
+                className="h-12 md:h-16 logo-glow hover:scale-110 hover:logo-glow-copper transition-all duration-300 hover:drop-shadow-lg"
               />
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Transforming passionate individuals into skilled professional barbers through comprehensive training and mentorship.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-[var(--premium-accent)] hover:text-white transition-colors">
+              <a href="#" className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-[var(--premium-accent)] hover:text-white transition-colors hover:scale-125 duration-200">
                 <Instagram className="h-4 w-4" />
               </a>
               <a href="#" className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-[var(--premium-accent)] hover:text-white transition-colors">
@@ -36,7 +36,7 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-lg mb-4">Programs</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-[var(--premium-accent)] transition-colors">Barber Fundamentals</a></li>
+              <li><a href="#" className="hover:text-[var(--premium-accent)] transition-colors hover:scale-105 duration-200">Barber Fundamentals</a></li>
               <li><a href="#" className="hover:text-[var(--premium-accent)] transition-colors">Master Techniques</a></li>
               <li><a href="#" className="hover:text-[var(--premium-accent)] transition-colors">Business Mastery</a></li>
               <li><a href="#" className="hover:text-[var(--premium-accent)] transition-colors">Private Lessons</a></li>

@@ -61,6 +61,9 @@ export default {
           border: "var(--sidebar-border)",
           ring: "var(--sidebar-ring)",
         },
+        "deep-black": "#0A0A0A",
+        "gold-bronze": "#CD7F32",
+        gold: "#FFD700",
       },
       keyframes: {
         "accordion-down": {

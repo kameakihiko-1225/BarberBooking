@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Check, Award } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { Link } from "wouter";
 
 export default function About() {
   const [isVisible, setIsVisible] = useState(false);
@@ -27,70 +28,82 @@ export default function About() {
     <section 
       ref={sectionRef}
       id="about" 
-      className="py-20 bg-gray-50 transition-all duration-1000"
+      className={`py-20 bg-gray-50 transition-all duration-1000 ${
+        isVisible ? 'opacity-100' : 'opacity-0'
+      }`}
     >
       <div className="max-w-6xl mx-auto px-4">
-        <div className="section-divider"></div>
+        <div className={`section-divider transform transition-all duration-1000 ${
+          isVisible ? 'scale-100 opacity-100' : 'scale-75 opacity-0'
+        }`}></div>
         
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className={`transform transition-all duration-1000 ${
+          <div className={`transform transition-all duration-1000 delay-200 ${
             isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
           }`}>
-            <h2 className="font-serif text-3xl md:text-5xl font-bold mb-6">
+            <h2 className={`font-serif text-3xl md:text-5xl font-bold mb-6 transform transition-all duration-1000 delay-300 ${
+              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+            }`}>
               Elevate Your Skills at the{" "}
               <span className="premium-accent">Premier</span>{" "}
               Barber Academy
             </h2>
             
-            <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+            <p className={`text-gray-600 text-lg mb-6 leading-relaxed transform transition-all duration-1000 delay-400 ${
+              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+            }`}>
               For over 15 years, K&K Barber Academy has been the gold standard in professional barber education. 
               Our comprehensive programs combine traditional techniques with modern innovations, ensuring our graduates 
               are ready to excel in today's competitive market.
             </p>
             
-            <div className="space-y-4 mb-8">
-              <div className="flex items-center space-x-3">
-                <div className="w-6 h-6 bg-[var(--golden-bronze)] rounded-full flex items-center justify-center">
-                  <Check className="text-black text-sm h-4 w-4" />
+            <div className={`space-y-4 mb-8 transform transition-all duration-1000 delay-500 ${
+              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+            }`}>
+              {[
+                "State-certified programs with industry recognition",
+                "Hands-on training with professional-grade equipment", 
+                "Career placement assistance and ongoing support"
+              ].map((text, index) => (
+                <div key={index} className={`flex items-center space-x-3 transform transition-all duration-700 ${
+                  isVisible ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'
+                }`} style={{ transitionDelay: `${600 + index * 100}ms` }}>
+                  <div className="w-6 h-6 bg-[var(--golden-bronze)] rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-200">
+                    <Check className="text-black text-sm h-4 w-4" />
+                  </div>
+                  <span className="text-gray-700 hover:text-gray-900 transition-colors duration-200">{text}</span>
                 </div>
-                <span className="text-gray-700">State-certified programs with industry recognition</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-6 h-6 bg-[var(--golden-bronze)] rounded-full flex items-center justify-center">
-                  <Check className="text-black text-sm h-4 w-4" />
-                </div>
-                <span className="text-gray-700">Hands-on training with professional-grade equipment</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-6 h-6 bg-[var(--golden-bronze)] rounded-full flex items-center justify-center">
-                  <Check className="text-black text-sm h-4 w-4" />
-                </div>
-                <span className="text-gray-700">Career placement assistance and ongoing support</span>
-              </div>
+              ))}
             </div>
             
-            <Button className="bg-deep-black text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800">
-              Learn More About Us
-            </Button>
+            <Link href="/about-us" className={`inline-block transform transition-all duration-1000 delay-700 ${
+              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+            }`}>
+              <Button className="bg-deep-black text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 hover:scale-105 hover:shadow-lg">
+                Learn More About Us
+              </Button>
+            </Link>
           </div>
           
-          <div className={`relative transform transition-all duration-1000 delay-300 ${
+          <div className={`relative transform transition-all duration-1000 delay-500 ${
             isVisible ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'
           }`}>
             <img 
               src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
               alt="Barber academy classroom with students learning" 
-              className="rounded-2xl shadow-2xl w-full h-auto"
+              className="rounded-2xl shadow-2xl w-full h-auto hover:scale-105 hover:shadow-3xl transition-all duration-500"
             />
             
             {/* Floating Achievement Card */}
-            <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl border border-gray-100">
+            <div className={`absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl border border-gray-100 transform transition-all duration-1000 delay-800 hover:scale-105 hover:shadow-2xl ${
+              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+            }`}>
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-[var(--premium-accent)] rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-[var(--premium-accent)] rounded-full flex items-center justify-center hover:rotate-12 transition-transform duration-300">
                   <Award className="text-black h-6 w-6" />
                 </div>
                 <div>
-                  <div className="font-semibold text-deep-black">Certified Excellence</div>
+                  <div className="font-semibold text-deep-black hover:text-[var(--premium-accent)] transition-colors duration-200">Certified Excellence</div>
                   <div className="text-sm text-gray-600">State Licensed Academy</div>
                 </div>
               </div>
