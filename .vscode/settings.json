@@ -1,0 +1,11 @@
+{
+  // Disable unknown at-rule warnings for Tailwind/PostCSS directives
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore",
+  "less.lint.unknownAtRules": "ignore"
+} 
+  // Disable unknown at-rule warnings for Tailwind/PostCSS directives
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore",
+  "less.lint.unknownAtRules": "ignore"
+} 
