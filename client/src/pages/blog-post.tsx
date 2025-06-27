@@ -1,8 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import { useRoute, Link } from 'wouter';
-import { ArrowLeft, Calendar, Tag, Clock } from 'lucide-react';
+import { Calendar, Tag, Clock } from 'lucide-react';
 import { format } from 'date-fns';
 import { useEffect, useState } from 'react';
+import Navigation from '@/components/navigation';
 
 interface BlogPost {
   id: number;
@@ -76,16 +77,7 @@ export default function BlogPostPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-b border-gray-200/50">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/blog" className="inline-flex items-center text-gray-600 hover:text-[var(--premium-accent)] transition-colors group">
-            <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
-            Back to Blog
-          </Link>
-          <Link href="/" className="font-serif text-xl font-bold text-gray-800">K&K Barber Academy</Link>
-        </div>
-      </nav>
+      {/* Use main navigation */}
 
       {/* Hero Section */}
       <div className="pt-24 pb-8">
