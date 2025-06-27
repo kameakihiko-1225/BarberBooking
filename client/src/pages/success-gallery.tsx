@@ -66,7 +66,7 @@ function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
             <img
               ref={mediaRef as React.RefObject<HTMLImageElement>}
               alt="success story"
-              className={`w-full h-auto object-cover transition-all duration-300 group-hover:scale-105 ${
+              className={`w-full h-48 sm:h-56 md:h-64 object-cover transition-all duration-300 group-hover:scale-105 ${
                 loaded ? 'opacity-100' : 'opacity-0'
               }`}
               onLoad={() => setLoaded(true)}
@@ -77,7 +77,7 @@ function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
             <div className="relative cursor-pointer" onClick={handleVideoClick}>
               <video
                 ref={mediaRef as React.RefObject<HTMLVideoElement>}
-                className={`w-full h-auto object-cover transition-all duration-300 ${
+                className={`w-full h-48 sm:h-56 md:h-64 object-cover transition-all duration-300 ${
                   loaded ? 'opacity-100' : 'opacity-0'
                 }`}
                 preload="metadata"
@@ -102,7 +102,7 @@ function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
           )}
         </div>
       ) : (
-        <div className="w-full aspect-[4/3] bg-gray-800 rounded-xl" />
+        <div className="w-full h-48 sm:h-56 md:h-64 bg-gray-800 rounded-xl" />
       )}
     </div>
   );
@@ -130,9 +130,9 @@ export default function SuccessGalleryPage() {
           <p className="text-gray-300 max-w-2xl mx-auto">Celebrating our graduates' achievements</p>
         </section>
         <section className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-3 xs:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 xs:gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
             {Array.from({ length: 12 }).map((_, i) => (
-              <div key={i} className="aspect-[4/3] bg-gray-800 animate-pulse rounded-xl" />
+              <div key={i} className="h-48 sm:h-56 md:h-64 bg-gray-800 animate-pulse rounded-xl" />
             ))}
           </div>
         </section>
@@ -150,7 +150,7 @@ export default function SuccessGalleryPage() {
       </section>
 
       <section className="max-w-6xl mx-auto px-4 mb-16">
-        <div className="grid grid-cols-3 xs:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 xs:gap-3 sm:gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
           {shuffledMedia.map((item, index) => (
             <OptimizedMediaCard key={`${item.src}-${index}`} item={item} index={index} />
           ))}
