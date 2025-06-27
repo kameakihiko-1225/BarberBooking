@@ -76,7 +76,7 @@ export default function BlogPostPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
-      {/* Use main navigation */}
+      <Navigation />
 
       {/* Hero Section */}
       <div className="pt-24 pb-8">
