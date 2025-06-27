@@ -12,18 +12,40 @@ export default function ContactsPage() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     program: '',
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email) {
       toast({ title: 'Please fill in required fields', variant: 'destructive' });
       return;
     }
-    toast({ title: 'Message sent!', description: 'We will be in touch shortly.' });
-    setFormData({ name: '', email: '', program: '', message: '' });
+
+    try {
+      const response = await fetch('/api/inquiries', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      toast({ title: 'Message sent!', description: 'We will be in touch shortly.' });
+      setFormData({ name: '', email: '', phone: '', program: '', message: '' });
+    } catch (error) {
+      toast({ 
+        title: 'Error sending message', 
+        description: 'Please try again later.',
+        variant: 'destructive' 
+      });
+    }
   };
 
   const handleChange = (field: string, value: string) => setFormData((prev) => ({ ...prev, [field]: value }));
@@ -91,6 +113,17 @@ export default function ContactsPage() {
                 className="bg-deep-black/50 border-gray-700 text-white placeholder-gray-400 focus:border-[var(--premium-accent)] focus:ring-[var(--premium-accent)]"
                 placeholder="you@example.com"
                 required
+              />
+            </div>
+            <div>
+              <Label htmlFor="phone" className="mb-2">Phone Number</Label>
+              <Input
+                id="phone"
+                type="tel"
+                value={formData.phone}
+                onChange={(e) => handleChange('phone', e.target.value)}
+                className="bg-deep-black/50 border-gray-700 text-white placeholder-gray-400 focus:border-[var(--premium-accent)] focus:ring-[var(--premium-accent)]"
+                placeholder="+1 (555) 123-4567"
               />
             </div>
             <div>

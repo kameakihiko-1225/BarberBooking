@@ -310,8 +310,8 @@ Content will be automatically formatted when displayed."
           <div className="flex items-center space-x-4">
             <Link href="/" className="font-serif text-xl font-bold text-gray-800">K&K Barber Academy</Link>
             <button
-              onClick={() => setIsCreating(true)}
-              className="inline-flex items-center px-4 py-2 bg-[var(--premium-accent)] text-white rounded-lg hover:bg-[var(--golden-bronze)] transition-colors"
+              onClick={handleCreatePost}
+              className="inline-flex items-center px-4 py-2 bg-[var(--premium-accent)] text-white rounded-lg hover:bg-[var(--golden-bronze)] transition-colors shadow-lg"
             >
               <Plus className="w-4 h-4 mr-2" />
               New Post
@@ -322,9 +322,20 @@ Content will be automatically formatted when displayed."
 
       <div className="pt-32 pb-20">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="mb-8">
-            <h1 className="font-serif text-4xl font-bold text-gray-900 mb-4">Blog Administration</h1>
-            <p className="text-gray-600 text-lg">Manage your blog posts - create, edit, and organize content for your visitors.</p>
+          <div className="mb-8 flex flex-col md:flex-row md:items-center md:justify-between">
+            <div>
+              <h1 className="font-serif text-4xl font-bold text-gray-900 mb-4">Blog Administration</h1>
+              <p className="text-gray-600 text-lg">Manage your blog posts - create, edit, and organize content for your visitors.</p>
+            </div>
+            <div className="mt-4 md:mt-0">
+              <button
+                onClick={handleCreatePost}
+                className="inline-flex items-center px-6 py-3 bg-[var(--premium-accent)] text-white rounded-lg hover:bg-[var(--golden-bronze)] transition-colors shadow-lg font-medium"
+              >
+                <Plus className="w-5 h-5 mr-2" />
+                Add New Post
+              </button>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
