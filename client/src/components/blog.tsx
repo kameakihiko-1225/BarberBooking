@@ -40,9 +40,25 @@ export interface BlogPostPreview {
 }
 
 export function BlogCard({ post }: { post: BlogPostPreview }) {
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    const target = e.currentTarget;
+    target.style.display = 'none';
+    const parent = target.parentElement;
+    if (parent) {
+      parent.style.paddingTop = '1rem';
+    }
+  };
+
   return (
     <div className="snap-start w-[320px] shrink-0 bg-deep-black rounded-2xl border border-[var(--premium-accent)]/40 hover:border-[var(--premium-accent)] hover:shadow-[0_4px_20px_rgba(205,127,50,0.3)] hover:scale-105 transition-transform duration-300 relative overflow-hidden group">
-      <img src={post.image} alt={post.title} className="w-full h-40 object-cover rounded-t-2xl group-hover:brightness-90 transition-all duration-300" />
+      {post.image && (
+        <img 
+          src={post.image} 
+          alt={post.title} 
+          className="w-full h-40 object-cover rounded-t-2xl group-hover:brightness-90 transition-all duration-300" 
+          onError={handleImageError}
+        />
+      )}
       <div className="p-4 text-white">
         {post.tag && <span className="bg-[var(--premium-accent)] text-black text-xs px-3 py-1 rounded-full font-semibold uppercase">
           {post.tag}

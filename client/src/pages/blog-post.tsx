@@ -112,6 +112,11 @@ export default function BlogPostPage() {
                   src={post.image} 
                   alt={post.title}
                   className="w-full h-64 md:h-80 lg:h-96 object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    target.parentElement?.remove();
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>

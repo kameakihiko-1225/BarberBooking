@@ -372,6 +372,14 @@ Content will be automatically formatted when displayed."
                       alt={post.title}
                       loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      onError={(e) => {
+                        const target = e.currentTarget;
+                        target.style.display = 'none';
+                        const parent = target.parentElement;
+                        if (parent) {
+                          parent.style.display = 'none';
+                        }
+                      }}
                     />
                     {post.active === 0 && (
                       <div className="absolute top-3 right-3 px-2 py-1 bg-red-500 text-white text-xs rounded-full">
