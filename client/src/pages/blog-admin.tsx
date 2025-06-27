@@ -324,27 +324,7 @@ Content will be automatically formatted when displayed."
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/blog" className="inline-flex items-center text-gray-600 hover:text-[var(--premium-accent)] transition-colors group">
-            <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
-            Back to Blog
-          </Link>
-          <div className="flex items-center space-x-3">
-            <Link href="/" className="font-serif text-lg font-bold text-gray-800">K&K Academy</Link>
-            <button
-              onClick={handleCreatePost}
-              className="inline-flex items-center px-5 py-2.5 bg-[var(--premium-accent)] text-white rounded-lg hover:bg-[var(--golden-bronze)] transition-all duration-200 shadow-md hover:shadow-lg font-medium text-sm"
-            >
-              <Plus className="w-4 h-4 mr-2" />
-              New Post
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      <div className="pt-32 pb-20">
+      <div className="py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="mb-8 flex flex-col md:flex-row md:items-center md:justify-between">
             <div>
