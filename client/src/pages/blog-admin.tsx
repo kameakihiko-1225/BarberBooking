@@ -214,17 +214,41 @@ export default function BlogAdmin() {
                   <Tag className="w-4 h-4 mr-2" />
                   Tag
                 </label>
-                <select
-                  {...form.register('tag')}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--premium-accent)] focus:border-transparent"
-                >
-                  <option value="">Select a tag</option>
-                  <option value="BEGINNER">BEGINNER</option>
-                  <option value="TRENDS">TRENDS</option>
-                  <option value="TOOLS">TOOLS</option>
-                  <option value="TECHNIQUES">TECHNIQUES</option>
-                  <option value="CAREER">CAREER</option>
-                </select>
+                <div className="space-y-3">
+                  <input
+                    {...form.register('tag')}
+                    list="tag-suggestions"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--premium-accent)] focus:border-transparent"
+                    placeholder="Enter or select a tag"
+                  />
+                  <datalist id="tag-suggestions">
+                    <option value="BEGINNER">BEGINNER</option>
+                    <option value="TRENDS">TRENDS</option>
+                    <option value="TOOLS">TOOLS</option>
+                    <option value="TECHNIQUES">TECHNIQUES</option>
+                    <option value="CAREER">CAREER</option>
+                    <option value="BUSINESS">BUSINESS</option>
+                    <option value="TIPS">TIPS</option>
+                    <option value="ADVANCED">ADVANCED</option>
+                    <option value="EDUCATION">EDUCATION</option>
+                    <option value="STYLE">STYLE</option>
+                  </datalist>
+                  <div className="flex flex-wrap gap-2">
+                    {['BEGINNER', 'TRENDS', 'TOOLS', 'TECHNIQUES', 'CAREER'].map(tag => (
+                      <button
+                        key={tag}
+                        type="button"
+                        onClick={() => form.setValue('tag', tag)}
+                        className="px-3 py-1 text-xs bg-gray-100 hover:bg-[var(--premium-accent)] hover:text-white rounded-full transition-colors border border-gray-300"
+                      >
+                        {tag}
+                      </button>
+                    ))}
+                  </div>
+                  <div className="text-xs text-gray-500">
+                    Click a tag above or type a custom tag
+                  </div>
+                </div>
               </div>
             </div>
 
