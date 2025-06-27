@@ -1,6 +1,6 @@
 import { useQuery, useMutation } from '@tanstack/react-query';
 import { queryClient } from '@/lib/queryClient';
-import { useState } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { Link } from 'wouter';
 import { Plus, Edit, Trash2, Save, X, ArrowLeft, Image, Tag, Type, FileText } from 'lucide-react';
 import { useForm } from 'react-hook-form';
@@ -42,8 +42,23 @@ export default function BlogAdmin() {
       const res = await fetch('/api/blog-admin');
       if (!res.ok) throw new Error('Failed to fetch posts');
       return res.json();
-    }
+    },
+    staleTime: 5 * 60 * 1000, // Cache for 5 minutes
+    refetchOnWindowFocus: false
   });
+
+  const handleCreatePost = useCallback(() => {
+    setIsCreating(true);
+  }, []);
+
+  const handleEditPost = useCallback((post: BlogPost) => {
+    setEditingPost(post);
+  }, []);
+
+  const handleCancelEdit = useCallback(() => {
+    setIsCreating(false);
+    setEditingPost(null);
+  }, []);
 
   const createMutation = useMutation({
     mutationFn: async (data: BlogPostForm) => {
@@ -305,7 +320,7 @@ Content will be automatically formatted when displayed."
         </div>
       </nav>
 
-      <div className="pt-24 pb-20">
+      <div className="pt-32 pb-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="mb-8">
             <h1 className="font-serif text-4xl font-bold text-gray-900 mb-4">Blog Administration</h1>
@@ -320,6 +335,7 @@ Content will be automatically formatted when displayed."
                     <img 
                       src={post.image} 
                       alt={post.title}
+                      loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     {post.active === 0 && (
