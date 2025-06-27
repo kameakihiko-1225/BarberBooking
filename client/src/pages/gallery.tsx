@@ -11,6 +11,7 @@ function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
   const [inView, setInView] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -32,6 +33,19 @@ function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
     if (containerRef.current) obs.observe(containerRef.current);
     return () => obs.disconnect();
   }, [item.src, item.type]);
+
+  const handleVideoClick = () => {
+    if (item.type === 'video' && mediaRef.current) {
+      const video = mediaRef.current as HTMLVideoElement;
+      if (isPlaying) {
+        video.pause();
+        setIsPlaying(false);
+      } else {
+        video.play().catch(console.error);
+        setIsPlaying(true);
+      }
+    }
+  };
 
   const animationDelay = Math.min(index * 30, 600);
 
@@ -60,7 +74,7 @@ function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
               style={{ contentVisibility: 'auto' }}
             />
           ) : (
-            <div className="relative">
+            <div className="relative cursor-pointer" onClick={handleVideoClick}>
               <video
                 ref={mediaRef as React.RefObject<HTMLVideoElement>}
                 className={`w-full h-auto object-cover transition-all duration-300 ${
@@ -72,9 +86,13 @@ function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
                 playsInline
                 onLoadedData={() => setLoaded(true)}
                 onError={() => setError(true)}
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
                 style={{ contentVisibility: 'auto' }}
               />
-              <Play className="absolute inset-0 m-auto h-12 w-12 text-white bg-black/50 rounded-full p-3 opacity-80 group-hover:opacity-100 transition-opacity" />
+              {!isPlaying && (
+                <Play className="absolute inset-0 m-auto h-12 w-12 text-white bg-black/50 rounded-full p-3 opacity-80 group-hover:opacity-100 transition-opacity hover:bg-black/70" />
+              )}
             </div>
           )}
           {!loaded && inView && (
@@ -112,7 +130,7 @@ export default function GalleryPage() {
           <p className="text-gray-300 max-w-2xl mx-auto">Discover our complete collection of work</p>
         </section>
         <section className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-3 xs:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 xs:gap-3 sm:gap-4">
             {Array.from({ length: 12 }).map((_, i) => (
               <div key={i} className="aspect-[4/3] bg-gray-800 animate-pulse rounded-xl" />
             ))}
@@ -132,7 +150,7 @@ export default function GalleryPage() {
       </section>
 
       <section className="max-w-6xl mx-auto px-4 mb-16">
-        <div className="columns-1 xs:columns-2 sm:columns-2 md:columns-3 xl:columns-4 gap-4">
+        <div className="grid grid-cols-3 xs:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 xs:gap-3 sm:gap-4">
           {shuffledMedia.map((item, index) => (
             <OptimizedMediaCard key={`${item.src}-${index}`} item={item} index={index} />
           ))}

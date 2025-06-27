@@ -11,6 +11,7 @@ type Media = { src: string; type: "image" | "video" };
 function LazyMedia({ item, isMobile = false }: { item: Media; isMobile?: boolean }) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -42,6 +43,21 @@ function LazyMedia({ item, isMobile = false }: { item: Media; isMobile?: boolean
     setImageError(true);
   };
 
+  const handleVideoClick = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        videoRef.current.play().catch(console.error);
+        setIsPlaying(true);
+      }
+    }
+  };
+
+  const handleVideoPlay = () => setIsPlaying(true);
+  const handleVideoPause = () => setIsPlaying(false);
+
   const heightClass = isMobile ? "h-24 xs:h-28 sm:h-32" : "h-72";
 
   return (
@@ -68,7 +84,7 @@ function LazyMedia({ item, isMobile = false }: { item: Media; isMobile?: boolean
           <div className={`w-full ${heightClass} bg-gray-800`} />
         )
       ) : (
-        <div className="relative">
+        <div className="relative cursor-pointer" onClick={handleVideoClick}>
           <video
             ref={videoRef}
             src={item.src}
@@ -77,9 +93,13 @@ function LazyMedia({ item, isMobile = false }: { item: Media; isMobile?: boolean
             loop
             playsInline
             preload="metadata"
+            onPlay={handleVideoPlay}
+            onPause={handleVideoPause}
           />
-          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-0" />
-          <Play className={`absolute inset-0 m-auto ${isMobile ? 'h-8 w-8' : 'h-14 w-14'} text-white bg-black/50 rounded-full p-2 transition-opacity group-hover:opacity-0`} />
+          <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all" />
+          {!isPlaying && (
+            <Play className={`absolute inset-0 m-auto ${isMobile ? 'h-8 w-8' : 'h-14 w-14'} text-white bg-black/50 rounded-full p-2 transition-opacity hover:bg-black/70`} />
+          )}
         </div>
       )}
     </div>
