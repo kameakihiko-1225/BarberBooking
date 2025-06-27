@@ -126,9 +126,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Admin: list all posts including inactive
   app.get('/api/blog-admin', async (req, res) => {
     try {
-      const allPosts = Array.from((storage as any).blogPosts.values())
-        .sort((a: any, b: any) => (b.createdAt?.getTime() || 0) - (a.createdAt?.getTime() || 0));
-      res.json(allPosts);
+      const allPosts = await storage.getBlogPosts();
+      // Sort by creation date, newest first
+      const sortedPosts = allPosts.sort((a, b) => 
+        new Date(b.createdAt || 0).getTime() - new Date(a.createdAt || 0).getTime()
+      );
+      res.json(sortedPosts);
     } catch (err) {
       console.error("Blog admin error:", err);
       res.status(500).json({ error: 'server-error' });
