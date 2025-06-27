@@ -87,7 +87,13 @@ export default function BlogSection() {
     }
   });
 
-  const posts = apiPosts.length>0 ? apiPosts.filter(p=>(p as any).active!==0).slice(0,6) : fallbackPosts;
+  // Use real blog posts from database, add excerpt generation
+  const posts = apiPosts.length > 0 
+    ? apiPosts.filter(p => (p as any).active !== 0).slice(0, 6).map(post => ({
+        ...post,
+        excerpt: post.excerpt || (post as any).content?.slice(0, 120) + '...' || ''
+      }))
+    : fallbackPosts;
 
   useEffect(()=>{containerRef.current?.scrollTo({left:0});},[]);
 
