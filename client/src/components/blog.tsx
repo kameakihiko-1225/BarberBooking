@@ -50,7 +50,7 @@ export function BlogCard({ post }: { post: BlogPostPreview }) {
   };
 
   return (
-    <div className="snap-start w-[320px] shrink-0 bg-deep-black rounded-2xl border border-[var(--premium-accent)]/40 hover:border-[var(--premium-accent)] hover:shadow-[0_4px_20px_rgba(205,127,50,0.3)] hover:scale-105 transition-transform duration-300 relative overflow-hidden group">
+    <div className="snap-start w-[320px] shrink-0 bg-deep-black rounded-2xl border border-[var(--premium-accent)]/40 hover:border-[var(--premium-accent)] hover:shadow-[0_4px_20px_rgba(205,127,50,0.3)] hover:scale-105 transition-transform duration-300 relative overflow-hidden group flex flex-col">
       {post.image && (
         <img 
           src={post.image} 
@@ -59,17 +59,21 @@ export function BlogCard({ post }: { post: BlogPostPreview }) {
           onError={handleImageError}
         />
       )}
-      <div className="p-4 text-white">
-        {post.tag && <span className="bg-[var(--premium-accent)] text-black text-xs px-3 py-1 rounded-full font-semibold uppercase">
-          {post.tag}
-        </span>}
-        <h3 className="mt-3 text-lg font-serif font-bold leading-snug group-hover:text-[var(--premium-accent)] transition-colors line-clamp-2">
-          {post.title}
-        </h3>
-        {post.excerpt && <p className="text-xs text-gray-300 mt-2 line-clamp-2">{post.excerpt}</p>}
-        <Link href={`/blog/${post.slug}`} className="inline-block mt-3 text-[var(--premium-accent)] text-sm font-medium hover:underline">
-          Read More →
-        </Link>
+      <div className="p-4 text-white flex flex-col flex-grow">
+        <div className="flex-grow">
+          {post.tag && <span className="bg-[var(--premium-accent)] text-black text-xs px-3 py-1 rounded-full font-semibold uppercase">
+            {post.tag}
+          </span>}
+          <h3 className="mt-3 text-lg font-serif font-bold leading-snug group-hover:text-[var(--premium-accent)] transition-colors line-clamp-2">
+            {post.title}
+          </h3>
+          {post.excerpt && <p className="text-xs text-gray-300 mt-2 line-clamp-2">{post.excerpt}</p>}
+        </div>
+        <div className="mt-4">
+          <Link href={`/blog/${post.slug}`} className="inline-block text-[var(--premium-accent)] text-sm font-medium hover:underline">
+            Read More →
+          </Link>
+        </div>
       </div>
     </div>
   );
