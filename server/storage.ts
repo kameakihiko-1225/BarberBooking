@@ -1,4 +1,4 @@
-import { users, inquiries, blogPosts, type User, type InsertUser, type Inquiry, type InsertInquiry, type BlogPost, type InsertBlogPost } from "@shared/schema";
+import { users, inquiries, blogPosts, mediaFiles, type User, type InsertUser, type Inquiry, type InsertInquiry, type BlogPost, type InsertBlogPost, type MediaFile } from "@shared/schema";
 import { db } from "./db";
 import { eq } from "drizzle-orm";
 
@@ -13,6 +13,7 @@ export interface IStorage {
   createBlogPost(post: InsertBlogPost): Promise<BlogPost>;
   updateBlogPost(id: number, post: Partial<InsertBlogPost>): Promise<BlogPost | undefined>;
   deleteBlogPost(id: number): Promise<boolean>;
+  getMediaFilesByRoute(route: string): Promise<MediaFile[]>;
 }
 
 export class MemStorage implements IStorage {

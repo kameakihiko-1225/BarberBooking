@@ -23,6 +23,14 @@ async function seed() {
         image: "/media/gallarey/IMG_4490.jpg",
         tag: "TOOLS",
         active: 1,
+      },
+      {
+        slug: "client-consultation-mastery",
+        title: "Client Consultation: The Art of Understanding What They Really Want",
+        content: "The difference between a good cut and a great one often comes down to the consultation. Here's how to decode client requests and exceed expectations.\n\n## Reading Between the Lines\n\n### Common Client Phrases and What They Mean\n- **\"Just a trim\"**: Usually means 1-2 inches off, but always confirm\n- **\"Something professional\"**: Conservative, workplace-appropriate styling\n- **\"Make me look younger\"**: Focus on modern techniques and face-framing\n- **\"Surprise me\"**: They trust you, but still set boundaries\n\n## The Perfect Consultation Process\n\n### Step 1: Listen First\n- Let the client explain their vision completely\n- Ask about their lifestyle and maintenance preferences\n- Discuss their hair history and previous experiences\n\n### Step 2: Assess and Advise\n- **Hair type and texture**: Work with natural patterns\n- **Face shape considerations**: Enhance their best features\n- **Professional requirements**: Respect workplace guidelines\n\n### Step 3: Set Realistic Expectations\n- Show reference photos when possible\n- Explain the process and timeline\n- Discuss maintenance requirements upfront\n\n## Handling Difficult Requests\n\n### When to Say No (Professionally)\n- **Unrealistic transformations**: Explain limitations honestly\n- **Damaged hair concerns**: Prioritize hair health\n- **Maintenance mismatches**: Guide toward sustainable options\n\n### Alternative Solutions\n- Suggest gradual changes over multiple visits\n- Offer styling tips for achieving desired looks\n- Recommend hair care products for at-home results\n\n## Building Long-Term Relationships\n\n**Document preferences**: Keep notes on what works\n**Follow up**: Check satisfaction after a few days\n**Educate**: Share styling and care tips\n**Evolve together**: Suggest updates as trends change\n\nGreat consultations create loyal clients who become your best marketing. At K&K Barber Academy, we teach the communication skills that separate professionals from amateurs.",
+        image: "/media/gallarey/IMG_3934.jpg",
+        tag: "BUSINESS",
+        active: 1,
       }
     ]);
 
