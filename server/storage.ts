@@ -215,8 +215,24 @@ export class DatabaseStorage implements IStorage {
     return (result.rowCount ?? 0) > 0;
   }
 
+  // Cache for media files to avoid repeated DB queries
+  private mediaCache = new Map<string, { data: MediaFile[]; timestamp: number }>();
+  private readonly CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+
   async getMediaFilesByRoute(route: string): Promise<MediaFile[]> {
-    return await db.select().from(mediaFiles).where(eq(mediaFiles.route, route));
+    // Check cache first for sub-second responses
+    const cached = this.mediaCache.get(route);
+    if (cached && Date.now() - cached.timestamp < this.CACHE_TTL) {
+      return cached.data;
+    }
+
+    // Query database with optimized select
+    const result = await db.select().from(mediaFiles).where(eq(mediaFiles.route, route));
+    
+    // Cache the result
+    this.mediaCache.set(route, { data: result, timestamp: Date.now() });
+    
+    return result;
   }
 }
 

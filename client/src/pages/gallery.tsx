@@ -91,7 +91,7 @@ function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
 }
 
 export default function GalleryPage() {
-  const { data: galleryData = [], isLoading } = useQuery<Media[]>({
+  const { data = [], isLoading } = useQuery<Media[]>({
     queryKey: ['media', 'gallery'],
     queryFn: async () => {
       const res = await fetch('/api/media/gallery');
@@ -99,11 +99,10 @@ export default function GalleryPage() {
       return res.json();
     },
     staleTime: 5 * 60 * 1000, // 5 minutes
-    cacheTime: 10 * 60 * 1000, // 10 minutes
   });
 
   // Shuffle media for varied display
-  const shuffledMedia = [...galleryData].sort(() => Math.random() - 0.5);
+  const shuffledMedia = [...data].sort(() => Math.random() - 0.5);
 
   if (isLoading) {
     return (
@@ -128,7 +127,7 @@ export default function GalleryPage() {
       <section className="text-center mb-20 px-4">
         <h1 className="font-serif text-5xl font-bold mb-4">Full <span className="premium-accent">Gallery</span></h1>
         <p className="text-gray-300 max-w-2xl mx-auto">
-          Explore our complete collection of {galleryData.length} professional works and training moments
+          Explore our complete collection of {data.length} professional works and training moments
         </p>
       </section>
 

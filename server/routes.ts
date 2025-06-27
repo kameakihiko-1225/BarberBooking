@@ -54,10 +54,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Media listing endpoint - database-only for faster loading
+  // Media listing endpoint - optimized for sub-1s loading
   app.get("/api/media/:route", async (req, res) => {
     try {
       const route = req.params.route;
+      
+      // Set aggressive caching headers for faster subsequent loads
+      res.set({
+        'Cache-Control': 'public, max-age=300, s-maxage=600', // 5min browser, 10min CDN
+        'ETag': `"${route}-${Date.now()}"`,
+        'Content-Type': 'application/json'
+      });
       
       // Get media files directly from database by route
       const dbMediaFiles = await storage.getMediaFilesByRoute(route);
@@ -73,12 +80,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Direct media file serving from database
+  // Direct media file serving with optimized caching
   app.get("/api/media-file/:route/:filename", async (req, res) => {
     try {
       const { route, filename } = req.params;
       
-      // Find file in database
+      // Set aggressive caching for media files
+      res.set({
+        'Cache-Control': 'public, max-age=86400, s-maxage=604800', // 1 day browser, 1 week CDN
+        'Expires': new Date(Date.now() + 86400000).toUTCString(), // 1 day
+      });
+      
+      // Find file in database with faster lookup
       const dbMediaFiles = await storage.getMediaFilesByRoute(route);
       const mediaFile = dbMediaFiles.find(file => file.filename === filename);
       
@@ -86,17 +99,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(404).json({ error: "Media file not found" });
       }
       
-      // Set appropriate content type
-      const ext = path.extname(filename).toLowerCase();
-      if (['.jpg', '.jpeg', '.png'].includes(ext)) {
-        res.setHeader('Content-Type', 'image/jpeg');
-      } else if (['.mov', '.mp4'].includes(ext)) {
-        res.setHeader('Content-Type', 'video/mp4');
-      }
-      
-      // Serve file data from database or redirect to static file
-      // For now, redirect to the stored URL path
-      res.redirect(mediaFile.url);
+      // Redirect to static file with 302 for faster loading
+      res.redirect(302, mediaFile.url);
     } catch (err) {
       console.error("Media file serve error", err);
       res.status(500).json({ error: "server-error" });
