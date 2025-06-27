@@ -186,12 +186,12 @@ export default function Navigation() {
                 ))}
           </div>
           
-          <Button className={`hidden md:block px-10 py-3 h-auto leading-none rounded-full font-semibold text-lg transition-all hover:scale-110 hover:shadow-lg ml-auto ${
+          <Button asChild className={`hidden md:block px-10 py-3 h-auto leading-none rounded-full font-semibold text-lg transition-all hover:scale-110 hover:shadow-lg ml-auto ${
             isHome && !isScrolled
               ? 'bg-[var(--premium-accent)] text-black hover:bg-[var(--premium-accent)]/80'
               : 'bg-[var(--premium-accent)] text-black hover:bg-[var(--premium-accent)]/70'
           }`}>
-            Enroll Now
+            <Link href="/contacts">Enroll Now</Link>
           </Button>
         </div>
       </nav>
@@ -239,14 +239,14 @@ export default function Navigation() {
                 </Link>
               ))}
           {isHome && (
-          <Button className={`bg-[var(--premium-accent)] text-black px-8 py-3 rounded-full font-medium mt-8 hover:bg-[var(--premium-accent)]/80 transition-all hover:scale-105 hover:shadow-lg transform ${
+          <Button asChild className={`bg-[var(--premium-accent)] text-black px-8 py-3 rounded-full font-medium mt-8 hover:bg-[var(--premium-accent)]/80 transition-all hover:scale-105 hover:shadow-lg transform ${
             isOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}
           style={{ 
             transitionDelay: isOpen ? '600ms' : '0ms',
             transitionProperty: 'transform, opacity, background-color, box-shadow'
           }}>
-            Enroll Now
+            <Link href="/contacts">Enroll Now</Link>
           </Button>) }
         </div>
         <Button

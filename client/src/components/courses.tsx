@@ -4,6 +4,7 @@ import { Clock, IdCard, Trophy, Briefcase, ChevronLeft, ChevronRight } from "luc
 import { useEffect, useRef, useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import { courses } from '@/data/courses';
+import { Link } from "wouter";
 
 // map icon string to actual component for display
 const iconMap: Record<string, JSX.Element> = {
@@ -138,8 +139,8 @@ export default function Courses() {
                 Join hundreds of successful graduates who've transformed their lives through our comprehensive training programs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="btn-shimmer bg-[var(--premium-accent)] text-black px-8 py-4 text-base md:text-lg rounded-full font-medium hover:bg-[var(--premium-accent)]/90 hover:scale-105 transition-all duration-300 shadow-lg">
-                  Schedule a Tour
+                <Button asChild className="btn-shimmer bg-[var(--premium-accent)] text-black px-8 py-4 text-base md:text-lg rounded-full font-medium hover:bg-[var(--premium-accent)]/90 hover:scale-105 transition-all duration-300 shadow-lg">
+                  <Link href="/contacts">Schedule a Tour</Link>
                 </Button>
                 <Button variant="outline" className="btn-shimmer border-2 border-[var(--premium-accent)] text-[var(--premium-accent)] px-8 py-4 text-base md:text-lg rounded-full font-medium hover:bg-[var(--premium-accent)] hover:text-black transition-all duration-300">
                   Download Brochure
