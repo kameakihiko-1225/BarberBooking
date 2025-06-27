@@ -7,7 +7,7 @@ import Home from "@/pages/home";
 import NotFound from "@/pages/not-found";
 import InstructorDetails from "@/pages/instructor-details";
 import AboutUs from "@/pages/about-us";
-import GalleryPage from "@/pages/gallery-page";
+import GalleryPage from "@/pages/gallery";
 import StudentsGalleryPage from "@/pages/students-gallery";
 import SuccessGalleryPage from "@/pages/success-gallery";
 import ContactsPage from "@/pages/contacts";

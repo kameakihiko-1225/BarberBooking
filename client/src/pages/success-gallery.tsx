@@ -5,33 +5,64 @@ import { Button } from '@/components/ui/button';
 
 type GalleryItem = { src: string; type: 'image' | 'video' };
 
-function LazyImage({ item, onLoaded }: { item: GalleryItem; onLoaded: (src: string) => void }) {
+function LazyImage({ item, index }: { item: GalleryItem; index: number }) {
   const { src } = item;
   const containerRef = useRef<HTMLDivElement>(null);
-  const [displaySrc] = useState<string>(src);
+  const imgRef = useRef<HTMLImageElement>(null);
+  const [inView, setInView] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) onLoaded(src);
-    }, { rootMargin: '400px' });
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          if (imgRef.current) {
+            imgRef.current.src = src;
+          }
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px', threshold: 0.1 }
+    );
     if (containerRef.current) observer.observe(containerRef.current);
     return () => observer.disconnect();
-  }, [displaySrc, src]);
+  }, [src]);
+
+  const animationDelay = Math.min(index * 50, 800);
 
   return (
     <div
       ref={containerRef}
-      className="mb-5 break-inside-avoid transform transition duration-700 ease-out"
+      className={`mb-5 break-inside-avoid transition-all duration-500 ease-out ${
+        inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+      style={{ 
+        transitionDelay: `${animationDelay}ms`,
+        willChange: 'transform, opacity'
+      }}
     >
-      {!displaySrc && <div className="w-full aspect-[3/4] rounded-xl bg-gray-800 animate-pulse" />}
-      {displaySrc && (
-        <img
-          src={displaySrc}
-          alt="success"
-          className="rounded-xl w-full h-auto hover:scale-105 transition-transform duration-300"
-          loading="lazy"
-          onLoad={() => onLoaded(src)}
-        />
+      {!error ? (
+        <div className="relative">
+          <img
+            ref={imgRef}
+            alt="success"
+            className={`rounded-xl w-full h-auto hover:scale-105 transition-all duration-300 ${
+              loaded ? 'opacity-100' : 'opacity-0'
+            }`}
+            onLoad={() => setLoaded(true)}
+            onError={() => setError(true)}
+            style={{ contentVisibility: 'auto' }}
+          />
+          {!loaded && inView && (
+            <div className="absolute inset-0 bg-gray-800 animate-pulse rounded-xl flex items-center justify-center">
+              <div className="w-6 h-6 border-2 border-[var(--premium-accent)] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className="w-full aspect-[3/4] bg-gray-800 rounded-xl" />
       )}
     </div>
   );
@@ -45,9 +76,6 @@ export default function SuccessGalleryPage() {
       return res.json();
     },
   });
-  const items = apiItems;
-  const [loadedSet, setLoadedSet] = useState<Set<string>>(new Set());
-  const handleLoaded = (src: string) => setLoadedSet((prev) => new Set(prev).add(src));
 
   return (
     <main className="pt-32 pb-20 bg-deep-black text-white">
@@ -61,14 +89,8 @@ export default function SuccessGalleryPage() {
       </section>
       <section className="max-w-6xl mx-auto px-4 mb-16">
         <div className="columns-1 xs:columns-2 sm:columns-2 md:columns-3 xl:columns-4 gap-4">
-          {items.map((m, idx) => (
-            <div
-              key={m.src}
-              className={`transition duration-700 ease-out ${loadedSet.has(m.src) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
-              style={{ transitionDelay: `${idx * 40}ms` }}
-            >
-              <LazyImage item={m} onLoaded={handleLoaded} />
-            </div>
+          {apiItems.map((item, index) => (
+            <LazyImage key={item.src} item={item} index={index} />
           ))}
         </div>
       </section>
