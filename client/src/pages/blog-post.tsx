@@ -65,8 +65,7 @@ export default function BlogPostPage() {
           <h1 className="text-3xl font-bold text-gray-800 mb-4">Article Not Found</h1>
           <p className="text-gray-600 mb-8">The article you're looking for doesn't exist.</p>
           <Link href="/blog" className="inline-flex items-center px-6 py-3 bg-[var(--premium-accent)] text-white rounded-full hover:bg-[var(--golden-bronze)] transition-colors">
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Blog
+            ← Back to Blog
           </Link>
         </div>
       </div>
@@ -138,7 +137,7 @@ export default function BlogPostPage() {
                 <p className="text-gray-600 mb-6">Join K&K Barber Academy and learn from industry professionals in our state-of-the-art facilities.</p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link href="/contacts" className="inline-flex items-center justify-center px-6 py-3 bg-[var(--premium-accent)] text-white rounded-full hover:bg-[var(--golden-bronze)] transition-all transform hover:scale-105">
-                    Apply Now
+                    Start Your Journey
                   </Link>
                   <Link href="/" className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-gray-700 rounded-full hover:border-[var(--premium-accent)] hover:text-[var(--premium-accent)] transition-colors">
                     Back to Home

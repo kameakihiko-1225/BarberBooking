@@ -105,7 +105,27 @@ export default function Testimonials() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Mobile horizontal scroll, desktop grid */}
+          <div className="md:hidden relative">
+            <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-4 pb-4">
+              {showcaseWorks.map((work) => (
+                <div key={work.id} className="flex-shrink-0 w-64 bg-white/10 rounded-xl p-4 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg snap-start">
+                  <img 
+                    src={work.image}
+                    alt={`${work.title} - ${work.subtitle}`}
+                    className="w-full h-32 object-cover rounded-lg mb-3 transition-transform duration-300 hover:scale-110 hover:brightness-110"
+                  />
+                  <div className="text-center">
+                    <div className="text-sm golden-bronze font-medium">{work.title}</div>
+                    <div className="text-xs text-gray-300">{work.subtitle}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Desktop grid */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {showcaseWorks.map((work) => (
               <div key={work.id} className="bg-white/10 rounded-xl p-4 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 <img 

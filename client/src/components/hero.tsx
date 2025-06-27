@@ -3,6 +3,7 @@ import { Play } from "lucide-react";
 import logoWhite from "@assets/K&K_Vertical_logotype_white_1750662689464.png";
 import { useEffect, useState } from "react";
 import { useParallax } from "@/hooks/use-parallax";
+import { Link } from "wouter";
 
 export default function Hero() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -63,8 +64,8 @@ export default function Hero() {
         <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center transform transition-all duration-1000 delay-700 ${
           isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}>
-          <Button className="btn-shimmer bg-[var(--premium-accent)] text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-[var(--premium-accent)]/80 transition-all transform hover:scale-105 hover:shadow-lg min-w-[200px]">
-            Start Your Journey
+          <Button asChild className="btn-shimmer bg-[var(--premium-accent)] text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-[var(--premium-accent)]/80 transition-all transform hover:scale-105 hover:shadow-lg min-w-[200px]">
+            <Link href="/contacts">Start Your Journey</Link>
           </Button>
           <Button 
             variant="outline" 
