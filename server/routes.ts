@@ -53,10 +53,22 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Media listing endpoint
+  // Media listing endpoint - database-backed for faster loading
   app.get("/api/media/:route", async (req, res) => {
     try {
       const route = req.params.route;
+      
+      // Try database first for faster loading
+      const dbMediaFiles = await storage.getMediaFilesByRoute(route);
+      if (dbMediaFiles.length > 0) {
+        const mediaList = dbMediaFiles.map(file => ({
+          src: file.url,
+          type: file.type as "image" | "video"
+        }));
+        return res.json(mediaList);
+      }
+      
+      // Fallback to file system if no database entries
       const list = await getMediaList(route);
       res.json(list);
     } catch (err) {

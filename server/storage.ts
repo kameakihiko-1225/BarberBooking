@@ -159,6 +159,11 @@ export class MemStorage implements IStorage {
   async deleteBlogPost(id: number): Promise<boolean> {
     return this.blogPosts.delete(id);
   }
+
+  async getMediaFilesByRoute(route: string): Promise<MediaFile[]> {
+    // MemStorage fallback - return empty array since media is file-based
+    return [];
+  }
 }
 
 export class DatabaseStorage implements IStorage {
@@ -208,6 +213,10 @@ export class DatabaseStorage implements IStorage {
   async deleteBlogPost(id: number): Promise<boolean> {
     const result = await db.delete(blogPosts).where(eq(blogPosts.id, id));
     return (result.rowCount ?? 0) > 0;
+  }
+
+  async getMediaFilesByRoute(route: string): Promise<MediaFile[]> {
+    return await db.select().from(mediaFiles).where(eq(mediaFiles.route, route));
   }
 }
 
