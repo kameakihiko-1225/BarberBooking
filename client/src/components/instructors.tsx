@@ -86,9 +86,13 @@ export default function Instructors() {
           <div ref={sliderRef} className="keen-slider pb-8">
             {instructors.map((instructor, index) => (
               <div key={instructor.id} className="keen-slider__slide">
-                <Link href={`/barber/${instructor.id}`} className={`bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-700 transform hover:scale-105 hover:border hover:border-[hsl(25,80%,60%)]/30 flex flex-col h-full ${
+                <Link href={`/barber/${instructor.id}`} className={`bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-700 transform hover:scale-105 hover:border hover:border-[hsl(25,80%,60%)]/30 flex flex-col h-full active:scale-95 touch-manipulation ${
                   isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
-                }`} style={{ transitionDelay: `${index * 150}ms` }}>
+                }`} style={{ 
+                  transitionDelay: `${index * 150}ms`,
+                  // Enhanced touch animations for mobile
+                  touchAction: 'manipulation'
+                }}>
                   <LazyImg src={instructor.image} alt={instructor.name} />
                   <div className="absolute inset-0 bg-gradient-to-b from-[var(--premium-accent)] to-[var(--golden-bronze)] opacity-0 group-hover:opacity-90 transition-opacity duration-500 pointer-events-none" />
                   

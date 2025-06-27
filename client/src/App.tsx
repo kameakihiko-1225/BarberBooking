@@ -31,8 +31,8 @@ function Router() {
       <Route path="/courses/:id" component={CourseDetails} />
       <Route path="/contacts" component={ContactsPage} />
       <Route path="/blog" component={BlogListPage} />
+      <Route path="/blog/admin/post" component={BlogAdmin} />
       <Route path="/blog/:slug" component={BlogPostPage} />
-      <Route path="/blog/post" component={BlogAdmin} />
       <Route component={NotFound} />
     </Switch>
   );
