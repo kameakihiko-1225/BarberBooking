@@ -42,7 +42,7 @@ function LazyMedia({ item, isMobile = false }: { item: Media; isMobile?: boolean
     setImageError(true);
   };
 
-  const heightClass = isMobile ? "h-32 sm:h-40" : "h-72";
+  const heightClass = isMobile ? "h-24 xs:h-28 sm:h-32" : "h-72";
 
   return (
     <div ref={containerRef} className="relative overflow-hidden group rounded-2xl">
@@ -139,10 +139,10 @@ export default function Gallery() {
       <div className="max-w-6xl mx-auto px-4 text-center">
         <h2 className="font-serif text-3xl md:text-5xl font-bold mb-12">Be an <span className="premium-accent">Icon</span></h2>
 
-        {/* Mobile Grid Layout */}
+        {/* Mobile Grid Layout - 3+ columns for iPhone SE */}
         {isMobile ? (
-          <div className="grid grid-cols-2 gap-2 sm:gap-4 mb-12">
-            {shuffledMedia.slice(0, 8).map((item, idx) => (
+          <div className="grid grid-cols-3 xs:grid-cols-4 sm:grid-cols-2 gap-1 xs:gap-2 sm:gap-4 mb-12">
+            {shuffledMedia.slice(0, 12).map((item, idx) => (
               <div key={`${item.src}-${idx}`} className="w-full">
                 <LazyMedia item={item} isMobile={true} />
               </div>
