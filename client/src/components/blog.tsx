@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'wouter';
 import { useQuery } from '@tanstack/react-query';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -40,24 +40,55 @@ export interface BlogPostPreview {
 }
 
 export function BlogCard({ post }: { post: BlogPostPreview }) {
-  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
-    const target = e.currentTarget;
-    target.style.display = 'none';
-    const parent = target.parentElement;
-    if (parent) {
-      parent.style.paddingTop = '1rem';
-    }
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const img = imgRef.current;
+    if (!img || !post.image) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          img.src = post.image!;
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(img);
+    return () => observer.disconnect();
+  }, [post.image]);
+
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  };
+
+  const handleImageError = () => {
+    setImageError(true);
   };
 
   return (
     <div className="snap-start w-[320px] shrink-0 bg-deep-black rounded-2xl border border-[var(--premium-accent)]/40 hover:border-[var(--premium-accent)] hover:shadow-[0_4px_20px_rgba(205,127,50,0.3)] hover:scale-105 transition-transform duration-300 relative overflow-hidden group flex flex-col">
-      {post.image && (
-        <img 
-          src={post.image} 
-          alt={post.title} 
-          className="w-full h-40 object-cover rounded-t-2xl group-hover:brightness-90 transition-all duration-300" 
-          onError={handleImageError}
-        />
+      {post.image && !imageError && (
+        <div className="relative w-full h-40 bg-gray-800 rounded-t-2xl overflow-hidden">
+          <img 
+            ref={imgRef}
+            alt={post.title} 
+            className={`w-full h-40 object-cover rounded-t-2xl group-hover:brightness-90 transition-all duration-1000 ${
+              imageLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
+            onLoad={handleImageLoad}
+            onError={handleImageError}
+          />
+          {!imageLoaded && (
+            <div className="absolute inset-0 bg-gray-800 rounded-t-2xl animate-pulse flex items-center justify-center">
+              <div className="w-8 h-8 border-2 border-[var(--premium-accent)] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          )}
+        </div>
       )}
       <div className="p-4 text-white flex flex-col flex-grow">
         <div className="flex-grow">
