@@ -65,51 +65,104 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get('/api/blog', async (req,res)=>{
+  // Blog endpoints using in-memory storage
+  app.get('/api/blog', async (req, res) => {
     try {
-      const posts = await db.select().from(blogPosts).orderBy(desc(blogPosts.createdAt));
+      const posts = await storage.getBlogPosts();
       res.json(posts);
-    } catch(err){res.status(500).json({error:'db'});} 
+    } catch (err) {
+      console.error("Blog posts error:", err);
+      res.status(500).json({ error: 'server-error' });
+    }
   });
 
-  app.get('/api/blog/:slug', async (req,res)=>{
-    try{
+  app.get('/api/blog/:slug', async (req, res) => {
+    try {
       const slug = req.params.slug;
-      const post = await db.select().from(blogPosts).where(eq(blogPosts.slug, slug)).limit(1);
-      if(post.length===0) return res.status(404).json({error:'not-found'});
-      res.json(post[0]);
-    }catch(err){res.status(500).json({error:'db'});} 
+      const post = await storage.getBlogPostBySlug(slug);
+      if (!post) return res.status(404).json({ error: 'not-found' });
+      res.json(post);
+    } catch (err) {
+      console.error("Blog post error:", err);
+      res.status(500).json({ error: 'server-error' });
+    }
   });
 
-  app.post('/api/blog', async (req,res)=>{
-    const {slug,title,content,image} = req.body;
-    if(!slug||!title||!content) return res.status(400).json({error:'fields'});
-    try{
-      await db.insert(blogPosts).values({slug,title,content});
-      res.json({ok:true});
-    }catch(err){res.status(500).json({error:'db'});} 
+  app.post('/api/blog', async (req, res) => {
+    try {
+      const { slug, title, content, image, tag } = req.body;
+      if (!slug || !title || !content) {
+        return res.status(400).json({ error: 'Missing required fields' });
+      }
+      
+      const blogPost = await storage.createBlogPost({
+        slug,
+        title,
+        content,
+        image: image || null,
+        tag: tag || null,
+        active: 1
+      });
+      
+      res.json({ success: true, post: blogPost });
+    } catch (err) {
+      console.error("Create blog post error:", err);
+      res.status(500).json({ error: 'server-error' });
+    }
   });
 
-  // Admin: list all including inactive
-  app.get('/api/blog-admin', async (req,res)=>{
-    try{const posts=await db.select().from(blogPosts);res.json(posts);}catch(err){res.status(500).json({error:'db'});}
+  // Admin: list all posts including inactive
+  app.get('/api/blog-admin', async (req, res) => {
+    try {
+      const allPosts = Array.from((storage as any).blogPosts.values())
+        .sort((a: any, b: any) => (b.createdAt?.getTime() || 0) - (a.createdAt?.getTime() || 0));
+      res.json(allPosts);
+    } catch (err) {
+      console.error("Blog admin error:", err);
+      res.status(500).json({ error: 'server-error' });
+    }
   });
 
   // Update post
-  app.put('/api/blog/:id', async (req,res)=>{
-    const id = Number(req.params.id);
-    const {title,content,image,active} = req.body;
-    try{
-      await db.update(blogPosts).set({title,content,image,active,updatedAt:new Date()}).where(eq(blogPosts.id,id));
-      res.json({ok:true});
-    }catch(err){res.status(500).json({error:'db'});} 
+  app.put('/api/blog/:id', async (req, res) => {
+    try {
+      const id = Number(req.params.id);
+      const { title, content, image, tag, active } = req.body;
+      
+      const updatedPost = await storage.updateBlogPost(id, {
+        title,
+        content,
+        image,
+        tag,
+        active
+      });
+      
+      if (!updatedPost) {
+        return res.status(404).json({ error: 'Post not found' });
+      }
+      
+      res.json({ success: true, post: updatedPost });
+    } catch (err) {
+      console.error("Update blog post error:", err);
+      res.status(500).json({ error: 'server-error' });
+    }
   });
 
   // Delete post
-  app.delete('/api/blog/:id', async (req,res)=>{
-    const id = Number(req.params.id);
-    try{await db.delete(blogPosts).where(eq(blogPosts.id,id));res.json({ok:true});}
-    catch(err){res.status(500).json({error:'db'});} 
+  app.delete('/api/blog/:id', async (req, res) => {
+    try {
+      const id = Number(req.params.id);
+      const deleted = await storage.deleteBlogPost(id);
+      
+      if (!deleted) {
+        return res.status(404).json({ error: 'Post not found' });
+      }
+      
+      res.json({ success: true });
+    } catch (err) {
+      console.error("Delete blog post error:", err);
+      res.status(500).json({ error: 'server-error' });
+    }
   });
 
   const httpServer = createServer(app);

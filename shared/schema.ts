@@ -34,6 +34,7 @@ export const blogPosts = pgTable("blog_posts", {
   title: text("title").notNull(),
   content: text("content").notNull(),
   image: text("image"),
+  tag: text("tag"),
   active: integer("active").default(1),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
@@ -47,6 +48,12 @@ export const insertUserSchema = createInsertSchema(users).pick({
 export const insertInquirySchema = createInsertSchema(inquiries).omit({
   id: true,
   createdAt: true,
+});
+
+export const insertBlogPostSchema = createInsertSchema(blogPosts).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
 });
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
