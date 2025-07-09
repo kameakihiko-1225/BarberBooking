@@ -5,70 +5,17 @@ import { Link } from "wouter";
 import { useKeenSlider } from "keen-slider/react";
 import { instructors as instructorData } from "@/data/instructors";
 import { useQuery } from "@tanstack/react-query";
-import { Facebook, Instagram, MessageCircle } from "lucide-react";
 
-function InstructorCard({ instructor, index, isVisible }: { 
-  instructor: any; 
-  index: number; 
-  isVisible: boolean; 
-}) {
+function LazyImg({ src, alt }: { src: string; alt: string }) {
+  const containerRef = useRef<HTMLDivElement>(null);
   return (
-    <div className={`group relative bg-black rounded-lg overflow-hidden border-l-4 border-[#FF6A00] transition-all duration-700 hover:shadow-xl transform hover:scale-105 ${
-      isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
-    }`} style={{ 
-      transitionDelay: `${index * 150}ms`
-    }}>
-      {/* Image Container */}
-      <div className="relative h-80 overflow-hidden">
-        <img
-          src={instructor.image}
-          alt={instructor.name}
-          className="w-full h-full object-cover transition-all duration-500 filter grayscale group-hover:grayscale-0 group-hover:scale-110"
-          loading="lazy"
-        />
-        
-        {/* Social Media Icons Overlay */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/20">
-          <div className="flex space-x-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-            {instructor.socials?.facebook && (
-              <a
-                href={instructor.socials.facebook}
-                className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Facebook className="w-6 h-6 text-blue-600" />
-              </a>
-            )}
-            {instructor.socials?.instagram && (
-              <a
-                href={instructor.socials.instagram}
-                className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Instagram className="w-6 h-6 text-pink-600" />
-              </a>
-            )}
-            {instructor.socials?.whatsapp && (
-              <a
-                href={instructor.socials.whatsapp}
-                className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <MessageCircle className="w-6 h-6 text-green-600" />
-              </a>
-            )}
-          </div>
-        </div>
-      </div>
-      
-      {/* Orange Background on Hover */}
-      <div className="absolute bottom-0 left-0 right-0 bg-black transition-all duration-500 group-hover:bg-[#FF6A00] p-6">
-        <h3 className="text-xl font-bold text-white mb-2">{instructor.name}</h3>
-        <p className="text-gray-300 group-hover:text-white transition-colors">{instructor.title}</p>
-      </div>
+    <div ref={containerRef} className="relative overflow-hidden h-64">
+      <img
+        src={src}
+        alt={alt}
+        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 hover:brightness-110"
+        loading="lazy"
+      />
     </div>
   );
 }
@@ -139,11 +86,35 @@ export default function Instructors() {
           <div ref={sliderRef} className="keen-slider pb-8">
             {instructors.map((instructor, index) => (
               <div key={instructor.id} className="keen-slider__slide">
-                <InstructorCard 
-                  instructor={instructor} 
-                  index={index} 
-                  isVisible={isVisible} 
-                />
+                <Link href={`/barber/${instructor.id}`} className={`bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-700 transform hover:scale-105 hover:border hover:border-[hsl(25,80%,60%)]/30 flex flex-col h-full active:scale-95 touch-manipulation ${
+                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
+                }`} style={{ 
+                  transitionDelay: `${index * 150}ms`,
+                  // Enhanced touch animations for mobile
+                  touchAction: 'manipulation'
+                }}>
+                  <LazyImg src={instructor.image} alt={instructor.name} />
+                  <div className="absolute inset-0 bg-gradient-to-b from-[var(--premium-accent)] to-[var(--golden-bronze)] opacity-0 group-hover:opacity-90 transition-opacity duration-500 pointer-events-none" />
+                  
+                  <div className="absolute bottom-0 left-0 right-0 bg-black/70 backdrop-blur-md text-center p-6 pt-10 translate-y-full group-hover:translate-y-0 transition-all duration-500">
+                    <h3 className="font-serif text-xl font-bold mb-1 text-white">{instructor.name}</h3>
+                    <p className="premium-accent font-medium mb-2">{instructor.title}</p>
+                    <p className="text-gray-300 text-sm mb-4 line-clamp-2">
+                      {instructor.experience}
+                    </p>
+                    <div className="flex justify-center space-x-4">
+                      {instructor.socials.map((social, index) => (
+                        <a 
+                          key={index}
+                          href={social.href} 
+                          className="text-gray-400 hover:text-[var(--premium-accent)] transition-transform duration-200 hover:scale-125"
+                        >
+                          {social.icon}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </Link>
               </div>
             ))}
           </div>

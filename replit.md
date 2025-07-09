@@ -106,6 +106,23 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+**July 09, 2025 - Instructor Section Redesign & Gallery Layout Updates**
+- Completely redesigned instructor cards to match provided design specifications
+- Implemented black and white images with grayscale filter that transitions to color on hover
+- Added orange (#FF6A00) background transition on hover/focus states
+- Integrated social media icons (Facebook, Instagram, WhatsApp) with slide-in animations
+- Updated instructor data structure to support new social media format
+- Created dark background cards with thin left border lines matching design requirements
+- Cleared existing instructor data in preparation for new instructor entries
+- Enhanced mobile touch interactions with proper hover states for desktop
+
+**June 27, 2025 - Parallel Gallery Layout Implementation**
+- Converted student stories and success stories to parallel, non-proportional gallery view
+- Replaced aspect-ratio responsive grid with fixed-height uniform display (h-48/h-56/h-64)
+- All images now display in consistent rectangular frames with object-cover cropping
+- Implemented 2-5 column responsive grid layout with enhanced spacing
+- Fixed success stories media file serving by copying files to static directory
+
 **June 27, 2025 - Gallery System Enhancement & Video Functionality**
 - Fixed video play button functionality across all gallery pages with working click handlers
 - Implemented 3+ column responsive grid layout for iPhone SE resolution (grid-cols-3 xs:grid-cols-4)
