@@ -115,15 +115,17 @@ Preferred communication style: Simple, everyday language.
 - Enhanced course cards with calendar section between details and enroll button
 - Updated course data structure to include localName and upcomingDates fields
 
-**July 09, 2025 - Instructor Section Redesign & Gallery Layout Updates**
+**July 09, 2025 - Instructor Section Redesign & Image Mapping Fixes**
 - Completely redesigned instructor cards to match provided design specifications
 - Implemented black and white images with grayscale filter that transitions to color on hover
 - Added orange (#FF6A00) background transition on hover/focus states
 - Integrated social media icons (Facebook, Instagram, WhatsApp) with slide-in animations
 - Updated instructor data structure to support new social media format
 - Created dark background cards with thin left border lines matching design requirements
-- Cleared existing instructor data in preparation for new instructor entries
+- Added 5 real instructors: Richer Karimov, Apo Karimov, Bartosz Kaczorowski, Ali Karimov, Tomasz Kaczorowski
+- Fixed instructor image mapping issues by correctly indexing alphabetically sorted asset files
 - Enhanced mobile touch interactions with proper hover states for desktop
+- Integrated real instructor database into course detail pages replacing placeholder data
 
 **June 27, 2025 - Parallel Gallery Layout Implementation**
 - Converted student stories and success stories to parallel, non-proportional gallery view
