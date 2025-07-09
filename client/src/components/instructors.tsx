@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import { useKeenSlider } from "keen-slider/react";
 import { instructors as instructorData } from "@/data/instructors";
-import { useQuery } from "@tanstack/react-query";
 import { Facebook, Instagram, MessageCircle } from "lucide-react";
 
 function InstructorCard({ instructor, index, isVisible }: { 
@@ -87,17 +86,8 @@ export default function Instructors() {
     renderMode: "performance",
   });
 
-  const { data: media = [] } = useQuery<{src:string,type:string}[]>({
-    queryKey: ['media','instructors'],
-    queryFn: async () => {
-      const res = await fetch('/api/media/instructors');
-      return res.json();
-    },
-  });
-
-  const images = media.filter((m) => m.type === 'image').map((m) => m.src);
-
-  const instructors = instructorData.map((inst, idx) => ({...inst, image: images[idx % images.length] || inst.image}));
+  // Use the instructor data directly with their proper images
+  const instructors = instructorData;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
