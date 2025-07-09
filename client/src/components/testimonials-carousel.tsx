@@ -7,7 +7,6 @@ interface Testimonial {
   quote: string;
   name: string;
   title: string;
-  image: string;
 }
 
 const testimonials: Testimonial[] = [
@@ -17,44 +16,83 @@ const testimonials: Testimonial[] = [
       "The best place in Warsaw to quickly and above all well learn a profession from scratch. I have just finished the course, the guys helped with funding for the course and found me a job immediately after finishing. I highly recommend and thank you!",
     name: "Angelika Ziółkowska",
     title: "Graduate • 5-star Google Review",
-    image:
-      "https://images.unsplash.com/photo-1494790108755-2616c056ca58?auto=format&fit=crop&w=100&h=100",
   },
   {
     id: 2,
     quote:
-      "Elite Barber Academy changed my life completely. The hands-on training and business coaching helped me open my own shop within 6 months of graduating.",
-    name: "Alex Johnson",
-    title: "Class of 2023 • Shop Owner",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&h=100",
+      "I had the pleasure of taking part in a 3-day training course under the supervision of Tomek and Ali. I am delighted with the effects of the training. Great atmosphere and great educators. The boys gave us a huge dose of knowledge and tips on creating a portfolio. I highly recommend it!",
+    name: "Agata Antoniewicz",
+    title: "Graduate • 5-star Google Review",
   },
   {
     id: 3,
     quote:
-      "The program exceeded all my expectations. I landed a position at a top-tier barbershop immediately after graduation.",
-    name: "Maria Santos",
-    title: "Class of 2023 • Master Barber",
-    image:
-      "https://images.unsplash.com/photo-1494790108755-2616c056ca58?auto=format&fit=crop&w=100&h=100",
+      "Despite the time that has passed since the end of the course, I decided to leave a review. I participated in the month-long 'Barber from scratch' course at K&K Academy, and I am very impressed with the level of professionalism and quality of the training. Educators Tomek, Bartek and Ali demonstrated not only theoretical knowledge, but also impressive practical skills. Now, 6 months after completing the course, I successfully run my own salon and I am glad that I had the opportunity to participate in the course from scratch with the guys.",
+    name: "Sharp Cut Barber",
+    title: "Salon Owner • 5-star Google Review",
   },
   {
     id: 4,
     quote:
-      "From day one the instructors felt like mentors. Their support continues well past graduation!",
-    name: "Daniel Green",
-    title: "Class of 2022 • Freelance Barber",
-    image:
-      "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=100&h=100",
+      "Today I would like to share my opinion about the barbering and beard cutting course that I recently completed. I must say that it was an amazing adventure full of new skills and knowledge. The course provided me with a solid foundation in beard cutting, styling and care of beard and hair. Throughout the course, the instructors were extremely professional and passionate in passing on their knowledge. I am now confident that I will be able to offer my clients the best quality of service when it comes to haircuts.",
+    name: "Martyna Wódarczyk",
+    title: "Graduate • 5-star Google Review",
   },
   {
     id: 5,
     quote:
-      "State-of-the-art facilities and real-world business lessons—you won't find better training.",
-    name: "Emily Clarke",
-    title: "Class of 2021 • Barbershop Owner",
-    image:
-      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=100&h=100",
+      "I am very happy that I had the opportunity to meet the guys and work with them, both during the course and every day at work. There is always a great atmosphere in the salon, which is due to the energy emanating from the entire team. I worked particularly well with the main teacher, Bartek, who is great at conveying knowledge. I highly recommend barber training from scratch and further training.",
+    name: "Mikołaj Grzejda",
+    title: "Graduate • 5-star Google Review",
+  },
+  {
+    id: 6,
+    quote:
+      "I am very satisfied with the training at K&K Academy, 3 days full of knowledge. Tomek and Ali put their whole hearts into giving us as much knowledge as possible, in addition, a great atmosphere, thank you very much again.",
+    name: "Aleksandra Springer",
+    title: "Graduate • 5-star Google Review",
+  },
+  {
+    id: 7,
+    quote:
+      "I recommend it, it's a great place, I've completed the course with the guys and I'm very satisfied. They taught me everything from scratch and made sure I left with as much knowledge as possible! I recommend it to everyone!",
+    name: "Miłosz Rybakiewicz",
+    title: "Graduate • 5-star Google Review",
+  },
+  {
+    id: 8,
+    quote:
+      "Perfect training. Great professionalism.",
+    name: "Marcin Budzyński",
+    title: "Graduate • 5-star Google Review",
+  },
+  {
+    id: 9,
+    quote:
+      "Very interesting and professional training. You can see that the presenters love what they do.",
+    name: "Justyna Bielska",
+    title: "Graduate • 5-star Google Review",
+  },
+  {
+    id: 10,
+    quote:
+      "Great course and nice professional teachers.",
+    name: "Jakub Kacperski",
+    title: "Graduate • 5-star Google Review",
+  },
+  {
+    id: 11,
+    quote:
+      "Great course, as always you leave satisfied. I recommend!",
+    name: "Bartosz Olechnowicz",
+    title: "Graduate • 5-star Google Review",
+  },
+  {
+    id: 12,
+    quote:
+      "Today I was a model at a barbering training and I honestly really liked it. The hairstyle was perfect, the beard was nicely trimmed. Nice atmosphere, I recommend it and I will definitely come back.",
+    name: "Adrian Mikołajczyk",
+    title: "Training Model • 5-star Google Review",
   },
 ];
 
@@ -82,16 +120,9 @@ export default function TestimonialsCarousel() {
               <p className="text-gray-700 text-lg leading-relaxed mb-8 mt-6 group-hover:translate-y-[-4px] transition-transform duration-300">
                 " {t.quote} "
               </p>
-              <div className="flex items-center space-x-4 pt-4 border-t border-gray-200">
-                <img
-                  src={t.image}
-                  className="w-12 h-12 rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-300 ring-2 ring-[var(--premium-accent)]"
-                  alt={t.name}
-                />
-                <div>
-                  <div className="font-semibold text-deep-black">{t.name}</div>
-                  <div className="text-sm text-gray-600">{t.title}</div>
-                </div>
+              <div className="pt-4 border-t border-gray-200">
+                <div className="font-semibold text-deep-black">{t.name}</div>
+                <div className="text-sm text-gray-600">{t.title}</div>
               </div>
             </div>
           </div>

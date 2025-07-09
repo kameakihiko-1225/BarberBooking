@@ -9,15 +9,19 @@ const testimonials = [
     id: 1,
     quote: "The best place in Warsaw to quickly and above all well learn a profession from scratch. I have just finished the course, the guys helped with funding for the course and found me a job immediately after finishing. I highly recommend and thank you!",
     name: "Angelika Ziółkowska",
-    title: "Graduate • 5-star Google Review",
-    image: "https://images.unsplash.com/photo-1494790108755-2616c056ca58?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100"
+    title: "Graduate • 5-star Google Review"
   },
   {
     id: 2,
-    quote: "Elite Barber Academy changed my life completely. The hands-on training and business coaching helped me open my own shop within 6 months of graduating. The instructors truly care about your success.",
-    name: "Alex Johnson",
-    title: "Class of 2023 • Shop Owner",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100"
+    quote: "Despite the time that has passed since the end of the course, I decided to leave a review. I participated in the month-long 'Barber from scratch' course at K&K Academy, and I am very impressed with the level of professionalism and quality of the training. Now, 6 months after completing the course, I successfully run my own salon.",
+    name: "Sharp Cut Barber",
+    title: "Salon Owner • 5-star Google Review"
+  },
+  {
+    id: 3,
+    quote: "I am very happy that I had the opportunity to meet the guys and work with them. There is always a great atmosphere in the salon. I worked particularly well with the main teacher, Bartek, who is great at conveying knowledge. I highly recommend barber training from scratch.",
+    name: "Mikołaj Grzejda",
+    title: "Graduate • 5-star Google Review"
   }
 ];
 
