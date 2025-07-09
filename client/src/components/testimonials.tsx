@@ -7,17 +7,17 @@ import { Link } from "wouter";
 const testimonials = [
   {
     id: 1,
+    quote: "The best place in Warsaw to quickly and above all well learn a profession from scratch. I have just finished the course, the guys helped with funding for the course and found me a job immediately after finishing. I highly recommend and thank you!",
+    name: "Angelika Ziółkowska",
+    title: "Graduate • 5-star Google Review",
+    image: "https://images.unsplash.com/photo-1494790108755-2616c056ca58?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100"
+  },
+  {
+    id: 2,
     quote: "Elite Barber Academy changed my life completely. The hands-on training and business coaching helped me open my own shop within 6 months of graduating. The instructors truly care about your success.",
     name: "Alex Johnson",
     title: "Class of 2023 • Shop Owner",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100"
-  },
-  {
-    id: 2,
-    quote: "The program exceeded all my expectations. Not only did I learn cutting-edge techniques, but the career placement program helped me land a position at a top-tier barbershop immediately after graduation.",
-    name: "Maria Santos",
-    title: "Class of 2023 • Master Barber",
-    image: "https://images.unsplash.com/photo-1494790108755-2616c056ca58?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100"
   }
 ];
 

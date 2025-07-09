@@ -14,6 +14,15 @@ const testimonials: Testimonial[] = [
   {
     id: 1,
     quote:
+      "The best place in Warsaw to quickly and above all well learn a profession from scratch. I have just finished the course, the guys helped with funding for the course and found me a job immediately after finishing. I highly recommend and thank you!",
+    name: "Angelika Ziółkowska",
+    title: "Graduate • 5-star Google Review",
+    image:
+      "https://images.unsplash.com/photo-1494790108755-2616c056ca58?auto=format&fit=crop&w=100&h=100",
+  },
+  {
+    id: 2,
+    quote:
       "Elite Barber Academy changed my life completely. The hands-on training and business coaching helped me open my own shop within 6 months of graduating.",
     name: "Alex Johnson",
     title: "Class of 2023 • Shop Owner",
@@ -21,7 +30,7 @@ const testimonials: Testimonial[] = [
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&h=100",
   },
   {
-    id: 2,
+    id: 3,
     quote:
       "The program exceeded all my expectations. I landed a position at a top-tier barbershop immediately after graduation.",
     name: "Maria Santos",
@@ -30,7 +39,7 @@ const testimonials: Testimonial[] = [
       "https://images.unsplash.com/photo-1494790108755-2616c056ca58?auto=format&fit=crop&w=100&h=100",
   },
   {
-    id: 3,
+    id: 4,
     quote:
       "From day one the instructors felt like mentors. Their support continues well past graduation!",
     name: "Daniel Green",
@@ -39,7 +48,7 @@ const testimonials: Testimonial[] = [
       "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=100&h=100",
   },
   {
-    id: 4,
+    id: 5,
     quote:
       "State-of-the-art facilities and real-world business lessons—you won't find better training.",
     name: "Emily Clarke",
