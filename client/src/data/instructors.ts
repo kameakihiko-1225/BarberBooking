@@ -35,7 +35,7 @@ export const instructors: Instructor[] = [
     title: "Master Barber & Stylist",
     about: "Expert in modern cutting techniques and classic barbering styles with years of professional experience.",
     experience: "Professional barber specializing in precision cuts and contemporary styling.",
-    image: img(0),
+    image: img(3), // richer-karimov.jpg is at index 3 alphabetically
     socials: {
       instagram: "https://www.instagram.com/richiibarber?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
       facebook: "https://www.facebook.com/share/15mZ9ssWit/"
@@ -47,7 +47,7 @@ export const instructors: Instructor[] = [
     title: "Senior Barber Instructor",
     about: "Passionate educator and skilled barber dedicated to training the next generation of professionals.",
     experience: "Experienced barber and instructor with expertise in advanced cutting techniques.",
-    image: img(1),
+    image: img(1), // apo-karimov.jpg is at index 1 alphabetically
     socials: {
       instagram: "https://www.instagram.com/apo_barber_1?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
       facebook: "https://www.facebook.com/share/155ip3Nqqso/"
@@ -59,7 +59,7 @@ export const instructors: Instructor[] = [
     title: "Hair Specialist",
     about: "Creative stylist with a focus on modern trends and personalized client experiences.",
     experience: "Skilled barber specializing in creative cuts and contemporary hair styling.",
-    image: img(2),
+    image: img(2), // bartosz-kaczorowski.jpg is at index 2 alphabetically
     socials: {
       instagram: "https://www.instagram.com/b_kaczorowski_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
       facebook: "https://www.facebook.com/share/1C2myzJQ4R/"
@@ -71,7 +71,7 @@ export const instructors: Instructor[] = [
     title: "Professional Barber",
     about: "Dedicated professional with expertise in both traditional and modern barbering techniques.",
     experience: "Experienced barber with a passion for delivering exceptional grooming services.",
-    image: img(3),
+    image: img(0), // ali-karimov.jpg is at index 0 alphabetically
     socials: {
       instagram: "https://www.instagram.com/ali.barber.pl?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
       facebook: "https://www.facebook.com/share/16XjuEoG1z/"
@@ -83,7 +83,7 @@ export const instructors: Instructor[] = [
     title: "Barber & Educator",
     about: "Experienced professional combining hands-on barbering skills with teaching excellence.",
     experience: "Professional barber and educator committed to sharing knowledge and skills.",
-    image: img(4),
+    image: img(4), // tomasz-kaczorowski.jpg is at index 4 alphabetically
     socials: {
       instagram: "https://www.instagram.com/kaczorowski.brb?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
       facebook: "https://www.facebook.com/share/1F1QKoCWcp/"
