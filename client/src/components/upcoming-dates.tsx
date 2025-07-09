@@ -3,11 +3,10 @@ import { useState } from "react";
 
 interface UpcomingDatesProps {
   courseName: string;
-  localName: string;
   dates: string[];
 }
 
-export function UpcomingDates({ courseName, localName, dates }: UpcomingDatesProps) {
+export function UpcomingDates({ courseName, dates }: UpcomingDatesProps) {
   const [showAll, setShowAll] = useState(false);
   const displayDates = showAll ? dates : dates.slice(0, 6);
 
@@ -37,7 +36,6 @@ export function UpcomingDates({ courseName, localName, dates }: UpcomingDatesPro
       <div className="flex items-center gap-2 mb-4">
         <Calendar className="h-4 w-4 text-[var(--premium-accent)]" />
         <h4 className="font-semibold text-deep-black">Upcoming Dates</h4>
-        <span className="text-sm text-gray-500 font-medium">({localName})</span>
       </div>
       
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 mb-6">

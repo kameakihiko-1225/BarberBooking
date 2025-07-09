@@ -169,7 +169,6 @@ export default function CourseDetails() {
             <div className="max-w-2xl mx-auto">
               <UpcomingDates 
                 courseName={course.title}
-                localName={course.localName}
                 dates={course.upcomingDates}
               />
               
