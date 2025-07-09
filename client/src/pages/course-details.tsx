@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { CheckCircle, Gift, BookOpen, Users, Scissors, Trophy, Briefcase, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
+import { UpcomingDates } from '@/components/upcoming-dates';
 
 type MediaItem = { src: string; type: 'image' | 'video' };
 
@@ -154,6 +155,33 @@ export default function CourseDetails() {
             >
               <a href="/contacts">Enroll Now</a>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Upcoming Course Dates */}
+      <section className="px-4 mb-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
+            <h2 className="font-serif text-3xl font-bold text-center mb-2">Course Schedule</h2>
+            <p className="text-gray-600 text-center mb-8">Select your preferred start date</p>
+            
+            <div className="max-w-2xl mx-auto">
+              <UpcomingDates 
+                courseName={course.title}
+                localName={course.localName}
+                dates={course.upcomingDates}
+              />
+              
+              <div className="mt-8 text-center">
+                <Button
+                  asChild
+                  className="btn-shimmer bg-[var(--premium-accent)] text-black px-8 py-3 rounded-full font-medium hover:bg-[var(--premium-accent)]/80 transition-all"
+                >
+                  <a href="/contacts">Reserve Your Spot</a>
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </section>

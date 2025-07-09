@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import { courses } from '@/data/courses';
 import { Link } from "wouter";
-import { UpcomingDates } from "./upcoming-dates";
 
 // map icon string to actual component for display
 const iconMap: Record<string, JSX.Element> = {
@@ -101,19 +100,10 @@ export default function Courses() {
                         <span>{course.certification}</span>
                       </div>
                     </div>
-
-                    {/* Upcoming Dates Calendar */}
-                    <UpcomingDates 
-                      courseName={course.title}
-                      localName={course.localName}
-                      dates={course.upcomingDates}
-                    />
                     
-                    <div className="mt-6">
-                      <Button asChild className={`btn-shimmer w-full py-3 rounded-full font-medium transition-all hover:scale-105 hover:shadow-lg ${course.buttonStyle}`}>
-                        <a href={`/courses/${course.id}`}>Enroll Now</a>
-                      </Button>
-                    </div>
+                    <Button asChild className={`btn-shimmer w-full py-3 rounded-full font-medium transition-all hover:scale-105 hover:shadow-lg mt-auto ${course.buttonStyle}`}>
+                      <a href={`/courses/${course.id}`}>Enroll Now</a>
+                    </Button>
                   </div>
                 </div>
               </div>

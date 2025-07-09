@@ -40,28 +40,30 @@ export function UpcomingDates({ courseName, localName, dates }: UpcomingDatesPro
         <span className="text-sm text-gray-500 font-medium">({localName})</span>
       </div>
       
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 mb-6">
         {displayDates.map((date, index) => {
           const formattedDate = formatDate(date);
           return (
             <div
               key={index}
               className="group relative bg-gradient-to-br from-[var(--premium-accent)]/5 to-[var(--premium-accent)]/10 
-                       border border-[var(--premium-accent)]/20 rounded-lg p-3 text-center 
-                       hover:shadow-md hover:scale-105 transition-all duration-300 cursor-pointer
-                       hover:bg-[var(--premium-accent)]/10"
+                       border border-[var(--premium-accent)]/20 rounded-xl p-4 text-center 
+                       hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer
+                       hover:bg-[var(--premium-accent)]/15 hover:border-[var(--premium-accent)]/40"
             >
-              <div className="text-xl font-bold text-deep-black">{formattedDate.day}</div>
+              <div className="text-2xl font-bold text-deep-black mb-1">{formattedDate.day}</div>
               <div className="text-xs text-[var(--premium-accent)] font-medium uppercase tracking-wide">
                 {formattedDate.monthShort}
               </div>
               
               {/* Hover tooltip */}
-              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 
-                            bg-deep-black text-white px-2 py-1 rounded text-xs 
+              <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 
+                            bg-deep-black text-white px-3 py-2 rounded-lg text-xs 
                             opacity-0 group-hover:opacity-100 transition-opacity duration-200
-                            pointer-events-none whitespace-nowrap z-10">
+                            pointer-events-none whitespace-nowrap z-10 shadow-lg">
                 {formattedDate.day} {formattedDate.month}
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 
+                              border-l-4 border-r-4 border-t-4 border-transparent border-t-deep-black"></div>
               </div>
             </div>
           );
