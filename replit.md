@@ -106,6 +106,15 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+**July 09, 2025 - Course Calendar Integration & Instructor Section Redesign**
+- Implemented upcoming course dates calendar view for all courses
+- Added UpcomingDates component with elegant badge-style date layout
+- Integrated Uzbek local course names with English titles (1 oylik kurs uchun, etc.)
+- Created responsive grid calendar with hover effects and tooltips
+- Added show more/less functionality for courses with many dates
+- Enhanced course cards with calendar section between details and enroll button
+- Updated course data structure to include localName and upcomingDates fields
+
 **July 09, 2025 - Instructor Section Redesign & Gallery Layout Updates**
 - Completely redesigned instructor cards to match provided design specifications
 - Implemented black and white images with grayscale filter that transitions to color on hover

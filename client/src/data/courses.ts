@@ -23,6 +23,8 @@ export type Course = {
   outcomes: string[];
   faqs: { q: string; a: string }[];
   howItWorks: { title: string; icon: string; desc: string }[];
+  localName: string;
+  upcomingDates: string[];
 };
 
 export const courses: Course[] = [
@@ -94,6 +96,8 @@ export const courses: Course[] = [
       { title: 'Practice on Mannequins', icon: 'users', desc: 'Develop muscle memory safely' },
       { title: 'Real Clients', icon: 'scissors', desc: 'Supervised cuts on live models' },
     ],
+    localName: '1 oylik kurs uchun',
+    upcomingDates: ['1-avgust', '1-sentabr', '1-oktabr', '1-noyabr', '1-dekabr'],
   },
   {
     id: 2,
@@ -154,6 +158,14 @@ export const courses: Course[] = [
       { title: 'Portfolio Project', icon: 'briefcase', desc: 'Photo shoot with models for Instagram' },
       { title: '1:1 Mentorship', icon: 'users', desc: 'Personal feedback & growth plan' },
     ],
+    localName: '3 kunlik kurs uchun',
+    upcomingDates: [
+      '8-iyul', '15-iyul', '22-iyul', '29-iyul', '5-avgust', '12-avgust', 
+      '19-avgust', '26-avgust', '2-sentabr', '9-sentabr', '16-sentabr', 
+      '23-sentabr', '30-sentabr', '7-oktabr', '14-oktabr', '21-oktabr', 
+      '28-oktabr', '4-noyabr', '11-noyabr', '18-noyabr', '25-noyabr', 
+      '2-dekabr', '9-dekabr', '16-dekabr'
+    ],
   },
   {
     id: 3,
@@ -213,6 +225,12 @@ export const courses: Course[] = [
       { title: 'Trend Workshops', icon: 'book-open', desc: 'Weekly sessions on latest global cuts' },
       { title: 'Hands-on Labs', icon: 'scissors', desc: 'Immediate practice under supervision' },
       { title: 'Client Demos', icon: 'users', desc: 'Style real customers & receive feedback' },
+    ],
+    localName: '2 haftalik kurs uchun',
+    upcomingDates: [
+      '14-iyul', '28-iyul', '11-avgust', '25-avgust', '8-sentabr', 
+      '22-sentabr', '6-oktabr', '20-oktabr', '3-noyabr', '17-noyabr', 
+      '1-dekabr', '15-dekabr'
     ],
   },
 ]; 
