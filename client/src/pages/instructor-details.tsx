@@ -1,8 +1,6 @@
 import { useRoute } from "wouter";
 import { instructors } from "@/data/instructors";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function InstructorDetails() {
@@ -11,16 +9,7 @@ export default function InstructorDetails() {
   if (!match) return null;
   const found = instructors.find((i) => i.id === Number(params.id));
 
-  const { data: media = [] } = useQuery<{src:string,type:string}[]>({
-    queryKey: ['media','instructors'],
-    queryFn: async () => {
-      const res = await fetch('/api/media/instructors');
-      return res.json();
-    },
-  });
-
-  const images = media.filter(m=>m.type==='image').map(m=>m.src);
-  const displaySrc = images[(found?.id ?? 1)-1] || found?.image || "";
+  const displaySrc = found?.image || "";
 
   if (!found) return <div className="min-h-screen flex items-center justify-center text-white bg-deep-black">{t('instructor.not.found')}</div>;
 
