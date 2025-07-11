@@ -5,10 +5,12 @@ import { useEffect, useState } from "react";
 import { useParallax } from "@/hooks/use-parallax";
 import { Link } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
+import VideoPopup from "./video-popup";
 
 export default function Hero() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [animateNumbers, setAnimateNumbers] = useState(false);
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
   const { t } = useLanguage();
 
   const headingWords = t('hero.title').split(' ');
@@ -71,9 +73,10 @@ export default function Hero() {
           <Button 
             variant="outline" 
             className="btn-shimmer border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-black transition-all min-w-[200px] bg-black/50 backdrop-blur-sm shadow-xl hover:scale-105 hover:shadow-lg"
+            onClick={() => setIsVideoOpen(true)}
           >
             <Play className="mr-2 h-5 w-5 transition-transform duration-200 group-hover:scale-125" />
-            {t('hero.cta.secondary')}
+            Our Vibe!
           </Button>
         </div>
         
@@ -127,6 +130,9 @@ export default function Hero() {
           </div>
         </div>
       </div>
+      
+      {/* Video Popup */}
+      <VideoPopup isOpen={isVideoOpen} onClose={() => setIsVideoOpen(false)} />
     </section>
   );
 }

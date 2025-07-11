@@ -106,20 +106,20 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
-**July 11, 2025 - UI Improvements and Contact Information Updates**
-- Fixed app startup error by resolving duplicate translation keys in LanguageContext
-- Updated free course styling to match other courses with bronze accent colors
-- Modified free course schedule to show daily availability (all days of week)
-- Removed Facebook links from instructor social media overlay
-- Updated About page team section with current instructor data and photos
-- Added floating phone widget in bottom-right corner (+48 729 231 542)
-- Updated footer with accurate contact information:
-  - Address: Aleja Wyścigowa 14A, 02-681 Warszawa  
-  - Phone: +48 729 231 542
+**July 11, 2025 - Comprehensive CTA and Content Updates**
+- Standardized all instructor titles to "Senior Barber Instructor" across website
+- Updated all CTA buttons to route directly to contact page for enrollment
+- Added "Free Course" option to contact form dropdown for program selection
+- Implemented video popup functionality for hero "Our Vibe!" button
+- Created VideoPopup component with full-screen video player and controls
+- Updated hero section button text from "View Gallery" to "Our Vibe!"
+- Removed all Facebook links from instructor social media (Instagram only)
+- Updated contact form with accurate business information:
+  - Address: Aleja Wyścigowa 14A, 02-681 Warszawa
+  - Phone: +48 729 231 542 (updated from placeholder)
   - Email: Biuro@kkacademy.pl
-  - Working hours: Mon-Fri 12am-9pm, Sat 12am-5pm
-- Enhanced UpcomingDates component to handle both date formats and day names
-- Free course route /courses/0 now fully functional
+- All course enrollment buttons now redirect to contact page instead of course details
+- Video asset properly configured for popup display functionality
 
 **July 11, 2025 - Complete Multi-Language Implementation**
 - Implemented comprehensive multi-language support system (Polish, English, Turkish)

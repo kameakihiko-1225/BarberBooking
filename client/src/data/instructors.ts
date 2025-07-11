@@ -35,13 +35,12 @@ export const instructors: Instructor[] = [
   {
     id: 1,
     name: "Richer Karimov",
-    title: "Master Barber & Stylist",
+    title: "Senior Barber Instructor",
     about: "Expert in modern cutting techniques and classic barbering styles with years of professional experience.",
     experience: "Professional barber specializing in precision cuts and contemporary styling.",
     image: img(6), // richer-karimov.jpg is at index 6
     socials: {
-      instagram: "https://www.instagram.com/richiibarber?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
-      facebook: "https://www.facebook.com/share/15mZ9ssWit/"
+      instagram: "https://www.instagram.com/richiibarber?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
     }
   },
   {
@@ -52,44 +51,40 @@ export const instructors: Instructor[] = [
     experience: "Experienced barber and instructor with expertise in advanced cutting techniques.",
     image: img(3), // apo-karimov.jpg is at index 3
     socials: {
-      instagram: "https://www.instagram.com/apo_barber_1?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
-      facebook: "https://www.facebook.com/share/155ip3Nqqso/"
+      instagram: "https://www.instagram.com/apo_barber_1?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
     }
   },
   {
     id: 3,
     name: "Bartosz Kaczorowski",
-    title: "Hair Specialist",
+    title: "Senior Barber Instructor",
     about: "Creative stylist with a focus on modern trends and personalized client experiences.",
     experience: "Skilled barber specializing in creative cuts and contemporary hair styling.",
     image: img(4), // bartosz-kaczorowski.jpg is at index 4
     socials: {
-      instagram: "https://www.instagram.com/b_kaczorowski_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
-      facebook: "https://www.facebook.com/share/1C2myzJQ4R/"
+      instagram: "https://www.instagram.com/b_kaczorowski_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
     }
   },
   {
     id: 4,
     name: "Ali Karimov",
-    title: "Professional Barber",
+    title: "Senior Barber Instructor",
     about: "Dedicated professional with expertise in both traditional and modern barbering techniques.",
     experience: "Experienced barber with a passion for delivering exceptional grooming services.",
     image: img(2), // ali-karimov.jpg is at index 2
     socials: {
-      instagram: "https://www.instagram.com/ali.barber.pl?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
-      facebook: "https://www.facebook.com/share/16XjuEoG1z/"
+      instagram: "https://www.instagram.com/ali.barber.pl?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
     }
   },
   {
     id: 5,
     name: "Tomasz Kaczorowski",
-    title: "Barber & Educator",
+    title: "Senior Barber Instructor",
     about: "Experienced professional combining hands-on barbering skills with teaching excellence.",
     experience: "Professional barber and educator committed to sharing knowledge and skills.",
     image: img(7), // tomasz-kaczorowski.jpg is at index 7
     socials: {
-      instagram: "https://www.instagram.com/kaczorowski.brb?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
-      facebook: "https://www.facebook.com/share/1F1QKoCWcp/"
+      instagram: "https://www.instagram.com/kaczorowski.brb?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
     }
   }
 ]; 

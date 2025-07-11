@@ -103,7 +103,7 @@ export default function Courses() {
                     </div>
                     
                     <Button asChild className={`btn-shimmer w-full py-3 rounded-full font-medium transition-all hover:scale-105 hover:shadow-lg mt-auto ${course.buttonStyle}`}>
-                      <a href={`/courses/${course.id}`}>Enroll Now</a>
+                      <Link href="/contacts">Enroll Now</Link>
                     </Button>
                   </div>
                 </div>
@@ -141,7 +141,7 @@ export default function Courses() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild className="btn-shimmer bg-green-600 text-white px-8 py-4 text-base md:text-lg rounded-full font-medium hover:bg-green-700 hover:scale-105 transition-all duration-300 shadow-lg">
-                  <Link href="/course-details/0">{t('courses.cta.button')}</Link>
+                  <Link href="/contacts">{t('courses.cta.button')}</Link>
                 </Button>
               </div>
             </div>

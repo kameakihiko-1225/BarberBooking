@@ -75,15 +75,15 @@ export default function ContactsPage() {
           <div className="space-y-6 text-lg">
             <div className="flex items-start space-x-4">
               <MapPin className="text-[var(--premium-accent)] h-7 w-7" />
-              <span>UL. ALEJA WYŚCIGOWA 14A / U4, 02-681 WARSZAWA, Poland</span>
+              <span>Aleja Wyścigowa 14A, 02-681 Warszawa</span>
             </div>
             <div className="flex items-start space-x-4">
               <Phone className="text-[var(--premium-accent)] h-7 w-7" />
-              <a href="tel:+48123456789" className="hover:text-[var(--premium-accent)] transition-colors">+48&nbsp;123&nbsp;456&nbsp;789</a>
+              <a href="tel:+48729231542" className="hover:text-[var(--premium-accent)] transition-colors">+48&nbsp;729&nbsp;231&nbsp;542</a>
             </div>
             <div className="flex items-start space-x-4">
               <Mail className="text-[var(--premium-accent)] h-7 w-7" />
-              <a href="mailto:info@kkbarberacademy.pl" className="hover:text-[var(--premium-accent)] transition-colors">info@kkbarberacademy.pl</a>
+              <a href="mailto:Biuro@kkacademy.pl" className="hover:text-[var(--premium-accent)] transition-colors">Biuro@kkacademy.pl</a>
             </div>
           </div>
         </div>
@@ -136,6 +136,7 @@ export default function ContactsPage() {
                   <SelectItem value="fundamentals">Professional Barber Fundamentals</SelectItem>
                   <SelectItem value="master">Master Barber Techniques</SelectItem>
                   <SelectItem value="business">Barbershop Business Mastery</SelectItem>
+                  <SelectItem value="free">Free Course</SelectItem>
                   <SelectItem value="unsure">Not sure yet</SelectItem>
                 </SelectContent>
               </Select>
