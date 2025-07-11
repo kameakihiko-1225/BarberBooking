@@ -11,6 +11,7 @@ function InstructorCard({ instructor, index, isVisible }: {
   index: number; 
   isVisible: boolean; 
 }) {
+  const { t } = useLanguage();
   return (
     <div className={`group relative bg-black rounded-lg overflow-hidden border-l-4 border-[#FF6A00] transition-all duration-700 hover:shadow-xl transform hover:scale-105 ${
       isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
@@ -56,8 +57,8 @@ function InstructorCard({ instructor, index, isVisible }: {
       
       {/* Orange Background on Hover */}
       <div className="absolute bottom-0 left-0 right-0 bg-black transition-all duration-500 group-hover:bg-[#FF6A00] p-6">
-        <h3 className="text-xl font-bold text-white mb-2">{instructor.name}</h3>
-        <p className="text-gray-300 group-hover:text-white transition-colors">{instructor.title}</p>
+        <h3 className="text-xl font-bold text-white mb-2">{t(instructor.name)}</h3>
+        <p className="text-gray-300 group-hover:text-white transition-colors">{t('senior.barber.instructor')}</p>
       </div>
     </div>
   );

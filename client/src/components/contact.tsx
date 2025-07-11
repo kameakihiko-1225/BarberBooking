@@ -6,9 +6,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { MapPin, Phone, Mail, Clock, Instagram, Youtube, Music, Facebook } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Contact() {
   const { toast } = useToast();
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -24,16 +26,16 @@ export default function Contact() {
     // Basic validation
     if (!formData.firstName || !formData.lastName || !formData.email) {
       toast({
-        title: "Please fill in required fields",
-        description: "First Name, Last Name, and Email are required.",
+        title: t('contact.form.required'),
+        description: t('contact.form.required.desc'),
         variant: "destructive",
       });
       return;
     }
 
     toast({
-      title: "Thank you for your interest!",
-      description: "We will contact you soon with more information.",
+      title: t('contact.form.thank.you'),
+      description: t('contact.form.thank.you.desc'),
     });
 
     // Reset form
@@ -84,13 +86,13 @@ export default function Contact() {
             isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
           }`}>
             <h2 className="font-serif text-3xl md:text-5xl font-bold mb-6">
-              Start Your{" "}
-              <span className="premium-accent">Journey</span>{" "}
-              Today
+              {t('contact.title')}{" "}
+              <span className="premium-accent">{t('contact.title.highlight')}</span>{" "}
+              {t('contact.title.today')}
             </h2>
             
             <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-              Ready to transform your passion into a professional career? Get in touch with our admissions team to learn more about our programs and schedule a campus tour.
+              {t('contact.subtitle')}
             </p>
             
             <div className="space-y-6 mb-8">
@@ -99,8 +101,8 @@ export default function Contact() {
                   <MapPin className="text-black h-6 w-6" />
                 </div>
                 <div>
-                  <div className="font-semibold text-deep-black">Visit Our Campus</div>
-                  <div className="text-gray-600">123 Barber Academy Drive, Professional District</div>
+                  <div className="font-semibold text-deep-black">{t('contact.visit.campus')}</div>
+                  <div className="text-gray-600">Aleja Wyścigowa 14A<br />02-681 Warszawa</div>
                 </div>
               </div>
               
@@ -109,8 +111,8 @@ export default function Contact() {
                   <Phone className="text-black h-6 w-6" />
                 </div>
                 <div>
-                  <div className="font-semibold text-deep-black">Call Us</div>
-                  <div className="text-gray-600">(555) 123-BARBER</div>
+                  <div className="font-semibold text-deep-black">{t('contact.call.us')}</div>
+                  <div className="text-gray-600">+48 729 231 542</div>
                 </div>
               </div>
               
@@ -119,8 +121,8 @@ export default function Contact() {
                   <Mail className="text-black h-6 w-6" />
                 </div>
                 <div>
-                  <div className="font-semibold text-deep-black">Email Us</div>
-                  <div className="text-gray-600">admissions@elitebarber.academy</div>
+                  <div className="font-semibold text-deep-black">{t('contact.email.us')}</div>
+                  <div className="text-gray-600">Biuro@kkacademy.pl</div>
                 </div>
               </div>
               
@@ -129,41 +131,22 @@ export default function Contact() {
                   <Clock className="text-black h-6 w-6" />
                 </div>
                 <div>
-                  <div className="font-semibold text-deep-black">Hours</div>
-                  <div className="text-gray-600">Mon-Fri: 8AM-6PM, Sat: 9AM-4PM</div>
+                  <div className="font-semibold text-deep-black">{t('contact.hours')}</div>
+                  <div className="text-gray-600">{t('contact.hours.schedule')}</div>
                 </div>
-              </div>
-            </div>
-            
-            {/* Social Media */}
-            <div>
-              <div className="font-semibold text-deep-black mb-4">Follow Our Journey</div>
-              <div className="flex space-x-4">
-                <a href="#" className="w-10 h-10 bg-deep-black rounded-full flex items-center justify-center text-white hover:bg-[var(--golden-bronze)] hover:text-black transition-colors hover:scale-110 duration-200">
-                  <Instagram className="h-5 w-5" />
-                </a>
-                <a href="#" className="w-10 h-10 bg-deep-black rounded-full flex items-center justify-center text-white hover:bg-[var(--golden-bronze)] hover:text-black transition-colors hover:scale-110 duration-200">
-                  <Youtube className="h-5 w-5" />
-                </a>
-                <a href="#" className="w-10 h-10 bg-deep-black rounded-full flex items-center justify-center text-white hover:bg-[var(--golden-bronze)] hover:text-black transition-colors hover:scale-110 duration-200">
-                  <Music className="h-5 w-5" />
-                </a>
-                <a href="#" className="w-10 h-10 bg-deep-black rounded-full flex items-center justify-center text-white hover:bg-[var(--golden-bronze)] hover:text-black transition-colors hover:scale-110 duration-200">
-                  <Facebook className="h-5 w-5" />
-                </a>
               </div>
             </div>
           </div>
           
           {/* Contact Form */}
           <div className="bg-white rounded-2xl shadow-xl p-8">
-            <h3 className="font-serif text-2xl font-bold mb-6">Get More Information</h3>
+            <h3 className="font-serif text-2xl font-bold mb-6">{t('contact.form.title')}</h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <Label htmlFor="firstName" className="text-sm font-medium text-gray-700 mb-2">
-                    First Name *
+                    {t('contact.form.first.name')} *
                   </Label>
                   <Input
                     id="firstName"
@@ -177,7 +160,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <Label htmlFor="lastName" className="text-sm font-medium text-gray-700 mb-2">
-                    Last Name *
+                    {t('contact.form.last.name')} *
                   </Label>
                   <Input
                     id="lastName"
@@ -193,7 +176,7 @@ export default function Contact() {
               
               <div>
                 <Label htmlFor="email" className="text-sm font-medium text-gray-700 mb-2">
-                  Email Address *
+                  {t('contact.form.email')} *
                 </Label>
                 <Input
                   id="email"
@@ -208,7 +191,7 @@ export default function Contact() {
               
               <div>
                 <Label htmlFor="phone" className="text-sm font-medium text-gray-700 mb-2">
-                  Phone Number
+                  {t('contact.form.phone')}
                 </Label>
                 <Input
                   id="phone"
@@ -221,23 +204,23 @@ export default function Contact() {
               </div>
               
               <div>
-                <Label className="text-sm font-medium text-gray-700 mb-2">Program Interest</Label>
+                <Label className="text-sm font-medium text-gray-700 mb-2">{t('contact.form.program')}</Label>
                 <Select value={formData.program} onValueChange={(value) => handleInputChange('program', value)}>
                   <SelectTrigger className="focus:ring-2 focus:ring-[var(--golden-bronze)] focus:border-[var(--golden-bronze)]">
-                    <SelectValue placeholder="Select a program..." />
+                    <SelectValue placeholder={t('contact.program.select')} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="fundamentals">Professional Barber Fundamentals</SelectItem>
-                    <SelectItem value="master">Master Barber Techniques</SelectItem>
-                    <SelectItem value="business">Barbershop Business Mastery</SelectItem>
-                    <SelectItem value="unsure">Not sure yet</SelectItem>
+                    <SelectItem value="free">{t('contact.program.free')}</SelectItem>
+                    <SelectItem value="beginner">{t('contact.program.beginner')}</SelectItem>
+                    <SelectItem value="advanced">{t('contact.program.advanced')}</SelectItem>
+                    <SelectItem value="specialist">{t('contact.program.specialist')}</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
               
               <div>
                 <Label htmlFor="message" className="text-sm font-medium text-gray-700 mb-2">
-                  Message
+                  {t('contact.form.message')}
                 </Label>
                 <Textarea
                   id="message"
@@ -256,7 +239,7 @@ export default function Contact() {
                            text-black shadow-[0_0_12px_var(--golden-bronze)/60] hover:shadow-[0_0_18px_var(--golden-bronze)/80]
                            transition-all hover:scale-105"
               >
-                Send Message
+{t('contact.form.submit')}
               </Button>
             </form>
           </div>

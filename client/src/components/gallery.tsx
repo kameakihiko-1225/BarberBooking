@@ -5,6 +5,7 @@ import { useKeenSlider } from "keen-slider/react";
 import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 type Media = { src: string; type: "image" | "video" };
 
@@ -107,6 +108,7 @@ function LazyMedia({ item, isMobile = false }: { item: Media; isMobile?: boolean
 }
 
 export default function Gallery() {
+  const { t } = useLanguage();
   const [isMobile, setIsMobile] = useState(false);
   const { data: galleryMedia = [] } = useQuery<Media[]>({
     queryKey: ['media', 'gallery'],
@@ -145,7 +147,7 @@ export default function Gallery() {
     return (
       <section className="py-24 bg-deep-black text-white" id="gallery">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <h2 className="font-serif text-3xl md:text-5xl font-bold mb-12">Be an <span className="premium-accent">Icon</span></h2>
+          <h2 className="font-serif text-3xl md:text-5xl font-bold mb-12">{t('gallery.title')} <span className="premium-accent">{t('gallery.title.highlight')}</span></h2>
           <div className="w-full h-72 bg-gray-800 animate-pulse rounded-2xl flex items-center justify-center">
             <div className="w-8 h-8 border-2 border-[var(--premium-accent)] border-t-transparent rounded-full animate-spin"></div>
           </div>
@@ -157,7 +159,7 @@ export default function Gallery() {
   return (
     <section className="py-24 bg-deep-black text-white" id="gallery">
       <div className="max-w-6xl mx-auto px-4 text-center">
-        <h2 className="font-serif text-3xl md:text-5xl font-bold mb-12">Our <span className="premium-accent">Gallery</span></h2>
+        <h2 className="font-serif text-3xl md:text-5xl font-bold mb-12">{t('gallery.title')} <span className="premium-accent">{t('gallery.title.highlight')}</span></h2>
 
         {/* Mobile Grid Layout - 3+ columns for iPhone SE */}
         {isMobile ? (
