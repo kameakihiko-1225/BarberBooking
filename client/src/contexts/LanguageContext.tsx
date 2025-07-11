@@ -450,6 +450,31 @@ const translations: Record<Language, Record<string, string>> = {
     'course.cta.final.description': 'Dołącz do setek zadowolonych absolwentów, którzy zbudowali udane kariery w fryzjerstwie.',
     'course.cta.final.button': 'Zapisz się teraz',
 
+    // Beginner Course (ID: 1) Specific Translations
+    'course.beginner.skills.0': 'Klasyczne i nowoczesne fryzury',
+    'course.beginner.skills.1': 'Wygolenia maszynką (niskie/średnie/wysokie)',
+    'course.beginner.skills.2': 'Praca brzytwą i detale',
+    'course.beginner.skills.3': 'Modelowanie i pielęgnacja brody',
+    
+    'course.beginner.audience.0': 'Osoby bez doświadczenia',
+    'course.beginner.audience.1': 'Osoby zmieniające karierę',
+    'course.beginner.audience.2': 'Uczniowie po szkole',
+    
+    'course.beginner.howItWorks.0': 'Teoria',
+    'course.beginner.howItWorks.1': 'Praktyka na manekinach',
+    'course.beginner.howItWorks.2': 'Prawdziwi klienci',
+    'course.beginner.howItWorks.0.desc': 'Interaktywne wykłady i demonstracje',
+    'course.beginner.howItWorks.1.desc': 'Rozwijaj pamięć mięśniową bezpiecznie',
+    'course.beginner.howItWorks.2.desc': 'Strzyżenia pod nadzorem na żywych modelach',
+    
+    'course.beginner.includes.0': 'Prezent - profesjonalne nożyczki i grzebień',
+    'course.beginner.includes.1': 'Wszystkie narzędzia zapewnione',
+    'course.beginner.includes.2': 'Certyfikat ukończenia',
+    
+    'course.beginner.outcomes.0': 'Wykonywać nowoczesne strzyżenia i wygolenia',
+    'course.beginner.outcomes.1': 'Pewnie stylizować brody',
+    'course.beginner.outcomes.2': 'Rozpocząć karierę fryzjera',
+
     // Instructor Details Translation Keys
     'instructor.not.found': 'Instruktor nie znaleziony',
     'instructor.apply.now': 'Aplikuj teraz',
@@ -810,6 +835,31 @@ const translations: Record<Language, Record<string, string>> = {
     'course.cta.final.title': 'Start Your Journey Today',
     'course.cta.final.description': 'Join hundreds of satisfied graduates who have built successful careers in barbering.',
     'course.cta.final.button': 'Enroll Now',
+
+    // Beginner Course (ID: 1) Specific Translations
+    'course.beginner.skills.0': 'Classic & modern haircuts',
+    'course.beginner.skills.1': 'Clipper fading (low/mid/high)',
+    'course.beginner.skills.2': 'Razor work & detailing',
+    'course.beginner.skills.3': 'Beard shaping & care',
+    
+    'course.beginner.audience.0': 'People with no experience',
+    'course.beginner.audience.1': 'Career changers',
+    'course.beginner.audience.2': 'Students after school',
+    
+    'course.beginner.howItWorks.0': 'Theory',
+    'course.beginner.howItWorks.1': 'Practice on Mannequins',
+    'course.beginner.howItWorks.2': 'Real Clients',
+    'course.beginner.howItWorks.0.desc': 'Interactive lectures & demos',
+    'course.beginner.howItWorks.1.desc': 'Develop muscle memory safely',
+    'course.beginner.howItWorks.2.desc': 'Supervised cuts on live models',
+    
+    'course.beginner.includes.0': 'Professional scissors & comb gift',
+    'course.beginner.includes.1': 'All tools provided',
+    'course.beginner.includes.2': 'Certificate of completion',
+    
+    'course.beginner.outcomes.0': 'Perform modern cuts & fades',
+    'course.beginner.outcomes.1': 'Confidently style beards',
+    'course.beginner.outcomes.2': 'Launch barber career',
 
     // Instructor Details Translation Keys
     'instructor.not.found': 'Instructor not found',
@@ -1227,6 +1277,31 @@ const translations: Record<Language, Record<string, string>> = {
     'course.cta.final.title': 'Yolculuğunuza Bugün Başlayın',
     'course.cta.final.description': 'Berberlikte başarılı kariyerler inşa etmiş yüzlerce memnun mezunumuza katılın.',
     'course.cta.final.button': 'Şimdi Kayıt Ol',
+
+    // Beginner Course (ID: 1) Specific Translations
+    'course.beginner.skills.0': 'Klasik ve modern saç kesimi',
+    'course.beginner.skills.1': 'Makine soluklaması (alçak/orta/yüksek)',
+    'course.beginner.skills.2': 'Ustura işi ve detaylar',
+    'course.beginner.skills.3': 'Sakal şekillendirme ve bakım',
+    
+    'course.beginner.audience.0': 'Deneyimi olmayan kişiler',
+    'course.beginner.audience.1': 'Kariyer değiştirenler',
+    'course.beginner.audience.2': 'Okul sonrası öğrenciler',
+    
+    'course.beginner.howItWorks.0': 'Teori',
+    'course.beginner.howItWorks.1': 'Manken Üzerinde Pratik',
+    'course.beginner.howItWorks.2': 'Gerçek Müşteriler',
+    'course.beginner.howItWorks.0.desc': 'Etkileşimli dersler ve gösteriler',
+    'course.beginner.howItWorks.1.desc': 'Kas hafızasını güvenle geliştir',
+    'course.beginner.howItWorks.2.desc': 'Canlı modeller üzerinde denetimli kesim',
+    
+    'course.beginner.includes.0': 'Profesyonel makas ve tarak hediyesi',
+    'course.beginner.includes.1': 'Tüm araçlar sağlanır',
+    'course.beginner.includes.2': 'Tamamlama sertifikası',
+    
+    'course.beginner.outcomes.0': 'Modern kesim ve soluklamalar yap',
+    'course.beginner.outcomes.1': 'Güvenle sakal stilize et',
+    'course.beginner.outcomes.2': 'Berber kariyeri başlat',
 
     // Instructor Details Translation Keys
     'instructor.not.found': 'Eğitmen bulunamadı',
