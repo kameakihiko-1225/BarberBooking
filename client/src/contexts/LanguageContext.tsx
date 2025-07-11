@@ -424,6 +424,11 @@ const translations: Record<Language, Record<string, string>> = {
     'course.meet.instructors': 'Poznaj instruktorów',
     'course.select.date': 'Wybierz preferowany termin rozpoczęcia',
     'course.audience': 'Dla kogo jest ten kurs',
+    'course.how.works': 'Jak działa kurs',
+    'course.whats.included': 'Co jest zawarte',
+    'course.outcomes': 'Pod koniec będziesz w stanie…',
+    'course.gallery.title': 'Kurs w akcji',
+    'course.gallery.subtitle': 'Przeglądaj momenty z naszego praktycznego szkolenia.',
 
     // Instructor Details Translation Keys
     'instructor.not.found': 'Instruktor nie znaleziony',
@@ -759,6 +764,11 @@ const translations: Record<Language, Record<string, string>> = {
     'course.meet.instructors': 'Meet Your Instructors',
     'course.select.date': 'Select your preferred start date',
     'course.audience': 'Who This Course Is For',
+    'course.how.works': 'How the Course Works',
+    'course.whats.included': 'What\'s Included',
+    'course.outcomes': 'By the end you will…',
+    'course.gallery.title': 'Course in Action',
+    'course.gallery.subtitle': 'Swipe through moments from our hands-on training.',
 
     // Instructor Details Translation Keys
     'instructor.not.found': 'Instructor not found',
@@ -1150,6 +1160,11 @@ const translations: Record<Language, Record<string, string>> = {
     'course.meet.instructors': 'Eğitmenlerinizle Tanışın',
     'course.select.date': 'Tercih ettiğiniz başlangıç tarihini seçin',
     'course.audience': 'Bu Kurs Kimler İçin',
+    'course.how.works': 'Kurs Nasıl Çalışır',
+    'course.whats.included': 'Neler Dahil',
+    'course.outcomes': 'Sonunda şunları yapabileceksiniz…',
+    'course.gallery.title': 'Kursta Neler Oluyor',
+    'course.gallery.subtitle': 'Uygulamalı eğitimimizden anlık görüntüleri inceleyin.',
 
     // Instructor Details Translation Keys
     'instructor.not.found': 'Eğitmen bulunamadı',
