@@ -22,8 +22,9 @@ function InstructorCard({ instructor, index, isVisible }: {
         <img
           src={instructor.image}
           alt={instructor.name}
-          className="w-full h-full object-cover transition-all duration-500 filter grayscale group-hover:grayscale-0 group-hover:scale-110"
+          className="w-full h-full object-cover object-top transition-all duration-500 filter grayscale group-hover:grayscale-0 group-hover:scale-110"
           loading="lazy"
+          style={{ objectPosition: 'center 20%' }}
         />
         
         {/* Social Media Icons Overlay */}
