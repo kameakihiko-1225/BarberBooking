@@ -114,7 +114,7 @@ export default function BlogPostPage() {
                   src={post.image} 
                   alt={post.title}
                   className="w-full h-64 md:h-80 lg:h-96 object-cover"
-                  style={{ objectPosition: 'center 30%' }}
+                  style={{ objectPosition: 'center 42%' }}
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.style.display = 'none';
@@ -173,7 +173,7 @@ export default function BlogPostPage() {
                             src={relatedPost.image} 
                             alt={relatedPost.title}
                             className="w-full h-32 object-cover rounded-lg mb-3"
-                            style={{ objectPosition: 'center 30%' }}
+                            style={{ objectPosition: 'center 42%' }}
                           />
                         )}
                         <h4 className="font-semibold text-gray-800 group-hover:text-[var(--premium-accent)] transition-colors line-clamp-2 mb-2">

@@ -54,6 +54,7 @@ const translations: Record<Language, Record<string, string>> = {
   pl: {
     // Navigation
     'nav.home': 'Strona Główna',
+    'nav.about': 'O Nas',
     'nav.courses': 'Kursy',
     'nav.gallery': 'Galeria',
     'nav.instructors': 'Instruktorzy',
@@ -566,6 +567,7 @@ const translations: Record<Language, Record<string, string>> = {
   en: {
     // Navigation
     'nav.home': 'Home',
+    'nav.about': 'About Us',
     'nav.courses': 'Courses',
     'nav.gallery': 'Gallery',
     'nav.instructors': 'Instructors',
@@ -1071,6 +1073,7 @@ const translations: Record<Language, Record<string, string>> = {
   tr: {
     // Navigation
     'nav.home': 'Ana Sayfa',
+    'nav.about': 'Hakkımızda',
     'nav.courses': 'Kurslar',
     'nav.gallery': 'Galeri',
     'nav.instructors': 'Eğitmenler',

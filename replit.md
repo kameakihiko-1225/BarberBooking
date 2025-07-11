@@ -106,6 +106,16 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+**July 11, 2025 - Blog Translation and Image Positioning Update**
+- Added comprehensive multi-language translation support to blog pages (Polish, English, Turkish)
+- Translated all blog UI elements including titles, tags, navigation, and CTAs
+- Fixed blog image positioning to show 58% of upper part using center 42% object position
+- Updated blog post titles and tags to display in selected language across all three languages
+- Fixed "About Us" navigation menu translation to work properly in all three languages
+- Added missing 'nav.about' translation keys for Polish ("O Nas"), English ("About Us"), and Turkish ("Hakkımızda")
+- Updated all internal blog links to use correct /contact route for consistency
+- Blog pages now fully support language switching with proper fallback to original content
+
 **July 11, 2025 - UI/UX Improvements and Footer Enhancement**
 - Fixed instructor card images to show full faces with proper object positioning
 - Modified testimonials component by removing showcase section and transformation content

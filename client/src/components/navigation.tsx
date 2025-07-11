@@ -105,7 +105,7 @@ export default function Navigation() {
 
   // Build nav items depending on route
   const homeSectionItems = [
-    { id: "about", label: "O nas" },
+    { id: "about", label: t('nav.about') },
     { id: "courses", label: t('nav.courses') },
     { id: "instructors", label: t('nav.instructors') },
     { id: "blog", label: t('nav.blog') },
@@ -114,7 +114,7 @@ export default function Navigation() {
 
   const pageItems = [
     { href: "/", label: t('nav.home') },
-    { href: "/about-us", label: "O nas" },
+    { href: "/about-us", label: t('nav.about') },
     { href: "/courses", label: t('nav.courses') },
     { href: "/gallery", label: t('nav.gallery') },
     { href: "/contact", label: t('nav.contact') },
