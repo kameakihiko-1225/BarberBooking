@@ -17,25 +17,25 @@ interface BlogPost {
 }
 
 export default function BlogPostPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [match, params] = useRoute<{ slug: string }>('/blog/:slug');
   const [isVisible, setIsVisible] = useState(false);
   
   if (!match) return null;
 
   const { data: post, isLoading } = useQuery<BlogPost>({
-    queryKey: ['blog', 'post', params.slug],
+    queryKey: ['blog', 'post', params.slug, language],
     queryFn: async () => {
-      const res = await fetch(`/api/blog/${params.slug}`);
+      const res = await fetch(`/api/blog/${params.slug}?language=${language}`);
       if (!res.ok) throw new Error('Post not found');
       return res.json();
     }
   });
 
   const { data: otherPosts = [] } = useQuery<BlogPost[]>({
-    queryKey: ['blog', 'other-posts'],
+    queryKey: ['blog', 'other-posts', language],
     queryFn: async () => {
-      const res = await fetch('/api/blog');
+      const res = await fetch(`/api/blog?language=${language}`);
       if (!res.ok) return [];
       const posts = await res.json();
       return posts.filter((p: BlogPost) => p.slug !== params.slug).slice(0, 4);

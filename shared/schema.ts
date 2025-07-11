@@ -35,6 +35,8 @@ export const blogPosts = pgTable("blog_posts", {
   content: text("content").notNull(),
   image: text("image"),
   tag: text("tag"),
+  language: text("language").notNull().default("pl"), // pl, en, tr
+  originalPostId: integer("original_post_id"), // reference to original post for translations
   active: integer("active").default(1),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),

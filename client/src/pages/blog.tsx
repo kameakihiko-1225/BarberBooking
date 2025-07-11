@@ -4,11 +4,11 @@ import { BlogCard, BlogPostPreview, getLocalizedFallbackPosts } from '@/componen
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function BlogListPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { data: apiPosts = [] } = useQuery<BlogPostPreview[]>({
-    queryKey: ['blog','list'],
+    queryKey: ['blog','list', language],
     queryFn: async ()=>{
-      try{const res=await fetch('/api/blog'); if(res.ok) return res.json();}catch{}
+      try{const res=await fetch(`/api/blog?language=${language}`); if(res.ok) return res.json();}catch{}
       return [];
     }
   });

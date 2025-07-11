@@ -110,7 +110,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Blog endpoints using in-memory storage
   app.get('/api/blog', async (req, res) => {
     try {
-      const posts = await storage.getBlogPosts();
+      const language = req.query.language as string;
+      const posts = await storage.getBlogPosts(language);
       res.json(posts);
     } catch (err) {
       console.error("Blog posts error:", err);
@@ -121,7 +122,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get('/api/blog/:slug', async (req, res) => {
     try {
       const slug = req.params.slug;
-      const post = await storage.getBlogPostBySlug(slug);
+      const language = req.query.language as string;
+      const post = await storage.getBlogPostBySlug(slug, language);
       if (!post) return res.status(404).json({ error: 'not-found' });
       res.json(post);
     } catch (err) {
@@ -132,7 +134,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.post('/api/blog', async (req, res) => {
     try {
-      const { slug, title, content, image, tag } = req.body;
+      const { slug, title, content, image, tag, language, originalPostId } = req.body;
       if (!slug || !title || !content) {
         return res.status(400).json({ error: 'Missing required fields' });
       }
@@ -143,6 +145,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         content,
         image: image || null,
         tag: tag || null,
+        language: language || 'pl',
+        originalPostId: originalPostId || null,
         active: 1
       });
       
@@ -156,7 +160,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Admin: list all posts including inactive
   app.get('/api/blog-admin', async (req, res) => {
     try {
-      const allPosts = await storage.getBlogPosts();
+      const allPosts = await storage.getBlogPosts(); // No language filter for admin
       // Sort by creation date, newest first
       const sortedPosts = allPosts.sort((a, b) => 
         new Date(b.createdAt || 0).getTime() - new Date(a.createdAt || 0).getTime()

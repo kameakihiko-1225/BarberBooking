@@ -158,13 +158,13 @@ export function BlogCard({ post }: { post: BlogPostPreview }) {
 }
 
 export default function BlogSection() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { data: apiPosts = [] } = useQuery<BlogPostPreview[]>({
-    queryKey: ['blog','preview'],
+    queryKey: ['blog','preview', language],
     queryFn: async ()=>{
-      const res = await fetch('/api/blog');
+      const res = await fetch(`/api/blog?language=${language}`);
       if(res.ok) return res.json();
       return [];
     }
