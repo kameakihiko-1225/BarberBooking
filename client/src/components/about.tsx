@@ -2,10 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Check, Award } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function About() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -44,17 +46,14 @@ export default function About() {
             <h2 className={`font-serif text-3xl md:text-5xl font-bold mb-6 transform transition-all duration-1000 delay-300 ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}>
-              Elevate Your Skills at the{" "}
-              <span className="premium-accent">Premier</span>{" "}
-              Barber Academy
+              {t('about.title')} -{" "}
+              <span className="premium-accent">{t('about.subtitle')}</span>
             </h2>
             
             <p className={`text-gray-600 text-lg mb-6 leading-relaxed transform transition-all duration-1000 delay-400 ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}>
-              For over 15 years, K&K Barber Academy has been the gold standard in professional barber education. 
-              Our comprehensive programs combine traditional techniques with modern innovations, ensuring our graduates 
-              are ready to excel in today's competitive market.
+              {t('about.description')}
             </p>
             
             <div className={`space-y-4 mb-8 transform transition-all duration-1000 delay-500 ${

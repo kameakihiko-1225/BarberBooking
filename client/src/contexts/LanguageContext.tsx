@@ -80,16 +80,87 @@ const translations: Record<Language, Record<string, string>> = {
     'features.modern.title': 'Nowoczesne Techniki',
     'features.modern.description': 'Najnowsze trendy i techniki w branży fryzjerskiej',
 
+    // About Section
+    'about.title': 'O Nas',
+    'about.subtitle': 'Dlaczego Wybierać K&K Academy',
+    'about.description': 'Z wieloletnim doświadczeniem i pasją do edukacji, jesteśmy wiodącą akademią fryzjerską w Warszawie.',
+
     // Courses
     'courses.title': 'Nasze Kursy',
     'courses.subtitle': 'Wybierz idealny kurs dla swojego poziomu i celów kariery',
     'courses.beginner': 'Kurs Podstawowy',
-    'courses.advanced': 'Kurs Zaawansowany',
+    'courses.advanced': 'Kurs Zaawansowany', 
     'courses.master': 'Kurs Mistrzowski',
     'courses.specialty': 'Kursy Specjalistyczne',
     'courses.view.all': 'Zobacz Wszystkie Kursy',
     'courses.enroll': 'Zapisz się',
     'courses.learn.more': 'Dowiedz się więcej',
+    'courses.duration': 'Czas trwania',
+    'courses.level': 'Poziom',
+    'courses.price': 'Cena',
+    'courses.upcoming': 'Najbliższe terminy',
+
+    // Instructors
+    'instructors.title': 'Nasi Instruktorzy',
+    'instructors.subtitle': 'Mistrzowie Fryzjerstwa',
+    'instructors.description': 'Poznaj naszych doświadczonych instruktorów, którzy poprowadzą Cię przez całą podróż edukacyjną.',
+
+    // Testimonials
+    'testimonials.title': 'Opinie Absolwentów',
+    'testimonials.subtitle': 'Historie Sukcesu',
+    'testimonials.description': 'Posłuchaj od naszych absolwentów, którzy przekształcili swoje pasje w dochodowe kariery i odnoszące sukcesy firmy.',
+
+    // Gallery
+    'gallery.title': 'Nasza Galeria',
+    'gallery.subtitle': 'Zobacz nasze prace',
+    'gallery.description': 'Odkryj niesamowitą pracę naszych studentów i instruktorów.',
+
+    // Contact
+    'contact.title': 'Skontaktuj się z nami',
+    'contact.subtitle': 'Masz pytania? Jesteśmy tutaj, aby pomóc',
+    'contact.name': 'Imię i nazwisko',
+    'contact.email': 'Email',
+    'contact.phone': 'Telefon',
+    'contact.message': 'Wiadomość',
+    'contact.program': 'Wybierz program',
+    'contact.submit': 'Wyślij wiadomość',
+    'contact.info.title': 'Informacje kontaktowe',
+    'contact.info.address': 'Adres',
+    'contact.info.phone': 'Telefon',
+    'contact.info.email': 'Email',
+    'contact.info.hours': 'Godziny otwarcia',
+
+    // Footer
+    'footer.description': 'Profesjonalna akademia fryzjerska w Warszawie oferująca kompleksowe kursy i szkolenia.',
+    'footer.quick.links': 'Szybkie linki',
+    'footer.contact.info': 'Informacje kontaktowe',
+    'footer.follow': 'Śledź nas',
+    'footer.rights': 'Wszystkie prawa zastrzeżone.',
+
+    // Blog
+    'blog.title': 'Nasz Blog',
+    'blog.subtitle': 'Najnowsze wiadomości i wskazówki',
+    'blog.read.more': 'Czytaj więcej',
+    'blog.view.all': 'Zobacz wszystkie posty',
+
+    // CTA
+    'cta.title': 'Rozpocznij swoją karierę już dziś',
+    'cta.description': 'Dołącz do tysięcy odnoszących sukcesy absolwentów, którzy przekształcili swoją pasję w dochodową karierę.',
+    'cta.button': 'Zapisz się teraz',
+
+    // Common
+    'common.loading': 'Ładowanie...',
+    'common.error': 'Wystąpił błąd',
+    'common.success': 'Sukces!',
+    'common.close': 'Zamknij',
+    'common.save': 'Zapisz',
+    'common.cancel': 'Anuluj',
+    'common.edit': 'Edytuj',
+    'common.delete': 'Usuń',
+    'common.view': 'Zobacz',
+    'common.back': 'Wstecz',
+    'common.next': 'Dalej',
+    'common.previous': 'Poprzedni',
 
     // Testimonials
     'testimonials.title': 'Historie Sukcesu',
@@ -162,6 +233,11 @@ const translations: Record<Language, Record<string, string>> = {
     'features.modern.title': 'Modern Techniques',
     'features.modern.description': 'Latest trends and techniques in the barbering industry',
 
+    // About Section
+    'about.title': 'About Us',
+    'about.subtitle': 'Why Choose K&K Academy',
+    'about.description': 'With years of experience and a passion for education, we are Warsaw\'s leading barber academy.',
+
     // Courses
     'courses.title': 'Our Courses',
     'courses.subtitle': 'Choose the perfect course for your skill level and career goals',
@@ -172,6 +248,72 @@ const translations: Record<Language, Record<string, string>> = {
     'courses.view.all': 'View All Courses',
     'courses.enroll': 'Enroll',
     'courses.learn.more': 'Learn More',
+    'courses.duration': 'Duration',
+    'courses.level': 'Level',
+    'courses.price': 'Price',
+    'courses.upcoming': 'Upcoming Dates',
+
+    // Instructors
+    'instructors.title': 'Our Instructors',
+    'instructors.subtitle': 'Master Barbers',
+    'instructors.description': 'Meet our experienced instructors who will guide you through your entire educational journey.',
+
+    // Testimonials
+    'testimonials.title': 'Graduate Reviews',
+    'testimonials.subtitle': 'Success Stories',
+    'testimonials.description': 'Hear from our graduates who transformed their passion into profitable careers and successful businesses.',
+
+    // Gallery
+    'gallery.title': 'Our Gallery',
+    'gallery.subtitle': 'See our work',
+    'gallery.description': 'Discover the amazing work of our students and instructors.',
+
+    // Contact
+    'contact.title': 'Contact Us',
+    'contact.subtitle': 'Have questions? We\'re here to help',
+    'contact.name': 'Full Name',
+    'contact.email': 'Email',
+    'contact.phone': 'Phone',
+    'contact.message': 'Message',
+    'contact.program': 'Select Program',
+    'contact.submit': 'Send Message',
+    'contact.info.title': 'Contact Information',
+    'contact.info.address': 'Address',
+    'contact.info.phone': 'Phone',
+    'contact.info.email': 'Email',
+    'contact.info.hours': 'Opening Hours',
+
+    // Footer
+    'footer.description': 'Professional barber academy in Warsaw offering comprehensive courses and training.',
+    'footer.quick.links': 'Quick Links',
+    'footer.contact.info': 'Contact Information',
+    'footer.follow': 'Follow Us',
+    'footer.rights': 'All rights reserved.',
+
+    // Blog
+    'blog.title': 'Our Blog',
+    'blog.subtitle': 'Latest news and tips',
+    'blog.read.more': 'Read More',
+    'blog.view.all': 'View All Posts',
+
+    // CTA
+    'cta.title': 'Start Your Career Today',
+    'cta.description': 'Join thousands of successful graduates who have transformed their passion into a profitable career.',
+    'cta.button': 'Enroll Now',
+
+    // Common
+    'common.loading': 'Loading...',
+    'common.error': 'An error occurred',
+    'common.success': 'Success!',
+    'common.close': 'Close',
+    'common.save': 'Save',
+    'common.cancel': 'Cancel',
+    'common.edit': 'Edit',
+    'common.delete': 'Delete',
+    'common.view': 'View',
+    'common.back': 'Back',
+    'common.next': 'Next',
+    'common.previous': 'Previous',
 
     // Testimonials
     'testimonials.title': 'Student Success',
@@ -244,6 +386,11 @@ const translations: Record<Language, Record<string, string>> = {
     'features.modern.title': 'Modern Teknikler',
     'features.modern.description': 'Berberlik endüstrisindeki en son trendler ve teknikler',
 
+    // About Section
+    'about.title': 'Hakkımızda',
+    'about.subtitle': 'Neden K&K Academy\'yi Seçmelisiniz',
+    'about.description': 'Yıllarca deneyim ve eğitime olan tutkumuzla, Varşova\'nın önde gelen berber akademisiyiz.',
+
     // Courses
     'courses.title': 'Kurslarımız',
     'courses.subtitle': 'Beceri seviyeniz ve kariyer hedefleriniz için mükemmel kursu seçin',
@@ -254,11 +401,25 @@ const translations: Record<Language, Record<string, string>> = {
     'courses.view.all': 'Tüm Kursları Görüntüle',
     'courses.enroll': 'Kayıt Ol',
     'courses.learn.more': 'Daha Fazla Bilgi',
+    'courses.duration': 'Süre',
+    'courses.level': 'Seviye',
+    'courses.price': 'Fiyat',
+    'courses.upcoming': 'Yaklaşan Tarihler',
+
+    // Instructors
+    'instructors.title': 'Eğitmenlerimiz',
+    'instructors.subtitle': 'Usta Berberler',
+    'instructors.description': 'Tüm eğitim yolculuğunuzda size rehberlik edecek deneyimli eğitmenlerimizle tanışın.',
 
     // Testimonials
-    'testimonials.title': 'Öğrenci Başarı',
-    'testimonials.subtitle': 'Hikayeleri',
+    'testimonials.title': 'Mezun Yorumları',
+    'testimonials.subtitle': 'Başarı Hikayeleri',
     'testimonials.description': 'Tutkularını kârlı kariyerlere ve başarılı işletmelere dönüştüren mezunlarımızdan dinleyin.',
+
+    // Gallery
+    'gallery.title': 'Galerimiz',
+    'gallery.subtitle': 'Çalışmalarımızı görün',
+    'gallery.description': 'Öğrencilerimizin ve eğitmenlerimizin muhteşem çalışmalarını keşfedin.',
 
     // Contact
     'contact.title': 'Bize Ulaşın',
@@ -281,6 +442,17 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.contact.info': 'İletişim Bilgileri',
     'footer.follow': 'Bizi Takip Edin',
     'footer.rights': 'Tüm hakları saklıdır.',
+
+    // Blog
+    'blog.title': 'Blogumuz',
+    'blog.subtitle': 'En son haberler ve ipuçları',
+    'blog.read.more': 'Devamını Oku',
+    'blog.view.all': 'Tüm Gönderileri Görüntüle',
+
+    // CTA
+    'cta.title': 'Kariyerinize Bugün Başlayın',
+    'cta.description': 'Tutkularını kârlı bir kariyere dönüştüren binlerce başarılı mezuna katılın.',
+    'cta.button': 'Şimdi Kayıt Olun',
 
     // Common
     'common.loading': 'Yükleniyor...',
