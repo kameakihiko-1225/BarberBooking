@@ -108,7 +108,6 @@ export default function Navigation() {
     { id: "about", label: t('nav.about') },
     { id: "courses", label: t('nav.courses') },
     { id: "instructors", label: t('nav.instructors') },
-    { id: "blog", label: t('nav.blog') },
     { id: "contact", label: t('nav.contact') },
   ];
 
