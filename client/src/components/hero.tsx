@@ -48,7 +48,7 @@ export default function Hero() {
           {headingWords.map((word, idx) => (
             <span
               key={idx}
-              className={`reveal-word ${idx === 4 ? 'premium-accent' : ''}`}
+              className={`reveal-word ${word === 'K&K' ? 'premium-accent' : ''}`}
               style={{ animationDelay: `${idx * 0.1 + 0.3}s` }}
             >
               {word + (idx < headingWords.length - 1 ? ' ' : '')}

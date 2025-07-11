@@ -64,7 +64,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.enroll': 'Zapisz się',
 
     // Hero Section
-    'hero.title': 'Akademia Fryzjerska K&K',
+    'hero.title': 'K&K Akademia Fryzjerska',
     'hero.subtitle': 'Rozwijaj swoje umiejętności fryzjerskie z najlepszymi instruktorami w Warszawie',
     'hero.description': 'Dołącz do naszej profesjonalnej akademii i przekształć swoją pasję w dochodową karierę. Kompleksowe szkolenia, praktyczne doświadczenie i wsparcie w karierze.',
     'hero.cta.primary': 'Zapisz się na Kurs',
