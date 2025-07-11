@@ -12,6 +12,10 @@ app.use(express.urlencoded({ extended: false }));
 const mediaStaticPath = path.resolve("server", "public", "media");
 app.use("/media", express.static(mediaStaticPath));
 
+// Serve attached assets
+const attachedAssetsPath = path.resolve("attached_assets");
+app.use("/attached_assets", express.static(attachedAssetsPath));
+
 app.use((req, res, next) => {
   const start = Date.now();
   const path = req.path;
