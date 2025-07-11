@@ -45,7 +45,7 @@ export default function VideoPopup({ isOpen, onClose }: VideoPopupProps) {
       onClick={onClose}
     >
       <div 
-        className="relative w-full max-w-4xl mx-4 bg-black rounded-lg overflow-hidden shadow-2xl"
+        className="relative w-full max-w-sm md:max-w-md mx-4 bg-black rounded-lg overflow-hidden shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
@@ -56,8 +56,8 @@ export default function VideoPopup({ isOpen, onClose }: VideoPopupProps) {
           <X className="w-5 h-5" />
         </button>
 
-        {/* Video */}
-        <div className="aspect-video">
+        {/* Video - Vertical phone orientation */}
+        <div className="aspect-[9/16]">
           <video
             autoPlay
             controls
