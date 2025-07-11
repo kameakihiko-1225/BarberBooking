@@ -189,9 +189,8 @@ export default function Navigation() {
                 ))}
           </div>
           
-          {/* Language Switcher and Enroll Button */}
-          <div className="hidden md:flex items-center space-x-4 ml-auto">
-            <LanguageSwitcher />
+          {/* Enroll Button */}
+          <div className="hidden md:flex items-center ml-auto">
             <Button asChild className={`px-10 py-3 h-auto leading-none rounded-full font-semibold text-lg transition-all hover:scale-110 hover:shadow-lg ${
               isHome && !isScrolled
                 ? 'bg-[var(--premium-accent)] text-black hover:bg-[var(--premium-accent)]/80'
@@ -199,6 +198,16 @@ export default function Navigation() {
             }`}>
               <Link href="/contacts">{t('nav.enroll')}</Link>
             </Button>
+          </div>
+          
+          {/* Language Switcher - Fixed Top Right */}
+          <div className="fixed top-6 right-6 z-[60] hidden md:block">
+            <LanguageSwitcher />
+          </div>
+          
+          {/* Language Switcher - Mobile Top Right */}
+          <div className="fixed top-6 right-16 z-[60] md:hidden">
+            <LanguageSwitcher />
           </div>
         </div>
       </nav>
@@ -246,23 +255,14 @@ export default function Navigation() {
                 </Link>
               ))}
           
-          {/* Language Switcher in Mobile Menu */}
-          <div className={`mt-8 transform ${
+
+          
+          {isHome && (
+          <Button asChild className={`bg-[var(--premium-accent)] text-black px-8 py-3 rounded-full font-medium mt-8 hover:bg-[var(--premium-accent)]/80 transition-all hover:scale-105 hover:shadow-lg transform ${
             isOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}
           style={{ 
             transitionDelay: isOpen ? '500ms' : '0ms',
-            transitionProperty: 'transform, opacity'
-          }}>
-            <LanguageSwitcher />
-          </div>
-          
-          {isHome && (
-          <Button asChild className={`bg-[var(--premium-accent)] text-black px-8 py-3 rounded-full font-medium mt-4 hover:bg-[var(--premium-accent)]/80 transition-all hover:scale-105 hover:shadow-lg transform ${
-            isOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-          }`}
-          style={{ 
-            transitionDelay: isOpen ? '600ms' : '0ms',
             transitionProperty: 'transform, opacity, background-color, box-shadow'
           }}>
             <Link href="/contacts">{t('nav.enroll')}</Link>
