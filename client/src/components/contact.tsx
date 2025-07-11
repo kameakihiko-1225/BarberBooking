@@ -132,7 +132,11 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="font-semibold text-deep-black">{t('contact.hours')}</div>
-                  <div className="text-gray-600">{t('contact.hours.schedule')}</div>
+                  <div className="text-gray-600">
+                    {t('contact.hours.weekdays')}<br />
+                    {t('contact.hours.saturday')}<br />
+                    {t('contact.hours.sunday')}
+                  </div>
                 </div>
               </div>
             </div>
@@ -207,13 +211,13 @@ export default function Contact() {
                 <Label className="text-sm font-medium text-gray-700 mb-2">{t('contact.form.program')}</Label>
                 <Select value={formData.program} onValueChange={(value) => handleInputChange('program', value)}>
                   <SelectTrigger className="focus:ring-2 focus:ring-[var(--golden-bronze)] focus:border-[var(--golden-bronze)]">
-                    <SelectValue placeholder={t('contact.program.select')} />
+                    <SelectValue placeholder={t('contact.form.program.placeholder')} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="free">{t('contact.program.free')}</SelectItem>
-                    <SelectItem value="beginner">{t('contact.program.beginner')}</SelectItem>
-                    <SelectItem value="advanced">{t('contact.program.advanced')}</SelectItem>
-                    <SelectItem value="specialist">{t('contact.program.specialist')}</SelectItem>
+                    <SelectItem value="free">{t('contact.form.program.free')}</SelectItem>
+                    <SelectItem value="basic">{t('contact.form.program.basic')}</SelectItem>
+                    <SelectItem value="advanced">{t('contact.form.program.advanced')}</SelectItem>
+                    <SelectItem value="complete">{t('contact.form.program.complete')}</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -227,7 +231,7 @@ export default function Contact() {
                   rows={4}
                   value={formData.message}
                   onChange={(e) => handleInputChange('message', e.target.value)}
-                  placeholder="Tell us about your goals and any questions you have..."
+                  placeholder={t('contact.form.message.placeholder')}
                   className="focus:ring-2 focus:ring-[var(--golden-bronze)] focus:border-[var(--golden-bronze)]"
                 />
               </div>
