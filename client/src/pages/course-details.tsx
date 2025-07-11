@@ -67,7 +67,7 @@ function GalleryCard({ item, idx }: { item: MediaItem; idx: number }) {
 }
 
 export default function CourseDetails() {
-  const [match, params] = useRoute<{ id: string }>('/courses/:id');
+  const [match, params] = useRoute<{ id: string }>('/course/:id');
   if (!match) return null;
   const course = courses.find((c) => c.id === Number(params.id));
   if (!course) return <div className="min-h-screen flex items-center justify-center">Course not found.</div>;

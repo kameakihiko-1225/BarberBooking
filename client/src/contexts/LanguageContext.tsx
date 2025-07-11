@@ -266,6 +266,12 @@ const translations: Record<Language, Record<string, string>> = {
     'about.certified.excellence': 'Certyfikowana doskonałość',
     'about.state.licensed': 'Akademia licencjonowana przez państwo',
     'common.free': 'BEZPŁATNE',
+    
+    // Course Translation Keys
+    'courses.enroll.now': 'Zapisz się teraz',
+    'courses.cta.title': 'Gotowy, aby rozpocząć karierę barbera?',
+    'courses.cta.description': 'Dołącz do naszej akademii i opanuj umiejętności, które wyróżnią cię w branży fryzjerskiej.',
+    'courses.cta.button': 'Rozpocznij swoją podróż',
   },
 
   en: {
@@ -428,6 +434,10 @@ const translations: Record<Language, Record<string, string>> = {
     'common.free': 'FREE',
     
     // Course Translation Keys
+    'courses.enroll.now': 'Enroll Now',
+    'courses.cta.title': 'Ready to Start Your Barbering Career?',
+    'courses.cta.description': 'Join our academy and master the skills that will set you apart in the barbering industry.',
+    'courses.cta.button': 'Start Your Journey',
     'course.free.title': 'One-Day Free Barbering Course',
     'course.free.subtitle': 'Get a Real Taste of the Barbering World – For Free',
     'course.free.description': 'Curious about becoming a barber, but not sure where to start? Our One-Day Free Course is the perfect way to experience what it\'s really like to be part of a professional barbering academy.',
@@ -645,6 +655,10 @@ const translations: Record<Language, Record<string, string>> = {
     'common.free': 'ÜCRETSİZ',
     
     // Course Translation Keys
+    'courses.enroll.now': 'Şimdi Kayıt Ol',
+    'courses.cta.title': 'Berberlik Kariyerinizi Başlatmaya Hazır mısınız?',
+    'courses.cta.description': 'Akademimize katılın ve sizi berberlik endüstrisinde öne çıkaracak becerilerde ustalaşın.',
+    'courses.cta.button': 'Yolculuğunuza Başlayın',
     'course.free.title': 'Bir Günlük Ücretsiz Berberlik Kursu',
     'course.free.subtitle': 'Berberlik Dünyasının Gerçek Tadını Alın – Ücretsiz',
     'course.free.description': 'Berber olmak hakkında merak ediyor ama nereden başlayacağınızı bilmiyor musunuz? Bir Günlük Ücretsiz Kursumuz, profesyonel bir berberlik akademisinin parçası olmanın gerçekte nasıl bir şey olduğunu deneyimlemenin mükemmel yolu.',

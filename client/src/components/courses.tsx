@@ -81,29 +81,29 @@ export default function Courses() {
                   <div className="p-6 flex flex-col flex-grow">
                     <div className="flex items-center justify-between mb-4">
                       <span className={`px-3 py-1 rounded-full text-sm font-medium ${course.badgeColor}`}>
-                        {course.badge}
+                        {t(course.badge)}
                       </span>
-                      <span className="text-2xl font-bold text-deep-black">{course.price}</span>
+                      <span className="text-2xl font-bold text-deep-black">{t(course.price)}</span>
                     </div>
                     
-                    <h3 className="font-serif text-xl font-bold mb-3 min-h-[3.5rem] flex items-start">{course.title}</h3>
+                    <h3 className="font-serif text-xl font-bold mb-3 min-h-[3.5rem] flex items-start">{t(course.title)}</h3>
                     <p className="text-gray-600 mb-4 text-sm leading-relaxed flex-grow min-h-[4.5rem]">
-                      {course.description}
+                      {t(course.description)}
                     </p>
                     
                     <div className="space-y-2 mb-6">
                       <div className="flex items-center text-sm text-gray-600">
                         <Clock className="text-[var(--golden-bronze)] mr-2 h-4 w-4" />
-                        <span>{course.duration}</span>
+                        <span>{t(course.duration)}</span>
                       </div>
                       <div className="flex items-center text-sm text-gray-600">
                         {course.icon ? iconMap[course.icon] : null}
-                        <span>{course.certification}</span>
+                        <span>{t(course.certification)}</span>
                       </div>
                     </div>
                     
                     <Button asChild className={`btn-shimmer w-full py-3 rounded-full font-medium transition-all hover:scale-105 hover:shadow-lg mt-auto ${course.buttonStyle}`}>
-                      <Link href="/contacts">Enroll Now</Link>
+                      <Link href={`/course/${course.id}`}>{t('courses.enroll.now')}</Link>
                     </Button>
                   </div>
                 </div>

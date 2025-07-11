@@ -30,7 +30,7 @@ function Router() {
       <Route path="/courses" component={CoursesPage} />
       <Route path="/students-gallery" component={StudentsGalleryPage} />
       <Route path="/success-stories" component={SuccessGalleryPage} />
-      <Route path="/courses/:id" component={CourseDetails} />
+      <Route path="/course/:id" component={CourseDetails} />
       <Route path="/contacts" component={ContactsPage} />
       <Route path="/blog" component={BlogListPage} />
       <Route path="/blog/admin/post" component={BlogAdmin} />
