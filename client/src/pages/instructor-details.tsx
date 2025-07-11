@@ -3,9 +3,11 @@ import { instructors } from "@/data/instructors";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function InstructorDetails() {
-  const [match, params] = useRoute<{ id: string }>("/barber/:id");
+  const { t } = useLanguage();
+  const [match, params] = useRoute<{ id: string }>("/instructor/:id");
   if (!match) return null;
   const found = instructors.find((i) => i.id === Number(params.id));
 
@@ -20,7 +22,7 @@ export default function InstructorDetails() {
   const images = media.filter(m=>m.type==='image').map(m=>m.src);
   const displaySrc = images[(found?.id ?? 1)-1] || found?.image || "";
 
-  if (!found) return <div className="min-h-screen flex items-center justify-center">Not found</div>;
+  if (!found) return <div className="min-h-screen flex items-center justify-center text-white bg-deep-black">{t('instructor.not.found')}</div>;
 
   return (
     <section className="min-h-screen bg-deep-black text-white pt-32 pb-20 px-4">
@@ -34,9 +36,9 @@ export default function InstructorDetails() {
         </div>
         <div>
           <h1 className="font-serif text-4xl font-bold mb-2">{found.name}</h1>
-          <h2 className="golden-bronze text-xl font-medium mb-6">{found.title}</h2>
-          <p className="text-gray-300 mb-6 leading-relaxed">{found.about}</p>
-          <p className="text-gray-400 mb-8">{found.experience}</p>
+          <h2 className="golden-bronze text-xl font-medium mb-6">{t('instructors.title')}</h2>
+          <p className="text-gray-300 mb-6 leading-relaxed">{t(`instructor.${found.id}.about`)}</p>
+          <p className="text-gray-400 mb-8">{t(`instructor.${found.id}.experience`)}</p>
           <div className="flex space-x-4 mb-8">
             {found.socials.map((s, idx) => (
               <a key={idx} href={s.href} className="text-gray-400 hover:text-[var(--premium-accent)] transition-colors">
@@ -45,7 +47,7 @@ export default function InstructorDetails() {
             ))}
           </div>
           <Button asChild className="bg-[var(--premium-accent)] text-black px-8 py-3 rounded-full font-medium hover:bg-[var(--premium-accent)]/80 transition-all">
-            <a href="/contacts">Apply Now</a>
+            <a href="/contact">{t('instructor.apply.now')}</a>
           </Button>
         </div>
       </div>

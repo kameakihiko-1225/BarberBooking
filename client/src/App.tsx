@@ -24,14 +24,14 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/barber/:id" component={InstructorDetails} />
+      <Route path="/instructor/:id" component={InstructorDetails} />
       <Route path="/about-us" component={AboutUs} />
       <Route path="/gallery" component={GalleryPage} />
       <Route path="/courses" component={CoursesPage} />
       <Route path="/students-gallery" component={StudentsGalleryPage} />
       <Route path="/success-stories" component={SuccessGalleryPage} />
       <Route path="/course/:id" component={CourseDetails} />
-      <Route path="/contacts" component={ContactsPage} />
+      <Route path="/contact" component={ContactsPage} />
       <Route path="/blog" component={BlogListPage} />
       <Route path="/blog/admin/post" component={BlogAdmin} />
       <Route path="/blog/:slug" component={BlogPostPage} />

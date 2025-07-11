@@ -407,6 +407,46 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.form.error.desc': 'Spróbuj ponownie później.',
     'contact.form.success': 'Wiadomość wysłana!',
     'contact.form.success.desc': 'Wkrótce się z Tobą skontaktujemy.',
+
+    // Course Details Translation Keys
+    'course.not.found': 'Kurs nie znaleziony',
+    'course.overview': 'Przegląd kursu',
+    'course.curriculum': 'Program nauczania',
+    'course.instructors': 'Instruktorzy',
+    'course.gallery': 'Galeria',
+    'course.book.now': 'Zapisz się teraz',
+    'course.duration': 'Czas trwania',
+    'course.students': 'Uczniowie',
+    'course.certification': 'Certyfikacja',
+    'course.what.learn': 'Czego się nauczysz',
+    'course.upcoming.dates': 'Nadchodzące terminy',
+    'course.enroll.today': 'Zapisz się dziś',
+    'course.meet.instructors': 'Poznaj instruktorów',
+    'course.select.date': 'Wybierz preferowany termin rozpoczęcia',
+    'course.audience': 'Dla kogo jest ten kurs',
+
+    // Instructor Details Translation Keys
+    'instructor.not.found': 'Instruktor nie znaleziony',
+    'instructor.apply.now': 'Aplikuj teraz',
+    'instructor.experience': 'Doświadczenie',
+    'instructor.specializations': 'Specjalizacje',
+    'instructor.about': 'O instrukturze',
+    'instructor.contact': 'Skontaktuj się',
+
+    // About Section CTA
+    'about.cta': 'Rozpocznij swoją podróż',
+
+    // Individual Instructor Details
+    'instructor.1.about': 'Ekspert w klasycznych technikach fryzjerskich z ponad 10-letnim doświadczeniem. Specjalizuje się w precyzyjnych strzyżeniach i stylizacji brody.',
+    'instructor.1.experience': 'Doświadczenie: 12+ lat',
+    'instructor.2.about': 'Mistrz nowoczesnych trendów i kreatywnych stylizacji. Prowadzi warsztaty dla zaawansowanych uczniów.',
+    'instructor.2.experience': 'Doświadczenie: 8+ lat',
+    'instructor.3.about': 'Specjalista od tradycyjnych technik i precyzyjnego golenia. Mentor dla nowych instruktorów.',
+    'instructor.3.experience': 'Doświadczenie: 15+ lat',
+    'instructor.4.about': 'Ekspert w nowoczesnych technikach strzyżenia i koloryzacji. Certyfikowany instruktor międzynarodowy.',
+    'instructor.4.experience': 'Doświadczenie: 10+ lat',
+    'instructor.5.about': 'Mistrz klasycznego fryzjerstwa i stylizacji. Prowadzi kursy dla zaawansowanych.',
+    'instructor.5.experience': 'Doświadczenie: 14+ lat',
   },
 
   en: {
@@ -702,6 +742,46 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.form.error.desc': 'Please try again later.',
     'contact.form.success': 'Message sent!',
     'contact.form.success.desc': 'We will be in touch shortly.',
+
+    // Course Details Translation Keys
+    'course.not.found': 'Course not found',
+    'course.overview': 'Course Overview',
+    'course.curriculum': 'Curriculum',
+    'course.instructors': 'Instructors',
+    'course.gallery': 'Gallery',
+    'course.book.now': 'Book Now',
+    'course.duration': 'Duration',
+    'course.students': 'Students',
+    'course.certification': 'Certification',
+    'course.what.learn': 'What you will learn',
+    'course.upcoming.dates': 'Upcoming Dates',
+    'course.enroll.today': 'Enroll Today',
+    'course.meet.instructors': 'Meet Your Instructors',
+    'course.select.date': 'Select your preferred start date',
+    'course.audience': 'Who This Course Is For',
+
+    // Instructor Details Translation Keys
+    'instructor.not.found': 'Instructor not found',
+    'instructor.apply.now': 'Apply Now',
+    'instructor.experience': 'Experience',
+    'instructor.specializations': 'Specializations',
+    'instructor.about': 'About Instructor',
+    'instructor.contact': 'Contact',
+
+    // About Section CTA
+    'about.cta': 'Start Your Journey',
+
+    // Individual Instructor Details
+    'instructor.1.about': 'Expert in classical barbering techniques with over 10 years of experience. Specializes in precision cuts and beard styling.',
+    'instructor.1.experience': 'Experience: 12+ years',
+    'instructor.2.about': 'Master of modern trends and creative styling. Leads workshops for advanced students.',
+    'instructor.2.experience': 'Experience: 8+ years',
+    'instructor.3.about': 'Specialist in traditional techniques and precision shaving. Mentor to new instructors.',
+    'instructor.3.experience': 'Experience: 15+ years',
+    'instructor.4.about': 'Expert in modern cutting techniques and coloring. Certified international instructor.',
+    'instructor.4.experience': 'Experience: 10+ years',
+    'instructor.5.about': 'Master of classical barbering and styling. Leads advanced courses.',
+    'instructor.5.experience': 'Experience: 14+ years',
 
     'course.free.title': 'One-Day Free Barbering Course',
     'course.free.subtitle': 'Get a Real Taste of the Barbering World – For Free',
@@ -1053,6 +1133,46 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.form.error.desc': 'Lütfen daha sonra tekrar deneyin.',
     'contact.form.success': 'Mesaj gönderildi!',
     'contact.form.success.desc': 'Yakında sizinle iletişime geçeceğiz.',
+
+    // Course Details Translation Keys
+    'course.not.found': 'Kurs bulunamadı',
+    'course.overview': 'Kurs Genel Bakış',
+    'course.curriculum': 'Müfredat',
+    'course.instructors': 'Eğitmenler',
+    'course.gallery': 'Galeri',
+    'course.book.now': 'Şimdi Rezervasyon Yap',
+    'course.duration': 'Süre',
+    'course.students': 'Öğrenciler',
+    'course.certification': 'Sertifikasyon',
+    'course.what.learn': 'Neler öğreneceksiniz',
+    'course.upcoming.dates': 'Yaklaşan Tarihler',
+    'course.enroll.today': 'Bugün Kayıt Ol',
+    'course.meet.instructors': 'Eğitmenlerinizle Tanışın',
+    'course.select.date': 'Tercih ettiğiniz başlangıç tarihini seçin',
+    'course.audience': 'Bu Kurs Kimler İçin',
+
+    // Instructor Details Translation Keys
+    'instructor.not.found': 'Eğitmen bulunamadı',
+    'instructor.apply.now': 'Şimdi Başvur',
+    'instructor.experience': 'Deneyim',
+    'instructor.specializations': 'Uzmanlık Alanları',
+    'instructor.about': 'Eğitmen Hakkında',
+    'instructor.contact': 'İletişim',
+
+    // About Section CTA
+    'about.cta': 'Yolculuğunuza Başlayın',
+
+    // Individual Instructor Details
+    'instructor.1.about': 'Klasik berberlik tekniklerinde uzman, 10+ yıl deneyim. Hassas kesimler ve sakal şekillendirmede uzmanlaşmış.',
+    'instructor.1.experience': 'Deneyim: 12+ yıl',
+    'instructor.2.about': 'Modern trendlerin ve yaratıcı stillerin ustası. İleri seviye öğrenciler için atölyeler yönetir.',
+    'instructor.2.experience': 'Deneyim: 8+ yıl',
+    'instructor.3.about': 'Geleneksel teknikler ve hassas tıraş uzmanı. Yeni eğitmenlere mentorluk yapar.',
+    'instructor.3.experience': 'Deneyim: 15+ yıl',
+    'instructor.4.about': 'Modern kesim teknikleri ve renklendirme uzmanı. Sertifikalı uluslararası eğitmen.',
+    'instructor.4.experience': 'Deneyim: 10+ yıl',
+    'instructor.5.about': 'Klasik berberlik ve şekillendirme ustası. İleri seviye kurslar yönetir.',
+    'instructor.5.experience': 'Deneyim: 14+ yıl',
 
     'course.free.title': 'Bir Günlük Ücretsiz Berberlik Kursu',
     'course.free.subtitle': 'Berberlik Dünyasının Gerçek Tadını Alın – Ücretsiz',

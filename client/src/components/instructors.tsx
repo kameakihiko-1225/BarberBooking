@@ -13,11 +13,12 @@ function InstructorCard({ instructor, index, isVisible }: {
 }) {
   const { t } = useLanguage();
   return (
-    <div className={`group relative bg-black rounded-lg overflow-hidden border-l-4 border-[#FF6A00] transition-all duration-700 hover:shadow-xl transform hover:scale-105 ${
-      isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
-    }`} style={{ 
-      transitionDelay: `${index * 150}ms`
-    }}>
+    <Link to={`/instructor/${instructor.id}`}>
+      <div className={`group relative bg-black rounded-lg overflow-hidden border-l-4 border-[#FF6A00] transition-all duration-700 hover:shadow-xl transform hover:scale-105 cursor-pointer ${
+        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
+      }`} style={{ 
+        transitionDelay: `${index * 150}ms`
+      }}>
       {/* Image Container */}
       <div className="relative h-80 overflow-hidden">
         <img
@@ -29,27 +30,29 @@ function InstructorCard({ instructor, index, isVisible }: {
         />
         
         {/* Social Media Icons Overlay */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/20">
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/20 pointer-events-none">
           <div className="flex space-x-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
             {instructor.socials?.instagram && (
-              <a
-                href={instructor.socials.instagram}
-                className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
+              <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-colors pointer-events-auto"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  window.open(instructor.socials.instagram, '_blank');
+                }}
               >
                 <Instagram className="w-6 h-6 text-pink-600" />
-              </a>
+              </div>
             )}
             {instructor.socials?.whatsapp && (
-              <a
-                href={instructor.socials.whatsapp}
-                className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
+              <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-colors pointer-events-auto"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  window.open(instructor.socials.whatsapp, '_blank');
+                }}
               >
                 <MessageCircle className="w-6 h-6 text-green-600" />
-              </a>
+              </div>
             )}
           </div>
         </div>
@@ -57,10 +60,11 @@ function InstructorCard({ instructor, index, isVisible }: {
       
       {/* Orange Background on Hover */}
       <div className="absolute bottom-0 left-0 right-0 bg-black transition-all duration-500 group-hover:bg-[#FF6A00] p-6">
-        <h3 className="text-xl font-bold text-white mb-2">{t(instructor.name)}</h3>
-        <p className="text-gray-300 group-hover:text-white transition-colors">{t('senior.barber.instructor')}</p>
+        <h3 className="text-xl font-bold text-white mb-2">{instructor.name}</h3>
+        <p className="text-gray-300 group-hover:text-white transition-colors">{t('instructors.title')}</p>
       </div>
     </div>
+    </Link>
   );
 }
 

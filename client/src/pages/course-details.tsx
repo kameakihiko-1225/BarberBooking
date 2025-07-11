@@ -72,7 +72,7 @@ export default function CourseDetails() {
   const [match, params] = useRoute<{ id: string }>('/course/:id');
   if (!match) return null;
   const course = courses.find((c) => c.id === Number(params.id));
-  if (!course) return <div className="min-h-screen flex items-center justify-center">{t('course.not.found')}</div>;
+  if (!course) return <div className="min-h-screen flex items-center justify-center text-white bg-deep-black">{t('course.not.found')}</div>;
 
   // Media queries for new gallery section
   const { data: galleryMedia = [] } = useQuery<MediaItem[]>({
@@ -137,8 +137,8 @@ export default function CourseDetails() {
             className="w-full h-64 md:h-96 object-cover rounded-2xl shadow-lg ring-1 ring-white/10 reveal"
           />
           <div>
-            <h1 className="font-serif text-4xl font-bold mb-2 text-deep-black reveal">{course.title}</h1>
-            <p className="text-xl text-gray-600 mb-4 reveal" style={{ transitionDelay: '100ms' }}>{course.subtitle}</p>
+            <h1 className="font-serif text-4xl font-bold mb-2 text-deep-black reveal">{t(`course.${course.id}.title`)}</h1>
+            <p className="text-xl text-gray-600 mb-4 reveal" style={{ transitionDelay: '100ms' }}>{t(`course.${course.id}.subtitle`)}</p>
 
             <div className="flex flex-wrap gap-3 mb-6">
               {course.benefits.map((b, idx) => (
@@ -156,7 +156,7 @@ export default function CourseDetails() {
               asChild
               className="btn-shimmer bg-[var(--premium-accent)] text-black px-8 py-3 rounded-full font-medium hover:bg-[var(--premium-accent)]/80 transition-all"
             >
-              <a href="/contacts">Enroll Now</a>
+              <a href="/contact">{t('course.enroll.today')}</a>
             </Button>
           </div>
         </div>
@@ -166,8 +166,8 @@ export default function CourseDetails() {
       <section className="px-4 mb-16">
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
-            <h2 className="font-serif text-3xl font-bold text-center mb-2">Course Schedule</h2>
-            <p className="text-gray-600 text-center mb-8">Select your preferred start date</p>
+            <h2 className="font-serif text-3xl font-bold text-center mb-2">{t('course.upcoming.dates')}</h2>
+            <p className="text-gray-600 text-center mb-8">{t('course.select.date')}</p>
             
             <div className="max-w-2xl mx-auto">
               <UpcomingDates 
@@ -180,7 +180,7 @@ export default function CourseDetails() {
                   asChild
                   className="btn-shimmer bg-[var(--premium-accent)] text-black px-8 py-3 rounded-full font-medium hover:bg-[var(--premium-accent)]/80 transition-all"
                 >
-                  <a href="/contacts">Reserve Your Spot</a>
+                  <a href="/contact">{t('course.book.now')}</a>
                 </Button>
               </div>
             </div>
@@ -191,7 +191,7 @@ export default function CourseDetails() {
       {/* What You'll Learn */}
       <section className="px-4 mb-16">
         <div className="max-w-4xl mx-auto text-center mb-10">
-          <h2 className="font-serif text-3xl font-bold">What You'll Learn</h2>
+          <h2 className="font-serif text-3xl font-bold">{t('course.what.learn')}</h2>
         </div>
         <div className="max-w-5xl mx-auto grid sm:grid-cols-2 md:grid-cols-2 gap-6">
           {course.skills.map((s, idx) => (
@@ -209,7 +209,7 @@ export default function CourseDetails() {
       {/* Audience */}
       <section className="px-4 mb-16">
         <div className="max-w-4xl mx-auto text-center mb-10">
-          <h2 className="font-serif text-3xl font-bold">Who This Course Is For</h2>
+          <h2 className="font-serif text-3xl font-bold">{t('course.audience')}</h2>
         </div>
         <div className="max-w-3xl mx-auto grid sm:grid-cols-2 gap-6">
           {course.audience.map((aud, idx) => (
