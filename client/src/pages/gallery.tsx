@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
 import { Play } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 type Media = { src: string; type: 'image' | 'video' };
 
@@ -109,6 +110,7 @@ function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
 }
 
 export default function GalleryPage() {
+  const { t } = useLanguage();
   const { data = [], isLoading } = useQuery<Media[]>({
     queryKey: ['media', 'gallery'],
     queryFn: async () => {
@@ -126,8 +128,8 @@ export default function GalleryPage() {
     return (
       <main className="pt-32 pb-20 bg-deep-black text-white">
         <section className="text-center mb-20 px-4">
-          <h1 className="font-serif text-5xl font-bold mb-4">Full <span className="premium-accent">Gallery</span></h1>
-          <p className="text-gray-300 max-w-2xl mx-auto">Discover our complete collection of work</p>
+          <h1 className="font-serif text-5xl font-bold mb-4">{t('page.gallery.title')} <span className="premium-accent">{t('page.gallery.title.highlight')}</span></h1>
+          <p className="text-gray-300 max-w-2xl mx-auto">{t('page.gallery.loading')}</p>
         </section>
         <section className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-3 xs:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 xs:gap-3 sm:gap-4">
@@ -143,9 +145,9 @@ export default function GalleryPage() {
   return (
     <main className="pt-32 pb-20 bg-deep-black text-white">
       <section className="text-center mb-20 px-4">
-        <h1 className="font-serif text-5xl font-bold mb-4">Full <span className="premium-accent">Gallery</span></h1>
+        <h1 className="font-serif text-5xl font-bold mb-4">{t('page.gallery.title')} <span className="premium-accent">{t('page.gallery.title.highlight')}</span></h1>
         <p className="text-gray-300 max-w-2xl mx-auto">
-          Explore our complete collection of {data.length} professional works and training moments
+          {t('page.gallery.explore', { count: data.length })}
         </p>
       </section>
 
@@ -159,10 +161,10 @@ export default function GalleryPage() {
 
       <div className="text-center">
         <Button className="bg-[var(--premium-accent)] text-black px-10 py-4 font-semibold rounded-full hover:bg-[var(--premium-accent)]/80" asChild>
-          <a href="/">Back to Home</a>
+          <a href="/">{t('page.back.home')}</a>
         </Button>
         <Button className="ml-4 bg-white text-deep-black px-10 py-4 font-semibold rounded-full hover:bg-white/90 mt-4" asChild>
-          <a href="/contacts">Apply Now</a>
+          <a href="/contact">{t('page.apply.now')}</a>
         </Button>
       </div>
     </main>

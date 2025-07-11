@@ -7,6 +7,7 @@ import { CheckCircle, Gift, BookOpen, Users, Scissors, Trophy, Briefcase, Chevro
 import { useQuery } from '@tanstack/react-query';
 import { UpcomingDates } from '@/components/upcoming-dates';
 import { instructors } from '@/data/instructors';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 type MediaItem = { src: string; type: 'image' | 'video' };
 
@@ -67,10 +68,11 @@ function GalleryCard({ item, idx }: { item: MediaItem; idx: number }) {
 }
 
 export default function CourseDetails() {
+  const { t } = useLanguage();
   const [match, params] = useRoute<{ id: string }>('/course/:id');
   if (!match) return null;
   const course = courses.find((c) => c.id === Number(params.id));
-  if (!course) return <div className="min-h-screen flex items-center justify-center">Course not found.</div>;
+  if (!course) return <div className="min-h-screen flex items-center justify-center">{t('course.not.found')}</div>;
 
   // Media queries for new gallery section
   const { data: galleryMedia = [] } = useQuery<MediaItem[]>({

@@ -327,6 +327,36 @@ const translations: Record<Language, Record<string, string>> = {
     'gallery.description': 'Zobacz naszą nowoczesną akademię, profesjonalny sprzęt i prace uczniów w akcji.',
     'gallery.see.all.student.works': 'Zobacz wszystkie prace uczniów',
     'gallery.all.success.stories': 'Wszystkie historie sukcesu',
+    'gallery.view.full': 'Zobacz pełną galerię',
+
+    // Blog Translation Keys
+    'blog.latest': 'Najnowsze wpisy',
+    'blog.tips': 'Zdobądź profesjonalne wskazówki, trendy branżowe i wgląd w ekspertyzy od naszych ekspertów.',
+    'blog.read.more': 'Czytaj więcej',
+
+    // CTA Enroll Translation Keys
+    'cta.enroll.title': 'Rozpocznij swoją podróż fryzjerską już dziś',
+    'cta.enroll.description': 'Aplikuj teraz i dołącz do naszej społeczności elitarnych fryzjerów kształtujących przyszłość stylu.',
+    'cta.enroll.button': 'Rozpocznij swoją podróż',
+
+    // Page Translation Keys
+    'course.not.found': 'Kurs nie został znaleziony.',
+    'page.gallery.title': 'Pełna',
+    'page.gallery.title.highlight': 'Galeria',
+    'page.gallery.loading': 'Odkryj naszą kompletną kolekcję prac',
+    'page.gallery.explore': 'Sprawdź naszą kompletną kolekcję ${count} profesjonalnych prac i momentów treningowych',
+    'page.students.title': 'Prace',
+    'page.students.title.highlight': 'Uczniów',
+    'page.students.explore': 'Zobacz niesamowite transformacje i umiejętności naszych uczniów',
+    'page.success.title': 'Historie',
+    'page.success.title.highlight': 'Sukcesu',
+    'page.success.explore': 'Poznaj inspirujące historie naszych absolwentów',
+    'page.back.home': 'Powrót do strony głównej',
+    'page.apply.now': 'Aplikuj teraz',
+    'page.showcased.works': 'prezentowanych prac',
+    'page.blog.title': 'Akademia',
+    'page.blog.title.highlight': 'Wskazówki',
+    'page.blog.subtitle': 'Wiadomości, porady i trendy ze świata nowoczesnego fryzjerstwa.',
   },
 
   en: {
@@ -540,6 +570,38 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.program.advanced': 'Advanced Course (3 days)',
     'contact.program.specialist': 'Specialist Course (2 weeks)',
     'contact.program.select': 'Select a program',
+
+    // Gallery Translation Keys  
+    'gallery.view.full': 'View Full Gallery',
+
+    // Blog Translation Keys
+    'blog.latest': 'Latest Insights',
+    'blog.tips': 'Get professional tips, industry trends, and expert insights from our professionals.',
+    'blog.read.more': 'Read More',
+
+    // CTA Enroll Translation Keys
+    'cta.enroll.title': 'Kick-start Your Barber Journey Today',
+    'cta.enroll.description': 'Apply now and join our community of elite barbers shaping the future of style.',
+    'cta.enroll.button': 'Start Your Journey',
+
+    // Page Translation Keys
+    'course.not.found': 'Course not found.',
+    'page.gallery.title': 'Full',
+    'page.gallery.title.highlight': 'Gallery',
+    'page.gallery.loading': 'Discover our complete collection of work',
+    'page.gallery.explore': 'Explore our complete collection of ${count} professional works and training moments',
+    'page.students.title': 'Student',
+    'page.students.title.highlight': 'Works',
+    'page.students.explore': 'See the amazing transformations and skills from our students',
+    'page.success.title': 'Success',
+    'page.success.title.highlight': 'Stories',
+    'page.success.explore': 'Discover inspiring stories from our graduates',
+    'page.back.home': 'Back to Home',
+    'page.apply.now': 'Apply Now',
+    'page.showcased.works': 'showcased works',
+    'page.blog.title': 'Academy',
+    'page.blog.title.highlight': 'Insights',
+    'page.blog.subtitle': 'News, tips and trends from the world of modern barbering.',
 
     'course.free.title': 'One-Day Free Barbering Course',
     'course.free.subtitle': 'Get a Real Taste of the Barbering World – For Free',
@@ -809,6 +871,38 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.program.advanced': 'İleri Kurs (3 gün)',
     'contact.program.specialist': 'Uzman Kursu (2 hafta)',
     'contact.program.select': 'Bir program seçin',
+
+    // Gallery Translation Keys
+    'gallery.view.full': 'Tam Galeriyi Görüntüle',
+
+    // Blog Translation Keys
+    'blog.latest': 'Son Haberler',
+    'blog.tips': 'Profesyonellerimizden profesyonel ipuçları, sektör trendleri ve uzman görüşleri alın.',
+    'blog.read.more': 'Devamını Oku',
+
+    // CTA Enroll Translation Keys
+    'cta.enroll.title': 'Berber Yolculuğunuzu Bugün Başlatın',
+    'cta.enroll.description': 'Şimdi başvurun ve stilin geleceğini şekillendiren elit berberlerden oluşan topluluğumuza katılın.',
+    'cta.enroll.button': 'Yolculuğunuza Başlayın',
+
+    // Page Translation Keys
+    'course.not.found': 'Kurs bulunamadı.',
+    'page.gallery.title': 'Tam',
+    'page.gallery.title.highlight': 'Galeri',
+    'page.gallery.loading': 'Komplet çalışma koleksiyonumuzu keşfedin',
+    'page.gallery.explore': '${count} profesyonel çalışma ve eğitim anımızdan oluşan komplet koleksiyonumuzu keşfedin',
+    'page.students.title': 'Öğrenci',
+    'page.students.title.highlight': 'Çalışmaları',
+    'page.students.explore': 'Öğrencilerimizin harika dönüşümlerini ve becerilerini görün',
+    'page.success.title': 'Başarı',
+    'page.success.title.highlight': 'Hikayeleri',
+    'page.success.explore': 'Mezunlarımızın ilham verici hikayelerini keşfedin',
+    'page.back.home': 'Ana Sayfaya Dön',
+    'page.apply.now': 'Şimdi Başvur',
+    'page.showcased.works': 'sergilenen çalışma',
+    'page.blog.title': 'Akademi',
+    'page.blog.title.highlight': 'Görüşleri',
+    'page.blog.subtitle': 'Modern berberlik dünyasından haberler, ipuçları ve trendler.',
 
     'course.free.title': 'Bir Günlük Ücretsiz Berberlik Kursu',
     'course.free.subtitle': 'Berberlik Dünyasının Gerçek Tadını Alın – Ücretsiz',

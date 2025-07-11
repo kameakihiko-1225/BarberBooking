@@ -198,7 +198,7 @@ export default function Gallery() {
         )}
 
         <Button className="mt-6" asChild>
-          <Link href="/gallery">View Full Gallery</Link>
+          <Link href="/gallery">{t('gallery.view.full')}</Link>
         </Button>
       </div>
     </section>

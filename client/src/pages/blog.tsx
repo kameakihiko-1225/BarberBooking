@@ -1,8 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import { BlogCard, BlogPostPreview, fallbackPosts } from '@/components/blog';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function BlogListPage() {
+  const { t } = useLanguage();
   const { data: apiPosts = [] } = useQuery<BlogPostPreview[]>({
     queryKey: ['blog','list'],
     queryFn: async ()=>{
@@ -22,8 +24,8 @@ export default function BlogListPage() {
     <main className="pt-32 pb-20 bg-white text-deep-black">
       {/* Hero */}
       <section className="mb-16 text-center px-4">
-        <h1 className="font-serif text-5xl font-bold mb-4">Academy <span className="premium-accent">Insights</span></h1>
-        <p className="text-gray-600 max-w-2xl mx-auto">News, tips and trends from the world of modern barbering.</p>
+        <h1 className="font-serif text-5xl font-bold mb-4">{t('page.blog.title')} <span className="premium-accent">{t('page.blog.title.highlight')}</span></h1>
+        <p className="text-gray-600 max-w-2xl mx-auto">{t('page.blog.subtitle')}</p>
       </section>
 
       {/* Filters */}

@@ -41,6 +41,7 @@ export interface BlogPostPreview {
 }
 
 export function BlogCard({ post }: { post: BlogPostPreview }) {
+  const { t } = useLanguage();
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
@@ -103,7 +104,7 @@ export function BlogCard({ post }: { post: BlogPostPreview }) {
         </div>
         <div className="mt-4">
           <Link href={`/blog/${post.slug}`} className="inline-block text-[var(--premium-accent)] text-sm font-medium hover:underline">
-            Read More →
+            {t('blog.read.more')} →
           </Link>
         </div>
       </div>
