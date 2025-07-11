@@ -86,9 +86,9 @@ export default function Hero() {
           }`} style={{ transitionDelay: '100ms' }}>
             <div className="stat-card-inner h-24 flex flex-col justify-center items-center">
               <div className="text-2xl md:text-4xl font-bold premium-accent font-serif mb-1">
-                500+
+                100+
               </div>
-              <div className="text-gray-200 text-xs md:text-sm font-medium tracking-wider text-center leading-tight">Graduates</div>
+              <div className="text-gray-200 text-xs md:text-sm font-medium tracking-wider text-center leading-tight">{t('hero.stats.graduates')}</div>
               <div className="stat-card-glow"></div>
             </div>
           </div>
@@ -97,9 +97,9 @@ export default function Hero() {
           }`} style={{ transitionDelay: '200ms' }}>
             <div className="stat-card-inner h-24 flex flex-col justify-center items-center">
               <div className="text-2xl md:text-4xl font-bold premium-accent font-serif mb-1">
-                15+
+                11+
               </div>
-              <div className="text-gray-200 text-xs md:text-sm font-medium tracking-wider text-center leading-tight">Years Experience</div>
+              <div className="text-gray-200 text-xs md:text-sm font-medium tracking-wider text-center leading-tight">{t('hero.stats.experience')}</div>
               <div className="stat-card-glow"></div>
             </div>
           </div>
@@ -110,7 +110,7 @@ export default function Hero() {
               <div className="text-2xl md:text-4xl font-bold premium-accent font-serif mb-1">
                 95%
               </div>
-              <div className="text-gray-200 text-xs md:text-sm font-medium tracking-wider text-center leading-tight">Job Placement</div>
+              <div className="text-gray-200 text-xs md:text-sm font-medium tracking-wider text-center leading-tight">{t('hero.stats.placement')}</div>
               <div className="stat-card-glow"></div>
             </div>
           </div>
@@ -119,9 +119,9 @@ export default function Hero() {
           }`} style={{ transitionDelay: '400ms' }}>
             <div className="stat-card-inner h-24 flex flex-col justify-center items-center">
               <div className="text-2xl md:text-4xl font-bold premium-accent font-serif mb-1">
-                10+
+                5
               </div>
-              <div className="text-gray-200 text-xs md:text-sm font-medium tracking-wider text-center leading-tight">Master Instructors</div>
+              <div className="text-gray-200 text-xs md:text-sm font-medium tracking-wider text-center leading-tight">{t('hero.stats.instructors')}</div>
               <div className="stat-card-glow"></div>
             </div>
           </div>

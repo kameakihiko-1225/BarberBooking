@@ -69,6 +69,10 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.description': 'Dołącz do naszej profesjonalnej akademii i przekształć swoją pasję w dochodową karierę. Kompleksowe szkolenia, praktyczne doświadczenie i wsparcie w karierze.',
     'hero.cta.primary': 'Zapisz się na Kurs',
     'hero.cta.secondary': 'Obejrzyj Galerię',
+    'hero.stats.graduates': 'Absolwentów',
+    'hero.stats.experience': 'Lat Doświadczenia',
+    'hero.stats.placement': 'Zatrudnienie',
+    'hero.stats.instructors': 'Mistrzów Instruktorów',
 
     // Features
     'features.expert.title': 'Ekspert Instruktorzy',
@@ -225,6 +229,10 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.description': 'Join our professional academy and transform your passion into a profitable career. Comprehensive training, hands-on experience, and career support.',
     'hero.cta.primary': 'Enroll in Course',
     'hero.cta.secondary': 'View Gallery',
+    'hero.stats.graduates': 'Graduates',
+    'hero.stats.experience': 'Years Experience',
+    'hero.stats.placement': 'Job Placement',
+    'hero.stats.instructors': 'Master Instructors',
 
     // Features
     'features.expert.title': 'Expert Instructors',
@@ -381,6 +389,10 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.description': 'Profesyonel akademimize katılın ve tutkunuzu kârlı bir kariyere dönüştürün. Kapsamlı eğitim, uygulamalı deneyim ve kariyer desteği.',
     'hero.cta.primary': 'Kursa Kayıt Ol',
     'hero.cta.secondary': 'Galeriyi Görüntüle',
+    'hero.stats.graduates': 'Mezun',
+    'hero.stats.experience': 'Yıl Deneyim',
+    'hero.stats.placement': 'İş Yerleştirme',
+    'hero.stats.instructors': 'Usta Eğitmen',
 
     // Features
     'features.expert.title': 'Uzman Eğitmenler',
