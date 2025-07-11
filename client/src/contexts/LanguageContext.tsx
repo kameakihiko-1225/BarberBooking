@@ -475,6 +475,13 @@ const translations: Record<Language, Record<string, string>> = {
     'course.beginner.outcomes.1': 'Pewnie stylizować brody',
     'course.beginner.outcomes.2': 'Rozpocząć karierę fryzjera',
 
+    // Pricing Plans Translation Keys
+    'course.pricing.full.payment': 'Płatność pełna',
+    'course.pricing.installments': 'Płatność ratalna',
+    'course.pricing.all.modules': 'Wszystkie moduły',
+    'course.pricing.contact.details': 'Skontaktuj się po szczegóły',
+    'course.pricing.interest.free': '0% odsetek',
+
     // Instructor Details Translation Keys
     'instructor.not.found': 'Instruktor nie znaleziony',
     'instructor.apply.now': 'Aplikuj teraz',
@@ -860,6 +867,13 @@ const translations: Record<Language, Record<string, string>> = {
     'course.beginner.outcomes.0': 'Perform modern cuts & fades',
     'course.beginner.outcomes.1': 'Confidently style beards',
     'course.beginner.outcomes.2': 'Launch barber career',
+
+    // Pricing Plans Translation Keys
+    'course.pricing.full.payment': 'Full Payment',
+    'course.pricing.installments': 'Installments',
+    'course.pricing.all.modules': 'All modules',
+    'course.pricing.contact.details': 'Contact for details',
+    'course.pricing.interest.free': '0% interest',
 
     // Instructor Details Translation Keys
     'instructor.not.found': 'Instructor not found',
@@ -1302,6 +1316,13 @@ const translations: Record<Language, Record<string, string>> = {
     'course.beginner.outcomes.0': 'Modern kesim ve soluklamalar yap',
     'course.beginner.outcomes.1': 'Güvenle sakal stilize et',
     'course.beginner.outcomes.2': 'Berber kariyeri başlat',
+
+    // Pricing Plans Translation Keys
+    'course.pricing.full.payment': 'Tam Ödeme',
+    'course.pricing.installments': 'Taksitli Ödeme',
+    'course.pricing.all.modules': 'Tüm modüller',
+    'course.pricing.contact.details': 'Detaylar için iletişime geçin',
+    'course.pricing.interest.free': '%0 faiz',
 
     // Instructor Details Translation Keys
     'instructor.not.found': 'Eğitmen bulunamadı',

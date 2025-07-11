@@ -442,15 +442,25 @@ export default function CourseDetails() {
                     className={`p-6 rounded-xl flex flex-col transition-shadow reveal ${highlight ? 'ring-2 ring-[var(--premium-accent)] shadow-[0_0_20px_rgba(205,127,50,0.4)] bg-white' : 'border border-gray-200 shadow-sm bg-white'}`}
                     style={{ transitionDelay: `${idx * 80}ms` }}
                   >
-                    <h3 className="font-serif text-xl font-bold mb-2">{plan.plan}</h3>
-                    <p className="mb-4 text-gray-600">{plan.access}</p>
-                    {plan.extras && <p className="text-sm mb-4">{plan.extras}</p>}
+                    <h3 className="font-serif text-xl font-bold mb-2">
+                      {plan.plan === 'Full Payment' ? t('course.pricing.full.payment') : 
+                       plan.plan === 'Installments' ? t('course.pricing.installments') : 
+                       plan.plan}
+                    </h3>
+                    <p className="mb-4 text-gray-600">
+                      {plan.access === 'All modules' ? t('course.pricing.all.modules') : plan.access}
+                    </p>
+                    {plan.extras && (
+                      <p className="text-sm mb-4">
+                        {plan.extras === '0% interest' ? t('course.pricing.interest.free') : plan.extras}
+                      </p>
+                    )}
                     <span className="text-3xl font-bold mb-6">{plan.price}</span>
                     <Button
                       asChild
                       className="btn-shimmer mt-auto bg-[var(--premium-accent)] text-black hover:bg-[var(--premium-accent)]/80"
                     >
-                      <a href="/contact">{t('course.pricing.contact')}</a>
+                      <a href="/contact">{t('course.pricing.contact.details')}</a>
                     </Button>
                   </div>
                 );
