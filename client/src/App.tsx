@@ -18,6 +18,7 @@ import CoursesPage from "@/pages/courses";
 import BlogListPage from '@/pages/blog';
 import BlogPostPage from '@/pages/blog-post';
 import BlogAdmin from '@/pages/blog-admin';
+import PhoneWidget from "@/components/phone-widget";
 
 function Router() {
   return (
@@ -47,6 +48,7 @@ function App() {
           <Toaster />
           <Navigation />
           <Router />
+          <PhoneWidget />
         </TooltipProvider>
       </LanguageProvider>
     </QueryClientProvider>

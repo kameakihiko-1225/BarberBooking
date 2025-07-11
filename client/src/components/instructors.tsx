@@ -1,5 +1,5 @@
 import "keen-slider/keen-slider.min.css";
-import { ChevronLeft, ChevronRight, Facebook, Instagram, MessageCircle } from "lucide-react";
+import { ChevronLeft, ChevronRight, Instagram, MessageCircle } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import { useKeenSlider } from "keen-slider/react";
@@ -29,16 +29,6 @@ function InstructorCard({ instructor, index, isVisible }: {
         {/* Social Media Icons Overlay */}
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/20">
           <div className="flex space-x-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-            {instructor.socials?.facebook && (
-              <a
-                href={instructor.socials.facebook}
-                className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Facebook className="w-6 h-6 text-blue-600" />
-              </a>
-            )}
             {instructor.socials?.instagram && (
               <a
                 href={instructor.socials.instagram}

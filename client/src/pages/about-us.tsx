@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import Instructors from '@/components/instructors';
 import { Quote, CheckCircle } from 'lucide-react';
+import { instructors } from '@/data/instructors';
 
 const legal = {
   name: 'K&K BARBER COMPANY SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ',
@@ -11,12 +12,13 @@ const legal = {
   regon: '521376762',
 };
 
-const team = [
-  { name: 'Ali Karimov', role: 'Master Barber, Co-Founder', desc: 'Senior educator and strategic lead.' },
-  { name: 'Tomasz', role: 'Master Barber, Co-Founder', desc: 'Course designer and trainer.' },
-  { name: 'Angelika', role: 'Barber & Operations', desc: 'Keeps the academy running smoothly.' },
-  { name: 'Bartek', role: 'Master Barber, Lead Educator', desc: 'Heads advanced training & masterclasses.' },
-];
+// Use current instructors from the data file
+const team = instructors.map(instructor => ({
+  name: instructor.name,
+  role: instructor.title,
+  desc: instructor.about,
+  image: instructor.image
+}));
 
 const offers = [
   { title: 'For Beginners', text: 'Foundational courses to start your new career from zero.' },
@@ -94,7 +96,14 @@ export default function AboutUs() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {team.map(t=> (
             <div key={t.name} className="text-center p-6 border border-gray-200 rounded-xl bg-white hover:shadow-lg transition-shadow">
-              <div className="w-32 h-32 mx-auto rounded-full bg-gray-200 mb-4"></div>{/* Placeholder photo */}
+              <div className="w-32 h-32 mx-auto rounded-full overflow-hidden mb-4 bg-gray-200">
+                <img 
+                  src={t.image} 
+                  alt={t.name}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
               <h3 className="font-serif text-xl font-bold mb-1">{t.name}</h3>
               <p className="premium-accent font-medium mb-2">{t.role}</p>
               <p className="text-gray-600 text-sm">{t.desc}</p>

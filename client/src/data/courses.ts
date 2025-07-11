@@ -35,11 +35,11 @@ export const courses: Course[] = [
     description: 'Curious about becoming a barber, but not sure where to start? Our One-Day Free Course is the perfect way to experience what it\'s really like to be part of a professional barbering academy.',
     price: 'FREE',
     badge: 'Free Course',
-    badgeColor: 'bg-green-500/20 text-green-600',
+    badgeColor: 'bg-[var(--premium-accent)]/20 text-[var(--premium-accent)]',
     duration: '4 hours',
     certification: 'Experience Certificate',
     image: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&h=400',
-    buttonStyle: 'bg-green-600 text-white hover:bg-green-700',
+    buttonStyle: 'bg-[var(--premium-accent)] text-black hover:bg-[var(--premium-accent)]/80',
     icon: 'gift',
     rating: 5.0,
     enrolled: '2,500+',
@@ -98,7 +98,11 @@ export const courses: Course[] = [
       { title: 'Meet the Team', icon: 'users', desc: 'Chat with our expert instructors' },
     ],
     localName: 'Bezpłatny jednodniowy kurs',
-    upcomingDates: ['każda sobota', 'every Saturday', 'her cumartesi'],
+    upcomingDates: [
+      'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',
+      'Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota', 'Niedziela',
+      'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi', 'Pazar'
+    ],
   },
   {
     id: 1,

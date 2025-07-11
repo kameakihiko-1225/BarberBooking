@@ -106,6 +106,21 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+**July 11, 2025 - UI Improvements and Contact Information Updates**
+- Fixed app startup error by resolving duplicate translation keys in LanguageContext
+- Updated free course styling to match other courses with bronze accent colors
+- Modified free course schedule to show daily availability (all days of week)
+- Removed Facebook links from instructor social media overlay
+- Updated About page team section with current instructor data and photos
+- Added floating phone widget in bottom-right corner (+48 729 231 542)
+- Updated footer with accurate contact information:
+  - Address: Aleja Wyścigowa 14A, 02-681 Warszawa  
+  - Phone: +48 729 231 542
+  - Email: Biuro@kkacademy.pl
+  - Working hours: Mon-Fri 12am-9pm, Sat 12am-5pm
+- Enhanced UpcomingDates component to handle both date formats and day names
+- Free course route /courses/0 now fully functional
+
 **July 11, 2025 - Complete Multi-Language Implementation**
 - Implemented comprehensive multi-language support system (Polish, English, Turkish)
 - Created LanguageContext with translation system supporting all three languages

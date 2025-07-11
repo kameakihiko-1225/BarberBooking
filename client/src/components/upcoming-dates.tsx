@@ -21,6 +21,16 @@ export function UpcomingDates({ courseName, dates = [] }: UpcomingDatesProps) {
   };
 
   const formatDate = (dateStr: string) => {
+    // Handle day names (Monday, Tuesday, etc.) for daily courses
+    if (!dateStr.includes('-')) {
+      return {
+        day: dateStr.slice(0, 3).toUpperCase(),
+        month: '',
+        monthShort: '',
+        original: dateStr
+      };
+    }
+    
     const [day, month] = dateStr.split('-');
     const englishMonth = monthMap[month] || month;
     return {

@@ -58,17 +58,22 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-lg mb-4">Contact</h4>
             <div className="space-y-3 text-gray-400">
-              <div className="flex items-center space-x-2">
-                <MapPin className="golden-bronze h-4 w-4" />
-                <span className="text-sm">123 Barber Academy Drive</span>
+              <div className="flex items-start space-x-2">
+                <MapPin className="golden-bronze h-4 w-4 mt-0.5" />
+                <span className="text-sm">Aleja Wyścigowa 14A<br />02-681 Warszawa</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="golden-bronze h-4 w-4" />
-                <span className="text-sm">(555) 123-BARBER</span>
+                <span className="text-sm">+48 729 231 542</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="golden-bronze h-4 w-4" />
-                <span className="text-sm">info@elitebarber.academy</span>
+                <span className="text-sm">Biuro@kkacademy.pl</span>
+              </div>
+              <div className="mt-4 text-sm">
+                <p className="text-gray-400">Working hours:</p>
+                <p className="text-gray-300">Mon-Fri: 12 am - 9 pm</p>
+                <p className="text-gray-300">Sat: 12 am – 5 pm</p>
               </div>
             </div>
           </div>

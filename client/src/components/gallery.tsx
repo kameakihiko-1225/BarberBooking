@@ -157,7 +157,7 @@ export default function Gallery() {
   return (
     <section className="py-24 bg-deep-black text-white" id="gallery">
       <div className="max-w-6xl mx-auto px-4 text-center">
-        <h2 className="font-serif text-3xl md:text-5xl font-bold mb-12">Be an <span className="premium-accent">Icon</span></h2>
+        <h2 className="font-serif text-3xl md:text-5xl font-bold mb-12">Our <span className="premium-accent">Gallery</span></h2>
 
         {/* Mobile Grid Layout - 3+ columns for iPhone SE */}
         {isMobile ? (
