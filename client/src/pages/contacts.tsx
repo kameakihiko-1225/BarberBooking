@@ -75,15 +75,23 @@ export default function ContactsPage() {
           <div className="space-y-6 text-lg">
             <div className="flex items-start space-x-4">
               <MapPin className="text-[var(--premium-accent)] h-7 w-7" />
-              <span>Aleja Wyścigowa 14A, 02-681 Warszawa</span>
+              <div>
+                <div>Aleja Wyścigowa 14A</div>
+                <div>02-681 Warszawa</div>
+              </div>
             </div>
             <div className="flex items-start space-x-4">
               <Phone className="text-[var(--premium-accent)] h-7 w-7" />
-              <a href="tel:+48729231542" className="hover:text-[var(--premium-accent)] transition-colors">+48&nbsp;729&nbsp;231&nbsp;542</a>
+              <a href="tel:+48729231542" className="hover:text-[var(--premium-accent)] transition-colors">+48 729 231 542</a>
             </div>
             <div className="flex items-start space-x-4">
               <Mail className="text-[var(--premium-accent)] h-7 w-7" />
               <a href="mailto:Biuro@kkacademy.pl" className="hover:text-[var(--premium-accent)] transition-colors">Biuro@kkacademy.pl</a>
+            </div>
+            <div className="space-y-2 mt-6">
+              <p className="font-semibold text-[var(--premium-accent)]">Working hours:</p>
+              <p>Mon-Fri: 12 am - 9 pm</p>
+              <p>Sat: 12 am – 5 pm</p>
             </div>
           </div>
         </div>
