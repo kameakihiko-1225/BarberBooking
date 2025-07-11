@@ -4,12 +4,14 @@ import logoWhite from "@assets/K&K_Vertical_logotype_white_1750662689464.png";
 import { useEffect, useState } from "react";
 import { useParallax } from "@/hooks/use-parallax";
 import { Link } from "wouter";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Hero() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [animateNumbers, setAnimateNumbers] = useState(false);
+  const { t } = useLanguage();
 
-  const headingWords = ["Master", "the", "Art", "of", "Professional", "Barbering"];
+  const headingWords = t('hero.title').split(' ');
 
   const bgRef = useParallax(0.3);
 
@@ -57,22 +59,21 @@ export default function Hero() {
         <p className={`text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed transform transition-all duration-1000 delay-500 ${
           isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}>
-          Transform your passion into a profitable career with our comprehensive barber training programs. 
-          Learn from industry experts and join the next generation of elite barbers.
+          {t('hero.description')}
         </p>
         
         <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center transform transition-all duration-1000 delay-700 ${
           isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}>
           <Button asChild className="btn-shimmer bg-[var(--premium-accent)] text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-[var(--premium-accent)]/80 transition-all transform hover:scale-105 hover:shadow-lg min-w-[200px]">
-            <Link href="/contacts">Start Your Journey</Link>
+            <Link href="/contacts">{t('hero.cta.primary')}</Link>
           </Button>
           <Button 
             variant="outline" 
             className="btn-shimmer border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-black transition-all min-w-[200px] bg-black/50 backdrop-blur-sm shadow-xl hover:scale-105 hover:shadow-lg"
           >
             <Play className="mr-2 h-5 w-5 transition-transform duration-200 group-hover:scale-125" />
-            Watch Our Story
+            {t('hero.cta.secondary')}
           </Button>
         </div>
         

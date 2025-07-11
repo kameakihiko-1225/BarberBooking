@@ -4,12 +4,15 @@ import { useMobileMenu } from "@/hooks/use-mobile-menu";
 import { useEffect, useState } from "react";
 import logoWhite from "@assets/K&K_Vertical_logotype_white_1750662689464.png";
 import { useLocation, Link } from "wouter";
+import LanguageSwitcher from "@/components/language-switcher";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Navigation() {
   const { isOpen, toggleMenu, closeMenu } = useMobileMenu();
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("courses");
   const [location] = useLocation();
+  const { t } = useLanguage();
   const isHome = location === "/";
   const isAbout = location === "/about-us";
 
@@ -102,19 +105,19 @@ export default function Navigation() {
 
   // Build nav items depending on route
   const homeSectionItems = [
-    { id: "about", label: "About" },
-    { id: "courses", label: "Courses" },
-    { id: "instructors", label: "Instructors" },
-    { id: "blog", label: "Blog" },
-    { id: "contact", label: "Contact" },
+    { id: "about", label: "O nas" },
+    { id: "courses", label: t('nav.courses') },
+    { id: "instructors", label: t('nav.instructors') },
+    { id: "blog", label: t('nav.blog') },
+    { id: "contact", label: t('nav.contact') },
   ];
 
   const pageItems = [
-    { href: "/", label: "Home" },
-    { href: "/about-us", label: "About" },
-    { href: "/courses", label: "Courses" },
-    { href: "/gallery", label: "Gallery" },
-    { href: "/contacts", label: "Contact" },
+    { href: "/", label: t('nav.home') },
+    { href: "/about-us", label: "O nas" },
+    { href: "/courses", label: t('nav.courses') },
+    { href: "/gallery", label: t('nav.gallery') },
+    { href: "/contacts", label: t('nav.contact') },
   ];
 
   return (
@@ -186,13 +189,17 @@ export default function Navigation() {
                 ))}
           </div>
           
-          <Button asChild className={`hidden md:block px-10 py-3 h-auto leading-none rounded-full font-semibold text-lg transition-all hover:scale-110 hover:shadow-lg ml-auto ${
-            isHome && !isScrolled
-              ? 'bg-[var(--premium-accent)] text-black hover:bg-[var(--premium-accent)]/80'
-              : 'bg-[var(--premium-accent)] text-black hover:bg-[var(--premium-accent)]/70'
-          }`}>
-            <Link href="/contacts">Enroll Now</Link>
-          </Button>
+          {/* Language Switcher and Enroll Button */}
+          <div className="hidden md:flex items-center space-x-4 ml-auto">
+            <LanguageSwitcher />
+            <Button asChild className={`px-10 py-3 h-auto leading-none rounded-full font-semibold text-lg transition-all hover:scale-110 hover:shadow-lg ${
+              isHome && !isScrolled
+                ? 'bg-[var(--premium-accent)] text-black hover:bg-[var(--premium-accent)]/80'
+                : 'bg-[var(--premium-accent)] text-black hover:bg-[var(--premium-accent)]/70'
+            }`}>
+              <Link href="/contacts">{t('nav.enroll')}</Link>
+            </Button>
+          </div>
         </div>
       </nav>
       {/* Mobile Menu Overlay */}
@@ -238,15 +245,27 @@ export default function Navigation() {
                   {item.label}
                 </Link>
               ))}
+          
+          {/* Language Switcher in Mobile Menu */}
+          <div className={`mt-8 transform ${
+            isOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+          }`}
+          style={{ 
+            transitionDelay: isOpen ? '500ms' : '0ms',
+            transitionProperty: 'transform, opacity'
+          }}>
+            <LanguageSwitcher />
+          </div>
+          
           {isHome && (
-          <Button asChild className={`bg-[var(--premium-accent)] text-black px-8 py-3 rounded-full font-medium mt-8 hover:bg-[var(--premium-accent)]/80 transition-all hover:scale-105 hover:shadow-lg transform ${
+          <Button asChild className={`bg-[var(--premium-accent)] text-black px-8 py-3 rounded-full font-medium mt-4 hover:bg-[var(--premium-accent)]/80 transition-all hover:scale-105 hover:shadow-lg transform ${
             isOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}
           style={{ 
             transitionDelay: isOpen ? '600ms' : '0ms',
             transitionProperty: 'transform, opacity, background-color, box-shadow'
           }}>
-            <Link href="/contacts">Enroll Now</Link>
+            <Link href="/contacts">{t('nav.enroll')}</Link>
           </Button>) }
         </div>
         <Button
