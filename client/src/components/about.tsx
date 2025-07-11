@@ -88,8 +88,8 @@ export default function About() {
             isVisible ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'
           }`}>
             <img 
-              src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
-              alt="Barber academy classroom with students learning" 
+              src="/attached_assets/Cert_244_2025_KKBarber_SZOE_page-0001_1752272896100.jpg" 
+              alt="K&K Barber Academy ISO 21001:2018 certification for educational management systems" 
               className="rounded-2xl shadow-2xl w-full h-auto hover:scale-105 hover:shadow-3xl transition-all duration-500"
             />
             
