@@ -134,17 +134,14 @@ export default function Courses() {
             <div className="absolute inset-0 bg-gradient-to-br from-[var(--premium-accent)]/10 to-transparent"></div>
             <div className="relative z-10">
               <h3 className="font-serif text-2xl md:text-3xl font-bold mb-4">
-                Ready to Start Your <span className="premium-accent">Barber Journey?</span>
+                {t('courses.cta.title')}
               </h3>
               <p className="text-gray-300 mb-8 max-w-2xl mx-auto text-base md:text-lg">
-                Join hundreds of successful graduates who've transformed their lives through our comprehensive training programs.
+                {t('courses.cta.description')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild className="btn-shimmer bg-[var(--premium-accent)] text-black px-8 py-4 text-base md:text-lg rounded-full font-medium hover:bg-[var(--premium-accent)]/90 hover:scale-105 transition-all duration-300 shadow-lg">
-                  <Link href="/contacts">Schedule a Tour</Link>
-                </Button>
-                <Button variant="outline" className="btn-shimmer border-2 border-[var(--premium-accent)] text-[var(--premium-accent)] px-8 py-4 text-base md:text-lg rounded-full font-medium hover:bg-[var(--premium-accent)] hover:text-black transition-all duration-300">
-                  Download Brochure
+                <Button asChild className="btn-shimmer bg-green-600 text-white px-8 py-4 text-base md:text-lg rounded-full font-medium hover:bg-green-700 hover:scale-105 transition-all duration-300 shadow-lg">
+                  <Link href="/course-details/0">{t('courses.cta.button')}</Link>
                 </Button>
               </div>
             </div>

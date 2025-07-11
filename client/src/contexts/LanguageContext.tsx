@@ -99,6 +99,9 @@ const translations: Record<Language, Record<string, string>> = {
     'courses.level': 'Poziom',
     'courses.price': 'Cena',
     'courses.upcoming': 'Najbliższe terminy',
+    'courses.cta.title': 'Gotowy na rozpoczęcie swojej drogi fryzjera?',
+    'courses.cta.description': 'Dołącz do setek odnoszących sukcesy absolwentów, którzy przekształcili swoje życie dzięki naszym kompleksowym programom szkoleniowym.',
+    'courses.cta.button': 'Dołącz do jednodniowego bezpłatnego kursu',
 
     // Instructors
     'instructors.title': 'Nasi Instruktorzy',
@@ -252,6 +255,9 @@ const translations: Record<Language, Record<string, string>> = {
     'courses.level': 'Level',
     'courses.price': 'Price',
     'courses.upcoming': 'Upcoming Dates',
+    'courses.cta.title': 'Ready to Start Your Barber Journey?',
+    'courses.cta.description': 'Join hundreds of successful graduates who\'ve transformed their lives through our comprehensive training programs.',
+    'courses.cta.button': 'Join One Day Free Course',
 
     // Instructors
     'instructors.title': 'Our Instructors',
@@ -405,6 +411,9 @@ const translations: Record<Language, Record<string, string>> = {
     'courses.level': 'Seviye',
     'courses.price': 'Fiyat',
     'courses.upcoming': 'Yaklaşan Tarihler',
+    'courses.cta.title': 'Berber Kariyerinize Bugün Başlamaya Hazır mısınız?',
+    'courses.cta.description': 'Kapsamlı eğitim programlarımızla hayatlarını dönüştüren yüzlerce başarılı mezuna katılın.',
+    'courses.cta.button': 'Bir Günlük Ücretsiz Kursa Katılın',
 
     // Instructors
     'instructors.title': 'Eğitmenlerimiz',

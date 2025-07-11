@@ -29,6 +29,78 @@ export type Course = {
 
 export const courses: Course[] = [
   {
+    id: 0,
+    title: 'One-Day Free Barbering Course',
+    subtitle: 'Get a Real Taste of the Barbering World – For Free',
+    description: 'Curious about becoming a barber, but not sure where to start? Our One-Day Free Course is the perfect way to experience what it\'s really like to be part of a professional barbering academy.',
+    price: 'FREE',
+    badge: 'Free Course',
+    badgeColor: 'bg-green-500/20 text-green-600',
+    duration: '4 hours',
+    certification: 'Experience Certificate',
+    image: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&h=400',
+    buttonStyle: 'bg-green-600 text-white hover:bg-green-700',
+    icon: 'gift',
+    rating: 5.0,
+    enrolled: '2,500+',
+    benefits: [
+      '4 Hours of Hands-On Experience – On Site',
+      'Explore the Academy & Barbershop Atmosphere',
+      'See the Quality for Yourself',
+      'Ask Questions & Get Guidance'
+    ],
+    skills: [
+      'Academy exploration',
+      'Live class observation',
+      'Meet expert barbers',
+      'Industry Q&A session'
+    ],
+    curriculum: [
+      { week: 'Hour 1', topic: 'Academy tour & introduction' },
+      { week: 'Hour 2', topic: 'Live class observation' },
+      { week: 'Hour 3', topic: 'Barbering demonstrations' },
+      { week: 'Hour 4', topic: 'Q&A with instructors' },
+    ],
+    audience: [
+      'Complete beginners',
+      'Anyone interested in barbering',
+      'Career explorers',
+    ],
+    instructors: [
+      {
+        name: 'K&K Academy Team',
+        title: 'Professional Barbers',
+        photo: 'https://randomuser.me/api/portraits/men/45.jpg',
+      },
+    ],
+    includes: [
+      'Academy tour',
+      'Live demonstrations',
+      'Expert guidance',
+      'No commitment required'
+    ],
+    outcomes: [
+      'Know if barbering is right for you',
+      'See how our academy works',
+      'Understand our teaching style',
+      'Get inspired by real professionals'
+    ],
+    pricingPlans: [
+      { plan: 'Free Experience', access: 'Full 4-hour session', extras: 'No hidden costs', price: 'FREE' },
+    ],
+    faqs: [
+      { q: 'Do I need any experience?', a: 'No experience required! This is perfect for complete beginners.' },
+      { q: 'What should I bring?', a: 'Just yourself and your curiosity. Everything else is provided.' },
+    ],
+    howItWorks: [
+      { title: 'Academy Tour', icon: 'home', desc: 'Explore our modern training spaces' },
+      { title: 'Live Observation', icon: 'eye', desc: 'Watch real classes in action' },
+      { title: 'Meet the Team', icon: 'users', desc: 'Chat with our expert instructors' },
+    ],
+    localName: 'Bezpłatny jednodniowy kurs',
+    upcomingDates: ['każda sobota', 'every Saturday', 'her cumartesi'],
+  },
+  {
     id: 1,
     title: 'Beginner Barber Course – From Zero to Barber',
     subtitle: 'Start a new profession with full preparation and confidence',
