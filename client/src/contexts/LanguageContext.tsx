@@ -169,46 +169,10 @@ const translations: Record<Language, Record<string, string>> = {
     'common.next': 'Dalej',
     'common.previous': 'Poprzedni',
 
-    // Testimonials
-    'testimonials.title': 'Historie Sukcesu',
-    'testimonials.subtitle': 'Studentów',
-    'testimonials.description': 'Poznaj naszych absolwentów, którzy przekształcili swoją pasję w dochodowe kariery i udane biznesy.',
 
-    // Contact
-    'contact.title': 'Skontaktuj się z Nami',
-    'contact.subtitle': 'Masz pytania? Jesteśmy tutaj, aby pomóc',
-    'contact.name': 'Imię i nazwisko',
-    'contact.email': 'Email',
-    'contact.phone': 'Telefon',
-    'contact.message': 'Wiadomość',
-    'contact.program': 'Wybierz program',
-    'contact.submit': 'Wyślij Wiadomość',
-    'contact.info.title': 'Informacje Kontaktowe',
-    'contact.info.address': 'Adres',
-    'contact.info.phone': 'Telefon',
-    'contact.info.email': 'Email',
-    'contact.info.hours': 'Godziny otwarcia',
 
-    // Footer
-    'footer.description': 'Profesjonalna akademia fryzjerska w Warszawie oferująca kompleksowe kursy i szkolenia.',
-    'footer.quick.links': 'Szybkie Linki',
-    'footer.contact.info': 'Informacje Kontaktowe',
-    'footer.follow': 'Śledź nas',
-    'footer.rights': 'Wszystkie prawa zastrzeżone.',
 
-    // Common
-    'common.loading': 'Ładowanie...',
-    'common.error': 'Wystąpił błąd',
-    'common.success': 'Sukces!',
-    'common.close': 'Zamknij',
-    'common.save': 'Zapisz',
-    'common.cancel': 'Anuluj',
-    'common.edit': 'Edytuj',
-    'common.delete': 'Usuń',
-    'common.view': 'Zobacz',
-    'common.back': 'Wróć',
-    'common.next': 'Dalej',
-    'common.previous': 'Poprzedni',
+
   },
 
   en: {
@@ -329,46 +293,7 @@ const translations: Record<Language, Record<string, string>> = {
     'common.next': 'Next',
     'common.previous': 'Previous',
 
-    // Testimonials
-    'testimonials.title': 'Student Success',
-    'testimonials.subtitle': 'Stories',
-    'testimonials.description': 'Hear from our graduates who\'ve transformed their passion into profitable careers and successful businesses.',
 
-    // Contact
-    'contact.title': 'Contact Us',
-    'contact.subtitle': 'Have questions? We\'re here to help',
-    'contact.name': 'Full Name',
-    'contact.email': 'Email',
-    'contact.phone': 'Phone',
-    'contact.message': 'Message',
-    'contact.program': 'Select Program',
-    'contact.submit': 'Send Message',
-    'contact.info.title': 'Contact Information',
-    'contact.info.address': 'Address',
-    'contact.info.phone': 'Phone',
-    'contact.info.email': 'Email',
-    'contact.info.hours': 'Business Hours',
-
-    // Footer
-    'footer.description': 'Professional barber academy in Warsaw offering comprehensive courses and training.',
-    'footer.quick.links': 'Quick Links',
-    'footer.contact.info': 'Contact Information',
-    'footer.follow': 'Follow Us',
-    'footer.rights': 'All rights reserved.',
-
-    // Common
-    'common.loading': 'Loading...',
-    'common.error': 'An error occurred',
-    'common.success': 'Success!',
-    'common.close': 'Close',
-    'common.save': 'Save',
-    'common.cancel': 'Cancel',
-    'common.edit': 'Edit',
-    'common.delete': 'Delete',
-    'common.view': 'View',
-    'common.back': 'Back',
-    'common.next': 'Next',
-    'common.previous': 'Previous',
   },
 
   tr: {

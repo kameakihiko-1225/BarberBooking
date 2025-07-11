@@ -3,10 +3,10 @@ import { useState } from "react";
 
 interface UpcomingDatesProps {
   courseName: string;
-  dates: string[];
+  dates?: string[];
 }
 
-export function UpcomingDates({ courseName, dates }: UpcomingDatesProps) {
+export function UpcomingDates({ courseName, dates = [] }: UpcomingDatesProps) {
   const [showAll, setShowAll] = useState(false);
   const displayDates = showAll ? dates : dates.slice(0, 6);
 
@@ -30,6 +30,11 @@ export function UpcomingDates({ courseName, dates }: UpcomingDatesProps) {
       original: dateStr
     };
   };
+
+  // If no dates are available, don't render the component
+  if (!dates || dates.length === 0) {
+    return null;
+  }
 
   return (
     <div className="mt-6 pt-6 border-t border-gray-100">
