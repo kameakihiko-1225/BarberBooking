@@ -4,6 +4,33 @@ import { useQuery } from '@tanstack/react-query';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
+export const getLocalizedFallbackPosts = (t: (key: string) => string) => [
+  {
+    id: 1,
+    title: t('blog.post.career.title'),
+    excerpt: t('blog.post.career.excerpt'),
+    tag: t('blog.tag.beginner'),
+    image: 'https://images.unsplash.com/photo-1522337998782-027a5d00f135?auto=format&fit=crop&w=600&q=60',
+    slug: 'start-barber-career',
+  },
+  {
+    id: 2,
+    title: t('blog.post.fade.title'),
+    excerpt: t('blog.post.fade.excerpt'),
+    tag: t('blog.tag.trends'),
+    image: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=600&q=60',
+    slug: 'fade-techniques-2025',
+  },
+  {
+    id: 3,
+    title: t('blog.post.toolkit.title'),
+    excerpt: t('blog.post.toolkit.excerpt'),
+    tag: t('blog.tag.tools'),
+    image: 'https://images.unsplash.com/photo-1599940824399-b87987ebb6b7?auto=format&fit=crop&w=600&q=60',
+    slug: 'barber-toolkit',
+  },
+];
+
 export const fallbackPosts = [
   {
     id: 1,
@@ -41,10 +68,28 @@ export interface BlogPostPreview {
 }
 
 export function BlogCard({ post }: { post: BlogPostPreview }) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
+  
+  // Get localized post data
+  const getLocalizedPost = () => {
+    const localizedFallback = getLocalizedFallbackPosts(t);
+    const fallbackPost = localizedFallback.find(p => p.slug === post.slug);
+    
+    if (fallbackPost) {
+      return {
+        ...post,
+        title: fallbackPost.title,
+        excerpt: fallbackPost.excerpt,
+        tag: fallbackPost.tag
+      };
+    }
+    return post;
+  };
+  
+  const localizedPost = getLocalizedPost();
 
   useEffect(() => {
     const img = imgRef.current;
@@ -78,7 +123,7 @@ export function BlogCard({ post }: { post: BlogPostPreview }) {
         <div className="relative w-full h-40 bg-gray-800 rounded-t-2xl overflow-hidden">
           <img 
             ref={imgRef}
-            alt={post.title} 
+            alt={localizedPost.title} 
             className={`w-full h-40 object-cover rounded-t-2xl group-hover:brightness-90 transition-all duration-1000 ${
               imageLoaded ? 'opacity-100' : 'opacity-0'
             }`}
@@ -94,13 +139,13 @@ export function BlogCard({ post }: { post: BlogPostPreview }) {
       )}
       <div className="p-4 text-white flex flex-col flex-grow">
         <div className="flex-grow">
-          {post.tag && <span className="bg-[var(--premium-accent)] text-black text-xs px-3 py-1 rounded-full font-semibold uppercase">
-            {post.tag}
+          {localizedPost.tag && <span className="bg-[var(--premium-accent)] text-black text-xs px-3 py-1 rounded-full font-semibold uppercase">
+            {localizedPost.tag}
           </span>}
           <h3 className="mt-3 text-lg font-serif font-bold leading-snug group-hover:text-[var(--premium-accent)] transition-colors line-clamp-2">
-            {post.title}
+            {localizedPost.title}
           </h3>
-          {post.excerpt && <p className="text-xs text-gray-300 mt-2 line-clamp-2">{post.excerpt}</p>}
+          {localizedPost.excerpt && <p className="text-xs text-gray-300 mt-2 line-clamp-2">{localizedPost.excerpt}</p>}
         </div>
         <div className="mt-4">
           <Link href={`/blog/${post.slug}`} className="inline-block text-[var(--premium-accent)] text-sm font-medium hover:underline">
@@ -131,7 +176,7 @@ export default function BlogSection() {
         ...post,
         excerpt: post.excerpt || (post as any).content?.slice(0, 120) + '...' || ''
       }))
-    : fallbackPosts;
+    : getLocalizedFallbackPosts(t);
 
   useEffect(()=>{containerRef.current?.scrollTo({left:0});},[]);
 

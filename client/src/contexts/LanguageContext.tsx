@@ -357,6 +357,18 @@ const translations: Record<Language, Record<string, string>> = {
     'page.blog.title': 'Akademia',
     'page.blog.title.highlight': 'Wskazówki',
     'page.blog.subtitle': 'Wiadomości, porady i trendy ze świata nowoczesnego fryzjerstwa.',
+
+    // Blog Post Translation Keys
+    'blog.post.career.title': 'Jak rozpocząć karierę w fryzjerstwie',
+    'blog.post.career.excerpt': 'Myślisz o zostaniu fryzjerem? Oto jak mogą wyglądać twoje pierwsze 30 dni...',
+    'blog.post.fade.title': 'Top 5 technik fade na 2025 rok',
+    'blog.post.fade.excerpt': 'Wyprzedź konkurencję dzięki tym niezbędnym wariacjom fade, o które będzie pytać każdy klient.',
+    'blog.post.toolkit.title': 'Zestaw fryzjera: Niezbędne vs. Miłe w posiadaniu',
+    'blog.post.toolkit.excerpt': 'Od maszynki do grzebieni, oto nasz ostateczny przewodnik po budowaniu profesjonalnego zestawu bez przepłacania.',
+    'blog.tag.beginner': 'Początkujący',
+    'blog.tag.trends': 'Trendy',
+    'blog.tag.tools': 'Narzędzia',
+    'blog.filter.all': 'Wszystkie',
   },
 
   en: {
@@ -602,6 +614,18 @@ const translations: Record<Language, Record<string, string>> = {
     'page.blog.title': 'Academy',
     'page.blog.title.highlight': 'Insights',
     'page.blog.subtitle': 'News, tips and trends from the world of modern barbering.',
+
+    // Blog Post Translation Keys
+    'blog.post.career.title': 'How to Start a Career in Barbering',
+    'blog.post.career.excerpt': "Thinking about becoming a barber? Here's what your first 30 days might look like...",
+    'blog.post.fade.title': 'Top 5 Fade Techniques for 2025',
+    'blog.post.fade.excerpt': 'Stay ahead of the curve with these must-know fade variations every client will ask for.',
+    'blog.post.toolkit.title': 'Barber Toolkit: Essentials vs. Nice-to-Have',
+    'blog.post.toolkit.excerpt': "From clippers to combs, here's our definitive guide to building a pro kit without overspending.",
+    'blog.tag.beginner': 'Beginner',
+    'blog.tag.trends': 'Trends',
+    'blog.tag.tools': 'Tools',
+    'blog.filter.all': 'All',
 
     'course.free.title': 'One-Day Free Barbering Course',
     'course.free.subtitle': 'Get a Real Taste of the Barbering World – For Free',
@@ -903,6 +927,18 @@ const translations: Record<Language, Record<string, string>> = {
     'page.blog.title': 'Akademi',
     'page.blog.title.highlight': 'Görüşleri',
     'page.blog.subtitle': 'Modern berberlik dünyasından haberler, ipuçları ve trendler.',
+
+    // Blog Post Translation Keys
+    'blog.post.career.title': 'Berberlikte Kariyer Nasıl Başlatılır',
+    'blog.post.career.excerpt': 'Berber olmayı mı düşünüyorsunuz? İlk 30 gününüz böyle görünebilir...',
+    'blog.post.fade.title': '2025 için En İyi 5 Fade Tekniği',
+    'blog.post.fade.excerpt': 'Her müşterinin soracağı bu mutlaka bilinmesi gereken fade varyasyonları ile önde kalın.',
+    'blog.post.toolkit.title': 'Berber Araç Seti: Gerekli vs. Güzel Olur',
+    'blog.post.toolkit.excerpt': 'Makinelerden tarağa kadar, fazla harcama yapmadan profesyonel kit oluşturma rehberimiz.',
+    'blog.tag.beginner': 'Başlangıç',
+    'blog.tag.trends': 'Trendler',
+    'blog.tag.tools': 'Araçlar',
+    'blog.filter.all': 'Tümü',
 
     'course.free.title': 'Bir Günlük Ücretsiz Berberlik Kursu',
     'course.free.subtitle': 'Berberlik Dünyasının Gerçek Tadını Alın – Ücretsiz',

@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
-import { BlogCard, BlogPostPreview, fallbackPosts } from '@/components/blog';
+import { BlogCard, BlogPostPreview, getLocalizedFallbackPosts } from '@/components/blog';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function BlogListPage() {
@@ -13,9 +13,10 @@ export default function BlogListPage() {
     }
   });
 
-  const posts = apiPosts.length? apiPosts.filter(p=>(p as any).active!==0) : fallbackPosts;
+  const posts = apiPosts.length? apiPosts.filter(p=>(p as any).active!==0) : getLocalizedFallbackPosts(t);
 
-  const categories = ['All', ...Array.from(new Set(posts.map(p=>p.tag).filter(Boolean)))] as string[];
+  const allCategories = ['All', ...Array.from(new Set(posts.map(p=>p.tag).filter(Boolean)))] as string[];
+  const categories = allCategories.map(cat => cat === 'All' ? t('blog.filter.all') : cat);
   const [selected, setSelected] = useState('All');
 
   const visible = selected==='All'? posts : posts.filter(p=>p.tag===selected);
@@ -31,8 +32,10 @@ export default function BlogListPage() {
       {/* Filters */}
       <section className="sticky top-24 z-10 bg-white/90 backdrop-blur border-b border-gray-100 mb-12 px-4">
         <div className="max-w-6xl mx-auto flex flex-wrap gap-4 py-4 justify-center">
-          {categories.map(cat=> (
-            <button key={cat} onClick={()=>setSelected(cat)} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selected===cat? 'bg-[var(--premium-accent)] text-black':'bg-gray-100 hover:bg-gray-200'}`}>{cat}</button>
+          {allCategories.map((cat, idx)=> (
+            <button key={cat} onClick={()=>setSelected(cat)} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selected===cat? 'bg-[var(--premium-accent)] text-black':'bg-gray-100 hover:bg-gray-200'}`}>
+              {categories[idx]}
+            </button>
           ))}
         </div>
       </section>
