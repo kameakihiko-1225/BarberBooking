@@ -1,7 +1,45 @@
 import { Instagram, Youtube, Music, MapPin, Phone, Mail } from "lucide-react";
 import logoWhite from "@assets/K&K_Vertical_logotype_white_1750662689464.png";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Footer() {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    program: '',
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email) {
+      toast({ title: 'Please fill in required fields', variant: 'destructive' });
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/inquiries', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, phone: '', message: 'Footer inquiry' }),
+      });
+
+      if (!response.ok) throw new Error('Failed to send message');
+
+      toast({ title: 'Message sent!', description: 'We will be in touch shortly.' });
+      setFormData({ name: '', email: '', program: '' });
+    } catch (error) {
+      toast({ title: 'Error sending message', description: 'Please try again later.', variant: 'destructive' });
+    }
+  };
+
+  const handleChange = (field: string, value: string) => setFormData((prev) => ({ ...prev, [field]: value }));
+
   return (
     <footer className="bg-deep-black text-white py-16">
       <div className="max-w-6xl mx-auto px-4">
@@ -43,15 +81,47 @@ export default function Footer() {
             </ul>
           </div>
           
-          {/* Quick Links */}
+          {/* Quick Contact Form */}
           <div>
-            <h4 className="font-semibold text-lg mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-[var(--premium-accent)] transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-[var(--golden-bronze)] transition-colors">Admissions</a></li>
-              <li><a href="#" className="hover:text-[var(--golden-bronze)] transition-colors">Financial Aid</a></li>
-              <li><a href="#" className="hover:text-[var(--golden-bronze)] transition-colors">Student Portal</a></li>
-            </ul>
+            <h4 className="font-semibold text-lg mb-4">Quick Inquiry</h4>
+            <form onSubmit={handleSubmit} className="space-y-3">
+              <div>
+                <Input
+                  placeholder="Your name"
+                  value={formData.name}
+                  onChange={(e) => handleChange('name', e.target.value)}
+                  className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 text-sm"
+                  required
+                />
+              </div>
+              <div>
+                <Input
+                  type="email"
+                  placeholder="Your email"
+                  value={formData.email}
+                  onChange={(e) => handleChange('email', e.target.value)}
+                  className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 text-sm"
+                  required
+                />
+              </div>
+              <div>
+                <Select value={formData.program} onValueChange={(val) => handleChange('program', val)}>
+                  <SelectTrigger className="bg-gray-800 border-gray-700 text-white text-sm">
+                    <SelectValue placeholder="Select program..." />
+                  </SelectTrigger>
+                  <SelectContent className="bg-gray-800 text-white border-gray-700">
+                    <SelectItem value="fundamentals">Barber Fundamentals</SelectItem>
+                    <SelectItem value="master">Master Techniques</SelectItem>
+                    <SelectItem value="business">Business Mastery</SelectItem>
+                    <SelectItem value="free">Free Course</SelectItem>
+                    <SelectItem value="unsure">Not sure yet</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <Button type="submit" className="w-full bg-[var(--premium-accent)] text-black hover:bg-[var(--premium-accent)]/80 text-sm py-2">
+                Send Inquiry
+              </Button>
+            </form>
           </div>
           
           {/* Contact Info */}

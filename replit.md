@@ -106,6 +106,20 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+**July 11, 2025 - UI/UX Improvements and Footer Enhancement**
+- Fixed instructor card images to show full faces with proper object positioning
+- Modified testimonials component by removing showcase section and transformation content
+- Added large navigation buttons for "See All Student Works" and "All Success Stories"
+- Enhanced footer with quick inquiry form including "Free Course" option
+- Updated footer contact information throughout:
+  - Address: Aleja Wyścigowa 14A, 02-681 Warszawa
+  - Phone: +48 729 231 542
+  - Email: Biuro@kkacademy.pl
+  - Working hours: Mon-Fri: 12 am - 9 pm, Sat: 12 am – 5 pm
+- Removed "follow our journey" section from footer
+- Streamlined testimonials layout with focus on action buttons
+- Improved instructor image display with better face visibility and spacing
+
 **July 11, 2025 - Comprehensive CTA and Content Updates**
 - Standardized all instructor titles to "Senior Barber Instructor" across website
 - Updated all CTA buttons to route directly to contact page for enrollment
@@ -114,10 +128,6 @@ Preferred communication style: Simple, everyday language.
 - Created VideoPopup component with full-screen video player and controls
 - Updated hero section button text from "View Gallery" to "Our Vibe!"
 - Removed all Facebook links from instructor social media (Instagram only)
-- Updated contact form with accurate business information:
-  - Address: Aleja Wyścigowa 14A, 02-681 Warszawa
-  - Phone: +48 729 231 542 (updated from placeholder)
-  - Email: Biuro@kkacademy.pl
 - All course enrollment buttons now redirect to contact page instead of course details
 - Video asset properly configured for popup display functionality
 
