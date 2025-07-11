@@ -91,7 +91,7 @@ export default function Hero() {
               <div className="text-2xl md:text-4xl font-bold premium-accent font-serif mb-1">
                 100+
               </div>
-              <div className="text-gray-200 text-xs md:text-sm font-medium tracking-wider text-center leading-tight">{t('hero.stats.graduates')}</div>
+              <div className="text-gray-200 text-xs md:text-sm font-medium tracking-wider text-center leading-tight bg-transparent">{t('hero.stats.graduates')}</div>
               <div className="stat-card-glow"></div>
             </div>
           </div>
@@ -102,7 +102,7 @@ export default function Hero() {
               <div className="text-2xl md:text-4xl font-bold premium-accent font-serif mb-1">
                 11+
               </div>
-              <div className="text-gray-200 text-xs md:text-sm font-medium tracking-wider text-center leading-tight">{t('hero.stats.experience')}</div>
+              <div className="text-gray-200 text-xs md:text-sm font-medium tracking-wider text-center leading-tight bg-transparent">{t('hero.stats.experience')}</div>
               <div className="stat-card-glow"></div>
             </div>
           </div>
@@ -113,7 +113,7 @@ export default function Hero() {
               <div className="text-2xl md:text-4xl font-bold premium-accent font-serif mb-1">
                 95%
               </div>
-              <div className="text-gray-200 text-xs md:text-sm font-medium tracking-wider text-center leading-tight">{t('hero.stats.placement')}</div>
+              <div className="text-gray-200 text-xs md:text-sm font-medium tracking-wider text-center leading-tight bg-transparent">{t('hero.stats.placement')}</div>
               <div className="stat-card-glow"></div>
             </div>
           </div>

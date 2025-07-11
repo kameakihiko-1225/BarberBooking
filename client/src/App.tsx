@@ -15,9 +15,7 @@ import ContactsPage from "@/pages/contacts";
 import Navigation from "@/components/navigation";
 import CourseDetails from "@/pages/course-details";
 import CoursesPage from "@/pages/courses";
-import BlogListPage from '@/pages/blog';
-import BlogPostPage from '@/pages/blog-post';
-import BlogAdmin from '@/pages/blog-admin';
+
 import PhoneWidget from "@/components/phone-widget";
 
 function Router() {
@@ -32,9 +30,7 @@ function Router() {
       <Route path="/success-stories" component={SuccessGalleryPage} />
       <Route path="/course/:id" component={CourseDetails} />
       <Route path="/contact" component={ContactsPage} />
-      <Route path="/blog" component={BlogListPage} />
-      <Route path="/blog/admin/post" component={BlogAdmin} />
-      <Route path="/blog/:slug" component={BlogPostPage} />
+
       <Route component={NotFound} />
     </Switch>
   );

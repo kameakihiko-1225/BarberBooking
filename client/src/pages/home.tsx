@@ -7,7 +7,7 @@ import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 import Gallery from "@/components/gallery";
 import CtaEnroll from "@/components/cta-enroll";
-import BlogSection from '@/components/blog';
+
 
 export default function Home() {
   return (
@@ -19,7 +19,7 @@ export default function Home() {
       <Instructors />
       <Gallery />
       <Testimonials />
-      <BlogSection />
+
       <CtaEnroll />
       <Contact />
       <Footer />

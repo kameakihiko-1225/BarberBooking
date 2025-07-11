@@ -28,20 +28,6 @@ export const mediaFiles = pgTable("media_files", {
   createdAt: timestamp("created_at").defaultNow(),
 });
 
-export const blogPosts = pgTable("blog_posts", {
-  id: serial("id").primaryKey(),
-  slug: text("slug").notNull().unique(),
-  title: text("title").notNull(),
-  content: text("content").notNull(),
-  image: text("image"),
-  tag: text("tag"),
-  language: text("language").notNull().default("pl"), // pl, en, tr
-  originalPostId: integer("original_post_id"), // reference to original post for translations
-  active: integer("active").default(1),
-  createdAt: timestamp("created_at").defaultNow(),
-  updatedAt: timestamp("updated_at").defaultNow(),
-});
-
 export const insertUserSchema = createInsertSchema(users).pick({
   username: true,
   password: true,
@@ -52,17 +38,9 @@ export const insertInquirySchema = createInsertSchema(inquiries).omit({
   createdAt: true,
 });
 
-export const insertBlogPostSchema = createInsertSchema(blogPosts).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true,
-});
-
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
 export type InsertInquiry = z.infer<typeof insertInquirySchema>;
 export type Inquiry = typeof inquiries.$inferSelect;
 export type MediaFile = typeof mediaFiles.$inferSelect;
 export type InsertMediaFile = typeof mediaFiles.$inferInsert;
-export type BlogPost = typeof blogPosts.$inferSelect;
-export type InsertBlogPost = typeof blogPosts.$inferInsert;
