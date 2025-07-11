@@ -257,6 +257,31 @@ const translations: Record<Language, Record<string, string>> = {
     'months.october': 'Październik',
     'months.november': 'Listopad',
     'months.december': 'Grudzień',
+
+    // Blog Translation Keys
+    'blog.loading': 'Ładowanie artykułu...',
+    'blog.not.found': 'Artykuł nie znaleziony',
+    'blog.not.found.description': 'Artykuł, którego szukasz, nie istnieje.',
+    'blog.back.to.blog': '← Powrót do bloga',
+    'blog.back.to.home': 'Powrót do strony głównej',
+    'blog.min.read': 'min czytania',
+    'blog.ready.to.start': 'Gotowy, żeby rozpocząć swoją przygodę z barberstwem?',
+    'blog.ready.description': 'Dołącz do K&K Barber Academy i ucz się od profesjonalistów w naszych nowoczesnych ośrodkach.',
+    'blog.start.journey': 'Rozpocznij swoją przygodę',
+    'blog.related.articles': 'Powiązane artykuły',
+    'blog.quick.links': 'Szybkie linki',
+    'blog.view.courses': '→ Zobacz kursy',
+    'blog.meet.instructors': '→ Poznaj instruktorów',
+    'blog.student.gallery': '→ Galeria uczniów',
+    'blog.contact.us': '→ Kontakt',
+
+    // Blog Post Titles and Content (Polish)
+    'blog.post.start-barber-career.title': 'Jak rozpocząć karierę w barberstwie',
+    'blog.post.start-barber-career.tag': 'POCZĄTKUJĄCY',
+    'blog.post.top-5-fade-techniques-2025.title': 'Top 5 technik fade na 2025 rok',
+    'blog.post.top-5-fade-techniques-2025.tag': 'TRENDY',
+    'blog.post.barber-toolkit-essentials.title': 'Zestaw narzędzi fryzjera: Niezbędne vs Miłe w posiadaniu',
+    'blog.post.barber-toolkit-essentials.tag': 'NARZĘDZIA',
     
     // About Section Translation Keys  
     'about.features.certified': 'Programy certyfikowane przez państwo z uznaniem branży',
@@ -1016,6 +1041,31 @@ const translations: Record<Language, Record<string, string>> = {
     'months.october': 'October',
     'months.november': 'November',
     'months.december': 'December',
+
+    // Blog Translation Keys
+    'blog.loading': 'Loading article...',
+    'blog.not.found': 'Article Not Found',
+    'blog.not.found.description': 'The article you\'re looking for doesn\'t exist.',
+    'blog.back.to.blog': '← Back to Blog',
+    'blog.back.to.home': 'Back to Home',
+    'blog.min.read': 'min read',
+    'blog.ready.to.start': 'Ready to Start Your Barbering Journey?',
+    'blog.ready.description': 'Join K&K Barber Academy and learn from industry professionals in our state-of-the-art facilities.',
+    'blog.start.journey': 'Start Your Journey',
+    'blog.related.articles': 'Related Articles',
+    'blog.quick.links': 'Quick Links',
+    'blog.view.courses': '→ View Courses',
+    'blog.meet.instructors': '→ Meet Instructors',
+    'blog.student.gallery': '→ Student Gallery',
+    'blog.contact.us': '→ Contact Us',
+
+    // Blog Post Titles and Content (English)
+    'blog.post.start-barber-career.title': 'How to Start a Career in Barbering',
+    'blog.post.start-barber-career.tag': 'BEGINNER',
+    'blog.post.top-5-fade-techniques-2025.title': 'Top 5 Fade Techniques for 2025',
+    'blog.post.top-5-fade-techniques-2025.tag': 'TRENDS',
+    'blog.post.barber-toolkit-essentials.title': 'Barber Toolkit: Essentials vs. Nice-to-Have',
+    'blog.post.barber-toolkit-essentials.tag': 'TOOLS',
   },
 
   tr: {
@@ -1496,5 +1546,30 @@ const translations: Record<Language, Record<string, string>> = {
     'months.october': 'Ekim',
     'months.november': 'Kasım',
     'months.december': 'Aralık',
+
+    // Blog Translation Keys
+    'blog.loading': 'Makale yükleniyor...',
+    'blog.not.found': 'Makale Bulunamadı',
+    'blog.not.found.description': 'Aradığınız makale mevcut değil.',
+    'blog.back.to.blog': '← Bloga Dön',
+    'blog.back.to.home': 'Ana Sayfaya Dön',
+    'blog.min.read': 'dk okuma',
+    'blog.ready.to.start': 'Berberlik Yolculuğunuza Başlamaya Hazır mısınız?',
+    'blog.ready.description': 'K&K Berber Akademisi\'ne katılın ve son teknoloji tesislerimizdeki sektör profesyonellerinden öğrenin.',
+    'blog.start.journey': 'Yolculuğunuza Başlayın',
+    'blog.related.articles': 'İlgili Makaleler',
+    'blog.quick.links': 'Hızlı Bağlantılar',
+    'blog.view.courses': '→ Kursları Görüntüle',
+    'blog.meet.instructors': '→ Eğitmenlerle Tanışın',
+    'blog.student.gallery': '→ Öğrenci Galerisine',
+    'blog.contact.us': '→ İletişim',
+
+    // Blog Post Titles and Content (Turkish translations)
+    'blog.post.start-barber-career.title': 'Berberlikte Kariyere Nasıl Başlanır',
+    'blog.post.start-barber-career.tag': 'YENİ BAŞLAYAN',
+    'blog.post.top-5-fade-techniques-2025.title': '2025 İçin En İyi 5 Fade Tekniği',
+    'blog.post.top-5-fade-techniques-2025.tag': 'TRENDLER',
+    'blog.post.barber-toolkit-essentials.title': 'Berber Araç Seti: Olmazsa Olmaz vs Güzel Olur',
+    'blog.post.barber-toolkit-essentials.tag': 'ARAÇLAR',
   },
 };
