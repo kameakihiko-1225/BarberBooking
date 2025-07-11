@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import TestimonialsCarousel from "@/components/testimonials-carousel";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const testimonials = [
   {
@@ -28,6 +29,7 @@ const testimonials = [
 
 
 export default function Testimonials() {
+  const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -58,12 +60,10 @@ export default function Testimonials() {
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}>
           <h2 className="font-serif text-3xl md:text-5xl font-bold mb-6">
-            Student{" "}
-            <span className="premium-accent">Success</span>{" "}
-            Stories
+            {t('testimonials.title')}
           </h2>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
-            Hear from our graduates who've transformed their passion into profitable careers and successful businesses.
+            {t('testimonials.description')}
           </p>
         </div>
         
@@ -77,10 +77,10 @@ export default function Testimonials() {
         <div className="bg-deep-black rounded-2xl p-8 md:p-12 text-white">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Button asChild className="bg-[var(--premium-accent)] text-black px-12 py-6 text-xl rounded-full font-bold hover:bg-[var(--premium-accent)]/80 transition-all transform hover:scale-105 hover:shadow-lg">
-              <Link href="/students-gallery">See All Student Works</Link>
+              <Link href="/students-gallery">{t('testimonials.see.student.works')}</Link>
             </Button>
             <Button asChild className="bg-white text-black px-12 py-6 text-xl rounded-full font-bold hover:bg-gray-100 transition-all transform hover:scale-105 hover:shadow-lg">
-              <Link href="/success-stories">All Success Stories</Link>
+              <Link href="/success-stories">{t('testimonials.see.success.stories')}</Link>
             </Button>
           </div>
         </div>

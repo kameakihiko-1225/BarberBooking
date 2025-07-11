@@ -113,9 +113,9 @@ const translations: Record<Language, Record<string, string>> = {
     'instructors.description': 'Poznaj naszych doświadczonych instruktorów, którzy poprowadzą Cię przez całą podróż edukacyjną.',
 
     // Testimonials
-    'testimonials.title': 'Opinie Absolwentów',
+    'testimonials.title': 'Historie Sukcesu Studentów',
     'testimonials.subtitle': 'Historie Sukcesu',
-    'testimonials.description': 'Posłuchaj od naszych absolwentów, którzy przekształcili swoje pasje w dochodowe kariery i odnoszące sukcesy firmy.',
+    'testimonials.description': 'Poznaj opinię naszych absolwentów, którzy przekształcili swoją pasję w dochodowe kariery i udane biznesy.',
 
     // Gallery
     'gallery.title': 'Nasza Galeria',
@@ -168,6 +168,39 @@ const translations: Record<Language, Record<string, string>> = {
     'common.back': 'Wstecz',
     'common.next': 'Dalej',
     'common.previous': 'Poprzedni',
+
+    // Additional translations for missing components
+    'our.vibe': 'Nasza Atmosfera!',
+    'programs.fundamentals': 'Podstawy Fryzjerstwa',
+    'programs.master': 'Techniki Mistrzowskie', 
+    'programs.business': 'Mistrzostwo Biznesowe',
+    'programs.private': 'Lekcje Prywatne',
+    'quicklinks.about': 'O Nas',
+    'quicklinks.admissions': 'Przyjęcia',
+    'quicklinks.financial': 'Pomoc Finansowa',
+    'quicklinks.portal': 'Portal Studenta',
+    'copyright': '© 2024 K&K Barber Academy. Wszystkie prawa zastrzeżone.',
+    'policies.privacy': 'Polityka Prywatności',
+    'policies.terms': 'Warunki Świadczenia Usług',
+    'policies.handbook': 'Podręcznik Studenta',
+    'working.hours': 'Godziny pracy:',
+    'blog.latest': 'Najnowsze Spostrzeżenia',
+    'blog.tips': 'Wskazówki, trendy i zasoby, które utrzymają Cię na czubku świata fryzjerskiego.',
+    'upcoming.dates': 'Nadchodzące terminy',
+    'show.all': 'Pokaż wszystkie',
+    'show.less': 'Pokaż mniej',
+    'dates': 'terminy',
+    'testimonials.see.student.works': 'Zobacz Wszystkie Prace Studentów',
+    'testimonials.see.success.stories': 'Wszystkie Historie Sukcesu',
+    'free.course': 'Darmowy Kurs',
+    'not.sure': 'Nie jestem pewny',
+    'senior.barber.instructor': 'Starszy Instruktor Fryzjerski',
+    'send.inquiry': 'Wyślij Zapytanie',
+    'your.name': 'Twoje imię',
+    'your.email': 'Twój email',
+    'select.program': 'Wybierz program...',
+    'program.interest': 'Zainteresowanie programem',
+
 
 
 
@@ -237,9 +270,9 @@ const translations: Record<Language, Record<string, string>> = {
     'instructors.description': 'Meet our experienced instructors who will guide you through your entire educational journey.',
 
     // Testimonials
-    'testimonials.title': 'Graduate Reviews',
+    'testimonials.title': 'Student Success Stories',
     'testimonials.subtitle': 'Success Stories',
-    'testimonials.description': 'Hear from our graduates who transformed their passion into profitable careers and successful businesses.',
+    'testimonials.description': 'Hear from our graduates who\'ve transformed their passion into profitable careers and successful businesses.',
 
     // Gallery
     'gallery.title': 'Our Gallery',
@@ -292,6 +325,38 @@ const translations: Record<Language, Record<string, string>> = {
     'common.back': 'Back',
     'common.next': 'Next',
     'common.previous': 'Previous',
+
+    // Additional translations for missing components
+    'our.vibe': 'Our Vibe!',
+    'programs.fundamentals': 'Barber Fundamentals',
+    'programs.master': 'Master Techniques',
+    'programs.business': 'Business Mastery',
+    'programs.private': 'Private Lessons',
+    'quicklinks.about': 'About Us',
+    'quicklinks.admissions': 'Admissions',
+    'quicklinks.financial': 'Financial Aid',
+    'quicklinks.portal': 'Student Portal',
+    'copyright': '© 2024 K&K Barber Academy. All rights reserved.',
+    'policies.privacy': 'Privacy Policy',
+    'policies.terms': 'Terms of Service',
+    'policies.handbook': 'Student Handbook',
+    'working.hours': 'Working hours:',
+    'blog.latest': 'Latest Insights',
+    'blog.tips': 'Tips, trends, and resources to keep you at the cutting edge of the barbering world.',
+    'upcoming.dates': 'Upcoming Dates',
+    'show.all': 'Show all',
+    'show.less': 'Show less',
+    'dates': 'dates',
+    'testimonials.see.student.works': 'See All Student Works',
+    'testimonials.see.success.stories': 'All Success Stories',
+    'free.course': 'Free Course',
+    'not.sure': 'Not sure yet',
+    'senior.barber.instructor': 'Senior Barber Instructor',
+    'send.inquiry': 'Send Inquiry',
+    'your.name': 'Your name',
+    'your.email': 'Your email',
+    'select.program': 'Select program...',
+    'program.interest': 'Program Interest',
 
 
   },
@@ -358,9 +423,9 @@ const translations: Record<Language, Record<string, string>> = {
     'instructors.description': 'Tüm eğitim yolculuğunuzda size rehberlik edecek deneyimli eğitmenlerimizle tanışın.',
 
     // Testimonials
-    'testimonials.title': 'Mezun Yorumları',
+    'testimonials.title': 'Öğrenci Başarı Hikayeleri',
     'testimonials.subtitle': 'Başarı Hikayeleri',
-    'testimonials.description': 'Tutkularını kârlı kariyerlere ve başarılı işletmelere dönüştüren mezunlarımızdan dinleyin.',
+    'testimonials.description': 'Tutkularını kârlı kariyerlere ve başarılı işlere dönüştüren mezunlarımızdan dinleyin.',
 
     // Gallery
     'gallery.title': 'Galerimiz',
@@ -413,5 +478,38 @@ const translations: Record<Language, Record<string, string>> = {
     'common.back': 'Geri',
     'common.next': 'İleri',
     'common.previous': 'Önceki',
+
+    // Additional translations for missing components
+    'our.vibe': 'Atmosferimiz!',
+    'programs.fundamentals': 'Berber Temelleri',
+    'programs.master': 'Usta Teknikleri',
+    'programs.business': 'İş Ustalığı',
+    'programs.private': 'Özel Dersler',
+    'quicklinks.about': 'Hakkımızda',
+    'quicklinks.admissions': 'Kabul',
+    'quicklinks.financial': 'Mali Yardım',
+    'quicklinks.portal': 'Öğrenci Portalı',
+    'copyright': '© 2024 K&K Berber Akademisi. Tüm hakları saklıdır.',
+    'policies.privacy': 'Gizlilik Politikası',
+    'policies.terms': 'Hizmet Şartları',
+    'policies.handbook': 'Öğrenci El Kitabı',
+    'working.hours': 'Çalışma saatleri:',
+    'blog.latest': 'En Son Görüşler',
+    'blog.tips': 'Berberlik dünyasında en ön sırada kalmanızı sağlayacak ipuçları, trendler ve kaynaklar.',
+    'upcoming.dates': 'Yaklaşan Tarihler',
+    'show.all': 'Tümünü göster',
+    'show.less': 'Daha az göster',
+    'dates': 'tarihler',
+    'testimonials.see.student.works': 'Tüm Öğrenci Çalışmalarını Gör',
+    'testimonials.see.success.stories': 'Tüm Başarı Hikayeleri',
+    'free.course': 'Ücretsiz Kurs',
+    'not.sure': 'Henüz emin değilim',
+    'senior.barber.instructor': 'Kıdemli Berber Eğitmeni',
+    'send.inquiry': 'Sorgulama Gönder',
+    'your.name': 'Adınız',
+    'your.email': 'E-postanız',
+    'select.program': 'Program seçin...',
+    'program.interest': 'Program İlgi Alanı',
+
   },
 };

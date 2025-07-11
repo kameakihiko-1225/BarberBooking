@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'wouter';
 import { useQuery } from '@tanstack/react-query';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export const fallbackPosts = [
   {
@@ -111,6 +112,7 @@ export function BlogCard({ post }: { post: BlogPostPreview }) {
 }
 
 export default function BlogSection() {
+  const { t } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { data: apiPosts = [] } = useQuery<BlogPostPreview[]>({
@@ -141,10 +143,10 @@ export default function BlogSection() {
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="font-serif text-3xl md:text-5xl font-bold">
-            Latest <span className="premium-accent">Insights</span>
+            {t('blog.latest')}
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto mt-4">
-            Tips, trends, and resources to keep you at the cutting edge of the barbering world.
+            {t('blog.tips')}
           </p>
         </div>
         <div className="relative">

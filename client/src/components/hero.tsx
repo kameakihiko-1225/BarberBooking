@@ -76,7 +76,7 @@ export default function Hero() {
             onClick={() => setIsVideoOpen(true)}
           >
             <Play className="mr-2 h-5 w-5 transition-transform duration-200 group-hover:scale-125" />
-            Our Vibe!
+{t('our.vibe')}
           </Button>
         </div>
         
