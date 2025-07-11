@@ -137,8 +137,8 @@ export default function CourseDetails() {
             className="w-full h-64 md:h-96 object-cover rounded-2xl shadow-lg ring-1 ring-white/10 reveal"
           />
           <div>
-            <h1 className="font-serif text-4xl font-bold mb-2 text-deep-black reveal">{t(`course.${course.id}.title`)}</h1>
-            <p className="text-xl text-gray-600 mb-4 reveal" style={{ transitionDelay: '100ms' }}>{t(`course.${course.id}.subtitle`)}</p>
+            <h1 className="font-serif text-4xl font-bold mb-2 text-deep-black reveal">{t(course.title)}</h1>
+            <p className="text-xl text-gray-600 mb-4 reveal" style={{ transitionDelay: '100ms' }}>{t(course.subtitle)}</p>
 
             <div className="flex flex-wrap gap-3 mb-6">
               {course.benefits.map((b, idx) => (
@@ -147,7 +147,7 @@ export default function CourseDetails() {
                   className="flex items-center gap-2 text-sm bg-[var(--premium-accent)]/10 text-[var(--premium-accent)] px-3 py-1 rounded-full reveal"
                   style={{ transitionDelay: `${idx * 60}ms` }}
                 >
-                  <CheckCircle className="w-3 h-3" /> {t(`course.${course.id}.benefits.${idx}`)}
+                  <CheckCircle className="w-3 h-3" /> {b}
                 </span>
               ))}
             </div>
@@ -200,7 +200,7 @@ export default function CourseDetails() {
               className="p-6 border border-[var(--premium-accent)]/20 rounded-xl shadow-sm bg-deep-black text-white hover:shadow-lg transition-all reveal"
               style={{ transitionDelay: `${idx * 50}ms` }}
             >
-              {t(`course.${course.id}.skills.${idx}`)}
+              {s}
             </div>
           ))}
         </div>
@@ -218,7 +218,7 @@ export default function CourseDetails() {
               className="p-6 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all reveal"
               style={{ transitionDelay: `${idx * 60}ms` }}
             >
-              {t(`course.${course.id}.audience.${idx}`)}
+{aud}
             </div>
           ))}
         </div>
@@ -248,8 +248,8 @@ export default function CourseDetails() {
                     style={{ transitionDelay: `${idx * 80}ms` }}
                   >
                     <IconComp className="w-10 h-10 text-[var(--premium-accent)] mb-4" />
-                    <h3 className="font-serif text-xl font-bold mb-2 text-deep-black">{t(`course.${course.id}.howItWorks.${idx}.title`)}</h3>
-                    <p className="text-gray-600 text-sm">{t(`course.${course.id}.howItWorks.${idx}.desc`)}</p>
+                    <h3 className="font-serif text-xl font-bold mb-2 text-deep-black">{step.title}</h3>
+                    <p className="text-gray-600 text-sm">{step.desc}</p>
                   </div>
                 );
               })}
@@ -267,7 +267,7 @@ export default function CourseDetails() {
           {course.includes.map((i, idx) => (
             <div key={i} className="flex items-start gap-3 reveal" style={{ transitionDelay: `${idx * 40}ms` }}>
               <Gift className="w-4 h-4 text-[var(--premium-accent)] mt-0.5" />
-              <p className="text-gray-600">{t(`course.${course.id}.includes.${idx}`)}</p>
+              <p className="text-gray-600">{i}</p>
             </div>
           ))}
         </div>
@@ -282,7 +282,7 @@ export default function CourseDetails() {
           {course.outcomes.map((o, idx) => (
             <div key={o} className="flex items-start gap-3 reveal" style={{ transitionDelay: `${idx * 40}ms` }}>
               <CheckCircle className="w-4 h-4 text-[var(--premium-accent)] mt-0.5" />
-              <p className="text-gray-300">{t(`course.${course.id}.outcomes.${idx}`)}</p>
+              <p className="text-gray-300">{o}</p>
             </div>
           ))}
         </div>
