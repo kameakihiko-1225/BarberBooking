@@ -1,5 +1,6 @@
 import { Calendar, Clock } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "../contexts/LanguageContext";
 
 interface UpcomingDatesProps {
   courseName: string;
@@ -7,17 +8,18 @@ interface UpcomingDatesProps {
 }
 
 export function UpcomingDates({ courseName, dates = [] }: UpcomingDatesProps) {
+  const { t } = useLanguage();
   const [showAll, setShowAll] = useState(false);
   const displayDates = showAll ? dates : dates.slice(0, 6);
 
-  // Convert Uzbek month names to English for proper date parsing
+  // Convert Uzbek month names to localized month names
   const monthMap: Record<string, string> = {
-    'iyul': 'July',
-    'avgust': 'August', 
-    'sentabr': 'September',
-    'oktabr': 'October',
-    'noyabr': 'November',
-    'dekabr': 'December'
+    'iyul': t('months.july'),
+    'avgust': t('months.august'), 
+    'sentabr': t('months.september'),
+    'oktabr': t('months.october'),
+    'noyabr': t('months.november'),
+    'dekabr': t('months.december')
   };
 
   const formatDate = (dateStr: string) => {
@@ -50,7 +52,7 @@ export function UpcomingDates({ courseName, dates = [] }: UpcomingDatesProps) {
     <div className="mt-6 pt-6 border-t border-gray-100">
       <div className="flex items-center gap-2 mb-4">
         <Calendar className="h-4 w-4 text-[var(--premium-accent)]" />
-        <h4 className="font-semibold text-deep-black">Upcoming Dates</h4>
+        <h4 className="font-semibold text-deep-black">{t('common.upcoming')} {t('common.dates')}</h4>
       </div>
       
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 mb-6">
@@ -90,7 +92,7 @@ export function UpcomingDates({ courseName, dates = [] }: UpcomingDatesProps) {
                    font-medium transition-colors flex items-center gap-1"
         >
           <Clock className="h-3 w-3" />
-          {showAll ? `Show less` : `Show all ${dates.length} dates`}
+          {showAll ? t('common.show.less') : `${t('common.show.more')} ${t('common.all')} ${dates.length} ${t('common.dates')}`}
         </button>
       )}
     </div>

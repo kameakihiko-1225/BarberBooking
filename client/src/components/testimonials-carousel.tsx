@@ -1,6 +1,7 @@
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { useLanguage } from "../contexts/LanguageContext";
 
 interface Testimonial {
   id: number;
@@ -12,24 +13,21 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    quote:
-      "The best place in Warsaw to quickly and above all well learn a profession from scratch. I have just finished the course, the guys helped with funding for the course and found me a job immediately after finishing. I highly recommend and thank you!",
-    name: "Angelika Ziółkowska",
-    title: "Graduate • 5-star Google Review",
+    quote: "testimonial.1.quote",
+    name: "testimonial.1.name",
+    title: "testimonial.1.title",
   },
   {
     id: 2,
-    quote:
-      "I had the pleasure of taking part in a 3-day training course under the supervision of Tomek and Ali. I am delighted with the effects of the training. Great atmosphere and great educators. The boys gave us a huge dose of knowledge and tips on creating a portfolio. I highly recommend it!",
-    name: "Agata Antoniewicz",
-    title: "Graduate • 5-star Google Review",
+    quote: "testimonial.2.quote",
+    name: "testimonial.2.name",
+    title: "testimonial.2.title",
   },
   {
     id: 3,
-    quote:
-      "Despite the time that has passed since the end of the course, I decided to leave a review. I participated in the month-long 'Barber from scratch' course at K&K Academy, and I am very impressed with the level of professionalism and quality of the training. Educators Tomek, Bartek and Ali demonstrated not only theoretical knowledge, but also impressive practical skills. Now, 6 months after completing the course, I successfully run my own salon and I am glad that I had the opportunity to participate in the course from scratch with the guys.",
-    name: "Sharp Cut Barber",
-    title: "Salon Owner • 5-star Google Review",
+    quote: "testimonial.3.quote",
+    name: "testimonial.3.name",
+    title: "testimonial.3.title",
   },
   {
     id: 4,
@@ -97,6 +95,7 @@ const testimonials: Testimonial[] = [
 ];
 
 export default function TestimonialsCarousel() {
+  const { t } = useLanguage();
   const [ref, slider] = useKeenSlider({
     loop: true,
     mode: "free-snap",
@@ -111,18 +110,18 @@ export default function TestimonialsCarousel() {
   return (
     <div className="relative">
       <div ref={ref} className="keen-slider pb-8">
-        {testimonials.map((t) => (
-          <div key={t.id} className="keen-slider__slide">
+        {testimonials.map((testimonial) => (
+          <div key={testimonial.id} className="keen-slider__slide">
             <div className="bg-gray-50 rounded-2xl p-8 relative hover:shadow-2xl transition-all duration-700 group h-full flex flex-col justify-between">
               <div className="absolute top-6 left-6 premium-accent text-4xl">
                 <Quote className="h-8 w-8" />
               </div>
               <p className="text-gray-700 text-lg leading-relaxed mb-8 mt-6 group-hover:translate-y-[-4px] transition-transform duration-300">
-                " {t.quote} "
+                " {t(testimonial.quote)} "
               </p>
               <div className="pt-4 border-t border-gray-200">
-                <div className="font-semibold text-deep-black">{t.name}</div>
-                <div className="text-sm text-gray-600">{t.title}</div>
+                <div className="font-semibold text-deep-black">{t(testimonial.name)}</div>
+                <div className="text-sm text-gray-600">{t(testimonial.title)}</div>
               </div>
             </div>
           </div>

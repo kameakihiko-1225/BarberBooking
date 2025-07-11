@@ -35,9 +35,9 @@ export const instructors: Instructor[] = [
   {
     id: 1,
     name: "Richer Karimov",
-    title: "Senior Barber Instructor",
-    about: "Expert in modern cutting techniques and classic barbering styles with years of professional experience.",
-    experience: "Professional barber specializing in precision cuts and contemporary styling.",
+    title: "senior.barber.instructor",
+    about: "instructor.about.richer",
+    experience: "instructor.experience.richer",
     image: img(6), // richer-karimov.jpg is at index 6
     socials: {
       instagram: "https://www.instagram.com/richiibarber?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
@@ -46,9 +46,9 @@ export const instructors: Instructor[] = [
   {
     id: 2,
     name: "Apo Karimov",
-    title: "Senior Barber Instructor",
-    about: "Passionate educator and skilled barber dedicated to training the next generation of professionals.",
-    experience: "Experienced barber and instructor with expertise in advanced cutting techniques.",
+    title: "senior.barber.instructor",
+    about: "instructor.about.apo",
+    experience: "instructor.experience.apo",
     image: img(3), // apo-karimov.jpg is at index 3
     socials: {
       instagram: "https://www.instagram.com/apo_barber_1?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
@@ -57,9 +57,9 @@ export const instructors: Instructor[] = [
   {
     id: 3,
     name: "Bartosz Kaczorowski",
-    title: "Senior Barber Instructor",
-    about: "Creative stylist with a focus on modern trends and personalized client experiences.",
-    experience: "Skilled barber specializing in creative cuts and contemporary hair styling.",
+    title: "senior.barber.instructor",
+    about: "instructor.about.bartosz",
+    experience: "instructor.experience.bartosz",
     image: img(4), // bartosz-kaczorowski.jpg is at index 4
     socials: {
       instagram: "https://www.instagram.com/b_kaczorowski_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
@@ -68,9 +68,9 @@ export const instructors: Instructor[] = [
   {
     id: 4,
     name: "Ali Karimov",
-    title: "Senior Barber Instructor",
-    about: "Dedicated professional with expertise in both traditional and modern barbering techniques.",
-    experience: "Experienced barber with a passion for delivering exceptional grooming services.",
+    title: "senior.barber.instructor",
+    about: "instructor.about.ali",
+    experience: "instructor.experience.ali",
     image: img(2), // ali-karimov.jpg is at index 2
     socials: {
       instagram: "https://www.instagram.com/ali.barber.pl?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
@@ -79,9 +79,9 @@ export const instructors: Instructor[] = [
   {
     id: 5,
     name: "Tomasz Kaczorowski",
-    title: "Senior Barber Instructor",
-    about: "Experienced professional combining hands-on barbering skills with teaching excellence.",
-    experience: "Professional barber and educator committed to sharing knowledge and skills.",
+    title: "senior.barber.instructor",
+    about: "instructor.about.tomasz",
+    experience: "instructor.experience.tomasz",
     image: img(7), // tomasz-kaczorowski.jpg is at index 7
     socials: {
       instagram: "https://www.instagram.com/kaczorowski.brb?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="

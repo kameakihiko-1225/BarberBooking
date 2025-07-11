@@ -60,9 +60,9 @@ export default function About() {
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}>
               {[
-                t('about.features.certified'),
-                t('about.features.handson'),
-                t('about.features.placement')
+                "State-certified programs with industry recognition",
+                "Hands-on training with professional-grade equipment", 
+                "Career placement assistance and ongoing support"
               ].map((text, index) => (
                 <div key={index} className={`flex items-center space-x-3 transform transition-all duration-700 ${
                   isVisible ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'
@@ -79,7 +79,7 @@ export default function About() {
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}>
               <Button className="bg-deep-black text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 hover:scale-105 hover:shadow-lg">
-                {t('about.learn.more')}
+                Learn More About Us
               </Button>
             </Link>
           </div>
@@ -102,8 +102,8 @@ export default function About() {
                   <Award className="text-black h-6 w-6" />
                 </div>
                 <div>
-                  <div className="font-semibold text-deep-black hover:text-[var(--premium-accent)] transition-colors duration-200">{t('about.certified.excellence')}</div>
-                  <div className="text-sm text-gray-600">{t('about.state.licensed')}</div>
+                  <div className="font-semibold text-deep-black hover:text-[var(--premium-accent)] transition-colors duration-200">Certified Excellence</div>
+                  <div className="text-sm text-gray-600">State Licensed Academy</div>
                 </div>
               </div>
             </div>
