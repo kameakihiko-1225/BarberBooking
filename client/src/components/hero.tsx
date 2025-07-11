@@ -68,7 +68,7 @@ export default function Hero() {
           isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}>
           <Button asChild className="btn-shimmer bg-[var(--premium-accent)] text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-[var(--premium-accent)]/80 transition-all transform hover:scale-105 hover:shadow-lg min-w-[200px]">
-            <Link href="/contacts">{t('hero.cta.primary')}</Link>
+            <Link href="/contact">{t('hero.cta.primary')}</Link>
           </Button>
           <Button 
             variant="outline" 

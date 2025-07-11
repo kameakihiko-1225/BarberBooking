@@ -3,7 +3,7 @@ import { useRoute } from 'wouter';
 import { courses } from '@/data/courses';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
-import { CheckCircle, Gift, BookOpen, Users, Scissors, Trophy, Briefcase, ChevronLeft, ChevronRight } from 'lucide-react';
+import { CheckCircle, Gift, BookOpen, Users, Scissors, Trophy, Briefcase, ChevronLeft, ChevronRight, Award, Check, IdCard } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import { UpcomingDates } from '@/components/upcoming-dates';
 import { instructors } from '@/data/instructors';
@@ -342,7 +342,7 @@ export default function CourseDetails() {
               {/* Instructor Info */}
               <h3 className="font-serif text-xl font-bold text-white mb-2">{instructor.name}</h3>
               <p className="text-gray-400 group-hover:text-white text-sm mb-4 transition-colors duration-300">
-                {instructor.title}
+                {t(instructor.title)}
               </p>
               
               {/* Social Media Icons */}
@@ -397,22 +397,38 @@ export default function CourseDetails() {
       {/* Certificate Section */}
       <section className="px-4 mb-16 bg-deep-black text-white py-14">
         <div className="max-w-4xl mx-auto text-center mb-10">
-          <h2 className="font-serif text-3xl font-bold mb-4">Certificate & Accreditation</h2>
+          <h2 className="font-serif text-3xl font-bold mb-4">{t('course.certificate.title')}</h2>
           <p className="text-gray-300 mb-8">
-            Receive an official diploma upon completion. Share on LinkedIn and impress future employers.
+            {t('course.certificate.description')}
           </p>
-          <img
-            src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=800&h=450"
-            alt="Diploma"
-            className="mx-auto rounded-xl shadow-lg animate-pulse-slow"
-          />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-[var(--premium-accent)] rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award className="w-8 h-8 text-black" />
+              </div>
+              <h3 className="font-bold mb-2">{t('course.certificate.accredited')}</h3>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-[var(--premium-accent)] rounded-full flex items-center justify-center mx-auto mb-4">
+                <Check className="w-8 h-8 text-black" />
+              </div>
+              <h3 className="font-bold mb-2">{t('course.certificate.industry')}</h3>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-[var(--premium-accent)] rounded-full flex items-center justify-center mx-auto mb-4">
+                <IdCard className="w-8 h-8 text-black" />
+              </div>
+              <h3 className="font-bold mb-2">{t('course.certificate.portfolio')}</h3>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Pricing */}
       <section className="px-4 mb-16">
         <div className="max-w-4xl mx-auto text-center mb-10">
-          <h2 className="font-serif text-3xl font-bold">Pricing & Plans</h2>
+          <h2 className="font-serif text-3xl font-bold">{t('course.pricing.title')}</h2>
+          <p className="text-gray-600 mt-4">{t('course.pricing.description')}</p>
         </div>
         {(() => {
           const few = course.pricingPlans.length < 3;
@@ -434,7 +450,7 @@ export default function CourseDetails() {
                       asChild
                       className="btn-shimmer mt-auto bg-[var(--premium-accent)] text-black hover:bg-[var(--premium-accent)]/80"
                     >
-                      <a href="/contacts">Choose Plan</a>
+                      <a href="/contact">{t('course.pricing.contact')}</a>
                     </Button>
                   </div>
                 );
@@ -447,33 +463,37 @@ export default function CourseDetails() {
       {/* FAQs */}
       <section className="px-4 mb-16 bg-dark-gray py-14">
         <div className="max-w-4xl mx-auto text-center mb-10">
-          <h2 className="font-serif text-3xl font-bold text-white">FAQs</h2>
+          <h2 className="font-serif text-3xl font-bold text-white">{t('course.faq.title')}</h2>
         </div>
         <div className="max-w-3xl mx-auto">
           <Accordion type="single" collapsible>
-            {course.faqs.map((f, idx) => (
-              <AccordionItem value={f.q} key={f.q} className="reveal" style={{ transitionDelay: `${idx * 80}ms` }}>
-                <AccordionTrigger className="text-white hover:underline">{f.q}</AccordionTrigger>
-                <AccordionContent className="text-gray-300">{f.a}</AccordionContent>
-              </AccordionItem>
-            ))}
+            <AccordionItem value="experience" className="reveal">
+              <AccordionTrigger className="text-white hover:underline">{t('course.faq.experience.q')}</AccordionTrigger>
+              <AccordionContent className="text-gray-300">{t('course.faq.experience.a')}</AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="tools" className="reveal" style={{ transitionDelay: '80ms' }}>
+              <AccordionTrigger className="text-white hover:underline">{t('course.faq.tools.q')}</AccordionTrigger>
+              <AccordionContent className="text-gray-300">{t('course.faq.tools.a')}</AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="job" className="reveal" style={{ transitionDelay: '160ms' }}>
+              <AccordionTrigger className="text-white hover:underline">{t('course.faq.job.q')}</AccordionTrigger>
+              <AccordionContent className="text-gray-300">{t('course.faq.job.a')}</AccordionContent>
+            </AccordionItem>
           </Accordion>
         </div>
       </section>
 
       {/* Final CTA */}
       <section className="px-4 text-center bg-deep-black py-20">
-        <h2 className="font-serif text-3xl font-bold mb-4 text-white reveal">Start Your Journey Today</h2>
-        <p className="mb-6 text-gray-400 flex flex-col sm:flex-row gap-2 items-center justify-center text-sm reveal" style={{ transitionDelay: '100ms' }}>
-          <span className="flex items-center gap-1"><CheckCircle className="w-3 h-3 text-[var(--premium-accent)]" /> 7-Day Money-Back Guarantee</span>
-          <span className="hidden sm:inline">•</span>
-          <span className="flex items-center gap-1"><CheckCircle className="w-3 h-3 text-[var(--premium-accent)]" /> 100% On-site & Hands-On</span>
+        <h2 className="font-serif text-3xl font-bold mb-4 text-white reveal">{t('course.cta.final.title')}</h2>
+        <p className="mb-6 text-gray-300 reveal" style={{ transitionDelay: '100ms' }}>
+          {t('course.cta.final.description')}
         </p>
         <Button
           asChild
           className="btn-shimmer bg-[var(--premium-accent)] text-black px-10 py-4 rounded-full font-medium hover:bg-[var(--premium-accent)]/80"
         >
-          <a href="/contacts">Enroll Now</a>
+          <a href="/contact">{t('course.cta.final.button')}</a>
         </Button>
       </section>
     </main>

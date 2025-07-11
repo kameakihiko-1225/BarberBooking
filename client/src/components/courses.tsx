@@ -141,7 +141,7 @@ export default function Courses() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild className="btn-shimmer bg-green-600 text-white px-8 py-4 text-base md:text-lg rounded-full font-medium hover:bg-green-700 hover:scale-105 transition-all duration-300 shadow-lg">
-                  <Link href="/contacts">{t('courses.cta.button')}</Link>
+                  <Link href="/contact">{t('courses.cta.button')}</Link>
                 </Button>
               </div>
             </div>

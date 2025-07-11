@@ -61,7 +61,7 @@ function InstructorCard({ instructor, index, isVisible }: {
       {/* Orange Background on Hover */}
       <div className="absolute bottom-0 left-0 right-0 bg-black transition-all duration-500 group-hover:bg-[#FF6A00] p-6">
         <h3 className="text-xl font-bold text-white mb-2">{instructor.name}</h3>
-        <p className="text-gray-300 group-hover:text-white transition-colors">{t('instructors.title')}</p>
+        <p className="text-gray-300 group-hover:text-white transition-colors">{t(instructor.title)}</p>
       </div>
     </div>
     </Link>

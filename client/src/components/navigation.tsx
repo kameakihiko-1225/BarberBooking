@@ -117,7 +117,7 @@ export default function Navigation() {
     { href: "/about-us", label: "O nas" },
     { href: "/courses", label: t('nav.courses') },
     { href: "/gallery", label: t('nav.gallery') },
-    { href: "/contacts", label: t('nav.contact') },
+    { href: "/contact", label: t('nav.contact') },
   ];
 
   return (
@@ -199,7 +199,7 @@ export default function Navigation() {
                 ? 'bg-[var(--premium-accent)] text-black hover:bg-[var(--premium-accent)]/80'
                 : 'bg-[var(--premium-accent)] text-black hover:bg-[var(--premium-accent)]/70'
             }`}>
-              <Link href="/contacts">{t('nav.enroll')}</Link>
+              <Link href="/contact">{t('nav.enroll')}</Link>
             </Button>
           </div>
         </div>
@@ -267,7 +267,7 @@ export default function Navigation() {
             transitionDelay: isOpen ? '600ms' : '0ms',
             transitionProperty: 'transform, opacity, background-color, box-shadow'
           }}>
-            <Link href="/contacts">{t('nav.enroll')}</Link>
+            <Link href="/contact">{t('nav.enroll')}</Link>
           </Button>) }
         </div>
         <Button
