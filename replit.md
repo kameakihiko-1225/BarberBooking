@@ -158,6 +158,8 @@ Preferred communication style: Simple, everyday language.
   - Polish: Focus on being the only academy with two quality certificates and qualified educators
   - English: Highlights unique status with quality certificates and educator qualifications  
   - Ukrainian: Emphasizes exclusive positioning with quality certifications and teacher credentials
+- Fixed mobile language selection dropdown visibility issue by positioning dropdown above button in mobile menu
+- Enhanced language switcher with improved click-outside handling and mobile-specific positioning
 - Fixed critical navbar overlap issue by implementing consistent top padding across all pages:
   - Hero section: pt-36 to pt-40 for proper clearance with large navbar logo
   - All gallery, contact, about, and detail pages: pt-36 minimum spacing

@@ -255,7 +255,7 @@ export default function Navigation() {
             transitionDelay: isOpen ? '500ms' : '0ms',
             transitionProperty: 'transform, opacity'
           }}>
-            <LanguageSwitcher />
+            <LanguageSwitcher isMobile={true} />
           </div>
 
           {isHome && (
