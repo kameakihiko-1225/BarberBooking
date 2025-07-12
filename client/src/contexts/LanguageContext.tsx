@@ -88,7 +88,7 @@ const translations: Record<Language, Record<string, string>> = {
     // About Section
     'about.title': 'O Nas',
     'about.subtitle': 'Dlaczego Wybierać K&K Academy',
-    'about.description': 'Z wieloletnim doświadczeniem i pasją do edukacji, jesteśmy wiodącą akademią fryzjerską w Warszawie.',
+    'about.description': 'Jesteśmy jedyną akademią z dwoma certyfikatami jakości. Jesteśmy jedyną akademią, w której wszyscy edukatorzy zdali egzaminy czeladnicze. Wszyscy edukatorzy posiadają kwalifikacje pedagogiczne.',
 
     // Courses
     'courses.title': 'Nasze Kursy',
@@ -610,7 +610,7 @@ const translations: Record<Language, Record<string, string>> = {
     // About Section
     'about.title': 'About Us',
     'about.subtitle': 'Why Choose K&K Academy',
-    'about.description': 'With years of experience and a passion for education, we are Warsaw\'s leading barber academy.',
+    'about.description': 'We are the only academy with two quality certificates. We are the only academy where all educators have passed their apprenticeship exams. All educators have teaching qualifications.',
 
     // Courses
     'courses.title': 'Our Courses',
@@ -1125,7 +1125,7 @@ const translations: Record<Language, Record<string, string>> = {
     // About Section
     'about.title': 'Про нас',
     'about.subtitle': 'Чому варто обрати K&K Academy',
-    'about.description': 'З багаторічним досвідом та пристрастю до навчання, ми є провідною академією перукарів у Варшаві.',
+    'about.description': 'Ми єдина академія з двома сертифікатами якості. Ми єдина академія, де всі викладачі склали іспити з підмайстерства. Усі викладачі мають педагогічну кваліфікацію.',
 
     // Courses
     'courses.title': 'Наші курси',

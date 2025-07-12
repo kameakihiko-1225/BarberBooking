@@ -154,6 +154,10 @@ Preferred communication style: Simple, everyday language.
 - Updated language switcher to display 'UK' instead of 'TR'
 - Website now supports Polish, English, and Ukrainian languages with full localization
 - Fixed final Turkish remnant "Atmosferimiz" → "Наша атмосфера!" (Our atmosphere!) in Ukrainian translation
+- Updated about section description across all three languages to emphasize academy's unique qualifications:
+  - Polish: Focus on being the only academy with two quality certificates and qualified educators
+  - English: Highlights unique status with quality certificates and educator qualifications  
+  - Ukrainian: Emphasizes exclusive positioning with quality certifications and teacher credentials
 - Fixed critical navbar overlap issue by implementing consistent top padding across all pages:
   - Hero section: pt-36 to pt-40 for proper clearance with large navbar logo
   - All gallery, contact, about, and detail pages: pt-36 minimum spacing
