@@ -140,13 +140,26 @@ Preferred communication style: Simple, everyday language.
 - All course enrollment buttons now redirect to contact page instead of course details
 - Video asset properly configured for popup display functionality
 
+**July 12, 2025 - Turkish to Ukrainian Language Conversion**
+- Completely converted Turkish language support to Ukrainian throughout the entire website
+- Updated language type from 'tr' to 'uk' in LanguageContext and all related components
+- Replaced all Turkish translations with comprehensive Ukrainian translations including:
+  - Navigation menus and interface elements
+  - Course descriptions and educational content
+  - Contact forms and information
+  - Instructor profiles and testimonials
+  - Blog content and common UI elements
+  - Months, dates, and time-related translations
+- Updated language switcher to display 'UK' instead of 'TR'
+- Website now supports Polish, English, and Ukrainian languages with full localization
+
 **July 11, 2025 - Complete Multi-Language Implementation with Full Page Support**
-- Implemented comprehensive multi-language support system (Polish, English, Turkish)
+- Implemented comprehensive multi-language support system (Polish, English, Ukrainian)
 - Created LanguageContext with translation system supporting all three languages
 - Polish set as default language with complete translations for all content
 - Redesigned language switcher with futuristic, minimalistic design featuring:
   - Circular badge design with gradient accents and glow effects
-  - Language codes (PL/EN/TR) instead of flags for clean aesthetic
+  - Language codes (PL/EN/UK) instead of flags for clean aesthetic
   - Smooth hover animations and backdrop blur effects
   - Integrated into both desktop and mobile navigation
 - Translated entire website content including:

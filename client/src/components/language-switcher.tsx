@@ -4,7 +4,7 @@ import { useLanguage, Language } from '@/contexts/LanguageContext';
 const languages = {
   pl: { name: 'PL', code: 'PL' },
   en: { name: 'EN', code: 'EN' },
-  tr: { name: 'TR', code: 'TR' },
+  uk: { name: 'UK', code: 'UK' },
 };
 
 export default function LanguageSwitcher() {

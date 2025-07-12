@@ -119,6 +119,7 @@ export default function About() {
                 </div>
                 <div>
                   <div className="font-semibold text-deep-black hover:text-[var(--premium-accent)] transition-colors duration-200">{t('about.certified.excellence')}</div>
+
                   <div className="text-sm text-gray-600">{t('about.state.licensed')}</div>
                 </div>
               </div>
