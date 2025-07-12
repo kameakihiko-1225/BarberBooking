@@ -85,7 +85,7 @@ export default function Courses() {
                       <span className={`px-3 py-1 rounded-full text-sm font-medium ${course.badgeColor}`}>
                         {t(course.badge)}
                       </span>
-                      <span className="text-2xl font-bold text-deep-black">{t(course.price)}</span>
+                      <span className="text-lg font-bold text-deep-black break-words text-right max-w-[140px]">{t(course.price)}</span>
                     </div>
                     
                     <h3 className="font-serif text-xl font-bold mb-3 min-h-[3.5rem] flex items-start">{t(course.title)}</h3>
