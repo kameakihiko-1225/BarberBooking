@@ -14,7 +14,7 @@ export default function InstructorDetails() {
   if (!found) return <div className="min-h-screen flex items-center justify-center text-white bg-deep-black">{t('instructor.not.found')}</div>;
 
   return (
-    <section className="min-h-screen bg-deep-black text-white pt-32 pb-20 px-4">
+    <section className="min-h-screen bg-deep-black text-white pt-36 pb-20 px-4">
       <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 items-start">
         <div className="relative overflow-hidden rounded-2xl shadow-xl">
           <img

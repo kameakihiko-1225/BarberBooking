@@ -60,7 +60,7 @@ export default function ContactsPage() {
   const handleChange = (field: string, value: string) => setFormData((prev) => ({ ...prev, [field]: value }));
 
   return (
-    <main className="pt-32 pb-20 bg-deep-black text-white min-h-screen">
+    <main className="pt-36 pb-20 bg-deep-black text-white min-h-screen">
       {/* Intro */}
       <section className="text-center mb-20 px-4">
         <h1 className="font-serif text-5xl font-bold mb-4">{t('contact.page.title')} <span className="premium-accent">{t('contact.page.highlight')}</span></h1>

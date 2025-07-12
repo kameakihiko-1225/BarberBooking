@@ -126,7 +126,7 @@ export default function StudentsGalleryPage() {
 
   if (isLoading) {
     return (
-      <main className="pt-32 pb-20 bg-deep-black text-white">
+      <main className="pt-36 pb-20 bg-deep-black text-white">
         <section className="text-center mb-20 px-4">
           <h1 className="font-serif text-5xl font-bold mb-4">{t('page.students.title')} <span className="premium-accent">{t('page.students.title.highlight')}</span></h1>
           <p className="text-gray-300 max-w-2xl mx-auto">{t('page.students.explore')}</p>
@@ -143,7 +143,7 @@ export default function StudentsGalleryPage() {
   }
 
   return (
-    <main className="pt-32 pb-20 bg-deep-black text-white">
+    <main className="pt-36 pb-20 bg-deep-black text-white">
       <section className="text-center mb-20 px-4">
         <h1 className="font-serif text-5xl font-bold mb-4">{t('page.students.title')} <span className="premium-accent">{t('page.students.title.highlight')}</span></h1>
         <p className="text-gray-300 max-w-2xl mx-auto">

@@ -127,7 +127,7 @@ export default function CourseDetails() {
   };
 
   return (
-    <main className="pt-40 md:pt-48 pb-20 bg-white text-deep-black">
+    <main className="pt-40 md:pt-40 lg:pt-44 pb-20 bg-white text-deep-black">
       {/* Hero */}
       <section className="px-4 mb-20">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">

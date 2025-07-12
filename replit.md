@@ -140,7 +140,7 @@ Preferred communication style: Simple, everyday language.
 - All course enrollment buttons now redirect to contact page instead of course details
 - Video asset properly configured for popup display functionality
 
-**July 12, 2025 - Turkish to Ukrainian Language Conversion**
+**July 12, 2025 - Turkish to Ukrainian Language Conversion & Navbar Overlap Fix**
 - Completely converted Turkish language support to Ukrainian throughout the entire website
 - Updated language type from 'tr' to 'uk' in LanguageContext and all related components
 - Replaced all Turkish translations with comprehensive Ukrainian translations including:
@@ -152,6 +152,11 @@ Preferred communication style: Simple, everyday language.
   - Months, dates, and time-related translations
 - Updated language switcher to display 'UK' instead of 'TR'
 - Website now supports Polish, English, and Ukrainian languages with full localization
+- Fixed critical navbar overlap issue by implementing consistent top padding across all pages:
+  - Hero section: pt-36 to pt-40 for proper clearance with large navbar logo
+  - All gallery, contact, about, and detail pages: pt-36 minimum spacing
+  - Course details: pt-40 to pt-44 for extra clearance
+  - Ensures navbar never overlaps content on any screen size or page
 
 **July 11, 2025 - Complete Multi-Language Implementation with Full Page Support**
 - Implemented comprehensive multi-language support system (Polish, English, Ukrainian)

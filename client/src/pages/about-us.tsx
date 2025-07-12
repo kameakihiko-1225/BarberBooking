@@ -44,7 +44,7 @@ export default function AboutUs() {
   return (
     <main className="bg-white text-deep-black pb-20">
       {/* Hero */}
-      <section className="relative min-h-[60vh] flex items-center justify-center pt-32 mb-24 overflow-hidden bg-deep-black text-white">
+      <section className="relative min-h-[60vh] flex items-center justify-center pt-36 mb-24 overflow-hidden bg-deep-black text-white">
         <div className="absolute inset-0 opacity-30 bg-cover bg-center" style={{backgroundImage:"url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1920&h=1080')"}}/>
         <div className="relative z-10 max-w-3xl mx-auto px-4 text-center">
           <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6">{t('aboutus.hero.title')} <span className="premium-accent">{t('aboutus.hero.mastery')}</span></h1>
