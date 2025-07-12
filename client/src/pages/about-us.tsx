@@ -81,7 +81,7 @@ export default function AboutUs() {
           <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden group hover:shadow-xl transition-all duration-300">
             <div className="aspect-[3/4] relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
               <div className="text-center p-8">
-                <div className="bg-[var(--premium-accent)] rounded-full p-4 mx-auto mb-4 w-16 h-16 flex items-center justify-center">
+                <div className="bg-premium-accent rounded-full p-4 mx-auto mb-4 w-16 h-16 flex items-center justify-center">
                   <Award className="w-8 h-8 text-black" />
                 </div>
                 <div className="text-xs text-gray-500 mb-2">ISO Certification</div>
@@ -99,7 +99,7 @@ export default function AboutUs() {
           <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden group hover:shadow-xl transition-all duration-300">
             <div className="aspect-[3/4] relative overflow-hidden bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
               <div className="text-center p-8">
-                <div className="bg-[var(--premium-accent)] rounded-full p-4 mx-auto mb-4 w-16 h-16 flex items-center justify-center">
+                <div className="bg-premium-accent rounded-full p-4 mx-auto mb-4 w-16 h-16 flex items-center justify-center">
                   <Award className="w-8 h-8 text-black" />
                 </div>
                 <div className="text-xs text-gray-500 mb-2">Polish Educational</div>
