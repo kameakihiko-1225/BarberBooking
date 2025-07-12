@@ -79,14 +79,16 @@ export default function AboutUs() {
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* Certificate 1 - ISO 9001:2015-10 */}
           <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden group hover:shadow-xl transition-all duration-300">
-            <div className="aspect-[3/4] relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
-              <div className="text-center p-8">
-                <div className="bg-premium-accent rounded-full p-4 mx-auto mb-4 w-16 h-16 flex items-center justify-center">
-                  <Award className="w-8 h-8 text-black" />
+            <div className="aspect-[3/4] relative overflow-hidden">
+              <img 
+                src="/cert-iso.jpg"
+                alt="ISO 9001:2015-10 Certificate"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute top-4 left-4">
+                <div className="bg-premium-accent rounded-full p-2">
+                  <Award className="w-6 h-6 text-black" />
                 </div>
-                <div className="text-xs text-gray-500 mb-2">ISO Certification</div>
-                <div className="font-bold text-sm text-gray-800">9001:2015-10</div>
-                <div className="text-xs text-gray-600 mt-2">Quality Management System</div>
               </div>
             </div>
             <div className="p-6">
@@ -97,14 +99,16 @@ export default function AboutUs() {
 
           {/* Certificate 2 - SZOE */}
           <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden group hover:shadow-xl transition-all duration-300">
-            <div className="aspect-[3/4] relative overflow-hidden bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
-              <div className="text-center p-8">
-                <div className="bg-premium-accent rounded-full p-4 mx-auto mb-4 w-16 h-16 flex items-center justify-center">
-                  <Award className="w-8 h-8 text-black" />
+            <div className="aspect-[3/4] relative overflow-hidden">
+              <img 
+                src="/cert-szoe.jpg"
+                alt="SZOE Certificate"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute top-4 left-4">
+                <div className="bg-premium-accent rounded-full p-2">
+                  <Award className="w-6 h-6 text-black" />
                 </div>
-                <div className="text-xs text-gray-500 mb-2">Polish Educational</div>
-                <div className="font-bold text-sm text-gray-800">SZOE</div>
-                <div className="text-xs text-gray-600 mt-2">State Certification</div>
               </div>
             </div>
             <div className="p-6">
