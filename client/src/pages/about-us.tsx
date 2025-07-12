@@ -1,9 +1,10 @@
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import Instructors from '@/components/instructors';
-import { Quote, CheckCircle } from 'lucide-react';
+import { Quote, CheckCircle, Award } from 'lucide-react';
 import { instructors } from '@/data/instructors';
 import { useLanguage } from '@/contexts/LanguageContext';
+
 
 const legal = {
   name: 'K&K BARBER COMPANY SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ',
@@ -61,6 +62,56 @@ export default function AboutUs() {
           <div><strong>KRS:</strong> {legal.krs}</div>
           <div><strong>NIP:</strong> {legal.nip}</div>
           <div><strong>REGON:</strong> {legal.regon}</div>
+        </div>
+      </section>
+
+      {/* Certificates Section */}
+      <section className="max-w-6xl mx-auto px-4 mb-16">
+        <div className="text-center mb-12">
+          <h2 className="font-serif text-3xl font-bold mb-4">
+            {t('about.certificate.title')} <span className="premium-accent">{t('about.certificate.accredited')}</span>
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            {t('about.certificate.description')}
+          </p>
+        </div>
+        
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {/* Certificate 1 - ISO 9001:2015-10 */}
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden group hover:shadow-xl transition-all duration-300">
+            <div className="aspect-[3/4] relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+              <div className="text-center p-8">
+                <div className="bg-[var(--premium-accent)] rounded-full p-4 mx-auto mb-4 w-16 h-16 flex items-center justify-center">
+                  <Award className="w-8 h-8 text-black" />
+                </div>
+                <div className="text-xs text-gray-500 mb-2">ISO Certification</div>
+                <div className="font-bold text-sm text-gray-800">9001:2015-10</div>
+                <div className="text-xs text-gray-600 mt-2">Quality Management System</div>
+              </div>
+            </div>
+            <div className="p-6">
+              <h3 className="font-bold text-lg mb-2">{t('about.certificate.iso.title')}</h3>
+              <p className="text-gray-600 text-sm">{t('about.certificate.iso.description')}</p>
+            </div>
+          </div>
+
+          {/* Certificate 2 - SZOE */}
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden group hover:shadow-xl transition-all duration-300">
+            <div className="aspect-[3/4] relative overflow-hidden bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
+              <div className="text-center p-8">
+                <div className="bg-[var(--premium-accent)] rounded-full p-4 mx-auto mb-4 w-16 h-16 flex items-center justify-center">
+                  <Award className="w-8 h-8 text-black" />
+                </div>
+                <div className="text-xs text-gray-500 mb-2">Polish Educational</div>
+                <div className="font-bold text-sm text-gray-800">SZOE</div>
+                <div className="text-xs text-gray-600 mt-2">State Certification</div>
+              </div>
+            </div>
+            <div className="p-6">
+              <h3 className="font-bold text-lg mb-2">{t('about.certificate.szoe.title')}</h3>
+              <p className="text-gray-600 text-sm">{t('about.certificate.szoe.description')}</p>
+            </div>
+          </div>
         </div>
       </section>
 

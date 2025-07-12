@@ -168,6 +168,12 @@ Preferred communication style: Simple, everyday language.
 - Fixed Free course card display issues by updating icon mapping with Gift icon
 - Enhanced iconMap to include certificate, gift, and Award icons for better visual representation
 - Updated course data to use certificate icon for professional certification display
+- Added comprehensive certificate section to about-us page with:
+  - ISO 9001:2015-10 Quality Management System certification display
+  - SZOE Polish educational institution certification display
+  - Professional certificate card design with Award icons and gradient backgrounds
+  - Full multi-language support for certificate descriptions and titles
+  - Responsive layout that works across all device sizes
 
 **July 11, 2025 - Complete Multi-Language Implementation with Full Page Support**
 - Implemented comprehensive multi-language support system (Polish, English, Ukrainian)
