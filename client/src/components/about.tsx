@@ -87,11 +87,27 @@ export default function About() {
           <div className={`relative transform transition-all duration-1000 delay-500 ${
             isVisible ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'
           }`}>
-            <img 
-              src="/attached_assets/Cert_244_2025_KKBarber_SZOE_page-0001_1752272896100.jpg" 
-              alt="K&K Barber Academy ISO 21001:2018 certification for educational management systems" 
-              className="rounded-2xl shadow-2xl w-full h-auto hover:scale-105 hover:shadow-3xl transition-all duration-500"
-            />
+            {/* Certificate Section */}
+            <div className="bg-white rounded-2xl shadow-2xl p-6 hover:shadow-3xl transition-all duration-500">
+              <div className="text-center mb-4">
+                <h3 className="text-xl font-bold text-deep-black mb-2">{t('about.certificate.title')}</h3>
+                <p className="text-gray-600 text-sm">{t('about.certificate.subtitle')}</p>
+              </div>
+              
+              <img 
+                src="/attached_assets/Cert_243_2025_KKBarber_page-0001_1752305443741.jpg" 
+                alt="K&K Barber Academy Quality Management System Certificate ISO 9001:2015-10" 
+                className="rounded-xl shadow-lg w-full h-auto hover:scale-105 transition-all duration-500"
+              />
+              
+              <div className="mt-4 p-4 bg-gray-50 rounded-xl">
+                <div className="flex items-center justify-center space-x-2 mb-2">
+                  <Award className="text-[var(--premium-accent)] h-5 w-5" />
+                  <span className="font-semibold text-deep-black">ISO 9001:2015-10</span>
+                </div>
+                <p className="text-sm text-gray-600 text-center">{t('about.certificate.description')}</p>
+              </div>
+            </div>
             
             {/* Floating Achievement Card */}
             <div className={`absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl border border-gray-100 transform transition-all duration-1000 delay-800 hover:scale-105 hover:shadow-2xl ${

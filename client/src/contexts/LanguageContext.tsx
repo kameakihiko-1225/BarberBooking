@@ -291,6 +291,9 @@ const translations: Record<Language, Record<string, string>> = {
     'about.learn.more': 'Dowiedz się więcej o nas',
     'about.certified.excellence': 'Certyfikowana doskonałość',
     'about.state.licensed': 'Akademia licencjonowana przez państwo',
+    'about.certificate.title': 'Oficjalny Certyfikat',
+    'about.certificate.subtitle': 'Rzetelna certyfikacja systemu zarządzania jakością',
+    'about.certificate.description': 'Certyfikat potwierdza spełnienie norm jakości ISO 9001:2015-10 w zakresie szkoleń specjalistycznych dla branży fryzjerskiej.',
     'common.free': 'BEZPŁATNE',
     
     // Course Translation Keys
@@ -722,6 +725,9 @@ const translations: Record<Language, Record<string, string>> = {
     'about.learn.more': 'Learn More About Us',
     'about.certified.excellence': 'Certified Excellence',
     'about.state.licensed': 'State Licensed Academy',
+    'about.certificate.title': 'Official Certificate',
+    'about.certificate.subtitle': 'Reliable quality management system certification',
+    'about.certificate.description': 'Certificate confirms compliance with ISO 9001:2015-10 quality standards for specialized training in the barbering industry.',
     'common.free': 'FREE',
     
     // Course Translation Keys
@@ -1228,6 +1234,9 @@ const translations: Record<Language, Record<string, string>> = {
     'about.learn.more': 'Hakkımızda Daha Fazla Bilgi',
     'about.certified.excellence': 'Sertifikalı Mükemmellik',
     'about.state.licensed': 'Devlet Lisanslı Akademi',
+    'about.certificate.title': 'Resmi Sertifika',
+    'about.certificate.subtitle': 'Güvenilir kalite yönetim sistemi sertifikasyonu',
+    'about.certificate.description': 'Sertifika, berberlik endüstrisinde uzmanlaşmış eğitim için ISO 9001:2015-10 kalite standartlarına uygunluğu onaylar.',
     'common.free': 'ÜCRETSİZ',
     
     // Course Translation Keys
