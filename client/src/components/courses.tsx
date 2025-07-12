@@ -1,6 +1,6 @@
 import "keen-slider/keen-slider.min.css";
 import { Button } from "@/components/ui/button";
-import { Clock, IdCard, Trophy, Briefcase, ChevronLeft, ChevronRight } from "lucide-react";
+import { Clock, IdCard, Trophy, Briefcase, ChevronLeft, ChevronRight, Gift, Award } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import { courses } from '@/data/courses';
@@ -12,6 +12,8 @@ const iconMap: Record<string, JSX.Element> = {
   'id-card': <IdCard className="text-[var(--golden-bronze)] mr-2 h-4 w-4" />,
   'trophy': <Trophy className="text-[var(--golden-bronze)] mr-2 h-4 w-4" />,
   'briefcase': <Briefcase className="text-[var(--golden-bronze)] mr-2 h-4 w-4" />,
+  'gift': <Gift className="text-[var(--golden-bronze)] mr-2 h-4 w-4" />,
+  'certificate': <Award className="text-[var(--golden-bronze)] mr-2 h-4 w-4" />,
 };
 
 export default function Courses() {

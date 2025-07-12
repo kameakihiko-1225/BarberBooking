@@ -140,7 +140,7 @@ Preferred communication style: Simple, everyday language.
 - All course enrollment buttons now redirect to contact page instead of course details
 - Video asset properly configured for popup display functionality
 
-**July 12, 2025 - Turkish to Ukrainian Language Conversion & Navbar Overlap Fix**
+**July 12, 2025 - Turkish to Ukrainian Language Conversion & Final UI Enhancements**
 - Completely converted Turkish language support to Ukrainian throughout the entire website
 - Updated language type from 'tr' to 'uk' in LanguageContext and all related components
 - Replaced all Turkish translations with comprehensive Ukrainian translations including:
@@ -150,6 +150,7 @@ Preferred communication style: Simple, everyday language.
   - Instructor profiles and testimonials
   - Blog content and common UI elements
   - Months, dates, and time-related translations
+- Fixed final Turkish remnants including "Galerimiz" → "Наша Галерея" in gallery section
 - Updated language switcher to display 'UK' instead of 'TR'
 - Website now supports Polish, English, and Ukrainian languages with full localization
 - Fixed critical navbar overlap issue by implementing consistent top padding across all pages:
@@ -157,6 +158,16 @@ Preferred communication style: Simple, everyday language.
   - All gallery, contact, about, and detail pages: pt-36 minimum spacing
   - Course details: pt-40 to pt-44 for extra clearance
   - Ensures navbar never overlaps content on any screen size or page
+
+**Final Course and UI Improvements - July 12, 2025**
+- Changed all course timing to include "Daily" prefix across all three languages:
+  - Polish: "Codziennie" (e.g., "Codziennie, 1 miesiąc")
+  - English: "Daily" (e.g., "Daily, 1 month")
+  - Ukrainian: "Щодня" (e.g., "Щодня, 1 місяць")
+- Added certificate icon support to course components using Award icon from Lucide React
+- Fixed Free course card display issues by updating icon mapping with Gift icon
+- Enhanced iconMap to include certificate, gift, and Award icons for better visual representation
+- Updated course data to use certificate icon for professional certification display
 
 **July 11, 2025 - Complete Multi-Language Implementation with Full Page Support**
 - Implemented comprehensive multi-language support system (Polish, English, Ukrainian)

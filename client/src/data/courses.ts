@@ -116,7 +116,7 @@ export const courses: Course[] = [
     certification: 'course.certification.professional',
     image: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&h=400',
     buttonStyle: 'bg-[var(--premium-accent)] text-black hover:bg-[var(--premium-accent)]/80',
-    icon: 'id-card',
+    icon: 'certificate',
     rating: 4.9,
     enrolled: '18,000+',
     benefits: [
