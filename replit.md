@@ -153,6 +153,7 @@ Preferred communication style: Simple, everyday language.
 - Fixed final Turkish remnants including "Galerimiz" → "Наша Галерея" in gallery section
 - Updated language switcher to display 'UK' instead of 'TR'
 - Website now supports Polish, English, and Ukrainian languages with full localization
+- Fixed final Turkish remnant "Atmosferimiz" → "Наша атмосфера!" (Our atmosphere!) in Ukrainian translation
 - Fixed critical navbar overlap issue by implementing consistent top padding across all pages:
   - Hero section: pt-36 to pt-40 for proper clearance with large navbar logo
   - All gallery, contact, about, and detail pages: pt-36 minimum spacing

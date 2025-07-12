@@ -1209,7 +1209,7 @@ const translations: Record<Language, Record<string, string>> = {
     'common.previous': 'Önceki',
 
     // Additional translations for missing components
-    'our.vibe': 'Atmosferimiz!',
+    'our.vibe': 'Наша атмосфера!',
     'programs.fundamentals': 'Berber Temelleri',
     'programs.master': 'Usta Teknikleri',
     'programs.business': 'İş Ustalığı',
