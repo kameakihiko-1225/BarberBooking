@@ -160,6 +160,7 @@ Preferred communication style: Simple, everyday language.
   - Ukrainian: Emphasizes exclusive positioning with quality certifications and teacher credentials
 - Fixed mobile language selection dropdown visibility issue by positioning dropdown above button in mobile menu
 - Enhanced language switcher with improved click-outside handling and mobile-specific positioning
+- Updated Ali Karimov's instructor photo with new professional image provided by user
 - Updated hero section text across all three languages:
   - Changed "Fryzjerska" to "Barberingu" in Polish title (K&K Akademia Barberingu)
   - Updated hero description in all languages to emphasize academy's unique qualifications instead of generic education message
