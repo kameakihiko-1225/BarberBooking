@@ -168,6 +168,9 @@ Preferred communication style: Simple, everyday language.
   - Replaced existing ali-karimov.jpg with new colorful professional photo
   - Added black and white version as ali-karimov-bw.jpg for future use
   - Images feature Ali in professional attire with stylish sunglasses pose
+- Restored original instructor photos for Richer Karimov, Apo Karimov, Bartosz, and Tomasz
+  - Fixed issue where other instructors' images were accidentally affected
+  - All instructors now display their correct original professional photos
 - Fixed critical navbar overlap issue by implementing consistent top padding across all pages:
   - Hero section: pt-36 to pt-40 for proper clearance with large navbar logo
   - All gallery, contact, about, and detail pages: pt-36 minimum spacing
