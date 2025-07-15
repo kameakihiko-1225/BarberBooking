@@ -64,12 +64,16 @@ export default function MediaModal({ isOpen, onClose, media, initialIndex }: Med
       try {
         if (isPlaying) {
           videoRef.current.pause();
+          setIsPlaying(false);
         } else {
+          // Reset to beginning to prevent freezing
+          videoRef.current.currentTime = 0;
           await videoRef.current.play();
+          setIsPlaying(true);
         }
-        setIsPlaying(!isPlaying);
       } catch (error) {
         console.error('Video play error:', error);
+        setIsPlaying(false);
       }
     }
   };
@@ -130,6 +134,14 @@ export default function MediaModal({ isOpen, onClose, media, initialIndex }: Med
                 controls={false}
                 playsInline
                 muted
+                onEnded={() => {
+                  setIsPlaying(false);
+                  if (videoRef.current) {
+                    videoRef.current.currentTime = 0;
+                  }
+                }}
+                onPause={() => setIsPlaying(false)}
+                onPlay={() => setIsPlaying(true)}
               />
               <Button
                 variant="ghost"

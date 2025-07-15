@@ -41,16 +41,17 @@ export default function Gallery() {
 
   const [sliderRef, instanceRef] = useKeenSlider({
     loop: true,
+    mode: "free-snap",
     slides: {
-      perView: isMobile ? 1 : 3,
+      perView: "auto",
       spacing: 16,
     },
     breakpoints: {
       "(max-width: 640px)": {
-        slides: { perView: 1, spacing: 8 },
+        slides: { perView: 1.2, spacing: 8 },
       },
       "(max-width: 1024px)": {
-        slides: { perView: 2, spacing: 12 },
+        slides: { perView: 2.5, spacing: 12 },
       },
     },
   });
@@ -127,11 +128,9 @@ export default function Gallery() {
     );
   }
 
-  // Limit items on mobile for performance
-  const limit = isMobile ? 6 : 12;
+  // Limit items for carousel performance - show enough for smooth scrolling
+  const limit = isMobile ? 8 : 15;
   const shuffledMedia = [...galleryMedia].sort(() => Math.random() - 0.5).slice(0, limit);
-  
-
 
   const handleMediaClick = (index: number) => {
     setSelectedIndex(index);
@@ -153,7 +152,7 @@ export default function Gallery() {
         <div className="relative">
           <div ref={sliderRef} className="keen-slider mb-8">
             {shuffledMedia.map((item, index) => (
-              <div key={`${item.src}-${index}`} className="keen-slider__slide">
+              <div key={`${item.src}-${index}`} className="keen-slider__slide !min-w-[280px] !max-w-[300px]">
                 <LazyMedia 
                   item={item} 
                   heightClass={isMobile ? "h-40" : "h-56"}
@@ -163,7 +162,7 @@ export default function Gallery() {
             ))}
           </div>
 
-          {shuffledMedia.length > (isMobile ? 1 : 3) && (
+          {shuffledMedia.length > 3 && (
             <>
               <button
                 onClick={() => instanceRef.current?.prev()}

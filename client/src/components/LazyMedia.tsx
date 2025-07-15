@@ -49,15 +49,19 @@ const LazyMedia: React.FC<LazyMediaProps> = ({ item, heightClass, onLoad, onErro
     onError?.();
   };
 
-  const handleVideoPlay = async () => {
+  const handleVideoPlay = async (e: React.MouseEvent) => {
+    e.stopPropagation();
     if (videoRef.current) {
       try {
         if (isPlaying) {
           videoRef.current.pause();
+          setIsPlaying(false);
         } else {
+          // Reset to beginning to prevent freezing issues
+          videoRef.current.currentTime = 0;
           await videoRef.current.play();
+          setIsPlaying(true);
         }
-        setIsPlaying(!isPlaying);
       } catch (error) {
         console.error('Video play error:', error);
         setIsError(true);
@@ -106,9 +110,19 @@ const LazyMedia: React.FC<LazyMediaProps> = ({ item, heightClass, onLoad, onErro
             muted
             playsInline
             onError={handleImageError}
+            onLoadedData={handleImageLoad}
+            onEnded={() => {
+              setIsPlaying(false);
+              if (videoRef.current) {
+                videoRef.current.currentTime = 0;
+              }
+            }}
+            onPause={() => setIsPlaying(false)}
+            onPlay={() => setIsPlaying(true)}
           >
             <source src={item.src} type="video/mp4" />
             <source src={item.src} type="video/mov" />
+            <source src={item.src} type="video/quicktime" />
             Your browser does not support the video tag.
           </video>
           
