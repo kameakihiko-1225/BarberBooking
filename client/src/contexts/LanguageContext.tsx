@@ -808,7 +808,7 @@ const translations: Record<Language, Record<string, string>> = {
     'page.gallery.title': 'Full',
     'page.gallery.title.highlight': 'Gallery',
     'page.gallery.loading': 'Discover our complete collection of work',
-    'page.gallery.explore': 'Explore our complete collection of ${count} professional works and training moments',
+    'page.gallery.explore': 'Explore our complete collection of professional works and training moments',
     'page.students.title': 'Student',
     'page.students.title.highlight': 'Works',
     'page.students.explore': 'See the amazing transformations and skills from our students',

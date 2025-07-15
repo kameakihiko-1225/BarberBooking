@@ -133,6 +133,7 @@ export default function Gallery() {
   
   console.log('[Gallery] Media count:', galleryMedia.length);
   console.log('[Gallery] Shuffled media:', shuffledMedia.slice(0, 3));
+  console.log('[Gallery] Sample media src check:', shuffledMedia[0]?.src);
 
   const handleMediaClick = (index: number) => {
     setSelectedIndex(index);
