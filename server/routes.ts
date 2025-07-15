@@ -69,7 +69,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Get media files directly from database by route
       const dbMediaFiles = await storage.getMediaFilesByRoute(route);
       const mediaList = dbMediaFiles.map(file => ({
-        src: `/api/media-file/${route}/${encodeURIComponent(file.filename)}`,
+        src: `/attached_assets/${file.filename}`,
         type: file.type as "image" | "video"
       }));
       

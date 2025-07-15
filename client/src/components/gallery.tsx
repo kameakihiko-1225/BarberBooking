@@ -110,12 +110,19 @@ function LazyMedia({ item, isMobile = false }: { item: Media; isMobile?: boolean
 export default function Gallery() {
   const { t } = useLanguage();
   const [isMobile, setIsMobile] = useState(false);
-  const { data: galleryMedia = [] } = useQuery<Media[]>({
+  const { data: galleryMedia = [], isLoading, error } = useQuery<Media[]>({
     queryKey: ['media', 'gallery'],
     queryFn: async () => {
       const res = await fetch('/api/media/gallery');
-      return res.json();
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      const data = await res.json();
+      console.log('Gallery data:', data);
+      return data;
     },
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    retry: 3,
   });
 
   // Shuffle and limit media for performance
@@ -143,13 +150,39 @@ export default function Gallery() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  if (galleryMedia.length === 0) {
+  if (isLoading) {
     return (
       <section className="py-24 bg-deep-black text-white" id="gallery">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <h2 className="font-serif text-3xl md:text-5xl font-bold mb-12">{t('gallery.title')} <span className="premium-accent">{t('gallery.title.highlight')}</span></h2>
           <div className="w-full h-72 bg-gray-800 animate-pulse rounded-2xl flex items-center justify-center">
             <div className="w-8 h-8 border-2 border-[var(--premium-accent)] border-t-transparent rounded-full animate-spin"></div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="py-24 bg-deep-black text-white" id="gallery">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <h2 className="font-serif text-3xl md:text-5xl font-bold mb-12">{t('gallery.title')} <span className="premium-accent">{t('gallery.title.highlight')}</span></h2>
+          <div className="w-full h-72 bg-gray-800 rounded-2xl flex items-center justify-center">
+            <p className="text-red-400">Error loading gallery: {error.message}</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (galleryMedia.length === 0) {
+    return (
+      <section className="py-24 bg-deep-black text-white" id="gallery">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <h2 className="font-serif text-3xl md:text-5xl font-bold mb-12">{t('gallery.title')} <span className="premium-accent">{t('gallery.title.highlight')}</span></h2>
+          <div className="w-full h-72 bg-gray-800 rounded-2xl flex items-center justify-center">
+            <p className="text-white">No gallery items available</p>
           </div>
         </div>
       </section>
@@ -197,7 +230,7 @@ export default function Gallery() {
           </div>
         )}
 
-        <Button className="mt-6" asChild>
+        <Button className="mt-6 block mx-auto" asChild>
           <Link href="/gallery">{t('gallery.view.full')}</Link>
         </Button>
       </div>
