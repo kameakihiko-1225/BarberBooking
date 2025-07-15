@@ -1,0 +1,188 @@
+Your gallery component is already very well-structured! It's lazy-loading images/videos, handling loading states, responsive layout, and using `keen-slider` with `react-query`. But if you're looking for **maximum performance and UX optimization**, here are **12 highly actionable improvements**:
+
+---
+
+## ✅ IMAGE & VIDEO PERFORMANCE
+
+### 1. ✅ **Add Blur-Up Placeholder for Images**
+
+Instead of just a spinner while the image loads, show a **blurred low-quality placeholder (LQIP)**:
+
+```tsx
+<img
+  ref={imgRef}
+  alt="gallery"
+  className={`w-full ${heightClass} object-cover transition-all duration-1000 group-hover:scale-105 ${
+    imageLoaded ? 'opacity-100 blur-0' : 'opacity-0 blur-md'
+  }`}
+  onLoad={handleImageLoad}
+  onError={handleImageError}
+  loading="lazy"
+/>
+```
+
+> 🔍 Bonus: Pre-generate small blurry versions via backend (e.g. `img_blur.jpg`).
+
+---
+
+### 2. ✅ **Support Modern Formats: WebP or AVIF**
+
+You could use `<picture>` or preprocess your media to `.webp` for smaller size:
+
+```tsx
+<picture>
+  <source srcSet={item.src.replace(/\.jpg|\.png/, '.webp')} type="image/webp" />
+  <img ... />
+</picture>
+```
+
+---
+
+### 3. ✅ **Use `preload="metadata"` for Videos**
+
+You're doing this already — ✅. It’s the right way to avoid loading entire video blobs upfront.
+
+---
+
+## ⚙️ LAZY LOADING OPTIMIZATION
+
+### 4. ✅ **Use `IntersectionObserver` with `once: true`**
+
+Prevent unnecessary re-renders and observer triggers:
+
+```tsx
+observer = new IntersectionObserver(([entry], observer) => {
+  if (entry.isIntersecting) {
+    // ...
+    observer.unobserve(entry.target); // ⬅️ better than disconnect()
+  }
+});
+```
+
+---
+
+### 5. ✅ **Limit Image Count on Mobile**
+
+You're slicing to 12 — good. You can go further:
+
+```tsx
+const limit = isMobile ? 6 : 12;
+const shuffledMedia = [...galleryMedia].sort(() => Math.random() - 0.5).slice(0, limit);
+```
+
+---
+
+## 📦 DATA FETCHING
+
+### 6. ✅ **Add Retry Delay and Status Checks**
+
+Prevent overwhelming the server:
+
+```tsx
+retry: 3,
+retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 10000),
+```
+
+---
+
+### 7. 🟡 **Use `select` or `transform` to Preprocess Media**
+
+Trim long video URLs, convert `.jpg` to `.webp`, etc., **before rendering**.
+
+```tsx
+select: (data) =>
+  data.map(item => ({
+    ...item,
+    src: item.src.replace('.jpg', '.webp')
+  })),
+```
+
+---
+
+## 🎨 USER EXPERIENCE & RESPONSIVENESS
+
+### 8. ✅ **Add Keyboard Navigation (←/→)** for slider
+
+Improves accessibility:
+
+```tsx
+useEffect(() => {
+  const handler = (e: KeyboardEvent) => {
+    if (e.key === 'ArrowLeft') slider.current?.prev();
+    if (e.key === 'ArrowRight') slider.current?.next();
+  };
+  window.addEventListener('keydown', handler);
+  return () => window.removeEventListener('keydown', handler);
+}, [slider]);
+```
+
+---
+
+### 9. 🟢 **Throttle Resize Events**
+
+You're resizing `window` directly:
+
+```tsx
+useEffect(() => {
+  const checkMobile = () => setIsMobile(window.innerWidth < 768);
+  const debounced = _.debounce(checkMobile, 150);
+  window.addEventListener('resize', debounced);
+  return () => window.removeEventListener('resize', debounced);
+}, []);
+```
+
+Or use a custom hook like `useWindowSize()`.
+
+---
+
+### 10. ✅ **Improve Alt Text (for SEO and accessibility)**
+
+Instead of hardcoded `alt="gallery"`, you can improve this with filename-based dynamic values:
+
+```tsx
+alt={item.src.split('/').pop()?.replace(/[-_]/g, ' ').replace(/\..+$/, '') || 'Gallery item'}
+```
+
+---
+
+## 📁 STRUCTURE & CLEAN CODE
+
+### 11. ✅ **Extract `LazyMedia` into Reusable Component**
+
+It’s great now, but separating it to its own file (`LazyMedia.tsx`) will help reusability + cleaner `Gallery.tsx`.
+
+---
+
+### 12. 🟢 **Optional: Use `next/image` if You're Using Next.js**
+
+For advanced image optimization and built-in lazy loading:
+
+```tsx
+import Image from 'next/image';
+
+<Image src={item.src} alt="Gallery" layout="fill" objectFit="cover" />
+```
+
+---
+
+## ⚡ Summary of Actionable Optimizations
+
+| Area        | Optimization Tip                                           | Priority |
+| ----------- | ---------------------------------------------------------- | -------- |
+| Images      | Use WebP / blur-up LQIP placeholders                       | ✅ High   |
+| Videos      | `preload="metadata"`, lazy-load via `IntersectionObserver` | ✅ High   |
+| Lazy Load   | Use `observer.unobserve()` instead of `disconnect()`       | ✅ Medium |
+| Performance | Throttle resize events                                     | ✅ Medium |
+| Data        | Use `retryDelay`, `select`, and filename transforms        | ✅ Medium |
+| UX & SEO    | Alt text improvements + keyboard nav                       | ✅ Medium |
+| Clean Code  | Extract `LazyMedia` to own file                            | ✅ Low    |
+
+---
+
+Would you like me to:
+
+* Implement these optimizations in your exact code?
+* Add a blurred thumbnail generation helper?
+* Bundle this as a reusable `GallerySlider` component?
+
+Let me know how deep you want to go — I can do the whole refactor too.

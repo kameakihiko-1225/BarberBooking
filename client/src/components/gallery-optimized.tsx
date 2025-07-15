@@ -1,0 +1,218 @@
+import "keen-slider/keen-slider.min.css";
+import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
+import { useKeenSlider } from "keen-slider/react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useRef, useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useLanguage } from "@/contexts/LanguageContext";
+import LazyMedia from "./LazyMedia";
+
+type Media = { src: string; type: "image" | "video" };
+
+export default function Gallery() {
+  const { t } = useLanguage();
+  const [isMobile, setIsMobile] = useState(false);
+  
+  // Throttled resize handler
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    
+    const handleResize = () => {
+      clearTimeout(window.resizeTimeout);
+      window.resizeTimeout = setTimeout(checkMobile, 150);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(window.resizeTimeout);
+    };
+  }, []);
+
+  const { data: galleryMedia = [], isLoading, error, refetch } = useQuery<Media[]>({
+    queryKey: ['media', 'gallery'],
+    queryFn: async () => {
+      console.log('[Gallery] Fetching gallery data...');
+      const res = await fetch('/api/media/gallery', {
+        cache: 'no-cache',
+        headers: {
+          'Cache-Control': 'no-cache',
+          'Pragma': 'no-cache'
+        }
+      });
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      const data = await res.json();
+      console.log('[Gallery] Received data:', data);
+      console.log('[Gallery] Data length:', data.length);
+      return data;
+    },
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    retry: 3,
+    retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 10000),
+    select: (data) => data.map(item => ({
+      ...item,
+      src: item.src.replace(/^\/attached_assets\/gallarey\//, '/public/media/gallery/')
+    })),
+  });
+
+  // Force refetch on mount to ensure fresh data
+  useEffect(() => {
+    refetch();
+  }, [refetch]);
+
+  const [sliderRef, instanceRef] = useKeenSlider({
+    loop: true,
+    slides: {
+      perView: isMobile ? 1 : 3,
+      spacing: 16,
+    },
+    breakpoints: {
+      "(max-width: 640px)": {
+        slides: { perView: 1, spacing: 8 },
+      },
+      "(max-width: 1024px)": {
+        slides: { perView: 2, spacing: 12 },
+      },
+    },
+  });
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        instanceRef.current?.prev();
+      } else if (e.key === 'ArrowRight') {
+        instanceRef.current?.next();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [instanceRef]);
+
+  if (isLoading) {
+    return (
+      <section className="py-24 bg-deep-black text-white" id="gallery">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <h2 className="font-serif text-3xl md:text-5xl font-bold mb-12">{t('gallery.title')} <span className="premium-accent">{t('gallery.title.highlight')}</span></h2>
+          <div className="w-full h-72 bg-gray-800 rounded-2xl flex items-center justify-center">
+            <div className="w-12 h-12 border-2 border-[var(--premium-accent)] border-t-transparent rounded-full animate-spin"></div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="py-24 bg-deep-black text-white" id="gallery">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <h2 className="font-serif text-3xl md:text-5xl font-bold mb-12">{t('gallery.title')} <span className="premium-accent">{t('gallery.title.highlight')}</span></h2>
+          <div className="w-full h-72 bg-gray-800 rounded-2xl flex items-center justify-center">
+            <div className="text-center">
+              <p className="text-red-400 mb-4">Error loading gallery: {error.message}</p>
+              <button 
+                onClick={() => refetch()}
+                className="px-4 py-2 bg-[var(--premium-accent)] text-black rounded hover:bg-[var(--premium-accent)]/80 transition-colors"
+              >
+                Try Again
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (galleryMedia.length === 0) {
+    return (
+      <section className="py-24 bg-deep-black text-white" id="gallery">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <h2 className="font-serif text-3xl md:text-5xl font-bold mb-12">{t('gallery.title')} <span className="premium-accent">{t('gallery.title.highlight')}</span></h2>
+          <div className="w-full h-72 bg-gray-800 rounded-2xl flex items-center justify-center">
+            <div className="text-center">
+              <p className="text-white mb-4">No gallery items available</p>
+              <button 
+                onClick={() => refetch()}
+                className="px-4 py-2 bg-[var(--premium-accent)] text-black rounded hover:bg-[var(--premium-accent)]/80 transition-colors"
+              >
+                Refresh Gallery
+              </button>
+            </div>
+          </div>
+          <Button className="mt-6 block mx-auto" asChild>
+            <Link href="/gallery">{t('gallery.view.full')}</Link>
+          </Button>
+        </div>
+      </section>
+    );
+  }
+
+  // Limit items on mobile for performance
+  const limit = isMobile ? 6 : 12;
+  const shuffledMedia = [...galleryMedia].sort(() => Math.random() - 0.5).slice(0, limit);
+
+  return (
+    <section className="py-24 bg-deep-black text-white" id="gallery">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="font-serif text-3xl md:text-5xl font-bold mb-4">
+            {t('gallery.title')} <span className="premium-accent">{t('gallery.title.highlight')}</span>
+          </h2>
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+            {t('gallery.description')}
+          </p>
+        </div>
+
+        <div className="relative">
+          <div ref={sliderRef} className="keen-slider mb-8">
+            {shuffledMedia.map((item, index) => (
+              <div key={`${item.src}-${index}`} className="keen-slider__slide">
+                <LazyMedia 
+                  item={item} 
+                  heightClass={isMobile ? "h-40" : "h-56"}
+                />
+              </div>
+            ))}
+          </div>
+
+          {shuffledMedia.length > (isMobile ? 1 : 3) && (
+            <>
+              <button
+                onClick={() => instanceRef.current?.prev()}
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-2 rounded-full transition-all duration-300 hover:scale-110"
+                aria-label="Previous image"
+              >
+                <ChevronLeft size={24} />
+              </button>
+              <button
+                onClick={() => instanceRef.current?.next()}
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-2 rounded-full transition-all duration-300 hover:scale-110"
+                aria-label="Next image"
+              >
+                <ChevronRight size={24} />
+              </button>
+            </>
+          )}
+        </div>
+
+        <div className="text-center">
+          <Button className="mt-8 bg-[var(--premium-accent)] hover:bg-[var(--premium-accent)]/80 text-black font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl" asChild>
+            <Link href="/gallery">{t('gallery.view.full')}</Link>
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Extend Window type for TypeScript
+declare global {
+  interface Window {
+    resizeTimeout: number;
+  }
+}

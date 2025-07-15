@@ -2,114 +2,23 @@ import "keen-slider/keen-slider.min.css";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { useKeenSlider } from "keen-slider/react";
-import { ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useWindowSize } from "@/hooks/useWindowSize";
+import LazyMedia from "./LazyMedia";
+import MediaModal from "./MediaModal";
 
-type Media = { src: string; type: "image" | "video" };
-
-function LazyMedia({ item, isMobile = false }: { item: Media; isMobile?: boolean }) {
-  const [imageLoaded, setImageLoaded] = useState(false);
-  const [imageError, setImageError] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const imgRef = useRef<HTMLImageElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          if (item.type === "image" && imgRef.current) {
-            imgRef.current.src = item.src;
-          }
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-    return () => observer.disconnect();
-  }, [item.src, item.type]);
-
-  const handleImageLoad = () => {
-    setImageLoaded(true);
-  };
-
-  const handleImageError = () => {
-    setImageError(true);
-  };
-
-  const handleVideoClick = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-        setIsPlaying(false);
-      } else {
-        videoRef.current.play().catch(console.error);
-        setIsPlaying(true);
-      }
-    }
-  };
-
-  const handleVideoPlay = () => setIsPlaying(true);
-  const handleVideoPause = () => setIsPlaying(false);
-
-  const heightClass = isMobile ? "h-32 xs:h-36 sm:h-40" : "h-72";
-
-  return (
-    <div ref={containerRef} className="relative overflow-hidden group rounded-2xl">
-      {item.type === "image" ? (
-        !imageError ? (
-          <div className={`relative w-full ${heightClass} bg-gray-800`}>
-            <img 
-              ref={imgRef}
-              alt="gallery" 
-              className={`w-full ${heightClass} object-cover transition-all duration-1000 group-hover:scale-105 ${
-                imageLoaded ? 'opacity-100' : 'opacity-0'
-              }`}
-              onLoad={handleImageLoad}
-              onError={handleImageError}
-            />
-            {!imageLoaded && (
-              <div className={`absolute inset-0 bg-gray-800 animate-pulse flex items-center justify-center`}>
-                <div className="w-6 h-6 border-2 border-[var(--premium-accent)] border-t-transparent rounded-full animate-spin"></div>
-              </div>
-            )}
-          </div>
-        ) : (
-          <div className={`w-full ${heightClass} bg-gray-800`} />
-        )
-      ) : (
-        <div className="relative cursor-pointer" onClick={handleVideoClick}>
-          <video
-            ref={videoRef}
-            src={item.src}
-            className={`w-full ${heightClass} object-cover grayscale group-hover:grayscale-0 transition-all`}
-            muted
-            loop
-            playsInline
-            preload="none"
-            onPlay={handleVideoPlay}
-            onPause={handleVideoPause}
-          />
-          <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all" />
-          {!isPlaying && (
-            <Play className={`absolute inset-0 m-auto ${isMobile ? 'h-8 w-8' : 'h-14 w-14'} text-white bg-black/50 rounded-full p-2 transition-opacity hover:bg-black/70`} />
-          )}
-        </div>
-      )}
-    </div>
-  );
-}
+type Media = { src: string; type: "image" | "video"; alt?: string };
 
 export default function Gallery() {
   const { t } = useLanguage();
-  const [isMobile, setIsMobile] = useState(false);
+  const { width } = useWindowSize();
+  const isMobile = width < 768;
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
   const { data: galleryMedia = [], isLoading, error, refetch } = useQuery<Media[]>({
     queryKey: ['media', 'gallery'],
     queryFn: async () => {
@@ -129,9 +38,14 @@ export default function Gallery() {
       console.log('[Gallery] Data length:', data.length);
       return data;
     },
-    staleTime: 0, // No cache for debugging
-    cacheTime: 0, // No cache storage
+    staleTime: 5 * 60 * 1000, // 5 minutes
     retry: 3,
+    retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 10000),
+    select: (data) => data.map(item => ({
+      ...item,
+      src: item.src.replace(/^\/attached_assets\/gallarey\//, '/attached_assets/gallarey/'),
+      alt: item.src.split('/').pop()?.replace(/[-_]/g, ' ').replace(/\..+$/, '') || 'Gallery item'
+    })),
   });
 
   // Force refetch on mount to ensure fresh data
@@ -139,38 +53,43 @@ export default function Gallery() {
     refetch();
   }, [refetch]);
 
-  // Shuffle and limit media for performance
-  const shuffledMedia = [...galleryMedia]
-    .sort(() => Math.random() - 0.5)
-    .slice(0, 12);
-
-  const [sliderRef, slider] = useKeenSlider({
+  const [sliderRef, instanceRef] = useKeenSlider({
     loop: true,
-    slides: { perView: 1.1, spacing: 16 },
-    breakpoints: {
-      "(min-width: 640px)": { slides: { perView: 2.1, spacing: 24 } },
-      "(min-width: 1024px)": { slides: { perView: 3.2, spacing: 32 } },
+    slides: {
+      perView: isMobile ? 1 : 3,
+      spacing: 16,
     },
-    renderMode: "performance",
+    breakpoints: {
+      "(max-width: 640px)": {
+        slides: { perView: 1, spacing: 8 },
+      },
+      "(max-width: 1024px)": {
+        slides: { perView: 2, spacing: 12 },
+      },
+    },
   });
 
+  // Keyboard navigation
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        instanceRef.current?.prev();
+      } else if (e.key === 'ArrowRight') {
+        instanceRef.current?.next();
+      }
     };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [instanceRef]);
 
   if (isLoading) {
     return (
       <section className="py-24 bg-deep-black text-white" id="gallery">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <h2 className="font-serif text-3xl md:text-5xl font-bold mb-12">{t('gallery.title')} <span className="premium-accent">{t('gallery.title.highlight')}</span></h2>
-          <div className="w-full h-72 bg-gray-800 animate-pulse rounded-2xl flex items-center justify-center">
-            <div className="w-8 h-8 border-2 border-[var(--premium-accent)] border-t-transparent rounded-full animate-spin"></div>
+          <div className="w-full h-72 bg-gray-800 rounded-2xl flex items-center justify-center">
+            <div className="w-12 h-12 border-2 border-[var(--premium-accent)] border-t-transparent rounded-full animate-spin"></div>
           </div>
         </div>
       </section>
@@ -183,7 +102,15 @@ export default function Gallery() {
         <div className="max-w-6xl mx-auto px-4 text-center">
           <h2 className="font-serif text-3xl md:text-5xl font-bold mb-12">{t('gallery.title')} <span className="premium-accent">{t('gallery.title.highlight')}</span></h2>
           <div className="w-full h-72 bg-gray-800 rounded-2xl flex items-center justify-center">
-            <p className="text-red-400">Error loading gallery: {error.message}</p>
+            <div className="text-center">
+              <p className="text-red-400 mb-4">Error loading gallery: {error.message}</p>
+              <button 
+                onClick={() => refetch()}
+                className="px-4 py-2 bg-[var(--premium-accent)] text-black rounded hover:bg-[var(--premium-accent)]/80 transition-colors"
+              >
+                Try Again
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -214,51 +141,74 @@ export default function Gallery() {
     );
   }
 
+  // Limit items on mobile for performance
+  const limit = isMobile ? 6 : 12;
+  const shuffledMedia = [...galleryMedia].sort(() => Math.random() - 0.5).slice(0, limit);
+
+  const handleMediaClick = (index: number) => {
+    setSelectedIndex(index);
+    setModalOpen(true);
+  };
+
   return (
     <section className="py-24 bg-deep-black text-white" id="gallery">
-      <div className="max-w-6xl mx-auto px-4 text-center">
-        <h2 className="font-serif text-3xl md:text-5xl font-bold mb-12">{t('gallery.title')} <span className="premium-accent">{t('gallery.title.highlight')}</span></h2>
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="font-serif text-3xl md:text-5xl font-bold mb-4">
+            {t('gallery.title')} <span className="premium-accent">{t('gallery.title.highlight')}</span>
+          </h2>
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+            {t('gallery.description')}
+          </p>
+        </div>
 
-        {/* Mobile Grid Layout - 3+ columns for iPhone SE */}
-        {isMobile ? (
-          <div className="grid grid-cols-3 xs:grid-cols-4 sm:grid-cols-2 gap-1 xs:gap-2 sm:gap-4 mb-12">
-            {shuffledMedia.slice(0, 12).map((item, idx) => (
-              <div key={`${item.src}-${idx}`} className="w-full">
-                <LazyMedia item={item} isMobile={true} />
+        <div className="relative">
+          <div ref={sliderRef} className="keen-slider mb-8">
+            {shuffledMedia.map((item, index) => (
+              <div key={`${item.src}-${index}`} className="keen-slider__slide">
+                <LazyMedia 
+                  item={item} 
+                  heightClass={isMobile ? "h-40" : "h-56"}
+                  onClick={() => handleMediaClick(index)}
+                />
               </div>
             ))}
           </div>
-        ) : (
-          /* Desktop Slider Layout */
-          <div className="relative mb-12">
-            <div ref={sliderRef} className="keen-slider">
-              {shuffledMedia.map((item, idx) => (
-                <div key={`${item.src}-${idx}`} className="keen-slider__slide">
-                  <LazyMedia item={item} />
-                </div>
-              ))}
-            </div>
 
-            {/* Arrows */}
-            <button
-              className="absolute -left-6 top-1/2 -translate-y-1/2 md:-left-10 w-9 h-9 md:w-11 md:h-11 rounded-full bg-white/10 backdrop-blur-md border border-white/30 flex items-center justify-center group hover:bg-[var(--premium-accent)]/15 hover:border-[var(--premium-accent)]/50 transition-all shadow-lg hover:shadow-[0_0_12px_var(--premium-accent)]"
-              onClick={() => slider.current?.prev()}
-            >
-              <ChevronLeft className="h-5 w-5 text-[var(--premium-accent)] transition-colors" />
-            </button>
-            <button
-              className="absolute -right-6 top-1/2 -translate-y-1/2 md:-right-10 w-9 h-9 md:w-11 md:h-11 rounded-full bg-white/10 backdrop-blur-md border border-white/30 flex items-center justify-center group hover:bg-[var(--premium-accent)]/15 hover:border-[var(--premium-accent)]/50 transition-all shadow-lg hover:shadow-[0_0_12px_var(--premium-accent)]"
-              onClick={() => slider.current?.next()}
-            >
-              <ChevronRight className="h-5 w-5 text-[var(--premium-accent)] transition-colors" />
-            </button>
-          </div>
-        )}
+          {shuffledMedia.length > (isMobile ? 1 : 3) && (
+            <>
+              <button
+                onClick={() => instanceRef.current?.prev()}
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-2 rounded-full transition-all duration-300 hover:scale-110"
+                aria-label="Previous image"
+              >
+                <ChevronLeft size={24} />
+              </button>
+              <button
+                onClick={() => instanceRef.current?.next()}
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-2 rounded-full transition-all duration-300 hover:scale-110"
+                aria-label="Next image"
+              >
+                <ChevronRight size={24} />
+              </button>
+            </>
+          )}
+        </div>
 
-        <Button className="mt-6 block mx-auto" asChild>
-          <Link href="/gallery">{t('gallery.view.full')}</Link>
-        </Button>
+        <div className="text-center">
+          <Button className="mt-8 bg-[var(--premium-accent)] hover:bg-[var(--premium-accent)]/80 text-black font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl" asChild>
+            <Link href="/gallery">{t('gallery.view.full')}</Link>
+          </Button>
+        </div>
       </div>
+
+      {/* Media Modal */}
+      <MediaModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        media={shuffledMedia}
+        initialIndex={selectedIndex}
+      />
     </section>
   );
-} 
+}
