@@ -116,9 +116,9 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
         {shouldTruncate && (
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="text-[var(--premium-accent)] font-medium text-xs sm:text-sm hover:underline transition-colors mb-4 text-left"
+            className="text-[var(--premium-accent)] font-medium text-xs sm:text-sm hover:underline transition-colors mb-4 text-left flex items-center justify-start w-full"
           >
-            {isExpanded ? t('common.show.less') : t('common.show.more')}
+            <span className="block">{isExpanded ? t('common.show.less') : t('common.show.more')}</span>
           </button>
         )}
       </div>

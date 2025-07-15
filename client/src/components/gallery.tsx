@@ -128,8 +128,8 @@ export default function Gallery() {
     );
   }
 
-  // Limit items for carousel performance - show enough for smooth scrolling
-  const limit = isMobile ? 8 : 15;
+  // Limit items for carousel performance - optimize for mobile loading
+  const limit = isMobile ? 6 : 12;
   const shuffledMedia = [...galleryMedia].sort(() => Math.random() - 0.5).slice(0, limit);
 
   const handleMediaClick = (index: number) => {
@@ -183,8 +183,10 @@ export default function Gallery() {
         </div>
 
         <div className="text-center">
-          <Button className="mt-6 sm:mt-8 bg-[var(--premium-accent)] hover:bg-[var(--premium-accent)]/80 text-black font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl text-sm sm:text-base" asChild>
-            <Link href="/gallery">{t('gallery.view.full')}</Link>
+          <Button className="mt-6 sm:mt-8 bg-[var(--premium-accent)] hover:bg-[var(--premium-accent)]/80 text-black font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl text-sm sm:text-base flex items-center justify-center" asChild>
+            <Link href="/gallery" className="flex items-center justify-center">
+              <span className="block text-center">{t('gallery.view.full')}</span>
+            </Link>
           </Button>
         </div>
       </div>

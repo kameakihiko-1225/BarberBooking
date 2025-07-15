@@ -32,7 +32,7 @@ const LazyMedia: React.FC<LazyMediaProps> = ({ item, heightClass, onLoad, onErro
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.1, rootMargin: '50px' }
+      { threshold: 0.1, rootMargin: '200px' }
     );
 
     observer.observe(mediaRef.current);

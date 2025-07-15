@@ -95,6 +95,12 @@ export default function ImageWithPlaceholder({
           isLoaded ? 'opacity-100' : 'opacity-0'
         } ${className}`}
         loading="lazy"
+        decoding="async"
+        style={{ 
+          contentVisibility: 'auto',
+          willChange: 'opacity'
+        }}
+        sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
       />
     </div>
   );

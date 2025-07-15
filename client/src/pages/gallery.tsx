@@ -121,8 +121,10 @@ export default function GalleryPage() {
     staleTime: 5 * 60 * 1000, // 5 minutes
   });
 
-  // Shuffle media for varied display
-  const shuffledMedia = [...data].sort(() => Math.random() - 0.5);
+  // Optimize for mobile performance - limit initial load and randomize
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const limit = isMobile ? 20 : data.length;
+  const shuffledMedia = [...data].sort(() => Math.random() - 0.5).slice(0, limit);
 
   if (isLoading) {
     return (
@@ -165,11 +167,15 @@ export default function GalleryPage() {
 
       <div className="text-center px-4">
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-0 justify-center items-center">
-          <Button className="bg-[var(--premium-accent)] text-black px-6 sm:px-10 py-3 sm:py-4 font-semibold rounded-full hover:bg-[var(--premium-accent)]/80 w-full sm:w-auto" asChild>
-            <a href="/">{t('page.back.home')}</a>
+          <Button className="bg-[var(--premium-accent)] text-black px-6 sm:px-10 py-3 sm:py-4 font-semibold rounded-full hover:bg-[var(--premium-accent)]/80 w-full sm:w-auto flex items-center justify-center" asChild>
+            <a href="/" className="flex items-center justify-center w-full">
+              <span className="block text-center">{t('page.back.home')}</span>
+            </a>
           </Button>
-          <Button className="sm:ml-4 bg-white text-deep-black px-6 sm:px-10 py-3 sm:py-4 font-semibold rounded-full hover:bg-white/90 w-full sm:w-auto" asChild>
-            <a href="/contact">{t('page.apply.now')}</a>
+          <Button className="sm:ml-4 bg-white text-deep-black px-6 sm:px-10 py-3 sm:py-4 font-semibold rounded-full hover:bg-white/90 w-full sm:w-auto flex items-center justify-center" asChild>
+            <a href="/contact" className="flex items-center justify-center w-full">
+              <span className="block text-center">{t('page.apply.now')}</span>
+            </a>
           </Button>
         </div>
       </div>
