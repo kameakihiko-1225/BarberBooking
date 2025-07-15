@@ -149,7 +149,7 @@ export default function GalleryPage() {
       <section className="text-center mb-20 px-4">
         <h1 className="font-serif text-5xl font-bold mb-4">{t('page.gallery.title')} <span className="premium-accent">{t('page.gallery.title.highlight')}</span></h1>
         <p className="text-gray-300 max-w-2xl mx-auto">
-          {t('page.gallery.explore')} - {data.length} professional works
+          {t('page.gallery.explore')}
         </p>
       </section>
 
