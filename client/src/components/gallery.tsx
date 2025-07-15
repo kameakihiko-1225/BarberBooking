@@ -43,7 +43,7 @@ export default function Gallery() {
     retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 10000),
     select: (data) => data.map(item => ({
       ...item,
-      src: item.src.replace(/^\/attached_assets\/gallarey\//, '/attached_assets/gallarey/'),
+      src: item.src, // Use the src directly from database
       alt: item.src.split('/').pop()?.replace(/[-_]/g, ' ').replace(/\..+$/, '') || 'Gallery item'
     })),
   });
