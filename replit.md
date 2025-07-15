@@ -169,6 +169,16 @@ Preferred communication style: Simple, everyday language.
 - Updated "Our Vibe!" button to display local academy video (KK_Academy_Reel_01_no_subs.mov)
 - Modified VideoPopup component to use native HTML5 video element for local video playback
 - Configured video popup with vertical aspect ratio for mobile-optimized content
+
+**July 15, 2025 - Mobile Performance and UI Fixes**
+- Fixed hero background image blur issue on mobile devices by removing fixed attachment
+- Improved background image quality with higher compression settings (q=80)
+- Enhanced gallery component performance by setting video preload to "none"
+- Increased mobile gallery image height for better visibility (h-32 to h-40)
+- Optimized phone widget for mobile display with responsive sizing
+- Fixed phone widget positioning and button sizes for better mobile accessibility
+- Resolved duplicate translation key warnings in LanguageContext
+- Improved gallery loading performance by reducing initial download requirements
 - Updated hero section text across all three languages:
   - Changed "Fryzjerska" to "Barberingu" in Polish title (K&K Akademia Barberingu)
   - Updated hero description in all languages to emphasize academy's unique qualifications instead of generic education message

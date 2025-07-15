@@ -1233,7 +1233,6 @@ const translations: Record<Language, Record<string, string>> = {
     'testimonials.see.success.stories': 'Всі історії успіху',
     'free.course': 'Безкоштовний курс',
     'not.sure': 'Ще не впевнений',
-    'senior.barber.instructor': 'Старший інструктор-перукар',
     'send.inquiry': 'Надіслати запит',
     'your.name': 'Ваше ім\'я',
     'your.email': 'Ваш email',
@@ -1351,9 +1350,7 @@ const translations: Record<Language, Record<string, string>> = {
     'blog.filter.all': 'Всі',
 
     // Contact Page Translation Keys (these are duplicates, removing to prevent conflicts)
-    // 'contact.title': 'Зв\'яжіться',
-    // 'contact.title.highlight': 'з нами',
-    // 'contact.title.today': 'сьогодні',
+
 
     // Course Details Translation Keys
     // 'course.not.found': 'Курс не знайдено', (already defined above)
@@ -1436,7 +1433,7 @@ const translations: Record<Language, Record<string, string>> = {
     'instructor.specializations': 'Спеціалізації',
     'instructor.about': 'Про інструктора',
     'instructor.contact': 'Контакти',
-    // 'senior.barber.instructor': 'Старший інструктор-перукар', (already defined above)
+
 
     // About Section CTA
     'about.cta': 'Розпочати подорож',

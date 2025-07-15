@@ -59,7 +59,7 @@ function LazyMedia({ item, isMobile = false }: { item: Media; isMobile?: boolean
   const handleVideoPlay = () => setIsPlaying(true);
   const handleVideoPause = () => setIsPlaying(false);
 
-  const heightClass = isMobile ? "h-24 xs:h-28 sm:h-32" : "h-72";
+  const heightClass = isMobile ? "h-32 xs:h-36 sm:h-40" : "h-72";
 
   return (
     <div ref={containerRef} className="relative overflow-hidden group rounded-2xl">
@@ -93,7 +93,7 @@ function LazyMedia({ item, isMobile = false }: { item: Media; isMobile?: boolean
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="none"
             onPlay={handleVideoPlay}
             onPause={handleVideoPause}
           />
