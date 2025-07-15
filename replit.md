@@ -164,6 +164,10 @@ Preferred communication style: Simple, everyday language.
   - Changed "Fryzjerska" to "Barberingu" in Polish title (K&K Akademia Barberingu)
   - Updated hero description in all languages to emphasize academy's unique qualifications instead of generic education message
   - Replaced general description with specific competitive advantages highlighting two quality certificates, apprenticeship exams, and teaching qualifications
+- Updated Ali Karimov's instructor photos with new professional images:
+  - Replaced existing ali-karimov.jpg with new colorful professional photo
+  - Added black and white version as ali-karimov-bw.jpg for future use
+  - Images feature Ali in professional attire with stylish sunglasses pose
 - Fixed critical navbar overlap issue by implementing consistent top padding across all pages:
   - Hero section: pt-36 to pt-40 for proper clearance with large navbar logo
   - All gallery, contact, about, and detail pages: pt-36 minimum spacing
