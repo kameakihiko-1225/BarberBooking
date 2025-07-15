@@ -166,6 +166,8 @@ Preferred communication style: Simple, everyday language.
   - Applied consistent messaging across Polish, English, and Ukrainian versions
 - Updated Ali Karimov's instructor photo with new professional image
 - Updated Tomasz Kaczorowski's instructor photo with new professional image
+- Updated "Our Vibe!" button to display Google Drive video (ID: 1GPUofYayzKTr37f53hc1uF0fgdNAwWat)
+- Modified VideoPopup component to use iframe instead of local video file for better Google Drive integration
 - Updated hero section text across all three languages:
   - Changed "Fryzjerska" to "Barberingu" in Polish title (K&K Akademia Barberingu)
   - Updated hero description in all languages to emphasize academy's unique qualifications instead of generic education message

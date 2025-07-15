@@ -1,6 +1,7 @@
 import { X } from 'lucide-react';
 import { useEffect } from 'react';
-const videoUrl = '/media/watch-our-vibe.mp4';
+// Convert Google Drive share URL to embeddable format
+const videoUrl = 'https://drive.google.com/file/d/1GPUofYayzKTr37f53hc1uF0fgdNAwWat/preview';
 
 interface VideoPopupProps {
   isOpen: boolean;
@@ -45,7 +46,7 @@ export default function VideoPopup({ isOpen, onClose }: VideoPopupProps) {
       onClick={onClose}
     >
       <div 
-        className="relative w-full max-w-sm md:max-w-md mx-4 bg-black rounded-lg overflow-hidden shadow-2xl"
+        className="relative w-full max-w-4xl mx-4 bg-black rounded-lg overflow-hidden shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
@@ -56,16 +57,16 @@ export default function VideoPopup({ isOpen, onClose }: VideoPopupProps) {
           <X className="w-5 h-5" />
         </button>
 
-        {/* Video - Vertical phone orientation */}
-        <div className="aspect-[9/16]">
-          <video
-            autoPlay
-            controls
-            className="w-full h-full object-cover"
+        {/* Video - Responsive aspect ratio */}
+        <div className="aspect-video">
+          <iframe
             src={videoUrl}
+            className="w-full h-full"
+            allowFullScreen
+            allow="autoplay; encrypted-media"
+            frameBorder="0"
           >
-            Your browser does not support the video tag.
-          </video>
+          </iframe>
         </div>
       </div>
     </div>
