@@ -155,7 +155,7 @@ export default function Gallery() {
               <div key={`${item.src}-${index}`} className="keen-slider__slide !min-w-[280px] !max-w-[300px]">
                 <LazyMedia 
                   item={item} 
-                  heightClass={isMobile ? "h-40" : "h-56"}
+                  heightClass={isMobile ? "h-48" : "h-72"}
                   onClick={() => handleMediaClick(index)}
                 />
               </div>

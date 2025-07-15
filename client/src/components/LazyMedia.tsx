@@ -95,7 +95,7 @@ const LazyMedia: React.FC<LazyMediaProps> = ({ item, heightClass, onLoad, onErro
         <ImageWithPlaceholder
           src={item.src}
           alt={getAltText(item.src)}
-          className={`w-full ${heightClass} object-cover transition-all duration-1000 group-hover:scale-105`}
+          className={`w-full ${heightClass} object-contain transition-all duration-1000 group-hover:scale-105`}
           onLoad={handleImageLoad}
           onError={handleImageError}
         />
@@ -105,7 +105,7 @@ const LazyMedia: React.FC<LazyMediaProps> = ({ item, heightClass, onLoad, onErro
         <div className="relative">
           <video
             ref={videoRef}
-            className={`w-full ${heightClass} object-cover transition-all duration-500 group-hover:scale-105`}
+            className={`w-full ${heightClass} object-contain transition-all duration-500 group-hover:scale-105`}
             preload="metadata"
             muted
             playsInline

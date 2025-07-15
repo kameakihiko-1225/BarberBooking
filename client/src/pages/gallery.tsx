@@ -53,7 +53,7 @@ function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
   return (
     <div
       ref={containerRef}
-      className={`mb-4 break-inside-avoid transition-all duration-400 ease-out ${
+      className={`transition-all duration-400 ease-out ${
         inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
       }`}
       style={{ 
@@ -132,9 +132,11 @@ export default function GalleryPage() {
           <p className="text-gray-300 max-w-2xl mx-auto">{t('page.gallery.loading')}</p>
         </section>
         <section className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-3 xs:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 xs:gap-3 sm:gap-4">
+          <div className="columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-4 space-y-4">
             {Array.from({ length: 12 }).map((_, i) => (
-              <div key={i} className="aspect-[4/3] bg-gray-800 animate-pulse rounded-xl" />
+              <div key={i} className="break-inside-avoid mb-4">
+                <div className="aspect-[4/3] bg-gray-800 animate-pulse rounded-xl" />
+              </div>
             ))}
           </div>
         </section>
@@ -152,9 +154,11 @@ export default function GalleryPage() {
       </section>
 
       <section className="max-w-6xl mx-auto px-4 mb-16">
-        <div className="grid grid-cols-3 xs:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 xs:gap-3 sm:gap-4">
+        <div className="columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-4 space-y-4">
           {shuffledMedia.map((item, index) => (
-            <OptimizedMediaCard key={`${item.src}-${index}`} item={item} index={index} />
+            <div key={`${item.src}-${index}`} className="break-inside-avoid mb-4">
+              <OptimizedMediaCard item={item} index={index} />
+            </div>
           ))}
         </div>
       </section>

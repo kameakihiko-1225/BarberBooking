@@ -184,6 +184,15 @@ Preferred communication style: Simple, everyday language.
 - Fixed JavaScript template literal errors:
   - Removed ${count} variables from Polish and Ukrainian translations
   - Updated gallery page descriptions to display counts properly without template errors
+- Enhanced carousel and video functionality:
+  - Converted homepage gallery to horizontal scrollable carousel with KeenSlider
+  - Fixed video freezing issues by resetting currentTime to 0 on play/pause/end events
+  - Changed image display from object-cover to object-contain for full image visibility
+  - Increased carousel item heights (h-48 mobile, h-72 desktop) for better content display
+- Implemented Pinterest-style masonry layout for main gallery page:
+  - Replaced grid layout with CSS columns for natural flowing layout
+  - Removed gaps between items for seamless visual experience
+  - Enhanced responsive design with 2-5 columns based on screen size
 - Optimized query patterns across all gallery components with proper caching (5-minute stale time)
 - Enhanced lazy loading with intersection observer and optimized video preload settings
 - Improved mobile gallery performance with responsive grid layouts and proper aspect ratios
