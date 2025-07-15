@@ -41,7 +41,7 @@ export default function Gallery() {
 
   const [loaded, setLoaded] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
-  
+
   const [sliderRef, instanceRef] = useKeenSlider({
     loop: false,
     mode: "free-snap",
@@ -160,21 +160,19 @@ export default function Gallery() {
         </div>
 
         <div className="relative">
-          {loaded && instanceRef.current && (
-            <div ref={sliderRef} className="keen-slider mb-8">
-              {shuffledMedia.map((item, index) => (
-                <div key={`${item.src}-${index}`} className="keen-slider__slide !min-w-[280px] !max-w-[300px]">
-                  <LazyMedia 
-                    item={item} 
-                    heightClass={isMobile ? "h-48" : "h-72"}
-                    onClick={() => handleMediaClick(index)}
-                  />
-                </div>
-              ))}
-            </div>
-          )}
+          <div ref={sliderRef} className="keen-slider mb-8">
+            {shuffledMedia.map((item, index) => (
+              <div key={`${item.src}-${index}`} className="keen-slider__slide !min-w-[280px] !max-w-[300px]">
+                <LazyMedia 
+                  item={item} 
+                  heightClass={isMobile ? "h-48" : "h-72"}
+                  onClick={() => handleMediaClick(index)}
+                />
+              </div>
+            ))}
+          </div>
 
-          {loaded && shuffledMedia.length > 3 && (
+          {shuffledMedia.length > 1 && (
             <>
               <button
                 onClick={() => {
