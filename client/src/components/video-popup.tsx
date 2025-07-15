@@ -1,7 +1,7 @@
 import { X } from 'lucide-react';
 import { useEffect } from 'react';
-// Local video file
-const videoUrl = '/media/kk-academy-vibe.mov';
+// YouTube video embed URL
+const videoUrl = 'https://www.youtube.com/embed/qqjyY2iM68U';
 
 interface VideoPopupProps {
   isOpen: boolean;
@@ -59,13 +59,14 @@ export default function VideoPopup({ isOpen, onClose }: VideoPopupProps) {
 
         {/* Video - Vertical phone orientation */}
         <div className="aspect-[9/16]">
-          <video
-            controls
-            className="w-full h-full object-cover"
+          <iframe
             src={videoUrl}
+            className="w-full h-full"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            frameBorder="0"
           >
-            Your browser does not support the video tag.
-          </video>
+          </iframe>
         </div>
       </div>
     </div>

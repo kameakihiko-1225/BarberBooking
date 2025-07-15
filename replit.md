@@ -166,8 +166,8 @@ Preferred communication style: Simple, everyday language.
   - Applied consistent messaging across Polish, English, and Ukrainian versions
 - Updated Ali Karimov's instructor photo with new professional image
 - Updated Tomasz Kaczorowski's instructor photo with new professional image
-- Updated "Our Vibe!" button to display local academy video (KK_Academy_Reel_01_no_subs.mov)
-- Modified VideoPopup component to use native HTML5 video element for local video playback
+- Updated "Our Vibe!" button to display YouTube video (https://youtube.com/shorts/qqjyY2iM68U)
+- Modified VideoPopup component to use YouTube iframe embed for better video streaming
 - Configured video popup with vertical aspect ratio for mobile-optimized content
 
 **July 15, 2025 - Mobile Performance and UI Fixes**
