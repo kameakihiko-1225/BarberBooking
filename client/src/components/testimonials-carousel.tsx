@@ -2,6 +2,7 @@ import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
+import { useState } from "react";
 
 interface Testimonial {
   id: number;
@@ -94,6 +95,41 @@ const testimonials: Testimonial[] = [
   },
 ];
 
+function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
+  const { t } = useLanguage();
+  const [isExpanded, setIsExpanded] = useState(false);
+  const fullText = typeof testimonial.quote === 'string' ? testimonial.quote : t(testimonial.quote);
+  const shouldTruncate = fullText.length > 150;
+  const displayText = shouldTruncate && !isExpanded 
+    ? fullText.substring(0, 150) + "..." 
+    : fullText;
+
+  return (
+    <div className="bg-gray-50 rounded-2xl p-8 relative hover:shadow-2xl transition-all duration-700 group h-full flex flex-col justify-between">
+      <div className="absolute top-6 left-6 premium-accent text-4xl">
+        <Quote className="h-8 w-8" />
+      </div>
+      <div className="flex-1">
+        <p className="text-gray-700 text-lg leading-relaxed mb-4 mt-6 group-hover:translate-y-[-4px] transition-transform duration-300">
+          " {displayText} "
+        </p>
+        {shouldTruncate && (
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-[var(--premium-accent)] font-medium text-sm hover:underline transition-colors mb-4"
+          >
+            {isExpanded ? t('common.show.less') : t('common.show.more')}
+          </button>
+        )}
+      </div>
+      <div className="pt-4 border-t border-gray-200">
+        <div className="font-semibold text-deep-black">{typeof testimonial.name === 'string' ? testimonial.name : t(testimonial.name)}</div>
+        <div className="text-sm text-gray-600">{typeof testimonial.title === 'string' ? testimonial.title : t(testimonial.title)}</div>
+      </div>
+    </div>
+  );
+}
+
 export default function TestimonialsCarousel() {
   const { t } = useLanguage();
   const [ref, slider] = useKeenSlider({
@@ -112,18 +148,7 @@ export default function TestimonialsCarousel() {
       <div ref={ref} className="keen-slider pb-8">
         {testimonials.map((testimonial) => (
           <div key={testimonial.id} className="keen-slider__slide">
-            <div className="bg-gray-50 rounded-2xl p-8 relative hover:shadow-2xl transition-all duration-700 group h-full flex flex-col justify-between">
-              <div className="absolute top-6 left-6 premium-accent text-4xl">
-                <Quote className="h-8 w-8" />
-              </div>
-              <p className="text-gray-700 text-lg leading-relaxed mb-8 mt-6 group-hover:translate-y-[-4px] transition-transform duration-300">
-                " {t(testimonial.quote)} "
-              </p>
-              <div className="pt-4 border-t border-gray-200">
-                <div className="font-semibold text-deep-black">{t(testimonial.name)}</div>
-                <div className="text-sm text-gray-600">{t(testimonial.title)}</div>
-              </div>
-            </div>
+            <TestimonialCard testimonial={testimonial} />
           </div>
         ))}
       </div>

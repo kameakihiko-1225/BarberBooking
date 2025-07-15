@@ -1311,7 +1311,6 @@ const translations: Record<Language, Record<string, string>> = {
     // Blog Translation Keys
     'blog.latest': 'Останні новини',
     'blog.tips': 'Отримайте професійні поради, тренди індустрії та експертні думки від наших професіоналів.',
-    'blog.read.more': 'Читати далі',
 
     // CTA Enroll Translation Keys
     'cta.enroll.title': 'Розпочніть свою перукарську подорож сьогодні',
