@@ -8,8 +8,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Serve converted media and copies
-const mediaStaticPath = path.resolve("server", "public", "media");
+// Serve media files from public directory
+const mediaStaticPath = path.resolve("public", "media");
 app.use("/media", express.static(mediaStaticPath));
 
 // Serve attached assets

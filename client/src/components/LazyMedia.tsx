@@ -28,7 +28,6 @@ const LazyMedia: React.FC<LazyMediaProps> = ({ item, heightClass, onLoad, onErro
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          console.log('[LazyMedia] Setting loaded for:', item.src);
           setIsLoaded(true);
           observer.unobserve(entry.target);
         }
@@ -46,7 +45,6 @@ const LazyMedia: React.FC<LazyMediaProps> = ({ item, heightClass, onLoad, onErro
   };
 
   const handleImageError = () => {
-    console.log('[LazyMedia] Image error for:', item.src);
     setIsError(true);
     onError?.();
   };

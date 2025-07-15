@@ -131,9 +131,7 @@ export default function Gallery() {
   const limit = isMobile ? 6 : 12;
   const shuffledMedia = [...galleryMedia].sort(() => Math.random() - 0.5).slice(0, limit);
   
-  console.log('[Gallery] Media count:', galleryMedia.length);
-  console.log('[Gallery] Shuffled media:', shuffledMedia.slice(0, 3));
-  console.log('[Gallery] Sample media src check:', shuffledMedia[0]?.src);
+
 
   const handleMediaClick = (index: number) => {
     setSelectedIndex(index);

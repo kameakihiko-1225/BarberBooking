@@ -26,14 +26,12 @@ export default function ImageWithPlaceholder({
     const img = imgRef.current;
     
     const handleLoad = () => {
-      console.log('[ImageWithPlaceholder] Loaded:', src);
       setIsLoaded(true);
       setShowPlaceholder(false);
       onLoad?.();
     };
 
     const handleError = () => {
-      console.log('[ImageWithPlaceholder] Error loading:', src);
       setIsError(true);
       setShowPlaceholder(false);
       onError?.();
