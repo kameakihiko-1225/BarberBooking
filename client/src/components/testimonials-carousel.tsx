@@ -105,18 +105,18 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
     : fullText;
 
   return (
-    <div className="bg-gray-50 rounded-2xl p-8 relative hover:shadow-2xl transition-all duration-700 group h-full flex flex-col justify-between">
-      <div className="absolute top-6 left-6 premium-accent text-4xl">
-        <Quote className="h-8 w-8" />
+    <div className="bg-gray-50 rounded-2xl p-4 sm:p-6 md:p-8 relative hover:shadow-2xl transition-all duration-700 group h-full flex flex-col justify-between">
+      <div className="absolute top-4 left-4 sm:top-6 sm:left-6 premium-accent text-4xl">
+        <Quote className="h-6 w-6 sm:h-8 sm:w-8" />
       </div>
       <div className="flex-1">
-        <p className="text-gray-700 text-lg leading-relaxed mb-4 mt-6 group-hover:translate-y-[-4px] transition-transform duration-300">
+        <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed mb-4 mt-4 sm:mt-6 group-hover:translate-y-[-4px] transition-transform duration-300">
           " {displayText} "
         </p>
         {shouldTruncate && (
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="text-[var(--premium-accent)] font-medium text-sm hover:underline transition-colors mb-4"
+            className="text-[var(--premium-accent)] font-medium text-xs sm:text-sm hover:underline transition-colors mb-4 text-left"
           >
             {isExpanded ? t('common.show.less') : t('common.show.more')}
           </button>

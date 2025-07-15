@@ -140,11 +140,11 @@ export default function Gallery() {
   return (
     <section className="py-24 bg-deep-black text-white" id="gallery">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="font-serif text-3xl md:text-5xl font-bold mb-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-5xl font-bold mb-4">
             {t('gallery.title')} <span className="premium-accent">{t('gallery.title.highlight')}</span>
           </h2>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-300 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
             {t('gallery.description')}
           </p>
         </div>
@@ -166,24 +166,24 @@ export default function Gallery() {
             <>
               <button
                 onClick={() => instanceRef.current?.prev()}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-2 rounded-full transition-all duration-300 hover:scale-110"
+                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-1.5 sm:p-2 rounded-full transition-all duration-300 hover:scale-110"
                 aria-label="Previous image"
               >
-                <ChevronLeft size={24} />
+                <ChevronLeft size={isMobile ? 20 : 24} />
               </button>
               <button
                 onClick={() => instanceRef.current?.next()}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-2 rounded-full transition-all duration-300 hover:scale-110"
+                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-1.5 sm:p-2 rounded-full transition-all duration-300 hover:scale-110"
                 aria-label="Next image"
               >
-                <ChevronRight size={24} />
+                <ChevronRight size={isMobile ? 20 : 24} />
               </button>
             </>
           )}
         </div>
 
         <div className="text-center">
-          <Button className="mt-8 bg-[var(--premium-accent)] hover:bg-[var(--premium-accent)]/80 text-black font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl" asChild>
+          <Button className="mt-6 sm:mt-8 bg-[var(--premium-accent)] hover:bg-[var(--premium-accent)]/80 text-black font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl text-sm sm:text-base" asChild>
             <Link href="/gallery">{t('gallery.view.full')}</Link>
           </Button>
         </div>

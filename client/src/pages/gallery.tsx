@@ -147,29 +147,31 @@ export default function GalleryPage() {
   return (
     <main className="pt-36 pb-20 bg-deep-black text-white">
       <section className="text-center mb-20 px-4">
-        <h1 className="font-serif text-5xl font-bold mb-4">{t('page.gallery.title')} <span className="premium-accent">{t('page.gallery.title.highlight')}</span></h1>
-        <p className="text-gray-300 max-w-2xl mx-auto">
+        <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-4">{t('page.gallery.title')} <span className="premium-accent">{t('page.gallery.title.highlight')}</span></h1>
+        <p className="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">
           {t('page.gallery.explore')}
         </p>
       </section>
 
-      <section className="max-w-6xl mx-auto px-4 mb-16">
-        <div className="columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-4 space-y-4">
+      <section className="max-w-6xl mx-auto px-2 sm:px-4 mb-16">
+        <div className="columns-2 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-2 sm:gap-4 space-y-2 sm:space-y-4">
           {shuffledMedia.map((item, index) => (
-            <div key={`${item.src}-${index}`} className="break-inside-avoid mb-4">
+            <div key={`${item.src}-${index}`} className="break-inside-avoid mb-2 sm:mb-4">
               <OptimizedMediaCard item={item} index={index} />
             </div>
           ))}
         </div>
       </section>
 
-      <div className="text-center">
-        <Button className="bg-[var(--premium-accent)] text-black px-10 py-4 font-semibold rounded-full hover:bg-[var(--premium-accent)]/80" asChild>
-          <a href="/">{t('page.back.home')}</a>
-        </Button>
-        <Button className="ml-4 bg-white text-deep-black px-10 py-4 font-semibold rounded-full hover:bg-white/90 mt-4" asChild>
-          <a href="/contact">{t('page.apply.now')}</a>
-        </Button>
+      <div className="text-center px-4">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-0 justify-center items-center">
+          <Button className="bg-[var(--premium-accent)] text-black px-6 sm:px-10 py-3 sm:py-4 font-semibold rounded-full hover:bg-[var(--premium-accent)]/80 w-full sm:w-auto" asChild>
+            <a href="/">{t('page.back.home')}</a>
+          </Button>
+          <Button className="sm:ml-4 bg-white text-deep-black px-6 sm:px-10 py-3 sm:py-4 font-semibold rounded-full hover:bg-white/90 w-full sm:w-auto" asChild>
+            <a href="/contact">{t('page.apply.now')}</a>
+          </Button>
+        </div>
       </div>
     </main>
   );
