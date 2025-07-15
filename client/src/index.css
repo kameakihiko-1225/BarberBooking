@@ -266,6 +266,38 @@
   }
 }
 
+/* Mobile touch optimization for gallery carousel */
+.keen-slider {
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+@media (max-width: 640px) {
+  .keen-slider {
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .keen-slider::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .keen-slider__slide {
+    touch-action: pan-x;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;

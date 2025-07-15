@@ -51,13 +51,22 @@ export default function Gallery() {
     },
     breakpoints: {
       "(max-width: 640px)": {
-        slides: { perView: 1.2, spacing: 8 },
+        slides: { 
+          perView: 1.3, 
+          spacing: 12 
+        },
+        drag: true,
+        rubberband: false,
+        duration: 500,
       },
       "(max-width: 1024px)": {
         slides: { perView: 2.5, spacing: 12 },
       },
     },
     initial: 0,
+    drag: true,
+    rubberband: false,
+    duration: 500,
     created() {
       setLoaded(true);
     },
@@ -160,9 +169,19 @@ export default function Gallery() {
         </div>
 
         <div className="relative">
-          <div ref={sliderRef} className="keen-slider mb-8">
+          <div 
+            ref={sliderRef} 
+            className="keen-slider mb-8"
+            style={{ 
+              touchAction: 'pan-x',
+              WebkitOverflowScrolling: 'touch'
+            }}
+          >
             {shuffledMedia.map((item, index) => (
-              <div key={`${item.src}-${index}`} className="keen-slider__slide !min-w-[280px] !max-w-[300px]">
+              <div 
+                key={`${item.src}-${index}`} 
+                className={`keen-slider__slide ${isMobile ? '!min-w-[240px] !max-w-[260px]' : '!min-w-[280px] !max-w-[300px]'}`}
+              >
                 <LazyMedia 
                   item={item} 
                   heightClass={isMobile ? "h-48" : "h-72"}
