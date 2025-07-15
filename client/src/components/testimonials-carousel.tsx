@@ -14,21 +14,21 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    quote: "testimonial.1.quote",
-    name: "testimonial.1.name",
-    title: "testimonial.1.title",
+    quote: "Najlepsze miejsce w Warszawie, aby szybko i przede wszystkim dobrze nauczyć się zawodu od podstaw. Właśnie skończyłem kurs, chłopaki pomogli z finansowaniem dla kursu i znaleźli mi pracę zaraz po ukończeniu. Bardzo polecam i dziękuję!",
+    name: "Angelika Ziółkowska",
+    title: "Absolwent • 5-gwiazdkowa opinia Google",
   },
   {
     id: 2,
-    quote: "testimonial.2.quote",
-    name: "testimonial.2.name",
-    title: "testimonial.2.title",
+    quote: "Miałem przyjemność uczestniczyć w 3-dniowym szkoleniu pod opieką Tomka i Alego. Jestem zachwycony efektami szkolenia. Świetna atmosfera i wspaniali edukatorzy. Chłopaki dali nam ogromną dawkę wiedzy i wskazówek dotyczących tworzenia portfolio. Bardzo polecam!",
+    name: "Agata Antoniewicz",
+    title: "Absolwent • 5-gwiazdkowa opinia Google",
   },
   {
     id: 3,
-    quote: "testimonial.3.quote",
-    name: "testimonial.3.name",
-    title: "testimonial.3.title",
+    quote: "Pomimo czasu, który minął od końca kursu, postanowiłem zostawić opinię. Uczestniczyłem w miesięcznym kursie 'Barber od podstaw' w K&K Academy i jestem pod wrażeniem poziomu profesjonalizmu i jakości szkolenia. Edukatorzy Tomek, Bartek i Ali wykazali się nie tylko wiedzą teoretyczną, ale też imponującymi umiejętnościami praktycznymi. Teraz, 6 miesięcy po ukończeniu kursu, z powodzeniem prowadzę własny salon i cieszę się, że miałem okazję uczestniczyć w kursie od podstaw z chłopakami.",
+    name: "Sharp Cut Barber",
+    title: "Właściciel Salonu • 5-gwiazdkowa opinia Google",
   },
   {
     id: 4,
@@ -98,7 +98,7 @@ const testimonials: Testimonial[] = [
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   const { t } = useLanguage();
   const [isExpanded, setIsExpanded] = useState(false);
-  const fullText = typeof testimonial.quote === 'string' ? testimonial.quote : t(testimonial.quote);
+  const fullText = testimonial.quote;
   const shouldTruncate = fullText.length > 150;
   const displayText = shouldTruncate && !isExpanded 
     ? fullText.substring(0, 150) + "..." 
@@ -123,8 +123,8 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
         )}
       </div>
       <div className="pt-4 border-t border-gray-200">
-        <div className="font-semibold text-deep-black">{typeof testimonial.name === 'string' ? testimonial.name : t(testimonial.name)}</div>
-        <div className="text-sm text-gray-600">{typeof testimonial.title === 'string' ? testimonial.title : t(testimonial.title)}</div>
+        <div className="font-semibold text-deep-black">{testimonial.name}</div>
+        <div className="text-sm text-gray-600">{testimonial.title}</div>
       </div>
     </div>
   );
