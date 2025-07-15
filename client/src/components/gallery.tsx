@@ -39,8 +39,11 @@ export default function Gallery() {
 
   // Remove forced refetch for better performance
 
+  const [loaded, setLoaded] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
   const [sliderRef, instanceRef] = useKeenSlider({
-    loop: true,
+    loop: false,
     mode: "free-snap",
     slides: {
       perView: "auto",
@@ -53,6 +56,13 @@ export default function Gallery() {
       "(max-width: 1024px)": {
         slides: { perView: 2.5, spacing: 12 },
       },
+    },
+    initial: 0,
+    created() {
+      setLoaded(true);
+    },
+    slideChanged(slider) {
+      setCurrentSlide(slider.track.details.rel);
     },
   });
 
@@ -150,29 +160,35 @@ export default function Gallery() {
         </div>
 
         <div className="relative">
-          <div ref={sliderRef} className="keen-slider mb-8">
-            {shuffledMedia.map((item, index) => (
-              <div key={`${item.src}-${index}`} className="keen-slider__slide !min-w-[280px] !max-w-[300px]">
-                <LazyMedia 
-                  item={item} 
-                  heightClass={isMobile ? "h-48" : "h-72"}
-                  onClick={() => handleMediaClick(index)}
-                />
-              </div>
-            ))}
-          </div>
+          {loaded && instanceRef.current && (
+            <div ref={sliderRef} className="keen-slider mb-8">
+              {shuffledMedia.map((item, index) => (
+                <div key={`${item.src}-${index}`} className="keen-slider__slide !min-w-[280px] !max-w-[300px]">
+                  <LazyMedia 
+                    item={item} 
+                    heightClass={isMobile ? "h-48" : "h-72"}
+                    onClick={() => handleMediaClick(index)}
+                  />
+                </div>
+              ))}
+            </div>
+          )}
 
-          {shuffledMedia.length > 3 && (
+          {loaded && shuffledMedia.length > 3 && (
             <>
               <button
-                onClick={() => instanceRef.current?.prev()}
+                onClick={() => {
+                  instanceRef.current?.prev();
+                }}
                 className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-1.5 sm:p-2 rounded-full transition-all duration-300 hover:scale-110"
                 aria-label="Previous image"
               >
                 <ChevronLeft size={isMobile ? 20 : 24} />
               </button>
               <button
-                onClick={() => instanceRef.current?.next()}
+                onClick={() => {
+                  instanceRef.current?.next();
+                }}
                 className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-1.5 sm:p-2 rounded-full transition-all duration-300 hover:scale-110"
                 aria-label="Next image"
               >
