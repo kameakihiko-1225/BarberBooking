@@ -91,7 +91,7 @@ export default function Gallery() {
             <div className="text-center">
               <p className="text-red-400 mb-4">Error loading gallery: {error.message}</p>
               <button 
-                onClick={() => refetch()}
+                onClick={() => window.location.reload()}
                 className="px-4 py-2 bg-[var(--premium-accent)] text-black rounded hover:bg-[var(--premium-accent)]/80 transition-colors"
               >
                 Try Again
@@ -112,7 +112,7 @@ export default function Gallery() {
             <div className="text-center">
               <p className="text-white mb-4">No gallery items available</p>
               <button 
-                onClick={() => refetch()}
+                onClick={() => window.location.reload()}
                 className="px-4 py-2 bg-[var(--premium-accent)] text-black rounded hover:bg-[var(--premium-accent)]/80 transition-colors"
               >
                 Refresh Gallery
@@ -130,6 +130,9 @@ export default function Gallery() {
   // Limit items on mobile for performance
   const limit = isMobile ? 6 : 12;
   const shuffledMedia = [...galleryMedia].sort(() => Math.random() - 0.5).slice(0, limit);
+  
+  console.log('[Gallery] Media count:', galleryMedia.length);
+  console.log('[Gallery] Shuffled media:', shuffledMedia.slice(0, 3));
 
   const handleMediaClick = (index: number) => {
     setSelectedIndex(index);
