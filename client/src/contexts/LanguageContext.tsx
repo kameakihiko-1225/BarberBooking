@@ -65,9 +65,9 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.enroll': 'Zapisz się',
 
     // Hero Section
-    'hero.title': 'K&K Akademia Fryzjerska',
+    'hero.title': 'K&K Akademia Barberingu',
     'hero.subtitle': 'Rozwijaj swoje umiejętności fryzjerskie z najlepszymi instruktorami w Warszawie',
-    'hero.description': 'Dołącz do naszej profesjonalnej akademii i przekształć swoją pasję w dochodową karierę. Kompleksowe szkolenia, praktyczne doświadczenie i wsparcie w karierze.',
+    'hero.description': 'Jesteśmy jedyną akademią z dwoma certyfikatami jakości. Jesteśmy jedyną akademią, w której wszyscy edukatorzy zdali egzaminy czeladnicze. Wszyscy edukatorzy posiadają kwalifikacje pedagogiczne.',
     'hero.cta.primary': 'Zapisz się na Kurs',
     'hero.cta.secondary': 'Obejrzyj Galerię',
     'hero.stats.graduates': 'Absolwentów',
@@ -589,7 +589,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Hero Section
     'hero.title': 'K&K Barber Academy',
     'hero.subtitle': 'Master the Art of Barbering with Warsaw\'s Leading Instructors',
-    'hero.description': 'Join our professional academy and transform your passion into a profitable career. Comprehensive training, hands-on experience, and career support.',
+    'hero.description': 'We are the only academy with two quality certificates. We are the only academy where all educators have passed their apprenticeship exams. All educators have teaching qualifications.',
     'hero.cta.primary': 'Enroll in Course',
     'hero.cta.secondary': 'View Gallery',
     'hero.stats.graduates': 'Graduates',
@@ -1104,7 +1104,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Hero Section
     'hero.title': 'Академія перукарів K&K',
     'hero.subtitle': 'Опануйте мистецтво перукарства з провідними інструкторами Варшави',
-    'hero.description': 'Приєднуйтесь до нашої професійної академії та перетворіть свою пристрасть на прибуткову кар\'єру. Комплексна підготовка, практичний досвід та підтримка кар\'єри.',
+    'hero.description': 'Ми єдина академія з двома сертифікатами якості. Ми єдина академія, де всі викладачі склали іспити з підмайстерства. Усі викладачі мають педагогічну кваліфікацію.',
     'hero.cta.primary': 'Записатися на курс',
     'hero.cta.secondary': 'Переглянути галерею',
     'hero.stats.graduates': 'Випускників',

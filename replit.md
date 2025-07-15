@@ -160,6 +160,10 @@ Preferred communication style: Simple, everyday language.
   - Ukrainian: Emphasizes exclusive positioning with quality certifications and teacher credentials
 - Fixed mobile language selection dropdown visibility issue by positioning dropdown above button in mobile menu
 - Enhanced language switcher with improved click-outside handling and mobile-specific positioning
+- Updated hero section text across all three languages:
+  - Changed "Fryzjerska" to "Barberingu" in Polish title (K&K Akademia Barberingu)
+  - Updated hero description in all languages to emphasize academy's unique qualifications instead of generic education message
+  - Replaced general description with specific competitive advantages highlighting two quality certificates, apprenticeship exams, and teaching qualifications
 - Fixed critical navbar overlap issue by implementing consistent top padding across all pages:
   - Hero section: pt-36 to pt-40 for proper clearance with large navbar logo
   - All gallery, contact, about, and detail pages: pt-36 minimum spacing
