@@ -110,20 +110,34 @@ function LazyMedia({ item, isMobile = false }: { item: Media; isMobile?: boolean
 export default function Gallery() {
   const { t } = useLanguage();
   const [isMobile, setIsMobile] = useState(false);
-  const { data: galleryMedia = [], isLoading, error } = useQuery<Media[]>({
+  const { data: galleryMedia = [], isLoading, error, refetch } = useQuery<Media[]>({
     queryKey: ['media', 'gallery'],
     queryFn: async () => {
-      const res = await fetch('/api/media/gallery');
+      console.log('[Gallery] Fetching gallery data...');
+      const res = await fetch('/api/media/gallery', {
+        cache: 'no-cache',
+        headers: {
+          'Cache-Control': 'no-cache',
+          'Pragma': 'no-cache'
+        }
+      });
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }
       const data = await res.json();
-      console.log('Gallery data:', data);
+      console.log('[Gallery] Received data:', data);
+      console.log('[Gallery] Data length:', data.length);
       return data;
     },
-    staleTime: 5 * 60 * 1000, // 5 minutes
+    staleTime: 0, // No cache for debugging
+    cacheTime: 0, // No cache storage
     retry: 3,
   });
+
+  // Force refetch on mount to ensure fresh data
+  useEffect(() => {
+    refetch();
+  }, [refetch]);
 
   // Shuffle and limit media for performance
   const shuffledMedia = [...galleryMedia]
@@ -182,8 +196,19 @@ export default function Gallery() {
         <div className="max-w-6xl mx-auto px-4 text-center">
           <h2 className="font-serif text-3xl md:text-5xl font-bold mb-12">{t('gallery.title')} <span className="premium-accent">{t('gallery.title.highlight')}</span></h2>
           <div className="w-full h-72 bg-gray-800 rounded-2xl flex items-center justify-center">
-            <p className="text-white">No gallery items available</p>
+            <div className="text-center">
+              <p className="text-white mb-4">No gallery items available</p>
+              <button 
+                onClick={() => refetch()}
+                className="px-4 py-2 bg-[var(--premium-accent)] text-black rounded hover:bg-[var(--premium-accent)]/80 transition-colors"
+              >
+                Refresh Gallery
+              </button>
+            </div>
           </div>
+          <Button className="mt-6 block mx-auto" asChild>
+            <Link href="/gallery">{t('gallery.view.full')}</Link>
+          </Button>
         </div>
       </section>
     );

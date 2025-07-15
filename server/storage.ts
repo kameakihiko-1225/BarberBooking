@@ -1,6 +1,6 @@
 import { users, inquiries, mediaFiles, type User, type InsertUser, type Inquiry, type InsertInquiry, type MediaFile } from "@shared/schema";
 import { db } from "./db";
-import { eq } from "drizzle-orm";
+import { eq, desc } from "drizzle-orm";
 
 export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
@@ -92,23 +92,18 @@ export class DatabaseStorage implements IStorage {
   private readonly CACHE_TTL = 5 * 60 * 1000; // 5 minutes
 
   async getMediaFilesByRoute(route: string): Promise<MediaFile[]> {
-    // Check cache first
-    const cached = this.mediaCache.get(route);
-    if (cached && Date.now() - cached.timestamp < this.CACHE_TTL) {
-      return cached.data;
-    }
-
+    console.log(`[DatabaseStorage] Getting media files for route: ${route}`);
+    
     try {
       const files = await db.select().from(mediaFiles)
-        .where(eq(mediaFiles.route, route))
-        .orderBy(mediaFiles.createdAt);
+        .where(eq(mediaFiles.route, route));
       
-      // Update cache
-      this.mediaCache.set(route, { data: files, timestamp: Date.now() });
+      console.log(`[DatabaseStorage] Found ${files.length} media files for route ${route}`);
+      console.log(`[DatabaseStorage] Sample files:`, files.slice(0, 2));
       
       return files;
     } catch (error) {
-      console.error(`Error fetching media files for route ${route}:`, error);
+      console.error(`[DatabaseStorage] Error fetching media files for route ${route}:`, error);
       return [];
     }
   }

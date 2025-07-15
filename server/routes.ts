@@ -67,11 +67,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
       
       // Get media files directly from database by route
+      console.log(`[API] Getting media files for route: ${route}`);
       const dbMediaFiles = await storage.getMediaFilesByRoute(route);
+      console.log(`[API] Retrieved ${dbMediaFiles.length} files from storage`);
+      
       const mediaList = dbMediaFiles.map(file => ({
         src: `/attached_assets/${file.filename}`,
         type: file.type as "image" | "video"
       }));
+      
+      console.log(`[API] Returning ${mediaList.length} media items`);
       
       res.json(mediaList);
     } catch (err) {
