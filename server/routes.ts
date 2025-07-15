@@ -72,7 +72,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.log(`[API] Retrieved ${dbMediaFiles.length} files from storage`);
       
       const mediaList = dbMediaFiles.map(file => ({
-        src: `/attached_assets/${file.filename}`,
+        src: file.url,
         type: file.type as "image" | "video"
       }));
       

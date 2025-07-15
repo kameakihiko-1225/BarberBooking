@@ -110,10 +110,10 @@ function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
 
 export default function SuccessGalleryPage() {
   const { data = [], isLoading } = useQuery<Media[]>({
-    queryKey: ['media', 'success-stories'],
+    queryKey: ['media', 'gallery'], // Use main gallery data
     queryFn: async () => {
-      const res = await fetch('/api/media/success-stories');
-      if (!res.ok) throw new Error('Failed to fetch success stories');
+      const res = await fetch('/api/media/gallery');
+      if (!res.ok) throw new Error('Failed to fetch gallery');
       return res.json();
     },
     staleTime: 5 * 60 * 1000, // 5 minutes

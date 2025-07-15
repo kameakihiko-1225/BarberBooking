@@ -19,39 +19,25 @@ export default function Gallery() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const { data: galleryMedia = [], isLoading, error, refetch } = useQuery<Media[]>({
+  const { data: galleryMedia = [], isLoading, error } = useQuery<Media[]>({
     queryKey: ['media', 'gallery'],
     queryFn: async () => {
-      console.log('[Gallery] Fetching gallery data...');
-      const res = await fetch('/api/media/gallery', {
-        cache: 'no-cache',
-        headers: {
-          'Cache-Control': 'no-cache',
-          'Pragma': 'no-cache'
-        }
-      });
+      const res = await fetch('/api/media/gallery');
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }
-      const data = await res.json();
-      console.log('[Gallery] Received data:', data);
-      console.log('[Gallery] Data length:', data.length);
-      return data;
+      return res.json();
     },
     staleTime: 5 * 60 * 1000, // 5 minutes
     retry: 3,
     retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 10000),
     select: (data) => data.map(item => ({
       ...item,
-      src: item.src, // Use the src directly from database
       alt: item.src.split('/').pop()?.replace(/[-_]/g, ' ').replace(/\..+$/, '') || 'Gallery item'
     })),
   });
 
-  // Force refetch on mount to ensure fresh data
-  useEffect(() => {
-    refetch();
-  }, [refetch]);
+  // Remove forced refetch for better performance
 
   const [sliderRef, instanceRef] = useKeenSlider({
     loop: true,

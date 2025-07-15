@@ -112,10 +112,10 @@ function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
 export default function StudentsGalleryPage() {
   const { t } = useLanguage();
   const { data = [], isLoading } = useQuery<Media[]>({
-    queryKey: ['media', 'students-gallery'],
+    queryKey: ['media', 'gallery'], // Use main gallery data
     queryFn: async () => {
-      const res = await fetch('/api/media/students-gallery');
-      if (!res.ok) throw new Error('Failed to fetch students gallery');
+      const res = await fetch('/api/media/gallery');
+      if (!res.ok) throw new Error('Failed to fetch gallery');
       return res.json();
     },
     staleTime: 5 * 60 * 1000, // 5 minutes
