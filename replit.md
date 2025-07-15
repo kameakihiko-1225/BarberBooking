@@ -165,6 +165,7 @@ Preferred communication style: Simple, everyday language.
   - Replaced hero description with academy's unique qualifications text
   - Applied consistent messaging across Polish, English, and Ukrainian versions
 - Updated Ali Karimov's instructor photo with new professional image
+- Updated Tomasz Kaczorowski's instructor photo with new professional image
 - Updated hero section text across all three languages:
   - Changed "Fryzjerska" to "Barberingu" in Polish title (K&K Akademia Barberingu)
   - Updated hero description in all languages to emphasize academy's unique qualifications instead of generic education message
