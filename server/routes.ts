@@ -13,13 +13,23 @@ import * as path from "path";
 export async function registerRoutes(app: Express): Promise<Server> {
   // Security headers middleware to force HTTPS
   app.use((req, res, next) => {
-    // Force HTTPS upgrade for mixed content
-    res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
-    res.setHeader('Content-Security-Policy', 'upgrade-insecure-requests; default-src \'self\' https:; img-src \'self\' https: data:; script-src \'self\' https: \'unsafe-inline\' \'unsafe-eval\'; style-src \'self\' https: \'unsafe-inline\'; font-src \'self\' https:; connect-src \'self\' https:; frame-src https:');
+    // Force HTTPS upgrade for mixed content and custom domains
+    const isProduction = process.env.NODE_ENV === 'production';
+    const forwardedProto = req.headers['x-forwarded-proto'];
+    const host = req.headers.host;
+    
+    // Check if request is HTTP on production/custom domain
+    if (isProduction && forwardedProto === 'http') {
+      return res.redirect(301, `https://${host}${req.url}`);
+    }
+    
+    res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+    res.setHeader('Content-Security-Policy', 'upgrade-insecure-requests; default-src \'self\' https:; img-src \'self\' https: data:; script-src \'self\' https: \'unsafe-inline\' \'unsafe-eval\'; style-src \'self\' https: \'unsafe-inline\'; font-src \'self\' https:; connect-src \'self\' https:; frame-src https:; media-src \'self\' https: data:');
     res.setHeader('X-Content-Type-Options', 'nosniff');
     res.setHeader('X-Frame-Options', 'SAMEORIGIN');
     res.setHeader('X-XSS-Protection', '1; mode=block');
     res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+    res.setHeader('Permissions-Policy', 'geolocation=(), microphone=(), camera=()');
     next();
   });
 

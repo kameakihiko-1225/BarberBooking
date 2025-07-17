@@ -1,5 +1,5 @@
 import "keen-slider/keen-slider.min.css";
-import { ChevronLeft, ChevronRight, MessageCircle } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import { useKeenSlider } from "keen-slider/react";
@@ -45,17 +45,7 @@ function InstructorCard({ instructor, index, isVisible }: {
                 </svg>
               </div>
             )}
-            {instructor.socials?.whatsapp && (
-              <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-colors pointer-events-auto"
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  window.open(instructor.socials.whatsapp, '_blank');
-                }}
-              >
-                <MessageCircle className="w-6 h-6 text-green-600" />
-              </div>
-            )}
+
           </div>
         </div>
       </div>

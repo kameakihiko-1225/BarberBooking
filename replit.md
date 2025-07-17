@@ -316,6 +316,9 @@ Preferred communication style: Simple, everyday language.
 - Added server-side security headers (HSTS, CSP, X-Content-Type-Options, X-Frame-Options)
 - Replaced all external HTTP placeholder images with actual instructor photos
 - Enhanced favicon serving with explicit routes and proper MIME type headers
+- Added automatic HTTPS redirect for custom domains in production environment
+- Removed WhatsApp social media icons from instructor cards, keeping only Instagram
+- Enhanced security headers with preload directive and Permissions-Policy
 - Website now displays secure padlock icon instead of "Not secure" warning
 
 ## Changelog
