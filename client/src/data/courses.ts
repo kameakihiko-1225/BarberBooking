@@ -70,7 +70,7 @@ export const courses: Course[] = [
       {
         name: 'K&K Academy Team',
         title: 'Professional Barbers',
-        photo: 'https://randomuser.me/api/portraits/men/45.jpg',
+        photo: '/attached_assets/Ali karimov_1752038504324.jpg',
       },
     ],
     includes: [
@@ -145,7 +145,7 @@ export const courses: Course[] = [
       {
         name: 'Ali Karimov',
         title: 'Master Barber – Co-Founder',
-        photo: 'https://randomuser.me/api/portraits/men/45.jpg',
+        photo: '/attached_assets/Ali karimov_1752038504324.jpg',
       },
     ],
     includes: [
@@ -214,9 +214,9 @@ export const courses: Course[] = [
     ],
     instructors: [
       {
-        name: 'Carlos M.',
+        name: 'Tomasz Kaczorowski',
         title: 'Award-Winning Barber',
-        photo: 'https://randomuser.me/api/portraits/men/76.jpg',
+        photo: '/attached_assets/Tomasz_1752038504331.jpg',
       },
     ],
     includes: ['All tools provided','Gift set – scissors & comb','Certificate'],
@@ -281,9 +281,9 @@ export const courses: Course[] = [
     ],
     instructors: [
       {
-        name: 'Sophia L.',
+        name: 'K&K Academy',
         title: 'Business Strategist',
-        photo: 'https://randomuser.me/api/portraits/women/65.jpg',
+        photo: '/attached_assets/Bartosz_1752038504320.jpg',
       },
     ],
     includes: ['Tools on-site','Professional kit gift','Certificate'],

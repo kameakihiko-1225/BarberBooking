@@ -15,10 +15,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.use((req, res, next) => {
     // Force HTTPS upgrade for mixed content
     res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
-    res.setHeader('Content-Security-Policy', 'upgrade-insecure-requests');
+    res.setHeader('Content-Security-Policy', 'upgrade-insecure-requests; default-src \'self\' https:; img-src \'self\' https: data:; script-src \'self\' https: \'unsafe-inline\' \'unsafe-eval\'; style-src \'self\' https: \'unsafe-inline\'; font-src \'self\' https:; connect-src \'self\' https:; frame-src https:');
     res.setHeader('X-Content-Type-Options', 'nosniff');
-    res.setHeader('X-Frame-Options', 'DENY');
+    res.setHeader('X-Frame-Options', 'SAMEORIGIN');
     res.setHeader('X-XSS-Protection', '1; mode=block');
+    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
     next();
   });
 
