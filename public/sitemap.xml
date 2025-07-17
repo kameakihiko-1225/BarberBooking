@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://kk-barberacademy.pl/</loc>
+    <lastmod>2025-07-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://kk-barberacademy.pl/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kk-barberacademy.pl/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://kk-barberacademy.pl/" />
+  </url>
+  
+  <!-- About Page -->
+  <url>
+    <loc>https://kk-barberacademy.pl/about</loc>
+    <lastmod>2025-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://kk-barberacademy.pl/about" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kk-barberacademy.pl/about" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://kk-barberacademy.pl/about" />
+  </url>
+  
+  <!-- Contact Page -->
+  <url>
+    <loc>https://kk-barberacademy.pl/contact</loc>
+    <lastmod>2025-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://kk-barberacademy.pl/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kk-barberacademy.pl/contact" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://kk-barberacademy.pl/contact" />
+  </url>
+  
+  <!-- Gallery Page -->
+  <url>
+    <loc>https://kk-barberacademy.pl/gallery</loc>
+    <lastmod>2025-07-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://kk-barberacademy.pl/gallery" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kk-barberacademy.pl/gallery" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://kk-barberacademy.pl/gallery" />
+  </url>
+  
+  <!-- Students Gallery -->
+  <url>
+    <loc>https://kk-barberacademy.pl/students-gallery</loc>
+    <lastmod>2025-07-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://kk-barberacademy.pl/students-gallery" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kk-barberacademy.pl/students-gallery" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://kk-barberacademy.pl/students-gallery" />
+  </url>
+  
+  <!-- Success Stories -->
+  <url>
+    <loc>https://kk-barberacademy.pl/success-gallery</loc>
+    <lastmod>2025-07-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://kk-barberacademy.pl/success-gallery" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kk-barberacademy.pl/success-gallery" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://kk-barberacademy.pl/success-gallery" />
+  </url>
+  
+  <!-- Course Details -->
+  <url>
+    <loc>https://kk-barberacademy.pl/course/1</loc>
+    <lastmod>2025-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://kk-barberacademy.pl/course/2</loc>
+    <lastmod>2025-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://kk-barberacademy.pl/course/3</loc>
+    <lastmod>2025-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+</urlset>

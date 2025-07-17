@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://kk-barberacademy.pl/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Allow specific paths
+Allow: /gallery
+Allow: /students-gallery
+Allow: /success-gallery
+Allow: /about
+Allow: /contact
+Allow: /course/
+
+# Disallow admin or sensitive paths
+Disallow: /admin/
+Disallow: /api/
+Disallow: /.env
+Disallow: /server/
+
+# Allow media files
+Allow: /media/
+Allow: /attached_assets/

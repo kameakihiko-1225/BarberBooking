@@ -39,6 +39,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.set('Cache-Control', 'public, max-age=86400');
     res.sendFile(path.join(__dirname, '../public/favicon.ico'));
   });
+
+  // SEO files
+  app.get('/sitemap.xml', (req, res) => {
+    res.setHeader('Content-Type', 'application/xml');
+    res.setHeader('Cache-Control', 'public, max-age=86400');
+    res.sendFile(path.join(process.cwd(), 'public', 'sitemap.xml'));
+  });
+
+  app.get('/robots.txt', (req, res) => {
+    res.setHeader('Content-Type', 'text/plain');
+    res.setHeader('Cache-Control', 'public, max-age=86400');
+    res.sendFile(path.join(process.cwd(), 'public', 'robots.txt'));
+  });
   // Contact form submission endpoint
   app.post("/api/contact", async (req, res) => {
     try {

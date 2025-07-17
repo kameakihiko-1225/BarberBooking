@@ -8,6 +8,7 @@ import { useQuery } from '@tanstack/react-query';
 import { UpcomingDates } from '@/components/upcoming-dates';
 import { instructors } from '@/data/instructors';
 import { useLanguage } from '@/contexts/LanguageContext';
+import StructuredData from '@/components/StructuredData';
 
 type MediaItem = { src: string; type: 'image' | 'video' };
 
@@ -127,8 +128,21 @@ export default function CourseDetails() {
   };
 
   return (
-    <main className="pt-40 md:pt-40 lg:pt-44 pb-20 bg-white text-deep-black">
-      {/* Hero */}
+    <>
+      {/* Structured Data */}
+      <StructuredData 
+        type="course" 
+        courseData={{
+          title: t(course.title),
+          description: t(course.description),
+          duration: t(course.duration),
+          price: course.price,
+          instructors: course.instructors
+        }}
+      />
+      
+      <main className="pt-40 md:pt-40 lg:pt-44 pb-20 bg-white text-deep-black">
+        {/* Hero */}
       <section className="px-4 mb-20">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
           <img
@@ -506,6 +520,7 @@ export default function CourseDetails() {
           <a href="/contact">{t('course.cta.final.button')}</a>
         </Button>
       </section>
-    </main>
+      </main>
+    </>
   );
 } 
