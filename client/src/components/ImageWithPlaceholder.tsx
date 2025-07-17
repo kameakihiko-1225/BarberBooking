@@ -48,7 +48,7 @@ export default function ImageWithPlaceholder({
 
   const generatePlaceholderSVG = (width: number, height: number) => {
     const svg = `
-      <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
+      <svg width="${width}" height="${height}" xmlns="https://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" style="stop-color:#2D3748;stop-opacity:1" />

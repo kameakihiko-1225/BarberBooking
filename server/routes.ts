@@ -11,6 +11,17 @@ import { db } from './db';
 import * as path from "path";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Security headers middleware to force HTTPS
+  app.use((req, res, next) => {
+    // Force HTTPS upgrade for mixed content
+    res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+    res.setHeader('Content-Security-Policy', 'upgrade-insecure-requests');
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'DENY');
+    res.setHeader('X-XSS-Protection', '1; mode=block');
+    next();
+  });
+
   // Explicit favicon route to ensure proper serving
   app.get('/favicon.ico', (req, res) => {
     res.set('Content-Type', 'image/x-icon');
