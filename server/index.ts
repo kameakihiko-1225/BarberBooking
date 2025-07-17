@@ -16,6 +16,10 @@ app.use("/media", express.static(mediaStaticPath));
 const attachedAssetsPath = path.resolve("attached_assets");
 app.use("/attached_assets", express.static(attachedAssetsPath));
 
+// Serve public directory (for favicon and other static assets)
+const publicPath = path.resolve("public");
+app.use(express.static(publicPath));
+
 app.use((req, res, next) => {
   const start = Date.now();
   const path = req.path;

@@ -11,6 +11,12 @@ import { db } from './db';
 import * as path from "path";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Explicit favicon route to ensure proper serving
+  app.get('/favicon.ico', (req, res) => {
+    res.set('Content-Type', 'image/x-icon');
+    res.set('Cache-Control', 'public, max-age=86400');
+    res.sendFile(path.join(__dirname, '../public/favicon.ico'));
+  });
   // Contact form submission endpoint
   app.post("/api/contact", async (req, res) => {
     try {
