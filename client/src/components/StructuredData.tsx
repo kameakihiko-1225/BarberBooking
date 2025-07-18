@@ -76,7 +76,7 @@ export default function StructuredData({ type = 'organization', courseData, faqD
         ? ["Akademia Barberska K&K", "Barbershop Academy Warszawa", "Akademia Fryzjerska K&K"]
         : language === 'uk'
         ? ["Академія барберів K&K", "Барбер академія Варшава", "Школа барберів K&K"]
-        : ["K&K Barbershop Academy", "Barber Academy Warsaw", "Professional Barber School"],
+        : ["K&K Barbershop Academy", "Barber Academy Warsaw Europe", "International Barber School", "European Barber Academy", "Professional Barber School"],
       "description": language === 'pl' 
         ? "Jedyna akademia barberska w Polsce z dwoma certyfikatami jakości - ISO 9001:2015-10 i SZOE. Profesjonalne szkolenia barberskie prowadzone przez wykwalifikowanych instruktorów z certyfikatem czeladniczym. Barbershop Academy Warszawa."
         : language === 'uk'
@@ -143,7 +143,7 @@ export default function StructuredData({ type = 'organization', courseData, faqD
         ? ["kurs barberingu Warszawa", "kursy barberingu Polska", "akademia barberingu Polska", "nauka barberingu od podstaw", "szkolenie barberskie", "akademia barberska", "barbershop academy", "kurs fryzjerski", "certyfikat barberski", "barber warszawa"]
         : language === 'uk'
         ? ["академія барберів Польща", "курси барберів у Польщі", "школа барберів для українців у Польщі", "навчання барберів", "барбер академія варшава", "курс барбера", "школа барберів", "сертифікат барбера", "професійне навчання барберів"]
-        : ["barber academy in Poland", "barber course Poland", "barber school Warsaw", "barber academy warsaw", "barber training", "barbering school", "barber certification", "professional barber training", "barbershop training", "barber education"]
+        : ["barber academy in Poland", "barber course Poland", "barber school Warsaw Europe", "international barber course", "European barber training", "barber academy Europe", "barber certification Europe", "professional barber training", "barbershop academy Europe", "barber education Warsaw", "barber instructor Europe", "barber workshop international"]
     };
   };
 

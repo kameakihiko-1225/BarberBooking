@@ -29,9 +29,9 @@ export default function SEOHead({
       defaultKeywords: "kurs barberingu Warszawa, kursy barberingu Polska, akademia barberingu Polska, nauka barberingu od podstaw, szkolenie barberskie, akademia barberska, barbershop academy, kurs fryzjerski, barber warszawa, certyfikat barberski, instruktorzy fryzjerscy, szkolenia fryzjerskie"
     },
     en: {
-      defaultTitle: "K&K Barber Academy - Barber School Warsaw | Barber Course Poland",
-      defaultDescription: "Top barber academy in Poland with 2 quality certificates. Barber school Warsaw - professional barber training. Barber course Poland with certification.",
-      defaultKeywords: "barber school Warsaw, barber course Poland, barber academy in Poland, barber training, barber academy warsaw, barbering school, barber certification, professional barber training, barbershop training, barber education, barber instructor, barber workshop"
+      defaultTitle: "K&K Barber Academy - Barber School Warsaw Europe | International Barber Course",
+      defaultDescription: "Leading barber academy in Europe with 2 quality certificates. International barber school Warsaw - professional barber training for Europeans. Barber course Poland with certification.",
+      defaultKeywords: "barber school Warsaw Europe, international barber course, barber academy Europe, European barber training, barber school Poland, barber certification Europe, professional barber training, barbershop academy Europe, barber education Warsaw, barber instructor Europe, barber workshop international"
     },
     uk: {
       defaultTitle: "K&K Barber Academy - Академія барберів Польща | Курси барберів у Польщі",
