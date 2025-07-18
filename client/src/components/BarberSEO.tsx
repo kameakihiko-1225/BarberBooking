@@ -5,28 +5,28 @@ export default function BarberSEO() {
 
   const barberKeywords = {
     pl: [
-      "barber academy", "akademia barberska", "barbershop academy", "akademia barbershop",
-      "szkolenie barberskie", "kurs fryzjerski", "nauka barbingu", "szkoła fryzjerska",
-      "certyfikat barberski", "instruktorzy fryzjerscy", "szkolenia fryzjerskie",
-      "barber warszawa", "barbershop warszawa", "fryzjer męski", "golenie brzytwą",
-      "strzyżenie męskie", "beard trimming", "mustache grooming", "professional barber",
-      "barber tools", "barber techniques", "barber skills", "barber certification poland"
+      "kurs barberingu Warszawa", "kursy barberingu Polska", "akademia barberingu Polska",
+      "nauka barberingu od podstaw", "szkolenie barberskie", "akademia barberska",
+      "barbershop academy", "kurs fryzjerski", "certyfikat barberski", "instruktorzy fryzjerscy",
+      "szkolenia fryzjerskie", "barber warszawa", "barbershop warszawa", "fryzjer męski",
+      "golenie brzytwą", "strzyżenie męskie", "beard trimming", "mustache grooming",
+      "professional barber", "barber tools", "barber techniques", "barber skills"
     ],
     en: [
-      "barber academy", "barbershop academy", "barber training", "barber academy warsaw",
-      "barber course", "barbering school", "barber certification", "professional barber training",
-      "barbershop training", "barber education", "barber instructor", "barber workshop",
-      "men's grooming", "beard cutting", "mustache styling", "straight razor shaving",
-      "barber skills", "barber techniques", "barber tools", "barber apprenticeship",
-      "barber license", "barber diploma", "barber career", "barbershop business"
+      "barber academy in Poland", "barber course Poland", "barber school Warsaw",
+      "barber academy warsaw", "barber training", "barbering school", "barber certification",
+      "professional barber training", "barbershop training", "barber education",
+      "barber instructor", "barber workshop", "men's grooming", "beard cutting",
+      "mustache styling", "straight razor shaving", "barber skills", "barber techniques",
+      "barber tools", "barber apprenticeship", "barber license", "barber diploma"
     ],
     uk: [
-      "барбер академія", "академія барберів", "навчання барберів", "барбер академія варшава",
-      "курс барбера", "школа барберів", "сертифікат барбера", "професійне навчання барберів",
-      "барбершоп академія", "освіта барберів", "інструктор барберів", "майстер-клас барберів",
-      "чоловіча стрижка", "догляд за бородою", "гоління бриствою", "стайлінг вусів",
-      "навички барбера", "техніки барбера", "інструменти барбера", "учнівство барбера",
-      "ліцензія барбера", "диплом барбера", "кар'єра барбера", "бізнес барбершопу"
+      "академія барберів Польща", "курси барберів у Польщі", "школа барберів для українців у Польщі",
+      "навчання барберів", "барбер академія варшава", "курс барбера", "школа барберів",
+      "сертифікат барбера", "професійне навчання барберів", "барбершоп академія",
+      "освіта барберів", "інструктор барберів", "майстер-клас барберів", "чоловіча стрижка",
+      "догляд за бородою", "гоління бриствою", "стайлінг вусів", "навички барбера",
+      "техніки барбера", "інструменти барбера", "учнівство барбера", "ліцензія барбера"
     ]
   };
 
@@ -35,22 +35,22 @@ export default function BarberSEO() {
   return (
     <div style={{ display: 'none' }}>
       {/* Hidden semantic content for SEO */}
-      <h1>Barber Academy Warsaw - Professional Barber Training</h1>
-      <h2>Akademia Barberska Warszawa - Profesjonalne Szkolenia Barberskie</h2>
-      <h3>Академія барберів Варшава - Професійне навчання барберів</h3>
+      <h1>Kurs Barberingu Warszawa - Akademia Barberingu Polska</h1>
+      <h2>Barber School Warsaw - Barber Course Poland</h2>
+      <h3>Академія барберів Польща - Курси барберів у Польщі</h3>
       
       <div>
         <p>
-          K&K Barber Academy offers comprehensive barber training programs in Warsaw, Poland. 
-          Our barbershop academy provides professional barber courses with certification.
+          Kurs barberingu Warszawa w K&K Academy - najlepsze kursy barberingu w Polsce. 
+          Nauka barberingu od podstaw z certyfikatem. Akademia barberingu Polska.
         </p>
         <p>
-          Akademia Barberska K&K oferuje kompleksowe szkolenia barberskie w Warszawie. 
-          Nasza akademia barbershop zapewnia profesjonalne kursy fryzjerskie z certyfikatem.
+          Barber school Warsaw at K&K Academy - top barber course Poland. 
+          Professional barber training with certification. Barber academy in Poland.
         </p>
         <p>
-          Академія барберів K&K пропонує комплексні програми навчання барберів у Варшаві. 
-          Наша барбершоп академія забезпечує професійні курси перукарів з сертифікацією.
+          Академія барберів Польща у K&K Academy - найкращі курси барберів у Польщі. 
+          Школа барберів для українців у Польщі з сертифікацією.
         </p>
       </div>
 
@@ -61,16 +61,16 @@ export default function BarberSEO() {
       </ul>
 
       <div>
-        <span>Barber Academy</span>
-        <span>Barbershop Academy</span>
-        <span>Akademia Barberska</span>
-        <span>Академія барберів</span>
-        <span>Professional Barber Training</span>
-        <span>Profesjonalne szkolenia barberskie</span>
-        <span>Професійне навчання барберів</span>
-        <span>Warsaw Barber School</span>
-        <span>Warszawska Szkoła Fryzjerska</span>
-        <span>Варшавська школа барберів</span>
+        <span>Kurs barberingu Warszawa</span>
+        <span>Kursy barberingu Polska</span>
+        <span>Akademia barberingu Polska</span>
+        <span>Nauka barberingu od podstaw</span>
+        <span>Barber school Warsaw</span>
+        <span>Barber course Poland</span>
+        <span>Barber academy in Poland</span>
+        <span>Академія барберів Польща</span>
+        <span>Курси барберів у Польщі</span>
+        <span>Школа барберів для українців у Польщі</span>
       </div>
     </div>
   );

@@ -140,10 +140,10 @@ export default function StructuredData({ type = 'organization', courseData, faqD
         "name": "Poland"
       },
       "keywords": language === 'pl' 
-        ? ["barber academy", "akademia barberska", "barbershop academy", "barber training", "szkolenie barberskie", "kurs fryzjerski", "nauka barbingu", "barber warszawa"]
+        ? ["kurs barberingu Warszawa", "kursy barberingu Polska", "akademia barberingu Polska", "nauka barberingu od podstaw", "szkolenie barberskie", "akademia barberska", "barbershop academy", "kurs fryzjerski", "certyfikat barberski", "barber warszawa"]
         : language === 'uk'
-        ? ["барбер академія", "академія барберів", "навчання барберів", "школа барберів", "курс барбера", "сертифікат барбера", "барбер варшава"]
-        : ["barber academy", "barbershop academy", "barber training", "barber course", "barbering school", "barber certification", "barber warsaw"]
+        ? ["академія барберів Польща", "курси барберів у Польщі", "школа барберів для українців у Польщі", "навчання барберів", "барбер академія варшава", "курс барбера", "школа барберів", "сертифікат барбера", "професійне навчання барберів"]
+        : ["barber academy in Poland", "barber course Poland", "barber school Warsaw", "barber academy warsaw", "barber training", "barbering school", "barber certification", "professional barber training", "barbershop training", "barber education"]
     };
   };
 

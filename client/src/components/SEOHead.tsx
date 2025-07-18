@@ -24,19 +24,19 @@ export default function SEOHead({
   
   const seoData = {
     pl: {
-      defaultTitle: "K&K Barber Academy - Akademia Barberska Warszawa | Szkolenia Barberskie",
-      defaultDescription: "Jedyna akademia barberska w Polsce z 2 certyfikatami jakości. Profesjonalne szkolenia barberskie w Warszawie. Wykwalifikowani instruktorzy z certyfikatem czeladniczym.",
-      defaultKeywords: "barber academy, akademia barberska, barbershop academy, akademia barbershop, szkolenie barberskie, akademia fryzjerska warszawa, kurs fryzjerski, nauka barbingu, szkoła fryzjerska, certyfikat barberski, instruktorzy fryzjerscy, szkolenia fryzjerskie, barber warszawa, barbershop warszawa"
+      defaultTitle: "K&K Barber Academy - Kurs Barberingu Warszawa | Akademia Barberingu Polska",
+      defaultDescription: "Najlepsza akademia barberingu w Polsce z 2 certyfikatami jakości. Kursy barberingu Warszawa - nauka barberingu od podstaw. Profesjonalne szkolenia barberskie.",
+      defaultKeywords: "kurs barberingu Warszawa, kursy barberingu Polska, akademia barberingu Polska, nauka barberingu od podstaw, szkolenie barberskie, akademia barberska, barbershop academy, kurs fryzjerski, barber warszawa, certyfikat barberski, instruktorzy fryzjerscy, szkolenia fryzjerskie"
     },
     en: {
-      defaultTitle: "K&K Barber Academy - Professional Barber Training Warsaw | Barbershop Academy",
-      defaultDescription: "The only barber academy in Poland with 2 quality certificates. Professional barber training in Warsaw. Qualified instructors with apprenticeship certificates.",
-      defaultKeywords: "barber academy, barbershop academy, barber training, barber academy warsaw, barber course, barbering school, barber certification, professional barber training, barbershop training, barber education, barber instructor, barber workshop"
+      defaultTitle: "K&K Barber Academy - Barber School Warsaw | Barber Course Poland",
+      defaultDescription: "Top barber academy in Poland with 2 quality certificates. Barber school Warsaw - professional barber training. Barber course Poland with certification.",
+      defaultKeywords: "barber school Warsaw, barber course Poland, barber academy in Poland, barber training, barber academy warsaw, barbering school, barber certification, professional barber training, barbershop training, barber education, barber instructor, barber workshop"
     },
     uk: {
-      defaultTitle: "K&K Barber Academy - Академія барберів Варшава | Навчання барберів",
-      defaultDescription: "Єдина академія барберів у Польщі з 2 сертифікатами якості. Професійне навчання барберів у Варшаві. Кваліфіковані інструктори з сертифікатом підмайстра.",
-      defaultKeywords: "барбер академія, академія барберів, навчання барберів, барбер академія варшава, курс барбера, школа барберів, сертифікат барбера, професійне навчання барберів, барбершоп академія, освіта барберів, інструктор барберів"
+      defaultTitle: "K&K Barber Academy - Академія барберів Польща | Курси барберів у Польщі",
+      defaultDescription: "Найкраща академія барберів у Польщі з 2 сертифікатами якості. Курси барберів у Польщі - школа барберів для українців у Польщі. Професійне навчання.",
+      defaultKeywords: "академія барберів Польща, курси барберів у Польщі, школа барберів для українців у Польщі, навчання барберів, барбер академія варшава, курс барбера, школа барберів, сертифікат барбера, професійне навчання барберів, барбершоп академія, освіта барберів"
     }
   };
 
