@@ -7,13 +7,17 @@ Sitemap: https://kk-barberacademy.pl/sitemap.xml
 # Crawl-delay for polite crawling
 Crawl-delay: 1
 
-# Allow specific paths
+# Allow specific paths - Barber Academy content
 Allow: /gallery
 Allow: /students-gallery
 Allow: /success-gallery
 Allow: /about
 Allow: /contact
 Allow: /course/
+
+# Barber Academy specific paths
+Allow: /barber-academy
+Allow: /barbershop-academy
 
 # Disallow admin or sensitive paths
 Disallow: /admin/

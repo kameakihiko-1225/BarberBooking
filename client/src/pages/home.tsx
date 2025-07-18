@@ -7,11 +7,13 @@ import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 import Gallery from "@/components/gallery";
 import CtaEnroll from "@/components/cta-enroll";
+import BarberSEO from "@/components/BarberSEO";
 
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
+      <BarberSEO />
       <Hero />
       <About />
       <Courses />

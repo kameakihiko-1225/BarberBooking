@@ -69,25 +69,35 @@
   </url>
   
   <!-- Course Details -->
+  <!-- Barber Courses -->
   <url>
     <loc>https://kk-barberacademy.pl/course/1</loc>
-    <lastmod>2025-07-17</lastmod>
+    <lastmod>2025-07-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://kk-barberacademy.pl/course/1" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kk-barberacademy.pl/course/1" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://kk-barberacademy.pl/course/1" />
   </url>
   
   <url>
     <loc>https://kk-barberacademy.pl/course/2</loc>
-    <lastmod>2025-07-17</lastmod>
+    <lastmod>2025-07-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://kk-barberacademy.pl/course/2" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kk-barberacademy.pl/course/2" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://kk-barberacademy.pl/course/2" />
   </url>
   
   <url>
     <loc>https://kk-barberacademy.pl/course/3</loc>
-    <lastmod>2025-07-17</lastmod>
+    <lastmod>2025-07-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://kk-barberacademy.pl/course/3" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kk-barberacademy.pl/course/3" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://kk-barberacademy.pl/course/3" />
   </url>
   
 </urlset>

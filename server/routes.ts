@@ -52,6 +52,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.setHeader('Cache-Control', 'public, max-age=86400');
     res.sendFile(path.join(process.cwd(), 'public', 'robots.txt'));
   });
+
+  // Social media image
+  app.get('/social-image.svg', (req, res) => {
+    res.setHeader('Content-Type', 'image/svg+xml');
+    res.setHeader('Cache-Control', 'public, max-age=86400');
+    res.sendFile(path.join(process.cwd(), 'public', 'social-image.svg'));
+  });
   // Contact form submission endpoint
   app.post("/api/contact", async (req, res) => {
     try {

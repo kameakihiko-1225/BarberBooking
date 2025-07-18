@@ -72,13 +72,19 @@ export default function StructuredData({ type = 'organization', courseData, faqD
       "@context": "https://schema.org",
       "@type": "EducationalOrganization",
       "name": "K&K Barber Academy",
-      "alternateName": "Akademia Fryzjerska K&K",
+      "alternateName": language === 'pl' 
+        ? ["Akademia Barberska K&K", "Barbershop Academy Warszawa", "Akademia Fryzjerska K&K"]
+        : language === 'uk'
+        ? ["Академія барберів K&K", "Барбер академія Варшава", "Школа барберів K&K"]
+        : ["K&K Barbershop Academy", "Barber Academy Warsaw", "Professional Barber School"],
       "description": language === 'pl' 
-        ? "Jedyna akademia barberska w Polsce z dwoma certyfikatami jakości - ISO 9001:2015-10 i SZOE. Profesjonalne szkolenia fryzjerskie prowadzone przez wykwalifikowanych instruktorów z certyfikatem czeladniczym."
-        : "The only barber academy in Poland with two quality certificates - ISO 9001:2015-10 and SZOE. Professional barber training conducted by qualified instructors with apprenticeship certificates.",
+        ? "Jedyna akademia barberska w Polsce z dwoma certyfikatami jakości - ISO 9001:2015-10 i SZOE. Profesjonalne szkolenia barberskie prowadzone przez wykwalifikowanych instruktorów z certyfikatem czeladniczym. Barbershop Academy Warszawa."
+        : language === 'uk'
+        ? "Єдина академія барберів у Польщі з двома сертифікатами якості - ISO 9001:2015-10 і SZOE. Професійне навчання барберів проводиться кваліфікованими інструкторами з сертифікатом підмайстра. Барбер академія Варшава."
+        : "The only barber academy in Poland with two quality certificates - ISO 9001:2015-10 and SZOE. Professional barber training conducted by qualified instructors with apprenticeship certificates. Barbershop Academy Warsaw.",
       "url": baseUrl,
-      "logo": `${baseUrl}/attached_assets/K&K_Vertical_logotype_white_1750662689464.png`,
-      "image": `${baseUrl}/attached_assets/K&K_Vertical_logotype_white_1750662689464.png`,
+      "logo": `${baseUrl}/social-image.svg`,
+      "image": `${baseUrl}/social-image.svg`,
       "telephone": "+48-729-231-542",
       "email": "Biuro@kkacademy.pl",
       "address": {
@@ -132,7 +138,12 @@ export default function StructuredData({ type = 'organization', courseData, faqD
       "areaServed": {
         "@type": "Country",
         "name": "Poland"
-      }
+      },
+      "keywords": language === 'pl' 
+        ? ["barber academy", "akademia barberska", "barbershop academy", "barber training", "szkolenie barberskie", "kurs fryzjerski", "nauka barbingu", "barber warszawa"]
+        : language === 'uk'
+        ? ["барбер академія", "академія барберів", "навчання барберів", "школа барберів", "курс барбера", "сертифікат барбера", "барбер варшава"]
+        : ["barber academy", "barbershop academy", "barber training", "barber course", "barbering school", "barber certification", "barber warsaw"]
     };
   };
 
