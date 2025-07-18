@@ -1,24 +1,36 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#0F0F0F"/>
+  <!-- Background Gradient -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F0F0F;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#CD7F32;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFD700;stop-opacity:1" />
+    </linearGradient>
+  </defs>
   
-  <!-- Logo Background -->
-  <rect x="150" y="150" width="900" height="330" fill="white" rx="20"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
   
-  <!-- Logo -->
-  <g transform="translate(300, 200)">
+  <!-- Main Content Background -->
+  <rect x="100" y="100" width="1000" height="430" fill="white" rx="25" stroke="url(#gold)" stroke-width="3"/>
+  
+  <!-- Logo Section -->
+  <g transform="translate(600, 200)">
     <!-- K&K Text -->
-    <text x="300" y="120" font-family="Arial, sans-serif" font-size="120" font-weight="900" fill="#0F0F0F" text-anchor="middle">K&amp;K</text>
+    <text x="0" y="0" font-family="Impact, Arial Black, sans-serif" font-size="140" font-weight="900" fill="#0F0F0F" text-anchor="middle" dominant-baseline="middle">K&amp;K</text>
     
     <!-- Academy Text -->
-    <rect x="0" y="140" width="600" height="80" fill="#0F0F0F" rx="10"/>
-    <text x="300" y="190" font-family="Arial, sans-serif" font-size="50" font-weight="400" fill="white" text-anchor="middle">ACADEMY</text>
+    <rect x="-250" y="40" width="500" height="70" fill="url(#gold)" rx="35"/>
+    <text x="0" y="80" font-family="Arial, sans-serif" font-size="48" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">BARBER ACADEMY</text>
     
     <!-- Tagline -->
-    <text x="300" y="240" font-family="Arial, sans-serif" font-size="24" font-weight="400" fill="#666" text-anchor="middle">Professional Barber Training &amp; Certification</text>
+    <text x="0" y="140" font-family="Arial, sans-serif" font-size="28" font-weight="500" fill="#333" text-anchor="middle" dominant-baseline="middle">Professional Training &amp; Certification</text>
+    <text x="0" y="170" font-family="Arial, sans-serif" font-size="24" font-weight="400" fill="#666" text-anchor="middle" dominant-baseline="middle">Warsaw, Poland • ISO Certified</text>
   </g>
   
-  <!-- Bottom Badge -->
-  <rect x="400" y="520" width="400" height="60" fill="#CD7F32" rx="30"/>
-  <text x="600" y="555" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="white" text-anchor="middle">Warsaw • Poland • kk-barberacademy.pl</text>
+  <!-- Bottom Website Badge -->
+  <rect x="350" y="560" width="500" height="50" fill="url(#gold)" rx="25"/>
+  <text x="600" y="590" font-family="Arial, sans-serif" font-size="22" font-weight="600" fill="white" text-anchor="middle" dominant-baseline="middle">kk-barberacademy.pl</text>
 </svg>

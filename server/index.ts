@@ -50,6 +50,14 @@ app.use((req, res, next) => {
   next();
 });
 
+// Explicit route for social-image.svg with proper headers for search engines
+app.get('/social-image.svg', (req, res) => {
+  res.setHeader('Content-Type', 'image/svg+xml');
+  res.setHeader('Cache-Control', 'public, max-age=86400'); // 24 hours
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.sendFile(path.join(__dirname, '../public/social-image.svg'));
+});
+
 (async () => {
   const server = await registerRoutes(app);
 
