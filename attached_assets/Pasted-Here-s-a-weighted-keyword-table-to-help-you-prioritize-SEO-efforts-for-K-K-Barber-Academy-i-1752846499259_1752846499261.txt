@@ -1,0 +1,74 @@
+Here’s a **weighted keyword table** to help you prioritize SEO efforts for **K\&K Barber Academy** in **Poland**, across **Polish, Ukrainian, and English** markets. 💡
+
+Since exact search volumes for Polish and Ukrainian are harder to find publicly, this table combines known English-language global data (as a reference) with estimated relative volumes in Polish and Ukrainian, plus translational logic and local relevance. Where actual numbers are unavailable, I’ve estimated based on keyword popularity and language usage patterns.
+
+---
+
+### 📊 Keyword Table (Estimated Monthly Search Volumes)
+
+| Language | Keyword (Polish / Ukrainian / English) | Est. Volume PL | Est. Volume UA | Global EN Volume                                                             | Priority\* |
+| -------- | -------------------------------------- | -------------- | -------------- | ---------------------------------------------------------------------------- | ---------- |
+| **EN**   | barber academy in Poland               | 200            | 50             | 3,600  searches/mo (barber academy general) ([sona.com][1], [Theseolabs][2]) | High       |
+| **EN**   | barber course Poland                   | 150            | 40             | \~590 (matching "barber training")                                           | High       |
+| **EN**   | barber school Warsaw/Krakow            | 300            | 80             | included under broader "barber school near me" (\~135,000)                   | Very High  |
+| **PL**   | kurs barberingu Warszawa               | 500            | —              | —                                                                            | Very High  |
+| **PL**   | kursy barberingu Polska                | 400            | —              | —                                                                            | High       |
+| **PL**   | akademia barberingu Polska             | 250            | —              | —                                                                            | High       |
+| **PL**   | nauka barberingu od podstaw            | 150            | —              | —                                                                            | Medium     |
+| **UA**   | академія барберів Польща               | —              | 200            | —                                                                            | High       |
+| **UA**   | курси барберів у Польщі                | —              | 180            | —                                                                            | High       |
+| **UA**   | школа барберів для українців у Польщі  | —              | 120            | —                                                                            | Medium     |
+
+\*Priority is based on combined volume and strategic intent (e.g. enrollment‑oriented or city‑targeted).
+
+---
+
+### 🔍 Sources & Rationale
+
+* **English volumes** are based on global data for similar terms like “barber academy” (\~3,600/mo), “barber classes”, “barber training” (\~590/mo) ([sona.com][1]).
+* **Polish and Ukrainian estimates** are derived by localizing these terms and considering likely lower search density. High‑priority keywords include geographic intent (e.g. “Warszawa”, “Polska”) to capture local searchers.
+* **General barber‑related volumes** for broader head terms (“barber school”, “barber shop”) run into tens of thousands to even \~100k range globally , giving context for scale.
+
+---
+
+### ✅ Recommendations
+
+* **Highest priority**: Terms combining your core service (“barber course”, “academy”) with a location (Warsaw, Poland)—especially in Polish and English.
+* **Next priority**: Broader terms like “kursy barberingu” and Ukrainian equivalents for targeting Ukrainian-language learners.
+* **Supporting content**: Lower‑volume phrases like “nauka barberingu od podstaw” serve as blog post or FAQ targets—to capture long‑tail, informational intent.
+
+---
+
+### 🚀 How to Use This
+
+1. **Create landing pages** optimized per language and location:
+
+   * Polish: *Kurs barberingu Warszawa – K\&K Barber Academy*
+   * Ukrainian: *Академія барберів у Польщі – K\&K Barber Academy*
+   * English: *Barber Academy in Poland – K\&K Barber Academy*
+2. Use high-priority keywords in:
+
+   * page titles, meta descriptions, H1s
+   * URLs (e.g. `/pl/kurs-barberingu-warszawa`, `/en/barber-academy-poland`)
+3. Write **blog posts** targeting long‑tail informational keywords:
+
+   * *„Jak zostać barberem w Polsce?”*, *„What courses to become a barber in Poland”*, *„курси барберів для українців у Польщі”*.
+
+---
+
+### 📌 Next Steps
+
+* For more precise Polish/Ukrainian volume data, you could export keyword lists using **Google Keyword Planner** or tools like Ahrefs/SEMrush—you can then refine estimates with actual local query counts ([Marketkeep][3], [cutu.pl][4], [Reddit][5], [uslugirozwojowe.parp.gov.pl][6], [shokk.pl][7], [Reddit][8], [desiremarketing.io][9]).
+* Would you like me to draft actual **SEO titles + meta descriptions**, or further **long-tail blog topic ideas** in all three languages next?
+
+Let me know!
+
+[1]: https://www.sona.com/blog/google-ads-for-barber-schools-step-by-step?utm_source=chatgpt.com "Google Ads for Barber Schools: A Comprehensive Setup Guide | Sona"
+[2]: https://www.theseolabs.com/keywords-lists/hair-salon/?utm_source=chatgpt.com "Hair Salon Keywords List | Free SEO Keyword List - SeoLabs"
+[3]: https://marketkeep.com/seo-keywords-for-barber-shops/?utm_source=chatgpt.com "Top 50 SEO Keywords for Barber Shops | MarketKeep"
+[4]: https://cutu.pl/?utm_source=chatgpt.com "Cut U | Szkoła barberingu"
+[5]: https://www.reddit.com/r/SEO/comments/1dcxh2x?utm_source=chatgpt.com "SEO for a hair stylist site that mostly cuts mens hair styles like a barber would"
+[6]: https://uslugirozwojowe.parp.gov.pl/wyszukiwarka/uslugi/szukaj?cenaDo=&cenaOd=&cenaRodzaj=brutto_usluga&dataRozpoczeciaZakres=&dataZakonczeniaZakres=&godzinyDo=&godzinyOd=&miejsceSzkolenia=&miejscowoscId=&mozliwoscDofinansowania=false&nabycieKwalifikacji=false&nazwaUslugi=&numerStrony=0&order=_score-desc&page=33&per-page=10&podkategoria%5B0%5D=558&promienZasiegu=&wojewodztwoId=&wykluczUslugiDedykowane=true&wynikiNaStronie=10&utm_source=chatgpt.com "Wyszukiwarka usług - Baza Usług Rozwojowych - PARP"
+[7]: https://www.shokk.pl/uk/shokk-academy?utm_source=chatgpt.com "Академія барберів у Варшаві Shokk Academy"
+[8]: https://www.reddit.com/r/reddit_ukr/comments/1ifv1x6?utm_source=chatgpt.com "Розчарування в Барбер шопах/ моднявих перукарнях"
+[9]: https://desiremarketing.io/pl/metryki-s%C5%82%C3%B3w-kluczowych/?utm_source=chatgpt.com "Podstawowe wskaźniki słów kluczowych dla sukcesu SEO - Desire Marketing"
