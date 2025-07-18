@@ -1,0 +1,64 @@
+That **globe icon** is shown because your website currently **doesn’t have a favicon configured (or Google can’t detect it)**.
+To display your logo (instead of the default globe) in search results and browser tabs, you need to add a **favicon**.
+
+Here’s how to fix it:
+
+---
+
+### **1. Create a Favicon**
+
+* Prepare your logo in a **square format** (preferably 512×512px for best quality).
+* Save it as:
+
+  * `favicon.ico` (classic)
+  * and also `favicon.png` (modern browsers, transparent background).
+* Keep the file size under **50KB** for fast loading.
+
+---
+
+### **2. Place It in Your Website Root**
+
+Upload `favicon.ico` and `favicon.png` to the root of your site:
+
+```
+https://kk-barberacademy.pl/favicon.ico
+https://kk-barberacademy.pl/favicon.png
+```
+
+---
+
+### **3. Add These Tags in `<head>` of Your Website**
+
+Edit your main HTML template and insert:
+
+```html
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#000000">
+```
+
+If you want the icon for **mobile (Apple/Android)** too, also add:
+
+```html
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+```
+
+---
+
+### **4. Clear Cache & Test**
+
+* After uploading, clear your browser cache.
+* Use [Google’s Rich Results Test](https://search.google.com/test/rich-results) or [Favicon Checker](https://realfavicongenerator.net/favicon_checker) to confirm it’s working.
+* Google may take **a few days to update** the icon in search results, but it should immediately work in browser tabs.
+
+---
+
+Would you like me to:
+
+1. **Generate a favicon set (16×16, 32×32, 180×180, 512×512)** from your logo?
+2. Or **create a `site.webmanifest` file** (so Google shows your icon in search and mobile install prompts)?
+3. Or **both (full package)** so you just upload and it works?
+
+Which do you prefer? Or **all together as a ready-to-upload ZIP**?

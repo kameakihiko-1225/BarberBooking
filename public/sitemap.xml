@@ -5,7 +5,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://kk-barberacademy.pl/</loc>
-    <lastmod>2025-07-17</lastmod>
+    <lastmod>2025-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="pl" href="https://kk-barberacademy.pl/" />
@@ -24,7 +24,7 @@
   <!-- About Page -->
   <url>
     <loc>https://kk-barberacademy.pl/about</loc>
-    <lastmod>2025-07-17</lastmod>
+    <lastmod>2025-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pl" href="https://kk-barberacademy.pl/about" />
@@ -35,7 +35,7 @@
   <!-- Contact Page -->
   <url>
     <loc>https://kk-barberacademy.pl/contact</loc>
-    <lastmod>2025-07-17</lastmod>
+    <lastmod>2025-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pl" href="https://kk-barberacademy.pl/contact" />
