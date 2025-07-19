@@ -14,6 +14,7 @@ function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const obs = new IntersectionObserver(

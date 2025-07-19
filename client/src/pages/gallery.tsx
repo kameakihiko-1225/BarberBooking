@@ -14,6 +14,7 @@ function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -68,10 +69,7 @@ function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
             <img
               ref={mediaRef as React.RefObject<HTMLImageElement>}
               alt="gallery"
-              className={`w-full ${
-                // Dynamic height based on parent container
-                'h-auto object-cover'
-              } transition-all duration-300 group-hover:scale-105 ${
+              className={`w-full h-auto object-cover transition-all duration-300 group-hover:scale-105 ${
                 loaded ? 'opacity-100' : 'opacity-0'
               }`}
               onLoad={() => setLoaded(true)}
