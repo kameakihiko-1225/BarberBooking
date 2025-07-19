@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Play, Pause } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 import ImageWithPlaceholder from './ImageWithPlaceholder';
 
 interface LazyMediaProps {
@@ -15,6 +16,7 @@ interface LazyMediaProps {
 }
 
 const LazyMedia: React.FC<LazyMediaProps> = ({ item, heightClass, onLoad, onError, onClick }) => {
+  const isMobile = useIsMobile();
   const [isLoaded, setIsLoaded] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -81,7 +83,7 @@ const LazyMedia: React.FC<LazyMediaProps> = ({ item, heightClass, onLoad, onErro
     >
       {!isLoaded && (
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-8 h-8 border-2 border-[var(--premium-accent)] border-t-transparent rounded-full animate-spin"></div>
+          <div className={`${isMobile ? 'w-6 h-6' : 'w-8 h-8'} border-2 border-[var(--premium-accent)] border-t-transparent rounded-full animate-spin`}></div>
         </div>
       )}
 
@@ -130,8 +132,8 @@ const LazyMedia: React.FC<LazyMediaProps> = ({ item, heightClass, onLoad, onErro
             onClick={handleVideoPlay}
             className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           >
-            <div className="bg-white bg-opacity-80 rounded-full p-3">
-              {isPlaying ? <Pause size={24} /> : <Play size={24} />}
+            <div className={`bg-white bg-opacity-80 rounded-full ${isMobile ? 'p-2' : 'p-3'}`}>
+              {isPlaying ? <Pause size={isMobile ? 20 : 24} /> : <Play size={isMobile ? 20 : 24} />}
             </div>
           </button>
         </div>

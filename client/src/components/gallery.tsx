@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useWindowSize } from "@/hooks/useWindowSize";
+import { useIsMobile } from "@/hooks/use-mobile";
 import LazyMedia from "./LazyMedia";
 import MediaModal from "./MediaModal";
 
@@ -14,8 +14,7 @@ type Media = { src: string; type: "image" | "video"; alt?: string };
 
 export default function Gallery() {
   const { t } = useLanguage();
-  const { width } = useWindowSize();
-  const isMobile = width < 768;
+  const isMobile = useIsMobile();
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -47,12 +46,30 @@ export default function Gallery() {
     mode: "free-snap",
     slides: {
       perView: "auto",
-      spacing: 16,
+      spacing: isMobile ? 12 : 20,
     },
     breakpoints: {
+      "(max-width: 480px)": {
+        slides: { 
+          perView: 1.2, 
+          spacing: 8 
+        },
+        drag: true,
+        rubberband: false,
+        duration: 400,
+      },
       "(max-width: 640px)": {
         slides: { 
-          perView: 1.3, 
+          perView: 1.5, 
+          spacing: 12 
+        },
+        drag: true,
+        rubberband: false,
+        duration: 500,
+      },
+      "(max-width: 768px)": {
+        slides: { 
+          perView: 2.2, 
           spacing: 12 
         },
         drag: true,
@@ -60,13 +77,18 @@ export default function Gallery() {
         duration: 500,
       },
       "(max-width: 1024px)": {
-        slides: { perView: 2.5, spacing: 12 },
+        slides: { perView: 2.8, spacing: 16 },
+        duration: 600,
+      },
+      "(max-width: 1280px)": {
+        slides: { perView: 3.5, spacing: 18 },
+        duration: 600,
       },
     },
     initial: 0,
     drag: true,
     rubberband: false,
-    duration: 500,
+    duration: 600,
     created() {
       setLoaded(true);
     },
@@ -147,8 +169,29 @@ export default function Gallery() {
     );
   }
 
-  // Limit items for carousel performance - optimize for mobile loading
-  const limit = isMobile ? 6 : 12;
+  // Smart performance optimization based on device capabilities
+  const getOptimalLimit = () => {
+    if (typeof window === 'undefined') return 8;
+    
+    const deviceMemory = (navigator as any).deviceMemory || 4;
+    const connectionSpeed = (navigator as any).connection?.effectiveType;
+    
+    if (isMobile) {
+      // Mobile optimization based on memory and connection
+      if (deviceMemory <= 2 || connectionSpeed === '2g' || connectionSpeed === 'slow-2g') {
+        return 4; // Very limited devices
+      } else if (deviceMemory <= 4 || connectionSpeed === '3g') {
+        return 6; // Standard mobile
+      } else {
+        return 8; // High-end mobile
+      }
+    } else {
+      // Desktop optimization
+      return Math.min(15, galleryMedia.length);
+    }
+  };
+
+  const limit = getOptimalLimit();
   const shuffledMedia = [...galleryMedia].sort(() => Math.random() - 0.5).slice(0, limit);
 
   const handleMediaClick = (index: number) => {
@@ -180,11 +223,15 @@ export default function Gallery() {
             {shuffledMedia.map((item, index) => (
               <div 
                 key={`${item.src}-${index}`} 
-                className={`keen-slider__slide ${isMobile ? '!min-w-[240px] !max-w-[260px]' : '!min-w-[280px] !max-w-[300px]'}`}
+                className={`keen-slider__slide ${
+                  isMobile 
+                    ? '!min-w-[260px] !max-w-[280px] xs:!min-w-[280px] xs:!max-w-[300px]' 
+                    : '!min-w-[320px] !max-w-[360px] lg:!min-w-[360px] lg:!max-w-[400px] xl:!min-w-[380px] xl:!max-w-[420px]'
+                }`}
               >
                 <LazyMedia 
                   item={item} 
-                  heightClass={isMobile ? "h-48" : "h-72"}
+                  heightClass={isMobile ? "h-52 xs:h-56 sm:h-60" : "h-72 lg:h-80 xl:h-84"}
                   onClick={() => handleMediaClick(index)}
                 />
               </div>

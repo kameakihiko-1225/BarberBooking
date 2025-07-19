@@ -1,8 +1,9 @@
 import { useRef, useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
-import { Play } from 'lucide-react';
+import { Play, Grid, List } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 type Media = { src: string; type: 'image' | 'video' };
 
@@ -67,7 +68,10 @@ function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
             <img
               ref={mediaRef as React.RefObject<HTMLImageElement>}
               alt="gallery"
-              className={`w-full h-auto object-cover transition-all duration-300 group-hover:scale-105 ${
+              className={`w-full ${
+                // Dynamic height based on parent container
+                'h-auto object-cover'
+              } transition-all duration-300 group-hover:scale-105 ${
                 loaded ? 'opacity-100' : 'opacity-0'
               }`}
               onLoad={() => setLoaded(true)}
@@ -89,10 +93,18 @@ function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
                 onError={() => setError(true)}
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
+                onEnded={() => {
+                  setIsPlaying(false);
+                  if (mediaRef.current) {
+                    (mediaRef.current as HTMLVideoElement).currentTime = 0;
+                  }
+                }}
                 style={{ contentVisibility: 'auto' }}
               />
               {!isPlaying && (
-                <Play className="absolute inset-0 m-auto h-12 w-12 text-white bg-black/50 rounded-full p-3 opacity-80 group-hover:opacity-100 transition-opacity hover:bg-black/70" />
+                <Play className={`absolute inset-0 m-auto text-white bg-black/50 rounded-full p-3 opacity-80 group-hover:opacity-100 transition-opacity hover:bg-black/70 ${
+                  isMobile ? 'h-8 w-8' : 'h-12 w-12'
+                }`} />
               )}
             </div>
           )}
@@ -111,6 +123,10 @@ function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
 
 export default function GalleryPage() {
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
+  const [viewMode, setViewMode] = useState<'masonry' | 'grid'>('masonry');
+  const [showAll, setShowAll] = useState(false);
+  
   const { data = [], isLoading } = useQuery<Media[]>({
     queryKey: ['media', 'gallery'],
     queryFn: async () => {
@@ -121,10 +137,24 @@ export default function GalleryPage() {
     staleTime: 5 * 60 * 1000, // 5 minutes
   });
 
-  // Optimize for mobile performance - limit initial load and randomize
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-  const limit = isMobile ? 20 : data.length;
-  const shuffledMedia = [...data].sort(() => Math.random() - 0.5).slice(0, limit);
+  // Smart performance optimization with progressive loading
+  const getInitialLimit = () => {
+    if (typeof window === 'undefined') return 12;
+    
+    const deviceMemory = (navigator as any).deviceMemory || 4;
+    const connectionSpeed = (navigator as any).connection?.effectiveType;
+    
+    if (isMobile) {
+      if (deviceMemory <= 2 || connectionSpeed === '2g') return 8;
+      if (deviceMemory <= 4 || connectionSpeed === '3g') return 12;
+      return 16;
+    }
+    return 20;
+  };
+
+  const initialLimit = getInitialLimit();
+  const displayLimit = showAll ? data.length : initialLimit;
+  const shuffledMedia = [...data].sort(() => Math.random() - 0.5).slice(0, displayLimit);
 
   if (isLoading) {
     return (
@@ -148,21 +178,76 @@ export default function GalleryPage() {
 
   return (
     <main className="pt-36 pb-20 bg-deep-black text-white">
-      <section className="text-center mb-20 px-4">
+      <section className="text-center mb-12 px-4">
         <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-4">{t('page.gallery.title')} <span className="premium-accent">{t('page.gallery.title.highlight')}</span></h1>
-        <p className="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">
-          {t('page.gallery.explore')}
+        <p className="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base mb-6">
+          {t('page.gallery.explore')} - {data.length} professional works
         </p>
+        
+        {/* View Mode Toggle & Controls */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+          <div className="flex items-center bg-gray-800 rounded-full p-1">
+            <button
+              onClick={() => setViewMode('masonry')}
+              className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                viewMode === 'masonry' 
+                  ? 'bg-[var(--premium-accent)] text-black' 
+                  : 'text-gray-300 hover:text-white'
+              }`}
+            >
+              <List size={16} />
+              {isMobile ? 'Flow' : 'Masonry View'}
+            </button>
+            <button
+              onClick={() => setViewMode('grid')}
+              className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                viewMode === 'grid' 
+                  ? 'bg-[var(--premium-accent)] text-black' 
+                  : 'text-gray-300 hover:text-white'
+              }`}
+            >
+              <Grid size={16} />
+              {isMobile ? 'Grid' : 'Grid View'}
+            </button>
+          </div>
+          
+          {!showAll && data.length > initialLimit && (
+            <button
+              onClick={() => setShowAll(true)}
+              className="px-6 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-full text-sm font-medium transition-colors"
+            >
+              Load All ({data.length - initialLimit} more)
+            </button>
+          )}
+        </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-2 sm:px-4 mb-16">
-        <div className="columns-2 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-2 sm:gap-4 space-y-2 sm:space-y-4">
-          {shuffledMedia.map((item, index) => (
-            <div key={`${item.src}-${index}`} className="break-inside-avoid mb-2 sm:mb-4">
-              <OptimizedMediaCard item={item} index={index} />
-            </div>
-          ))}
-        </div>
+      <section className="max-w-7xl mx-auto px-2 sm:px-4 mb-16">
+        {viewMode === 'masonry' ? (
+          <div className={`columns-2 gap-2 space-y-2 ${
+            isMobile 
+              ? 'sm:columns-2 sm:gap-3 sm:space-y-3' 
+              : 'md:columns-3 lg:columns-4 xl:columns-5 md:gap-4 md:space-y-4'
+          }`}>
+            {shuffledMedia.map((item, index) => (
+              <div key={`${item.src}-${index}`} className="break-inside-avoid mb-2 sm:mb-3 md:mb-4">
+                <OptimizedMediaCard item={item} index={index} />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className={`grid gap-2 sm:gap-3 md:gap-4 ${
+            isMobile 
+              ? 'grid-cols-2 sm:grid-cols-3' 
+              : 'grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6'
+          }`}>
+            {shuffledMedia.map((item, index) => (
+              <div key={`${item.src}-${index}`} className="aspect-square">
+                <OptimizedMediaCard item={item} index={index} />
+              </div>
+            ))}
+          </div>
+        )}
       </section>
 
       <div className="text-center px-4">
