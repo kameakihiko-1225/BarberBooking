@@ -214,16 +214,17 @@ export default function Gallery() {
         <div className="relative">
           <div 
             ref={sliderRef} 
-            className="keen-slider mb-8"
+            className="keen-slider gallery-scroll mb-8"
             style={{ 
               touchAction: 'pan-x',
-              WebkitOverflowScrolling: 'touch'
+              WebkitOverflowScrolling: 'touch',
+              scrollBehavior: 'smooth'
             }}
           >
             {shuffledMedia.map((item, index) => (
               <div 
                 key={`${item.src}-${index}`} 
-                className={`keen-slider__slide ${
+                className={`keen-slider__slide gallery-item ${
                   isMobile 
                     ? '!min-w-[260px] !max-w-[280px] xs:!min-w-[280px] xs:!max-w-[300px]' 
                     : '!min-w-[320px] !max-w-[360px] lg:!min-w-[360px] lg:!max-w-[400px] xl:!min-w-[380px] xl:!max-w-[420px]'

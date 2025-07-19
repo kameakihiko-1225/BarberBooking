@@ -17,6 +17,8 @@ import CourseDetails from "@/pages/course-details";
 import CoursesPage from "@/pages/courses";
 
 import PhoneWidget from "@/components/phone-widget";
+import ScrollToTop from "@/components/scroll-to-top";
+import ScrollOptimizer from "@/components/scroll-optimizer";
 
 function Router() {
   return (
@@ -45,6 +47,8 @@ function App() {
           <Navigation />
           <Router />
           <PhoneWidget />
+          <ScrollToTop />
+          <ScrollOptimizer />
         </TooltipProvider>
       </LanguageProvider>
     </QueryClientProvider>

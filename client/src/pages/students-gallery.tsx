@@ -181,8 +181,8 @@ export default function StudentsGalleryPage() {
   }
 
   return (
-    <main className="pt-36 pb-20 bg-deep-black text-white">
-      <section className="text-center mb-12 px-4">
+    <main className="pt-36 pb-20 bg-deep-black text-white scroll-container">
+      <section className="text-center mb-12 px-4 scroll-fade-in">
         <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">{t('page.students.title')} <span className="premium-accent">{t('page.students.title.highlight')}</span></h1>
         <p className="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base mb-6">
           {t('page.students.explore')} - {data.length} {t('page.showcased.works')}
@@ -237,8 +237,8 @@ export default function StudentsGalleryPage() {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-2 sm:px-4 mb-16">
-        <div className={`grid ${getGridClasses()}`}>
+      <section className="max-w-7xl mx-auto px-2 sm:px-4 mb-16 scroll-scale">
+        <div className={`grid gallery-container ${getGridClasses()}`}>
           {shuffledMedia.map((item, index) => (
             <OptimizedMediaCard key={`${item.src}-${index}`} item={item} index={index} />
           ))}

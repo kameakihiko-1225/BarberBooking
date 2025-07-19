@@ -177,8 +177,8 @@ export default function GalleryPage() {
   }
 
   return (
-    <main className="pt-36 pb-20 bg-deep-black text-white">
-      <section className="text-center mb-12 px-4">
+    <main className="pt-36 pb-20 bg-deep-black text-white scroll-container">
+      <section className="text-center mb-12 px-4 scroll-fade-in">
         <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-4">{t('page.gallery.title')} <span className="premium-accent">{t('page.gallery.title.highlight')}</span></h1>
         <p className="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base mb-6">
           {t('page.gallery.explore')} - {data.length} professional works
@@ -222,9 +222,9 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-2 sm:px-4 mb-16">
+      <section className="max-w-7xl mx-auto px-2 sm:px-4 mb-16 scroll-scale">
         {viewMode === 'masonry' ? (
-          <div className={`columns-2 gap-2 space-y-2 ${
+          <div className={`columns-2 gap-2 space-y-2 gallery-container ${
             isMobile 
               ? 'sm:columns-2 sm:gap-3 sm:space-y-3' 
               : 'md:columns-3 lg:columns-4 xl:columns-5 md:gap-4 md:space-y-4'
