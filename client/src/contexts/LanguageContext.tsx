@@ -177,6 +177,8 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.program.advanced': 'Kurs zaawansowany (3 dni)',
     'contact.program.specialist': 'Kurs specjalistyczny (2 tygodnie)',
     'contact.program.select': 'Wybierz program',
+    'contact.form.program.placeholder': 'Wybierz interesujący Cię program...',
+    'contact.form.message.placeholder': 'Opowiedz nam o swoich celach i oczekiwaniach...',
 
     // Footer
     'footer.description': 'Profesjonalna akademia barberska w Warszawie oferująca kompleksowe kursy i szkolenia.',
@@ -645,6 +647,13 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.form.required.desc': 'First Name, Last Name, and Email are required.',
     'contact.form.thank.you': 'Thank you for your interest!',
     'contact.form.thank.you.desc': 'We will contact you soon with more information.',
+    'contact.program.free': 'Free Course',
+    'contact.program.beginner': 'Beginner Course (1 month)',
+    'contact.program.advanced': 'Advanced Course (3 days)',
+    'contact.program.specialist': 'Specialist Course (2 weeks)',
+    'contact.program.select': 'Select Program',
+    'contact.form.program.placeholder': 'Choose the program that interests you...',
+    'contact.form.message.placeholder': 'Tell us about your goals and expectations...',
 
     // Footer
     'footer.description': 'Professional barber academy in Warsaw offering comprehensive courses and training.',
@@ -1136,6 +1145,8 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.program.advanced': 'Просунутий курс (3 дні)',
     'contact.program.specialist': 'Спеціалізований курс (2 тижні)',
     'contact.program.select': 'Оберіть програму',
+    'contact.form.program.placeholder': 'Оберіть програму, яка вас цікавить...',
+    'contact.form.message.placeholder': 'Розкажіть нам про свої цілі та очікування...',
 
     // Footer
     'footer.description': 'Професійна академія барберів у Варшаві, що пропонує комплексні курси та навчання.',
