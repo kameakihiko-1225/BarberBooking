@@ -77,7 +77,7 @@ export default function Testimonials() {
         <div className="bg-deep-black rounded-2xl p-8 md:p-12 text-white">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Button asChild className="bg-[var(--premium-accent)] text-black px-12 py-6 text-xl rounded-full font-bold hover:bg-[var(--premium-accent)]/80 transition-all transform hover:scale-105 hover:shadow-lg">
-              <Link href="/students-gallery">{t('testimonials.see.student.works')}</Link>
+              <Link href="/students-gallery">{t('testimonials.see.student.work')}</Link>
             </Button>
             <Button asChild className="bg-white text-black px-12 py-6 text-xl rounded-full font-bold hover:bg-gray-100 transition-all transform hover:scale-105 hover:shadow-lg">
               <Link href="/success-stories">{t('testimonials.see.success.stories')}</Link>
