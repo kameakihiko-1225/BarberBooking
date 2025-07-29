@@ -137,6 +137,10 @@ const translations: Record<Language, Record<string, string>> = {
     'gallery.subtitle': 'Zobacz nasze prace',
     'gallery.description': 'Odkryj niesamowitą pracę naszych studentów i instruktorów.',
 
+    // Testimonials
+    'testimonials.see.student.work': 'Zobacz wszystkie prace uczniów',
+    'testimonials.see.success.stories': 'Wszystkie historie sukcesu',
+
     // Contact
     'contact.title': 'Skontaktuj się z',
     'contact.title.highlight': 'nami',
@@ -605,6 +609,10 @@ const translations: Record<Language, Record<string, string>> = {
     'gallery.title.highlight': 'Gallery',
     'gallery.subtitle': 'See our work',
     'gallery.description': 'Discover the amazing work of our students and instructors.',
+
+    // Testimonials
+    'testimonials.see.student.work': 'See All Student Works',
+    'testimonials.see.success.stories': 'All Success Stories',
 
     // Contact
     'contact.title': 'Contact',
@@ -1087,6 +1095,10 @@ const translations: Record<Language, Record<string, string>> = {
     'gallery.title.highlight': 'Галерея',
     'gallery.subtitle': 'Подивіться на наші роботи',
     'gallery.description': 'Ознайомтесь з чудовими роботами наших студентів та інструкторів.',
+
+    // Testimonials
+    'testimonials.see.student.work': 'Переглянути всі роботи студентів',
+    'testimonials.see.success.stories': 'Всі історії успіху',
 
     // Contact
     'contact.title': 'Зв\'яжіться з',
