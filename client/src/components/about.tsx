@@ -60,9 +60,11 @@ export default function About() {
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}>
               {[
-                t('about.features.certified'),
-                t('about.features.handson'),
-                t('about.features.placement')
+                t('features.practical.title'),
+                t('features.groups.title'),
+                t('features.tools.title'),
+                t('features.certificates.title'),
+                t('features.funding.title')
               ].map((text, index) => (
                 <div key={index} className={`flex items-center space-x-3 transform transition-all duration-700 ${
                   isVisible ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'

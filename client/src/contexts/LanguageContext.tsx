@@ -66,8 +66,8 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Hero Section
     'hero.title': 'K&K Akademia Barberingu',
-    'hero.subtitle': 'Rozwijaj swoje umiejętności fryzjerskie z najlepszymi instruktorami w Warszawie',
-    'hero.description': 'Jesteśmy jedyną akademią z dwoma certyfikatami jakości. Jesteśmy jedyną akademią, w której wszyscy edukatorzy zdali egzaminy czeladnicze. Wszyscy edukatorzy posiadają kwalifikacje pedagogiczne.',
+    'hero.subtitle': 'Od Zera do Mistrzostwa',
+    'hero.description': 'Nie tylko uczymy fryzjerstwa — kształtujemy kariery. Ambicja spotyka się z precyzją w naszych salach.',
     'hero.cta.primary': 'Zapisz się na Kurs',
     'hero.cta.secondary': 'Obejrzyj Galerię',
     'hero.stats.graduates': 'Absolwentów',
@@ -86,14 +86,26 @@ const translations: Record<Language, Record<string, string>> = {
     'features.modern.description': 'Najnowsze trendy i techniki w branży fryzjerskiej',
 
     // About Section
-    'about.title': 'O Nas',
-    'about.subtitle': 'Dlaczego Wybierać K&K Academy',
-    'about.description': 'Jesteśmy jedyną akademią z dwoma certyfikatami jakości. Jesteśmy jedyną akademią, w której wszyscy edukatorzy zdali egzaminy czeladnicze. Wszyscy edukatorzy posiadają kwalifikacje pedagogiczne.',
+    'about.title': 'K&K Akademia Barberingu',
+    'about.subtitle': 'Dlaczego Wybierz K&K',
+    'about.description': 'Jako jedyna akademia w Polsce możemy pochwalić się dwoma certyfikatami jakości. Nasz zespół tworzą wyłącznie wykwalifikowani edukatorzy, którzy nie tylko zdali egzaminy czeladnicze, ale również posiadają przygotowanie pedagogiczne. Stawiamy na najwyższe standardy nauczania i realne przygotowanie do pracy w zawodzie barbera.',
+    
+    // Why Choose K&K Features
+    'features.practical.title': '80% praktyki z prawdziwymi klientami i manekinami',
+    'features.groups.title': 'Kameralne grupy dla spersonalizowanego mentoringu',
+    'features.tools.title': 'Wszystkie narzędzia i produkty zapewnione — zero ukrytych kosztów',
+    'features.certificates.title': 'Uznawane certyfikaty po ukończeniu',
+    'features.funding.title': 'Pomoc w zabezpieczeniu do 100% wsparcia finansowego',
+    'features.state.title': 'Programy certyfikowane przez państwo z uznaniem branży',
+    'features.equipment.title': 'Praktyka na profesjonalnym sprzęcie',
+    'features.career.title': 'Pomoc w znalezieniu pracy i ciągłe wsparcie',
 
     // Courses
     'courses.title': 'Nasze Kursy',
     'courses.subtitle': 'Wybierz idealny kurs dla swojego poziomu i celów kariery',
-    'courses.beginner': 'Kurs Podstawowy',
+    'courses.beginner': 'Kurs Barberski dla Początkujących – Od Zera do Barbera',
+    'courses.beginner.description': 'Intensywny 24-dniowy program (pon–sob, 12:00–20:00), który przeprowadza absolutnych początkujących do profesjonalnych barberów poprzez teorię, praktykę na manekinach i codzienną pracę na żywych modelach.',
+    'courses.fryzjer.title': 'Kurs Fryzjerski dla Początkujących – Od Zera do Fryzjera',
     'courses.advanced': 'Kurs Zaawansowany', 
     'courses.master': 'Kurs Mistrzowski',
     'courses.specialty': 'Kursy Specjalistyczne',
@@ -106,12 +118,16 @@ const translations: Record<Language, Record<string, string>> = {
     'courses.upcoming': 'Najbliższe terminy',
     'courses.cta.title': 'Gotowy na rozpoczęcie swojej drogi fryzjera?',
     'courses.cta.description': 'Dołącz do setek odnoszących sukcesy absolwentów, którzy przekształcili swoje życie dzięki naszym kompleksowym programom szkoleniowym.',
-    'courses.cta.button': 'Dołącz do jednodniowego bezpłatnego kursu',
+    'courses.cta.button': 'Rozpocznij karierę barbera',
+    'about.learn.more': 'Dowiedz się więcej',
+    'courses.cuts': 'Klasyczne i nowoczesne cięcia barberskie',
 
     // Instructors
     'instructors.title': 'Nasi Instruktorzy',
     'instructors.subtitle': 'Mistrzowie Fryzjerstwa',
     'instructors.description': 'Poznaj naszych doświadczonych instruktorów, którzy poprowadzą Cię przez całą podróż edukacyjną.',
+    'instructors.role': 'Starszy Instruktor Barberski',
+    'instructors.certificate': 'Po ukończeniu kursu otrzymasz certyfikat wydany przez K&K Academy, uznaną instytucję szkoleniową dla barberów.',
 
     // Testimonials
     'testimonials.title': 'Historie Sukcesu Studentów',
@@ -195,7 +211,7 @@ const translations: Record<Language, Record<string, string>> = {
     'testimonials.see.success.stories': 'Wszystkie Historie Sukcesu',
     'free.course': 'Darmowy Kurs',
     'not.sure': 'Nie jestem pewny',
-    'senior.barber.instructor': 'Starszy Instruktor Fryzjerski',
+    'senior.barber.instructor': 'Starszy Instruktor Barberski',
     'send.inquiry': 'Wyślij Zapytanie',
     'your.name': 'Twoje imię',
     'your.email': 'Twój email',
@@ -524,7 +540,7 @@ const translations: Record<Language, Record<string, string>> = {
     'instructor.specializations': 'Specjalizacje',
     'instructor.about': 'O instrukturze',
     'instructor.contact': 'Skontaktuj się',
-    'senior.barber.instructor': 'Starszy Instruktor Fryzjerski',
+    'senior.barber.instructor': 'Starszy Instruktor Barberski',
 
     // About Section CTA
     'about.cta': 'Rozpocznij swoją podróż',
