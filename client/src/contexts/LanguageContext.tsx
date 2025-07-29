@@ -115,9 +115,10 @@ const translations: Record<Language, Record<string, string>> = {
     'courses.cuts': 'Klasyczne i nowoczesne cięcia barberskie',
 
     // Instructors
-    'instructors.title': 'Nasi Instruktorzy',
-    'instructors.subtitle': 'Mistrzowie Barberingu',
-    'instructors.description': 'Poznaj naszych doświadczonych instruktorów, którzy poprowadzą Cię przez całą podróż edukacyjną.',
+    'instructors.title': 'Poznaj naszych',
+    'instructors.title.highlight': 'Instruktorów',
+    'instructors.subtitle': 'Eksperci branżowi',
+    'instructors.description': 'Nasi doświadczeni barberzy to praktycy z wieloletnim doświadczeniem w najlepszych salonach w Warszawie. Uczysz się od najlepszych.',
     'instructors.role': 'Starszy Instruktor Barberski',
     'instructors.certificate': 'Po ukończeniu kursu otrzymasz certyfikat wydany przez K&K Academy, uznaną instytucję szkoleniową dla barberów.',
 
@@ -160,6 +161,11 @@ const translations: Record<Language, Record<string, string>> = {
     'cta.title': 'Rozpocznij swoją karierę już dziś',
     'cta.description': 'Dołącz do tysięcy odnoszących sukcesy absolwentów, którzy przekształcili swoją pasję w dochodową karierę.',
     'cta.button': 'Zapisz się teraz',
+    
+    // CTA Enroll Section
+    'cta.enroll.title': 'Gotowy na rozpoczęcie swojej drogi barbera?',
+    'cta.enroll.description': 'Dołącz do setek odnoszących sukcesy absolwentów, którzy przekształcili swoje życie dzięki naszym kompleksowym programom szkoleniowym.',
+    'cta.enroll.button': 'Rozpocznij karierę barbera',
 
     // Common
     'common.loading': 'Ładowanie...',
@@ -312,11 +318,7 @@ const translations: Record<Language, Record<string, string>> = {
     'course.certification.advanced': 'Zaawansowany certyfikat',
     'course.certification.specialist': 'Certyfikat specjalisty',
 
-    // Instructors Translation Keys
-    'instructors.title': 'Poznaj naszych instruktorów',
-    'instructors.subtitle': 'Eksperci branżowi',
-    'instructors.description': 'Nasi doświadczeni barberzy to praktycy z wieloletnim doświadczeniem w najlepszych salonach w Warszawie. Uczysz się od najlepszych.',
-    'senior.barber.instructor': 'Starszy Instruktor Barberski',
+
     'instructor.richer.karimov': 'Richer Karimov',
     'instructor.apo.karimov': 'Apo Karimov',
     'instructor.bartosz.kaczorowski': 'Bartosz Kaczorowski',
@@ -325,11 +327,7 @@ const translations: Record<Language, Record<string, string>> = {
 
 
 
-    // Gallery Translation Keys  
-    'gallery.title': 'Nasza',
-    'gallery.title.highlight': 'Galeria',
-    'gallery.subtitle': 'Profesjonalne środowisko',
-    'gallery.description': 'Zobacz naszą nowoczesną akademię, profesjonalny sprzęt i prace uczniów w akcji.',
+
     'gallery.see.all.student.works': 'Zobacz wszystkie prace uczniów',
     'gallery.all.success.stories': 'Wszystkie historie sukcesu',
     'gallery.view.full': 'Zobacz pełną galerię',
@@ -608,6 +606,11 @@ const translations: Record<Language, Record<string, string>> = {
     'cta.title': 'Start Your Career Today',
     'cta.description': 'Join thousands of successful graduates who have transformed their passion into a profitable career.',
     'cta.button': 'Enroll Now',
+    
+    // CTA Enroll Section
+    'cta.enroll.title': 'Ready to Start Your Barber Journey?',
+    'cta.enroll.description': 'Join hundreds of successful graduates who have transformed their lives through our comprehensive training programs.',
+    'cta.enroll.button': 'Start Your Barber Career',
 
     // Common
     'common.loading': 'Loading...',
@@ -713,10 +716,7 @@ const translations: Record<Language, Record<string, string>> = {
 
 
 
-    // CTA Enroll Translation Keys
-    'cta.enroll.title': 'Kick-start Your Barber Journey Today',
-    'cta.enroll.description': 'Apply now and join our community of elite barbers shaping the future of style.',
-    'cta.enroll.button': 'Start Your Journey',
+
 
     // Page Translation Keys
     'course.not.found': 'Course not found.',
@@ -1045,51 +1045,56 @@ const translations: Record<Language, Record<string, string>> = {
     'gallery.description': 'Ознайомтесь з чудовими роботами наших студентів та інструкторів.',
 
     // Contact
-    'contact.title': 'Bize Ulaşın',
-    'contact.subtitle': 'Sorularınız mı var? Size yardımcı olmak için buradayız',
-    'contact.name': 'Ad Soyad',
-    'contact.email': 'E-posta',
-    'contact.phone': 'Telefon',
-    'contact.message': 'Mesaj',
-    'contact.program': 'Program Seçin',
-    'contact.submit': 'Mesaj Gönder',
-    'contact.info.title': 'İletişim Bilgileri',
-    'contact.info.address': 'Adres',
-    'contact.info.phone': 'Telefon',
-    'contact.info.email': 'E-posta',
-    'contact.info.hours': 'Çalışma Saatleri',
+    'contact.title': 'Зв\'яжіться з нами',
+    'contact.subtitle': 'Є питання? Ми тут, щоб допомогти',
+    'contact.name': 'Повне ім\'я',
+    'contact.email': 'Електронна пошта',
+    'contact.phone': 'Телефон',
+    'contact.message': 'Повідомлення',
+    'contact.program': 'Оберіть програму',
+    'contact.submit': 'Надіслати повідомлення',
+    'contact.info.title': 'Контактна інформація',
+    'contact.info.address': 'Адреса',
+    'contact.info.phone': 'Телефон',
+    'contact.info.email': 'Електронна пошта',
+    'contact.info.hours': 'Години роботи',
 
     // Footer
-    'footer.description': 'Varşova\'da kapsamlı kurslar ve eğitim sunan profesyonel berber akademisi.',
-    'footer.quick.links': 'Hızlı Bağlantılar',
-    'footer.contact.info': 'İletişim Bilgileri',
-    'footer.follow': 'Bizi Takip Edin',
-    'footer.rights': 'Tüm hakları saklıdır.',
+    'footer.description': 'Професійна академія барберів у Варшаві, що пропонує комплексні курси та навчання.',
+    'footer.quick.links': 'Швидкі посилання',
+    'footer.contact.info': 'Контактна інформація',
+    'footer.follow': 'Слідкуйте за нами',
+    'footer.rights': 'Всі права захищені.',
 
     // Blog
-    'blog.title': 'Blogumuz',
-    'blog.subtitle': 'En son haberler ve ipuçları',
-    'blog.read.more': 'Devamını Oku',
-    'blog.view.all': 'Tüm Gönderileri Görüntüle',
+    'blog.title': 'Наш блог',
+    'blog.subtitle': 'Останні новини та поради',
+    'blog.read.more': 'Читати далі',
+    'blog.view.all': 'Переглянути всі пости',
 
     // CTA
-    'cta.title': 'Kariyerinize Bugün Başlayın',
-    'cta.description': 'Tutkularını kârlı bir kariyere dönüştüren binlerce başarılı mezuna katılın.',
-    'cta.button': 'Şimdi Kayıt Olun',
+    'cta.title': 'Розпочніть свою кар\'єру сьогодні',
+    'cta.description': 'Приєднуйтесь до тисяч успішних випускників, які перетворили свою пристрасть на прибуткову кар\'єру.',
+    'cta.button': 'Записатися зараз',
+    
+    // CTA Enroll Section
+    'cta.enroll.title': 'Готові розпочати свій шлях барбера?',
+    'cta.enroll.description': 'Приєднуйтесь до сотень успішних випускників, які змінили своє життя завдяки нашим комплексним навчальним програмам.',
+    'cta.enroll.button': 'Розпочати кар\'єру барбера',
 
     // Common
-    'common.loading': 'Yükleniyor...',
-    'common.error': 'Bir hata oluştu',
-    'common.success': 'Başarılı!',
-    'common.close': 'Kapat',
-    'common.save': 'Kaydet',
-    'common.cancel': 'İptal',
-    'common.edit': 'Düzenle',
-    'common.delete': 'Sil',
-    'common.view': 'Görüntüle',
-    'common.back': 'Geri',
-    'common.next': 'İleri',
-    'common.previous': 'Önceki',
+    'common.loading': 'Завантаження...',
+    'common.error': 'Сталася помилка',
+    'common.success': 'Успішно!',
+    'common.close': 'Закрити',
+    'common.save': 'Зберегти',
+    'common.cancel': 'Скасувати',
+    'common.edit': 'Редагувати',
+    'common.delete': 'Видалити',
+    'common.view': 'Переглянути',
+    'common.back': 'Назад',
+    'common.next': 'Далі',
+    'common.previous': 'Попередній',
 
     // Additional translations for missing components
     'our.vibe': 'Наша атмосфера!',
