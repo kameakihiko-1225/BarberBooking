@@ -90,15 +90,7 @@ const translations: Record<Language, Record<string, string>> = {
     'about.subtitle': 'Dlaczego Wybierz K&K',
     'about.description': 'Jako jedyna akademia w Polsce możemy pochwalić się dwoma certyfikatami jakości. Nasz zespół tworzą wyłącznie wykwalifikowani edukatorzy, którzy nie tylko zdali egzaminy czeladnicze, ale również posiadają przygotowanie pedagogiczne. Stawiamy na najwyższe standardy nauczania i realne przygotowanie do pracy w zawodzie barbera.',
     
-    // Why Choose K&K Features
-    'features.practical.title': '80% praktyki z prawdziwymi klientami i manekinami',
-    'features.groups.title': 'Kameralne grupy dla spersonalizowanego mentoringu',
-    'features.tools.title': 'Wszystkie narzędzia i produkty zapewnione — zero ukrytych kosztów',
-    'features.certificates.title': 'Uznawane certyfikaty po ukończeniu',
-    'features.funding.title': 'Pomoc w zabezpieczeniu do 100% wsparcia finansowego',
-    'features.state.title': 'Programy certyfikowane przez państwo z uznaniem branży',
-    'features.equipment.title': 'Praktyka na profesjonalnym sprzęcie',
-    'features.career.title': 'Pomoc w znalezieniu pracy i ciągłe wsparcie',
+
 
     // Courses
     'courses.title': 'Nasze Kursy',
@@ -119,7 +111,7 @@ const translations: Record<Language, Record<string, string>> = {
     'courses.cta.title': 'Gotowy na rozpoczęcie swojej drogi barbera?',
     'courses.cta.description': 'Dołącz do setek odnoszących sukcesy absolwentów, którzy przekształcili swoje życie dzięki naszym kompleksowym programom szkoleniowym.',
     'courses.cta.button': 'Rozpocznij karierę barbera',
-    'about.learn.more': 'Dowiedz się więcej',
+
     'courses.cuts': 'Klasyczne i nowoczesne cięcia barberskie',
 
     // Instructors
@@ -129,10 +121,7 @@ const translations: Record<Language, Record<string, string>> = {
     'instructors.role': 'Starszy Instruktor Barberski',
     'instructors.certificate': 'Po ukończeniu kursu otrzymasz certyfikat wydany przez K&K Academy, uznaną instytucję szkoleniową dla barberów.',
 
-    // Testimonials
-    'testimonials.title': 'Historie Sukcesu Studentów',
-    'testimonials.subtitle': 'Historie Sukcesu',
-    'testimonials.description': 'Poznaj opinię naszych absolwentów, którzy przekształcili swoją pasję w dochodowe kariery i udane biznesy.',
+
 
     // Gallery
     'gallery.title': 'Nasza Galeria',
@@ -207,8 +196,7 @@ const translations: Record<Language, Record<string, string>> = {
     'show.all': 'Pokaż wszystkie',
     'show.less': 'Pokaż mniej',
     'dates': 'terminy',
-    'testimonials.see.student.works': 'Zobacz Wszystkie Prace Studentów',
-    'testimonials.see.success.stories': 'Wszystkie Historie Sukcesu',
+
     'free.course': 'Darmowy Kurs',
     'not.sure': 'Nie jestem pewny',
     'senior.barber.instructor': 'Starszy Instruktor Barberski',
@@ -657,7 +645,6 @@ const translations: Record<Language, Record<string, string>> = {
     'testimonials.see.success.stories': 'All Success Stories',
     'free.course': 'Free Course',
     'not.sure': 'Not sure yet',
-    'senior.barber.instructor': 'Senior Barber Instructor',
     'send.inquiry': 'Send Inquiry',
     'your.name': 'Your name',
     'your.email': 'Your email',
@@ -695,7 +682,6 @@ const translations: Record<Language, Record<string, string>> = {
     'instructors.title': 'Meet Our Instructors',
     'instructors.subtitle': 'Industry Experts',
     'instructors.description': 'Our experienced barbers are practitioners with years of experience in Warsaw\'s top salons. Learn from the best.',
-    'senior.barber.instructor': 'Senior Barber Instructor',
     'instructor.richer.karimov': 'Richer Karimov',
     'instructor.apo.karimov': 'Apo Karimov',
     'instructor.bartosz.kaczorowski': 'Bartosz Kaczorowski',
@@ -774,36 +760,8 @@ const translations: Record<Language, Record<string, string>> = {
     'blog.tag.tools': 'Tools',
     'blog.filter.all': 'All',
 
-    // Contact Page Translation Keys
-    'contact.title': 'Contact',
-    'contact.title.highlight': 'us',
-    'contact.title.today': 'today',
-    'contact.subtitle': 'Ready to start your barbering journey? Our admissions team is here to help you every step of the way.',
-    'contact.visit.campus': 'Visit our campus',
-    'contact.call.us': 'Call us',
-    'contact.email.us': 'Email us',
-    'contact.hours': 'Operating hours',
-    'contact.hours.weekdays': 'Mon-Fri: 12 am - 9 pm',
-    'contact.hours.saturday': 'Sat: 12 am – 5 pm',
-    'contact.hours.sunday': 'Sun: Closed',
-    'contact.form.first.name': 'First Name',
-    'contact.form.last.name': 'Last Name',
-    'contact.form.email': 'Email',
-    'contact.form.phone': 'Phone',
-    'contact.form.program': 'Program',
-    'contact.form.program.placeholder': 'Select a program...',
-    'contact.form.program.basic': 'Basic Barbering Course',
-    'contact.form.program.advanced': 'Advanced Techniques',
-    'contact.form.program.complete': 'Complete Program',
-    'contact.form.program.free': 'Free Course',
-    'contact.form.message': 'Message',
-    'contact.form.message.placeholder': 'Tell us about your goals and experience...',
-    'contact.form.title': 'Send us a message',
-    'contact.form.submit': 'Send Message',
-    'contact.form.required': 'Required fields',
-    'contact.form.required.desc': 'Please fill in all required fields.',
-    'contact.form.thank.you': 'Thank you!',
-    'contact.form.thank.you.desc': 'Your message has been sent. We will be in touch shortly.',
+
+
     'contact.page.title': 'Contact',
     'contact.page.highlight': 'K&K Academy',
     'contact.page.subtitle': 'Have questions about our programs, pricing, or enrollment? Reach out and our admissions team will gladly help.',
@@ -813,7 +771,6 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.form.success.desc': 'We will be in touch shortly.',
 
     // Course Details Translation Keys
-    'course.not.found': 'Course not found',
     'course.overview': 'Course Overview',
     'course.curriculum': 'Curriculum',
     'course.instructors': 'Instructors',
@@ -884,9 +841,7 @@ const translations: Record<Language, Record<string, string>> = {
     'course.beginner.outcomes.1': 'Confidently style beards',
     'course.beginner.outcomes.2': 'Launch barber career',
 
-    // Pricing Plans Translation Keys
-    'course.pricing.full.payment': 'Full Payment',
-    'course.pricing.installments': 'Installments',
+
     'course.pricing.all.modules': 'All modules',
     'course.pricing.contact.details': 'Contact for details',
     'course.pricing.interest.free': '0% interest',
@@ -898,7 +853,6 @@ const translations: Record<Language, Record<string, string>> = {
     'instructor.specializations': 'Specializations',
     'instructor.about': 'About Instructor',
     'instructor.contact': 'Contact',
-    'senior.barber.instructor': 'Senior Barber Instructor',
 
     // About Section CTA
     'about.cta': 'Start Your Journey',
@@ -1191,11 +1145,7 @@ const translations: Record<Language, Record<string, string>> = {
     'about.certificate.description': 'Сертифікат підтверджує відповідність стандартам якості ISO 9001:2015-10 для спеціалізованого навчання в індустрії барберінгу.',
     'common.free': 'БЕЗКОШТОВНО',
     
-    // Course Translation Keys
-    'courses.enroll.now': 'Записатися зараз',
-    'courses.cta.title': 'Готові розпочати свою барберську кар\'єру?',
-    'courses.cta.description': 'Приєднуйтесь до нашої академії та опануйте навички, які виділять вас в індустрії барберінгу.',
-    'courses.cta.button': 'Розпочати подорож',
+
     'course.duration.4hours': 'Щодня, 4 години',
     'course.duration.1month': 'Щодня, 1 місяць',
     'course.duration.3days': 'Щодня, 3 дні',
@@ -1206,56 +1156,16 @@ const translations: Record<Language, Record<string, string>> = {
     'course.certification.advanced': 'Сертифікат підвищеної складності',
     'course.certification.specialist': 'Сертифікат спеціаліста',
 
-    // Instructors Translation Keys
-    'instructors.title': 'Познайомтесь з нашими інструкторами',
-    'instructors.subtitle': 'Експерти індустрії',
-    'instructors.description': 'Наші досвідчені барбери - це практики з багаторічним досвідом роботи в найкращих салонах Варшави. Навчайтесь у найкращих.',
-    'senior.barber.instructor': 'Старший інструктор-барбер',
-    'instructor.richer.karimov': 'Richer Karimov',
-    'instructor.apo.karimov': 'Apo Karimov',
-    'instructor.bartosz.kaczorowski': 'Bartosz Kaczorowski',
-    'instructor.ali.karimov': 'Ali Karimov',
-    'instructor.tomasz.kaczorowski': 'Tomasz Kaczorowski',
 
-    // Contact Translation Keys
-    'contact.title': 'Розпочніть свою',
-    'contact.title.highlight': 'подорож',
-    'contact.title.today': 'сьогодні',
-    'contact.subtitle': 'Готові перетворити свою пристрасть на професійну кар\'єру? Зв\'яжіться з нашою командою прийому, щоб дізнатися більше про наші програми та запланувати тур по академії.',
-    'contact.visit.campus': 'Відвідайте наш кампус',
-    'contact.call.us': 'Зателефонуйте нам',
-    'contact.email.us': 'Напишіть нам email',
-    'contact.hours': 'Години роботи',
-    'contact.hours.schedule': 'Понеділок-П\'ятниця: 12:00 - 21:00, Субота: 12:00 - 17:00',
-    'contact.form.title': 'Отримати більше інформації',
-    'contact.form.first.name': 'Ім\'я',
-    'contact.form.last.name': 'Прізвище',
-    'contact.form.email': 'Email',
-    'contact.form.phone': 'Телефон',
-    'contact.form.program': 'Програма, що цікавить',
-    'contact.form.message': 'Повідомлення',
-    'contact.form.submit': 'Надіслати запит',
-    'contact.form.required': 'Будь ласка, заповніть обов\'язкові поля',
-    'contact.form.required.desc': 'Ім\'я, Прізвище та Email є обов\'язковими.',
-    'contact.form.thank.you': 'Дякуємо за ваш інтерес!',
-    'contact.form.thank.you.desc': 'Ми незабаром зв\'яжемося з вами з додатковою інформацією.',
-    'contact.program.free': 'Безкоштовний курс',
-    'contact.program.beginner': 'Курс для початківців (1 місяць)',
-    'contact.program.advanced': 'Курс підвищеної складності (3 дні)',
-    'contact.program.specialist': 'Курс спеціаліста (2 тижні)',
-    'contact.program.select': 'Оберіть програму',
+
+
 
     // Gallery Translation Keys
     'gallery.view.full': 'Переглянути повну галерею',
 
-    // Blog Translation Keys
-    'blog.latest': 'Останні новини',
-    'blog.tips': 'Отримайте професійні поради, тренди індустрії та експертні думки від наших професіоналів.',
 
-    // CTA Enroll Translation Keys
-    'cta.enroll.title': 'Розпочніть свою барберську подорож сьогодні',
-    'cta.enroll.description': 'Подавайте заявку зараз і приєднуйтесь до нашої спільноти елітних барберів, які формують майбутнє стилю.',
-    'cta.enroll.button': 'Розпочати подорож',
+
+
 
     // Page Translation Keys
     'course.not.found': 'Курс не знайдено.',
