@@ -1118,8 +1118,8 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.enroll': 'Записатися',
 
     // Hero Section
-    'hero.title': 'Академія перукарів K&K',
-    'hero.subtitle': 'Опануйте мистецтво перукарства з провідними інструкторами Варшави',
+    'hero.title': 'Академія барберів K&K',
+    'hero.subtitle': 'Опануйте мистецтво барберінгу з провідними інструкторами Варшави',
     'hero.description': 'Ми єдина академія з двома сертифікатами якості. Ми єдина академія, де всі викладачі склали іспити з підмайстерства. Усі викладачі мають педагогічну кваліфікацію.',
     'hero.cta.primary': 'Записатися на курс',
     'hero.cta.secondary': 'Переглянути галерею',
@@ -1130,13 +1130,13 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Features
     'features.expert.title': 'Експерт-інструктори',
-    'features.expert.description': 'Навчайтесь у найкращих майстрів-перукарів Варшави',
+    'features.expert.description': 'Навчайтесь у найкращих майстрів-барберів Варшави',
     'features.hands.title': 'Практичне навчання',
     'features.hands.description': 'Отримайте реальний досвід завдяки нашому практичному підходу',
     'features.career.title': 'Підтримка кар\'єри',
     'features.career.description': 'Допомога у працевлаштуванні та розвитку кар\'єри після випуску',
     'features.modern.title': 'Сучасні техніки',
-    'features.modern.description': 'Найновіші тренди та техніки в індустрії перукарства',
+    'features.modern.description': 'Найновіші тренди та техніки в індустрії барберінгу',
 
     // About Section
     'about.title': 'Про нас',
@@ -1157,13 +1157,13 @@ const translations: Record<Language, Record<string, string>> = {
     'courses.level': 'Рівень',
     'courses.price': 'Ціна',
     'courses.upcoming': 'Найближчі дати',
-    'courses.cta.title': 'Готові розпочати свою кар\'єру перукаря сьогодні?',
+    'courses.cta.title': 'Готові розпочати свою кар\'єру барбера сьогодні?',
     'courses.cta.description': 'Приєднуйтесь до сотень успішних випускників, які змінили своє життя завдяки нашим комплексним навчальним програмам.',
     'courses.cta.button': 'Приєднатися до безкоштовного денного курсу',
 
     // Instructors
     'instructors.title': 'Наші інструктори',
-    'instructors.subtitle': 'Майстри-перукарі',
+    'instructors.subtitle': 'Майстри-барбери',
     'instructors.description': 'Познайомтесь з нашими досвідченими інструкторами, які будуть супроводжувати вас протягом всієї навчальної подорожі.',
 
     // Testimonials
@@ -1264,13 +1264,13 @@ const translations: Record<Language, Record<string, string>> = {
     'about.state.licensed': 'Державна ліцензована академія',
     'about.certificate.title': 'Офіційний сертифікат',
     'about.certificate.subtitle': 'Надійна сертифікація системи управління якістю',
-    'about.certificate.description': 'Сертифікат підтверджує відповідність стандартам якості ISO 9001:2015-10 для спеціалізованого навчання в індустрії перукарства.',
+    'about.certificate.description': 'Сертифікат підтверджує відповідність стандартам якості ISO 9001:2015-10 для спеціалізованого навчання в індустрії барберінгу.',
     'common.free': 'БЕЗКОШТОВНО',
     
     // Course Translation Keys
     'courses.enroll.now': 'Записатися зараз',
-    'courses.cta.title': 'Готові розпочати свою перукарську кар\'єру?',
-    'courses.cta.description': 'Приєднуйтесь до нашої академії та опануйте навички, які виділять вас в індустрії перукарства.',
+    'courses.cta.title': 'Готові розпочати свою барберську кар\'єру?',
+    'courses.cta.description': 'Приєднуйтесь до нашої академії та опануйте навички, які виділять вас в індустрії барберінгу.',
     'courses.cta.button': 'Розпочати подорож',
     'course.duration.4hours': 'Щодня, 4 години',
     'course.duration.1month': 'Щодня, 1 місяць',
@@ -1285,8 +1285,8 @@ const translations: Record<Language, Record<string, string>> = {
     // Instructors Translation Keys
     'instructors.title': 'Познайомтесь з нашими інструкторами',
     'instructors.subtitle': 'Експерти індустрії',
-    'instructors.description': 'Наші досвідчені перукарі - це практики з багаторічним досвідом роботи в найкращих салонах Варшави. Навчайтесь у найкращих.',
-    'senior.barber.instructor': 'Старший інструктор-перукар',
+    'instructors.description': 'Наші досвідчені барбери - це практики з багаторічним досвідом роботи в найкращих салонах Варшави. Навчайтесь у найкращих.',
+    'senior.barber.instructor': 'Старший інструктор-барбер',
     'instructor.richer.karimov': 'Richer Karimov',
     'instructor.apo.karimov': 'Apo Karimov',
     'instructor.bartosz.kaczorowski': 'Bartosz Kaczorowski',
@@ -1329,8 +1329,8 @@ const translations: Record<Language, Record<string, string>> = {
     'blog.tips': 'Отримайте професійні поради, тренди індустрії та експертні думки від наших професіоналів.',
 
     // CTA Enroll Translation Keys
-    'cta.enroll.title': 'Розпочніть свою перукарську подорож сьогодні',
-    'cta.enroll.description': 'Подавайте заявку зараз і приєднуйтесь до нашої спільноти елітних перукарів, які формують майбутнє стилю.',
+    'cta.enroll.title': 'Розпочніть свою барберську подорож сьогодні',
+    'cta.enroll.description': 'Подавайте заявку зараз і приєднуйтесь до нашої спільноти елітних барберів, які формують майбутнє стилю.',
     'cta.enroll.button': 'Розпочати подорож',
 
     // Page Translation Keys
@@ -1350,14 +1350,14 @@ const translations: Record<Language, Record<string, string>> = {
     'page.showcased.works': 'представлених робіт',
     'page.blog.title': 'Думки',
     'page.blog.title.highlight': 'Академії',
-    'page.blog.subtitle': 'Новини, поради та тренди зі світу сучасного перукарства.',
+    'page.blog.subtitle': 'Новини, поради та тренди зі світу сучасного барберінгу.',
 
     // Blog Post Translation Keys
-    'blog.post.career.title': 'Як розпочати кар\'єру в перукарстві',
-    'blog.post.career.excerpt': 'Думаєте стати перукарем? Ось як можуть виглядати ваші перші 30 днів...',
+    'blog.post.career.title': 'Як розпочати кар\'єру в барберінгу',
+    'blog.post.career.excerpt': 'Думаєте стати барбером? Ось як можуть виглядати ваші перші 30 днів...',
     'blog.post.fade.title': 'Топ 5 технік fade на 2025 рік',
     'blog.post.fade.excerpt': 'Залишайтесь попереду з цими обов\'язковими варіаціями fade, про які запитає кожен клієнт.',
-    'blog.post.toolkit.title': 'Набір перукаря: Необхідне проти Бажаного',
+    'blog.post.toolkit.title': 'Набір барбера: Необхідне проти Бажаного',
     'blog.post.toolkit.excerpt': 'Наш посібник зі створення професійного набору від машинок до гребінців без переплати.',
     'blog.tag.beginner': 'Початківець',
     'blog.tag.trends': 'Тренди',
@@ -1389,13 +1389,13 @@ const translations: Record<Language, Record<string, string>> = {
     'course.gallery.title': 'Що відбувається на курсі',
     'course.gallery.subtitle': 'Погляньте на моменти з нашого практичного навчання.',
     'course.certificate.title': 'Сертифікат та акредитація',
-    'course.certificate.description': 'Після завершення ви отримаєте сертифікат, виданий K&K Academy, визнаною навчальною установою з перукарства.',
+    'course.certificate.description': 'Після завершення ви отримаєте сертифікат, виданий K&K Academy, визнаною навчальною установою з барберінгу.',
     'course.certificate.accredited': 'Акредитований сертифікат',
     'course.certificate.industry': 'Визнаний в індустрії',
     'course.certificate.portfolio': 'Портфоліо робіт',
     'about.certificate.accredited': 'Сертифікати',
     'about.certificate.iso.title': 'Сертифікат ISO 9001:2015-10',
-    'about.certificate.iso.description': 'Офіційна сертифікація системи управління якістю для професійного навчання перукарству.',
+    'about.certificate.iso.description': 'Офіційна сертифікація системи управління якістю для професійного навчання барберінгу.',
     'about.certificate.szoe.title': 'Сертифікат SZOE',
     'about.certificate.szoe.description': 'Державна сертифікація для освітніх установ Польщі.',
     'course.pricing.title': 'Ціни та плани',
@@ -1405,13 +1405,13 @@ const translations: Record<Language, Record<string, string>> = {
     'course.pricing.contact': 'Зверніться за деталями',
     'course.faq.title': 'Часті запитання',
     'course.faq.experience.q': 'Чи потрібен мені попередній досвід?',
-    'course.faq.experience.a': 'Ні, наші курси для початківців розроблені для людей без досвіду в перукарстві.',
+    'course.faq.experience.a': 'Ні, наші курси для початківців розроблені для людей без досвіду в барберінгу.',
     'course.faq.tools.q': 'Чи потрібно купувати власні інструменти?',
     'course.faq.tools.a': 'Ні, всі інструменти та матеріали надаються протягом курсу. Ви також отримаєте список рекомендованих інструментів для придбання.',
     'course.faq.job.q': 'Чи допомагаєте ви із працевлаштуванням?',
-    'course.faq.job.a': 'Так, ми надаємо підтримку у працевлаштуванні та маємо партнерські відносини з місцевими перукарнями.',
+    'course.faq.job.a': 'Так, ми надаємо підтримку у працевлаштуванні та маємо партнерські відносини з місцевими барбершопами.',
     'course.cta.final.title': 'Розпочніть свою подорож сьогодні',
-    'course.cta.final.description': 'Приєднуйтесь до сотень задоволених випускників, які побудували успішну кар\'єру в перукарстві.',
+    'course.cta.final.description': 'Приєднуйтесь до сотень задоволених випускників, які побудували успішну кар\'єру в барберінгу.',
     'course.cta.final.button': 'Записатися зараз',
 
     // Beginner Course (ID: 1) Specific Translations
@@ -1437,7 +1437,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     'course.beginner.outcomes.0': 'Виконувати сучасні стрижки та фейди',
     'course.beginner.outcomes.1': 'Впевнено стилізувати бороду',
-    'course.beginner.outcomes.2': 'Розпочати кар\'єру перукаря',
+    'course.beginner.outcomes.2': 'Розпочати кар\'єру барбера',
 
     // Duplicate pricing keys removed to prevent conflicts
 
@@ -1456,14 +1456,14 @@ const translations: Record<Language, Record<string, string>> = {
     // About Us Page Translations
     'aboutus.hero.title': 'З нуля',
     'aboutus.hero.mastery': 'до майстерності',
-    'aboutus.hero.description': 'Ми не просто навчаємо перукарству — ми формуємо кар\'єри. Амбіції поєднуються з точністю в наших класах.',
+    'aboutus.hero.description': 'Ми не просто навчаємо барберінгу — ми формуємо кар\'єри. Амбіції поєднуються з точністю в наших класах.',
     'aboutus.legal.title': 'Юридична інформація',
     'aboutus.legal.name': 'Юридична назва:',
     'aboutus.legal.trading': 'Торгова назва:',
     'aboutus.offers.title': 'Що ми пропонуємо',
     'aboutus.offers.beginners.title': 'Для початківців',
     'aboutus.offers.beginners.text': 'Базові курси для початку вашої нової кар\'єри з нуля.',
-    'aboutus.offers.experienced.title': 'Для досвідчених перукарів',
+    'aboutus.offers.experienced.title': 'Для досвідчених барберів',
     'aboutus.offers.experienced.text': 'Просунуті модулі для вдосконалення техніки та підвищення статусу.',
     'aboutus.whychoose.title': 'Чому обрати нас',
     'aboutus.whychoose.reason1': '80% практичної роботи з справжніми клієнтами та манекенами',
@@ -1485,7 +1485,7 @@ const translations: Record<Language, Record<string, string>> = {
     'aboutus.cta.enroll': 'Записатися зараз',
 
     // Individual Instructor Details
-    'instructor.1.about': 'Експерт з класичних технік перукарства, 10+ років досвіду. Спеціалізується на точних стрижках та формуванні бороди.',
+    'instructor.1.about': 'Експерт з класичних технік барберінгу, 10+ років досвіду. Спеціалізується на точних стрижках та формуванні бороди.',
     'instructor.1.experience': 'Досвід: 12+ років',
     'instructor.2.about': 'Майстер сучасних трендів та креативних стилів. Проводить семінари для студентів просунутого рівня.',
     'instructor.2.experience': 'Досвід: 8+ років',
@@ -1493,16 +1493,16 @@ const translations: Record<Language, Record<string, string>> = {
     'instructor.3.experience': 'Досвід: 15+ років',
     'instructor.4.about': 'Експерт з сучасних технік стрижки та фарбування. Сертифікований міжнародний інструктор.',
     'instructor.4.experience': 'Досвід: 10+ років',
-    'instructor.5.about': 'Майстер класичного перукарства та стилізації. Проводить курси просунутого рівня.',
+    'instructor.5.about': 'Майстер класичного барберінгу та стилізації. Проводить курси просунутого рівня.',
     'instructor.5.experience': 'Досвід: 14+ років',
 
-    'course.free.title': 'Одноденний безкоштовний курс перукарства',
-    'course.free.subtitle': 'Відчуйте справжній смак світу перукарства – безкоштовно',
-    'course.free.description': 'Цікавитесь перукарством, але не знаєте, з чого почати? Наш одноденний безкоштовний курс – це ідеальний спосіб відчути, що насправді означає бути частиною професійної академії перукарства.',
+    'course.free.title': 'Одноденний безкоштовний курс барберінгу',
+    'course.free.subtitle': 'Відчуйте справжній смак світу барберінгу – безкоштовно',
+    'course.free.description': 'Цікавитесь барберінгом, але не знаєте, з чого почати? Наш одноденний безкоштовний курс – це ідеальний спосіб відчути, що насправді означає бути частиною професійної академії барберінгу.',
     'course.free.badge': 'Безкоштовний курс',
-    'course.beginner.title': 'Курс для початківців – З нуля до перукаря',
+    'course.beginner.title': 'Курс для початківців – З нуля до барбера',
     'course.beginner.subtitle': 'Розпочніть нову професію з повною підготовкою та впевненістю',
-    'course.beginner.description': 'Інтенсивна 24-денна програма, що перетворює людей з нульовим досвідом на професійних перукарів через теорію, практику на манекенах та щоденну роботу з живими моделями (Пн-П\'ят, 12-20).',
+    'course.beginner.description': 'Інтенсивна 24-денна програма, що перетворює людей з нульовим досвідом на професійних барберів через теорію, практику на манекенах та щоденну роботу з живими моделями (Пн-П\'ят, 12-20).',
     'course.beginner.badge': 'Початківець',
     'course.advanced.title': 'Курс підвищеної складності для перукарів',
     'course.advanced.subtitle': 'Розширте свої навички та вивчіть найновіші техніки',
