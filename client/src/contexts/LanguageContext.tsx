@@ -120,6 +120,7 @@ const translations: Record<Language, Record<string, string>> = {
     'instructors.subtitle': 'Eksperci branżowi',
     'instructors.description': 'Nasi doświadczeni barberzy to praktycy z wieloletnim doświadczeniem w najlepszych salonach w Warszawie. Uczysz się od najlepszych.',
     'instructors.role': 'Starszy Instruktor Barberski',
+    'senior.barber.instructor': 'Starszy Instruktor Barberski',
     'instructors.certificate': 'Po ukończeniu kursu otrzymasz certyfikat wydany przez K&K Academy, uznaną instytucję szkoleniową dla barberów.',
 
 
@@ -205,7 +206,6 @@ const translations: Record<Language, Record<string, string>> = {
 
     'free.course': 'Darmowy Kurs',
     'not.sure': 'Nie jestem pewny',
-    'senior.barber.instructor': 'Starszy Instruktor Barberski',
     'send.inquiry': 'Wyślij Zapytanie',
     'your.name': 'Twoje imię',
     'your.email': 'Twój email',
@@ -563,6 +563,7 @@ const translations: Record<Language, Record<string, string>> = {
     'instructors.title': 'Our Instructors',
     'instructors.subtitle': 'Master Barbers',
     'instructors.description': 'Meet our experienced instructors who will guide you through your entire educational journey.',
+    'senior.barber.instructor': 'Senior Barber Instructor',
 
     // Testimonials
     'testimonials.title': 'Student Success Stories',
@@ -1032,6 +1033,7 @@ const translations: Record<Language, Record<string, string>> = {
     'instructors.title': 'Наші інструктори',
     'instructors.subtitle': 'Майстри-барбери',
     'instructors.description': 'Познайомтесь з нашими досвідченими інструкторами, які будуть супроводжувати вас протягом всієї навчальної подорожі.',
+    'senior.barber.instructor': 'Старший інструктор барбера',
 
     // Testimonials
     'testimonials.title': 'Історії успіху студентів',
