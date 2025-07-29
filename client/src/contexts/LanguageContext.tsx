@@ -372,7 +372,6 @@ const translations: Record<Language, Record<string, string>> = {
 
 
     // Course Details Translation Keys
-    'course.not.found': 'Kurs nie znaleziony',
     'course.overview': 'Przegląd kursu',
     'course.curriculum': 'Program nauczania',
     'course.instructors': 'Instruktorzy',
@@ -438,9 +437,7 @@ const translations: Record<Language, Record<string, string>> = {
     'course.beginner.outcomes.1': 'Pewnie stylizować brody',
     'course.beginner.outcomes.2': 'Rozpocząć karierę barbera',
 
-    // Pricing Plans Translation Keys
-    'course.pricing.full.payment': 'Płatność pełna',
-    'course.pricing.installments': 'Płatność ratalna',
+
     'course.pricing.all.modules': 'Wszystkie moduły',
     'course.pricing.contact.details': 'Skontaktuj się po szczegóły',
     'course.pricing.interest.free': '0% odsetek',
@@ -452,7 +449,6 @@ const translations: Record<Language, Record<string, string>> = {
     'instructor.specializations': 'Specjalizacje',
     'instructor.about': 'O instrukturze',
     'instructor.contact': 'Skontaktuj się',
-    'senior.barber.instructor': 'Starszy Instruktor Barberski',
 
     // About Section CTA
     'about.cta': 'Rozpocznij swoją podróż',
@@ -539,6 +535,13 @@ const translations: Record<Language, Record<string, string>> = {
     'about.title': 'About Us',
     'about.subtitle': 'Why Choose K&K Academy',
     'about.description': 'We are the only academy with two quality certificates. We are the only academy where all educators have passed their apprenticeship exams. All educators have teaching qualifications.',
+    
+    // Why Choose K&K Features
+    'features.practical.title': '80% hands-on practice with real clients & manikins',
+    'features.groups.title': 'Small groups for personalised mentorship',
+    'features.tools.title': 'All tools & products provided — zero hidden costs',
+    'features.certificates.title': 'Recognised certificates upon completion',
+    'features.funding.title': 'Help securing up to 100% financial support',
 
     // Courses
     'courses.title': 'Our Courses',
@@ -663,11 +666,7 @@ const translations: Record<Language, Record<string, string>> = {
     'about.certificate.description': 'Certificate confirms compliance with ISO 9001:2015-10 quality standards for specialized training in the barbering industry.',
     'common.free': 'FREE',
     
-    // Course Translation Keys
-    'courses.enroll.now': 'Enroll Now',
-    'courses.cta.title': 'Ready to Start Your Barbering Career?',
-    'courses.cta.description': 'Join our academy and master the skills that will set you apart in the barbering industry.',
-    'courses.cta.button': 'Start Your Journey',
+
     'course.duration.4hours': 'Daily, 4 hours',
     'course.duration.1month': 'Daily, 1 month',
     'course.duration.3days': 'Daily, 3 days',
@@ -678,21 +677,14 @@ const translations: Record<Language, Record<string, string>> = {
     'course.certification.advanced': 'Advanced Certificate',
     'course.certification.specialist': 'Specialist Certificate',
 
-    // Instructors Translation Keys
-    'instructors.title': 'Meet Our Instructors',
-    'instructors.subtitle': 'Industry Experts',
-    'instructors.description': 'Our experienced barbers are practitioners with years of experience in Warsaw\'s top salons. Learn from the best.',
+
     'instructor.richer.karimov': 'Richer Karimov',
     'instructor.apo.karimov': 'Apo Karimov',
     'instructor.bartosz.kaczorowski': 'Bartosz Kaczorowski',
     'instructor.ali.karimov': 'Ali Karimov',
     'instructor.tomasz.kaczorowski': 'Tomasz Kaczorowski',
 
-    // Contact Translation Keys
-    'contact.title': 'Start Your',
-    'contact.title.highlight': 'Journey',
-    'contact.title.today': 'Today',
-    'contact.subtitle': 'Ready to transform your passion into a professional career? Get in touch with our admissions team to learn more about our programs and schedule a campus tour.',
+
     'contact.visit.campus': 'Visit Our Campus',
     'contact.call.us': 'Call Us',
     'contact.email.us': 'Email Us',
@@ -719,10 +711,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Gallery Translation Keys  
     'gallery.view.full': 'View Full Gallery',
 
-    // Blog Translation Keys
-    'blog.latest': 'Latest Insights',
-    'blog.tips': 'Get professional tips, industry trends, and expert insights from our professionals.',
-    'blog.read.more': 'Read More',
+
 
     // CTA Enroll Translation Keys
     'cta.enroll.title': 'Kick-start Your Barber Journey Today',
