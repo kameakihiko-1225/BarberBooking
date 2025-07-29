@@ -132,7 +132,9 @@ const translations: Record<Language, Record<string, string>> = {
     'gallery.description': 'Odkryj niesamowitą pracę naszych studentów i instruktorów.',
 
     // Contact
-    'contact.title': 'Skontaktuj się z nami',
+    'contact.title': 'Skontaktuj się z',
+    'contact.title.highlight': 'nami',
+    'contact.title.today': 'już dziś',
     'contact.subtitle': 'Masz pytania? Jesteśmy tutaj, aby pomóc',
     'contact.name': 'Imię i nazwisko',
     'contact.email': 'Email',
@@ -145,6 +147,9 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.info.phone': 'Telefon',
     'contact.info.email': 'Email',
     'contact.info.hours': 'Godziny otwarcia',
+    'contact.hours.weekdays': 'Pon-Pt: 12:00 - 21:00',
+    'contact.hours.saturday': 'Sob: 12:00 - 17:00',
+    'contact.hours.sunday': 'Niedz: Zamknięte',
 
     // Footer
     'footer.description': 'Profesjonalna akademia barberska w Warszawie oferująca kompleksowe kursy i szkolenia.',
@@ -578,7 +583,9 @@ const translations: Record<Language, Record<string, string>> = {
     'gallery.description': 'Discover the amazing work of our students and instructors.',
 
     // Contact
-    'contact.title': 'Contact Us',
+    'contact.title': 'Contact',
+    'contact.title.highlight': 'Us',
+    'contact.title.today': 'Today',
     'contact.subtitle': 'Have questions? We\'re here to help',
     'contact.name': 'Full Name',
     'contact.email': 'Email',
@@ -591,6 +598,9 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.info.phone': 'Phone',
     'contact.info.email': 'Email',
     'contact.info.hours': 'Opening Hours',
+    'contact.hours.weekdays': 'Mon-Fri: 12:00 - 21:00',
+    'contact.hours.saturday': 'Sat: 12:00 - 17:00',
+    'contact.hours.sunday': 'Sun: Closed',
 
     // Footer
     'footer.description': 'Professional barber academy in Warsaw offering comprehensive courses and training.',
@@ -1049,7 +1059,9 @@ const translations: Record<Language, Record<string, string>> = {
     'gallery.description': 'Ознайомтесь з чудовими роботами наших студентів та інструкторів.',
 
     // Contact
-    'contact.title': 'Зв\'яжіться з нами',
+    'contact.title': 'Зв\'яжіться з',
+    'contact.title.highlight': 'нами',
+    'contact.title.today': 'сьогодні',
     'contact.subtitle': 'Є питання? Ми тут, щоб допомогти',
     'contact.name': 'Повне ім\'я',
     'contact.email': 'Електронна пошта',
@@ -1062,6 +1074,9 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.info.phone': 'Телефон',
     'contact.info.email': 'Електронна пошта',
     'contact.info.hours': 'Години роботи',
+    'contact.hours.weekdays': 'Пн-Пт: 12:00 - 21:00',
+    'contact.hours.saturday': 'Сб: 12:00 - 17:00',
+    'contact.hours.sunday': 'Нд: Зачинено',
 
     // Footer
     'footer.description': 'Професійна академія барберів у Варшаві, що пропонує комплексні курси та навчання.',
