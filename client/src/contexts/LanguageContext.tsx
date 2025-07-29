@@ -89,6 +89,11 @@ const translations: Record<Language, Record<string, string>> = {
     'about.title': 'K&K Akademia Barberingu',
     'about.subtitle': 'Dlaczego Wybierz K&K',
     'about.description': 'Jako jedyna akademia w Polsce możemy pochwalić się dwoma certyfikatami jakości. Nasz zespół tworzą wyłącznie wykwalifikowani edukatorzy, którzy nie tylko zdali egzaminy czeladnicze, ale również posiadają przygotowanie pedagogiczne. Stawiamy na najwyższe standardy nauczania i realne przygotowanie do pracy w zawodzie barbera.',
+    'features.practical.title': '80% praktyki, 20% teorii',
+    'features.groups.title': 'Małe grupy (max 6 osób)',
+    'features.tools.title': 'Narzędzia w cenie kursu',
+    'features.certificates.title': 'Podwójne certyfikaty ISO i SZOE',
+    'features.funding.title': 'Wsparcie finansowe dostępne',
     
 
 
@@ -1039,6 +1044,11 @@ const translations: Record<Language, Record<string, string>> = {
     'about.title': 'Про нас',
     'about.subtitle': 'Чому варто обрати K&K Academy',
     'about.description': 'Ми єдина академія з двома сертифікатами якості. Ми єдина академія, де всі викладачі склали іспити з підмайстерства. Усі викладачі мають педагогічну кваліфікацію.',
+    'features.practical.title': '80% практики, 20% теорії',
+    'features.groups.title': 'Малі групи (макс 6 осіб)',
+    'features.tools.title': 'Інструменти в ціні курсу',
+    'features.certificates.title': 'Подвійні сертифікати ISO і SZOE',
+    'features.funding.title': 'Фінансова підтримка доступна',
 
     // Courses
     'courses.title': 'Наші курси',
