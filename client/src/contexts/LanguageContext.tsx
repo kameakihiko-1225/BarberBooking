@@ -126,7 +126,8 @@ const translations: Record<Language, Record<string, string>> = {
 
 
     // Gallery
-    'gallery.title': 'Nasza Galeria',
+    'gallery.title': 'Nasza',
+    'gallery.title.highlight': 'Galeria',
     'gallery.subtitle': 'Zobacz nasze prace',
     'gallery.description': 'Odkryj niesamowitą pracę naszych studentów i instruktorów.',
 
@@ -571,7 +572,8 @@ const translations: Record<Language, Record<string, string>> = {
     'testimonials.description': 'Hear from our graduates who\'ve transformed their passion into profitable careers and successful businesses.',
 
     // Gallery
-    'gallery.title': 'Our Gallery',
+    'gallery.title': 'Our',
+    'gallery.title.highlight': 'Gallery',
     'gallery.subtitle': 'See our work',
     'gallery.description': 'Discover the amazing work of our students and instructors.',
 
