@@ -73,7 +73,7 @@ export default function StructuredData({ type = 'organization', courseData, faqD
       "@type": "EducationalOrganization",
       "name": "K&K Barber Academy",
       "alternateName": language === 'pl' 
-        ? ["Akademia Barberska K&K", "Barbershop Academy Warszawa", "Akademia Fryzjerska K&K"]
+        ? ["Akademia Barberska K&K", "Barbershop Academy Warszawa", "Akademia Barberska K&K"]
         : language === 'uk'
         ? ["Академія барберів K&K", "Барбер академія Варшава", "Школа барберів K&K"]
         : ["K&K Barbershop Academy", "Barber Academy Warsaw Europe", "International Barber School", "European Barber Academy", "Professional Barber School"],
@@ -140,7 +140,7 @@ export default function StructuredData({ type = 'organization', courseData, faqD
         "name": "Poland"
       },
       "keywords": language === 'pl' 
-        ? ["kurs barberingu Warszawa", "kursy barberingu Polska", "akademia barberingu Polska", "nauka barberingu od podstaw", "szkolenie barberskie", "akademia barberska", "barbershop academy", "kurs fryzjerski", "certyfikat barberski", "barber warszawa"]
+        ? ["kurs barberingu Warszawa", "kursy barberingu Polska", "akademia barberingu Polska", "nauka barberingu od podstaw", "szkolenie barberskie", "akademia barberska", "barbershop academy", "kurs barberski", "certyfikat barberski", "barber warszawa"]
         : language === 'uk'
         ? ["академія барберів Польща", "курси барберів у Польщі", "школа барберів для українців у Польщі", "навчання барберів", "барбер академія варшава", "курс барбера", "школа барберів", "сертифікат барбера", "професійне навчання барберів"]
         : ["barber academy in Poland", "barber course Poland", "barber school Warsaw Europe", "international barber course", "European barber training", "barber academy Europe", "barber certification Europe", "professional barber training", "barbershop academy Europe", "barber education Warsaw", "barber instructor Europe", "barber workshop international"]

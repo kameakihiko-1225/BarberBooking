@@ -7,8 +7,8 @@ export default function BarberSEO() {
     pl: [
       "kurs barberingu Warszawa", "kursy barberingu Polska", "akademia barberingu Polska",
       "nauka barberingu od podstaw", "szkolenie barberskie", "akademia barberska",
-      "barbershop academy", "kurs fryzjerski", "certyfikat barberski", "instruktorzy fryzjerscy",
-      "szkolenia fryzjerskie", "barber warszawa", "barbershop warszawa", "fryzjer męski",
+      "barbershop academy", "kurs barberski", "certyfikat barberski", "instruktorzy barberscy",
+      "szkolenia barberskie", "barber warszawa", "barbershop warszawa", "barber męski",
       "golenie brzytwą", "strzyżenie męskie", "beard trimming", "mustache grooming",
       "professional barber", "barber tools", "barber techniques", "barber skills"
     ],

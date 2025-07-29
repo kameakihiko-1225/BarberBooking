@@ -26,7 +26,7 @@ export default function SEOHead({
     pl: {
       defaultTitle: "K&K Barber Academy - Kurs Barberingu Warszawa | Akademia Barberingu Polska",
       defaultDescription: "Najlepsza akademia barberingu w Polsce z 2 certyfikatami jakości. Kursy barberingu Warszawa - nauka barberingu od podstaw. Profesjonalne szkolenia barberskie.",
-      defaultKeywords: "kurs barberingu Warszawa, kursy barberingu Polska, akademia barberingu Polska, nauka barberingu od podstaw, szkolenie barberskie, akademia barberska, barbershop academy, kurs fryzjerski, barber warszawa, certyfikat barberski, instruktorzy fryzjerscy, szkolenia fryzjerskie"
+      defaultKeywords: "kurs barberingu Warszawa, kursy barberingu Polska, akademia barberingu Polska, nauka barberingu od podstaw, szkolenie barberskie, akademia barberska, barbershop academy, kurs barberski, barber warszawa, certyfikat barberski, instruktorzy barberscy, szkolenia barberskie"
     },
     en: {
       defaultTitle: "K&K Barber Academy - Barber School Warsaw Europe | International Barber Course",

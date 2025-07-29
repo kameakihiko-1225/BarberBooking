@@ -67,7 +67,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Hero Section
     'hero.title': 'K&K Akademia Barberingu',
     'hero.subtitle': 'Od Zera do Mistrzostwa',
-    'hero.description': 'Nie tylko uczymy fryzjerstwa — kształtujemy kariery. Ambicja spotyka się z precyzją w naszych salach.',
+    'hero.description': 'Nie tylko uczymy barberingu — kształtujemy kariery. Ambicja spotyka się z precyzją w naszych salach.',
     'hero.cta.primary': 'Zapisz się na Kurs',
     'hero.cta.secondary': 'Obejrzyj Galerię',
     'hero.stats.graduates': 'Absolwentów',
@@ -77,13 +77,13 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Features
     'features.expert.title': 'Ekspert Instruktorzy',
-    'features.expert.description': 'Ucz się od najlepszych mistrzów fryzjerstwa w Warszawie',
+    'features.expert.description': 'Ucz się od najlepszych mistrzów barberingu w Warszawie',
     'features.hands.title': 'Praktyczne Szkolenie',
     'features.hands.description': 'Zdobądź prawdziwe doświadczenie z naszym praktycznym podejściem',
     'features.career.title': 'Wsparcie Kariery',
     'features.career.description': 'Pomoc w znalezieniu pracy i rozwoju kariery po ukończeniu',
     'features.modern.title': 'Nowoczesne Techniki',
-    'features.modern.description': 'Najnowsze trendy i techniki w branży fryzjerskiej',
+    'features.modern.description': 'Najnowsze trendy i techniki w branży barberskiej',
 
     // About Section
     'about.title': 'K&K Akademia Barberingu',
@@ -124,7 +124,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Instructors
     'instructors.title': 'Nasi Instruktorzy',
-    'instructors.subtitle': 'Mistrzowie Fryzjerstwa',
+    'instructors.subtitle': 'Mistrzowie Barberingu',
     'instructors.description': 'Poznaj naszych doświadczonych instruktorów, którzy poprowadzą Cię przez całą podróż edukacyjną.',
     'instructors.role': 'Starszy Instruktor Barberski',
     'instructors.certificate': 'Po ukończeniu kursu otrzymasz certyfikat wydany przez K&K Academy, uznaną instytucję szkoleniową dla barberów.',
@@ -202,7 +202,7 @@ const translations: Record<Language, Record<string, string>> = {
     'policies.handbook': 'Podręcznik Studenta',
     'working.hours': 'Godziny pracy:',
     'blog.latest': 'Najnowsze Spostrzeżenia',
-    'blog.tips': 'Wskazówki, trendy i zasoby, które utrzymają Cię na czubku świata fryzjerskiego.',
+    'blog.tips': 'Wskazówki, trendy i zasoby, które utrzymają Cię na czubku świata barberskiego.',
     'upcoming.dates': 'Nadchodzące terminy',
     'show.all': 'Pokaż wszystkie',
     'show.less': 'Pokaż mniej',
@@ -335,8 +335,8 @@ const translations: Record<Language, Record<string, string>> = {
     // Instructors Translation Keys
     'instructors.title': 'Poznaj naszych instruktorów',
     'instructors.subtitle': 'Eksperci branżowi',
-    'instructors.description': 'Nasi doświadczeni fryzjerzy to praktycy z wieloletnim doświadczeniem w najlepszych salonach w Warszawie. Uczysz się od najlepszych.',
-    'senior.barber.instructor': 'Starszy instruktor fryzjer',
+    'instructors.description': 'Nasi doświadczeni barberzy to praktycy z wieloletnim doświadczeniem w najlepszych salonach w Warszawie. Uczysz się od najlepszych.',
+    'senior.barber.instructor': 'Starszy Instruktor Barberski',
     'instructor.richer.karimov': 'Richer Karimov',
     'instructor.apo.karimov': 'Apo Karimov',
     'instructor.bartosz.kaczorowski': 'Bartosz Kaczorowski',
@@ -407,14 +407,14 @@ const translations: Record<Language, Record<string, string>> = {
     'page.showcased.works': 'prezentowanych prac',
     'page.blog.title': 'Akademia',
     'page.blog.title.highlight': 'Wskazówki',
-    'page.blog.subtitle': 'Wiadomości, porady i trendy ze świata nowoczesnego fryzjerstwa.',
+    'page.blog.subtitle': 'Wiadomości, porady i trendy ze świata nowoczesnego barberingu.',
 
     // Blog Post Translation Keys
-    'blog.post.career.title': 'Jak rozpocząć karierę w fryzjerstwie',
-    'blog.post.career.excerpt': 'Myślisz o zostaniu fryzjerem? Oto jak mogą wyglądać twoje pierwsze 30 dni...',
+    'blog.post.career.title': 'Jak rozpocząć karierę w barberingu',
+    'blog.post.career.excerpt': 'Myślisz o zostaniu barberem? Oto jak mogą wyglądać twoje pierwsze 30 dni...',
     'blog.post.fade.title': 'Top 5 technik fade na 2025 rok',
     'blog.post.fade.excerpt': 'Wyprzedź konkurencję dzięki tym niezbędnym wariacjom fade, o które będzie pytać każdy klient.',
-    'blog.post.toolkit.title': 'Zestaw fryzjera: Niezbędne vs. Miłe w posiadaniu',
+    'blog.post.toolkit.title': 'Zestaw barbera: Niezbędne vs. Miłe w posiadaniu',
     'blog.post.toolkit.excerpt': 'Od maszynki do grzebieni, oto nasz ostateczny przewodnik po budowaniu profesjonalnego zestawu bez przepłacania.',
     'blog.tag.beginner': 'Początkujący',
     'blog.tag.trends': 'Trendy',
@@ -439,7 +439,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.form.phone': 'Telefon',
     'contact.form.program': 'Program',
     'contact.form.program.placeholder': 'Wybierz program...',
-    'contact.form.program.basic': 'Podstawowy kurs fryzjerski',
+    'contact.form.program.basic': 'Podstawowy kurs barberski',
     'contact.form.program.advanced': 'Zaawansowane techniki',
     'contact.form.program.complete': 'Kompletny program',
     'contact.form.program.free': 'Darmowy kurs',
@@ -481,7 +481,7 @@ const translations: Record<Language, Record<string, string>> = {
     'course.gallery.title': 'Kurs w akcji',
     'course.gallery.subtitle': 'Przeglądaj momenty z naszego praktycznego szkolenia.',
     'course.certificate.title': 'Certyfikat i Akredytacja',
-    'course.certificate.description': 'Po ukończeniu kursu otrzymasz certyfikat wydany przez K&K Academy, uznaną instytucję szkoleniową dla fryzjerów.',
+    'course.certificate.description': 'Po ukończeniu kursu otrzymasz certyfikat wydany przez K&K Academy, uznaną instytucję szkoleniową dla barberów.',
     'course.certificate.accredited': 'Akredytowany certyfikat',
     'course.certificate.industry': 'Uznawany w branży',
     'course.certificate.portfolio': 'Portfolio prac',
@@ -502,7 +502,7 @@ const translations: Record<Language, Record<string, string>> = {
     'course.cta.final.button': 'Zapisz się teraz',
 
     // Beginner Course (ID: 1) Specific Translations
-    'course.beginner.skills.0': 'Klasyczne i nowoczesne fryzury',
+    'course.beginner.skills.0': 'Klasyczne i nowoczesne strzyżenia',
     'course.beginner.skills.1': 'Wygolenia maszynką (niskie/średnie/wysokie)',
     'course.beginner.skills.2': 'Praca brzytwą i detale',
     'course.beginner.skills.3': 'Modelowanie i pielęgnacja brody',
@@ -555,7 +555,7 @@ const translations: Record<Language, Record<string, string>> = {
     'aboutus.offers.title': 'Co Oferujemy',
     'aboutus.offers.beginners.title': 'Dla Początkujących',
     'aboutus.offers.beginners.text': 'Podstawowe kursy do rozpoczęcia nowej kariery od zera.',
-    'aboutus.offers.experienced.title': 'Dla Doświadczonych Fryzjerów',
+    'aboutus.offers.experienced.title': 'Dla Doświadczonych Barberów',
     'aboutus.offers.experienced.text': 'Zaawansowane moduły do doskonalenia techniki i podnoszenia statusu.',
     'aboutus.whychoose.title': 'Dlaczego Wybierz',
     'aboutus.whychoose.reason1': '80% praktyki z prawdziwymi klientami i manekinami',
