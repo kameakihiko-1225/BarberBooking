@@ -425,7 +425,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.title': 'Skontaktuj się',
     'contact.title.highlight': 'z nami',
     'contact.title.today': 'już dziś',
-    'contact.subtitle': 'Gotowy, aby rozpocząć swoją podróż w fryzjerstwie? Nasz zespół przyjęć jest tutaj, aby pomóc Ci każdego kroku.',
+    'contact.subtitle': 'Gotowy, aby rozpocząć swoją podróż w barberingu? Nasz zespół przyjęć jest tutaj, aby pomóc Ci każdego kroku.',
     'contact.visit.campus': 'Odwiedź nasz kampus',
     'contact.call.us': 'Zadzwoń do nas',
     'contact.email.us': 'Napisz do nas',
@@ -524,7 +524,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     'course.beginner.outcomes.0': 'Wykonywać nowoczesne strzyżenia i wygolenia',
     'course.beginner.outcomes.1': 'Pewnie stylizować brody',
-    'course.beginner.outcomes.2': 'Rozpocząć karierę fryzjera',
+    'course.beginner.outcomes.2': 'Rozpocząć karierę barbera',
 
     // Pricing Plans Translation Keys
     'course.pricing.full.payment': 'Płatność pełna',
@@ -548,7 +548,7 @@ const translations: Record<Language, Record<string, string>> = {
     // About Us Page Translations
     'aboutus.hero.title': 'Od Zera do',
     'aboutus.hero.mastery': 'Mistrzostwa',
-    'aboutus.hero.description': 'Nie tylko uczymy fryzjerstwa — kształtujemy kariery. Ambicja spotyka się z precyzją w naszych salach.',
+    'aboutus.hero.description': 'Nie tylko uczymy barberingu — kształtujemy kariery. Ambicja spotyka się z precyzją w naszych salach.',
     'aboutus.legal.title': 'Informacje Prawne',
     'aboutus.legal.name': 'Nazwa Prawna:',
     'aboutus.legal.trading': 'Nazwa Handlowa:',
@@ -577,7 +577,7 @@ const translations: Record<Language, Record<string, string>> = {
     'aboutus.cta.enroll': 'Zapisz się teraz',
 
     // Individual Instructor Details
-    'instructor.1.about': 'Ekspert w klasycznych technikach fryzjerskich z ponad 10-letnim doświadczeniem. Specjalizuje się w precyzyjnych strzyżeniach i stylizacji brody.',
+    'instructor.1.about': 'Ekspert w klasycznych technikach barberskich z ponad 10-letnim doświadczeniem. Specjalizuje się w precyzyjnych strzyżeniach i stylizacji brody.',
     'instructor.1.experience': 'Doświadczenie: 12+ lat',
     'instructor.2.about': 'Mistrz nowoczesnych trendów i kreatywnych stylizacji. Prowadzi warsztaty dla zaawansowanych uczniów.',
     'instructor.2.experience': 'Doświadczenie: 8+ lat',
@@ -585,7 +585,7 @@ const translations: Record<Language, Record<string, string>> = {
     'instructor.3.experience': 'Doświadczenie: 15+ lat',
     'instructor.4.about': 'Ekspert w nowoczesnych technikach strzyżenia i koloryzacji. Certyfikowany instruktor międzynarodowy.',
     'instructor.4.experience': 'Doświadczenie: 10+ lat',
-    'instructor.5.about': 'Mistrz klasycznego fryzjerstwa i stylizacji. Prowadzi kursy dla zaawansowanych.',
+    'instructor.5.about': 'Mistrz klasycznego barberingu i stylizacji. Prowadzi kursy dla zaawansowanych.',
     'instructor.5.experience': 'Doświadczenie: 14+ lat',
   },
 
