@@ -300,11 +300,7 @@ const translations: Record<Language, Record<string, string>> = {
     'blog.post.barber-toolkit-essentials.title': 'Zestaw narzędzi barbera: Niezbędne vs Miłe w posiadaniu',
     'blog.post.barber-toolkit-essentials.tag': 'NARZĘDZIA',
     
-    // About Section Translation Keys  
-    'about.features.certified': 'Programy certyfikowane ISO 9001:2015 i SZOE z uznaniem branży',
-    'about.features.handson': 'Szkolenie praktyczne (80% praktyki) z profesjonalnym sprzętem',
-    'about.features.placement': 'Pomoc w znalezieniu pracy i wsparcie finansowe',
-    'about.learn.more': 'Dowiedz się więcej o nas',
+
     'about.certified.excellence': 'Certyfikowana doskonałość',
     'about.state.licensed': 'Akademia licencjonowana przez państwo',
     'about.certificate.title': 'Oficjalny Certyfikat',
@@ -317,11 +313,7 @@ const translations: Record<Language, Record<string, string>> = {
     'about.certificate.szoe.description': 'Państwowa certyfikacja dla instytucji edukacyjnych w Polsce.',
     'common.free': 'BEZPŁATNE',
     
-    // Course Translation Keys
-    'courses.enroll.now': 'Zapisz się teraz',
-    'courses.cta.title': 'Gotowy, aby rozpocząć karierę barbera?',
-    'courses.cta.description': 'Dołącz do naszej akademii i opanuj umiejętności, które wyróżnią cię w branży barberskiej.',
-    'courses.cta.button': 'Rozpocznij swoją podróż',
+
     'course.duration.4hours': 'Codziennie, 4 godziny',
     'course.duration.1month': 'Codziennie, 1 miesiąc',
     'course.duration.3days': 'Codziennie, 3 dni',
@@ -343,33 +335,7 @@ const translations: Record<Language, Record<string, string>> = {
     'instructor.ali.karimov': 'Ali Karimov',
     'instructor.tomasz.kaczorowski': 'Tomasz Kaczorowski',
 
-    // Contact Translation Keys
-    'contact.title': 'Rozpocznij swoją',
-    'contact.title.highlight': 'podróż',
-    'contact.title.today': 'dzisiaj',
-    'contact.subtitle': 'Gotowy, aby przekształcić swoją pasję w profesjonalną karierę? Skontaktuj się z naszym zespołem rekrutacyjnym, aby dowiedzieć się więcej o naszych programach i zaplanować wizytę w akademii.',
-    'contact.visit.campus': 'Odwiedź naszą akademię',
-    'contact.call.us': 'Zadzwoń do nas',
-    'contact.email.us': 'Napisz do nas',
-    'contact.hours': 'Godziny pracy',
-    'contact.hours.schedule': 'Poniedziałek-Piątek: 12:00 - 21:00, Sobota: 12:00 - 17:00',
-    'contact.form.title': 'Uzyskaj więcej informacji',
-    'contact.form.first.name': 'Imię',
-    'contact.form.last.name': 'Nazwisko',
-    'contact.form.email': 'Email',
-    'contact.form.phone': 'Telefon',
-    'contact.form.program': 'Program zainteresowania',
-    'contact.form.message': 'Wiadomość',
-    'contact.form.submit': 'Wyślij zapytanie',
-    'contact.form.required': 'Wypełnij wymagane pola',
-    'contact.form.required.desc': 'Imię, Nazwisko i Email są wymagane.',
-    'contact.form.thank.you': 'Dziękujemy za zainteresowanie!',
-    'contact.form.thank.you.desc': 'Skontaktujemy się z Tobą wkrótce z dodatkowymi informacjami.',
-    'contact.program.free': 'Bezpłatny kurs',
-    'contact.program.beginner': 'Kurs podstawowy (1 miesiąc)',
-    'contact.program.advanced': 'Kurs zaawansowany (3 dni)',
-    'contact.program.specialist': 'Kurs specjalistyczny (2 tygodnie)',
-    'contact.program.select': 'Wybierz program',
+
 
     // Gallery Translation Keys  
     'gallery.title': 'Nasza',
@@ -380,15 +346,9 @@ const translations: Record<Language, Record<string, string>> = {
     'gallery.all.success.stories': 'Wszystkie historie sukcesu',
     'gallery.view.full': 'Zobacz pełną galerię',
 
-    // Blog Translation Keys
-    'blog.latest': 'Najnowsze wpisy',
-    'blog.tips': 'Zdobądź profesjonalne wskazówki, trendy branżowe i wgląd w ekspertyzy od naszych ekspertów.',
-    'blog.read.more': 'Czytaj więcej',
 
-    // CTA Enroll Translation Keys
-    'cta.enroll.title': 'Rozpocznij swoją podróż barberską już dziś',
-    'cta.enroll.description': 'Aplikuj teraz i dołącz do naszej społeczności elitarnych barberów kształtujących przyszłość stylu.',
-    'cta.enroll.button': 'Rozpocznij swoją podróż',
+
+
 
     // Page Translation Keys
     'course.not.found': 'Kurs nie został znaleziony.',
@@ -421,43 +381,7 @@ const translations: Record<Language, Record<string, string>> = {
     'blog.tag.tools': 'Narzędzia',
     'blog.filter.all': 'Wszystkie',
 
-    // Contact Page Translation Keys
-    'contact.title': 'Skontaktuj się',
-    'contact.title.highlight': 'z nami',
-    'contact.title.today': 'już dziś',
-    'contact.subtitle': 'Gotowy, aby rozpocząć swoją podróż w barberingu? Nasz zespół przyjęć jest tutaj, aby pomóc Ci każdego kroku.',
-    'contact.visit.campus': 'Odwiedź nasz kampus',
-    'contact.call.us': 'Zadzwoń do nas',
-    'contact.email.us': 'Napisz do nas',
-    'contact.hours': 'Godziny pracy',
-    'contact.hours.weekdays': 'Pon-Pt: 12:00 - 21:00',
-    'contact.hours.saturday': 'Sob: 12:00 - 17:00',
-    'contact.hours.sunday': 'Niedz: Zamknięte',
-    'contact.form.first.name': 'Imię',
-    'contact.form.last.name': 'Nazwisko',
-    'contact.form.email': 'Email',
-    'contact.form.phone': 'Telefon',
-    'contact.form.program': 'Program',
-    'contact.form.program.placeholder': 'Wybierz program...',
-    'contact.form.program.basic': 'Podstawowy kurs barberski',
-    'contact.form.program.advanced': 'Zaawansowane techniki',
-    'contact.form.program.complete': 'Kompletny program',
-    'contact.form.program.free': 'Darmowy kurs',
-    'contact.form.message': 'Wiadomość',
-    'contact.form.message.placeholder': 'Opowiedz nam o swoich celach i doświadczeniu...',
-    'contact.form.title': 'Wyślij nam wiadomość',
-    'contact.form.submit': 'Wyślij wiadomość',
-    'contact.form.required': 'Wymagane pola',
-    'contact.form.required.desc': 'Proszę wypełnić wszystkie wymagane pola.',
-    'contact.form.thank.you': 'Dziękujemy!',
-    'contact.form.thank.you.desc': 'Twoja wiadomość została wysłana. Wkrótce się z Tobą skontaktujemy.',
-    'contact.page.title': 'Kontakt',
-    'contact.page.highlight': 'K&K Academy',
-    'contact.page.subtitle': 'Masz pytania dotyczące naszych programów, cen lub zapisów? Skontaktuj się z nami, a nasz zespół przyjęć chętnie pomoże.',
-    'contact.form.error': 'Błąd wysyłania wiadomości',
-    'contact.form.error.desc': 'Spróbuj ponownie później.',
-    'contact.form.success': 'Wiadomość wysłana!',
-    'contact.form.success.desc': 'Wkrótce się z Tobą skontaktujemy.',
+
 
     // Course Details Translation Keys
     'course.not.found': 'Kurs nie znaleziony',
