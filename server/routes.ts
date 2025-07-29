@@ -160,7 +160,37 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Serve social media image with proper headers - BLACK LOGO for search visibility
+  app.get('/social-image.svg', (req, res) => {
+    res.setHeader('Content-Type', 'image/svg+xml');
+    res.setHeader('Cache-Control', 'public, max-age=31536000');
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.sendFile(join(process.cwd(), 'public', 'social-image.svg'));
+  });
 
+  // Serve favicon with proper headers - BLACK LOGO for browser tab visibility
+  app.get('/favicon.svg', (req, res) => {
+    res.setHeader('Content-Type', 'image/svg+xml');
+    res.setHeader('Cache-Control', 'public, max-age=31536000');
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.sendFile(join(process.cwd(), 'public', 'favicon.svg'));
+  });
+
+  // Serve favicon.ico with proper headers
+  app.get('/favicon.ico', (req, res) => {
+    res.setHeader('Content-Type', 'image/x-icon');
+    res.setHeader('Cache-Control', 'public, max-age=31536000');
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.sendFile(join(process.cwd(), 'public', 'favicon.ico'));
+  });
+
+  // Serve apple-touch-icon with proper headers
+  app.get('/apple-touch-icon.png', (req, res) => {
+    res.setHeader('Content-Type', 'image/png');
+    res.setHeader('Cache-Control', 'public, max-age=31536000');
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.sendFile(join(process.cwd(), 'public', 'apple-touch-icon.png'));
+  });
 
   const httpServer = createServer(app);
   return httpServer;
