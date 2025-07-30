@@ -97,8 +97,8 @@ export default function About() {
               </div>
               
               <img 
-                src="/attached_assets/Cert_243_2025_KKBarber_page-0001_1752305443741.jpg" 
-                alt="K&K Barber Academy Quality Management System Certificate ISO 9001:2015-10" 
+                src="/cert-iso-new.png" 
+                alt="K&K Barber Academy Quality Management System Certificate ISO 9001:2015-10 - Systemu Zarządzania Jakością" 
                 className="rounded-xl shadow-lg w-full h-auto hover:scale-105 transition-all duration-500"
               />
               

@@ -81,9 +81,9 @@ export default function AboutUs() {
           <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden group hover:shadow-xl transition-all duration-300">
             <div className="aspect-[3/4] relative overflow-hidden">
               <img 
-                src="/cert-iso.jpg"
-                alt="ISO 9001:2015-10 Certificate"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                src="/cert-iso-new.png"
+                alt="ISO 9001:2015-10 Certificate - Systemu Zarządzania Jakością"
+                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300 bg-white"
               />
               <div className="absolute top-4 left-4">
                 <div className="bg-premium-accent rounded-full p-2">
@@ -101,9 +101,9 @@ export default function AboutUs() {
           <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden group hover:shadow-xl transition-all duration-300">
             <div className="aspect-[3/4] relative overflow-hidden">
               <img 
-                src="/cert-szoe.jpg"
-                alt="SZOE Certificate"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                src="/cert-szoe-new.png"
+                alt="SZOE Certificate - Systemu Zarządzania Organizacją Edukacyjną"
+                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300 bg-white"
               />
               <div className="absolute top-4 left-4">
                 <div className="bg-premium-accent rounded-full p-2">
