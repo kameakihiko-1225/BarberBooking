@@ -106,6 +106,17 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+**July 30, 2025 - Certificate Images Update and Final Translation Fix - COMPLETED**
+- Successfully replaced all certificate images with authentic SZOE and ISO certificates provided by user:
+  - SZOE Certificate: "Systemu Zarządzania Organizacją Edukacyjną nr 244/2025" - replaces placeholder certificates
+  - ISO Certificate: "Systemu Zarządzania Jakością nr 243/2025" (PN-EN ISO 9001:2015-10) - uses official certification
+- Updated both about-us page certificate section and homepage about component with new authentic images
+- Changed image display from object-cover to object-contain for better certificate visibility and readability
+- Enhanced alt text with proper Polish certificate descriptions for accessibility
+- Fixed final missing translation key "about.learn.more" in Polish section: "Dowiedz się więcej o nas"
+- Achieved 100% translation coverage with zero LSP diagnostic errors across all three languages
+- Website now displays official K&K Barber Company certificates with proper Polish professional formatting
+
 **July 30, 2025 - Hero Section Content Update with New Polish Text - COMPLETED**
 - Updated hero section description across all three languages with new Polish text provided by user:
   - Polish: "Nie uczymy tylko fryzjerstwa — pomagamy budować prawdziwe kariery. To tu ambicja spotyka się z precyzją, a pasja zamienia się w zawód."

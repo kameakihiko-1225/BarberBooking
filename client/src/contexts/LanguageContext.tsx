@@ -327,6 +327,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     'about.certified.excellence': 'Certyfikowana doskonałość',
     'about.state.licensed': 'Akademia licencjonowana przez państwo',
+    'about.learn.more': 'Dowiedz się więcej o nas',
     'about.certificate.title': 'Oficjalny Certyfikat',
     'about.certificate.subtitle': 'Rzetelna certyfikacja systemu zarządzania jakością',
     'about.certificate.description': 'Certyfikat potwierdza spełnienie norm jakości ISO 9001:2015-10 w zakresie szkoleń specjalistycznych dla branży barberskiej.',
