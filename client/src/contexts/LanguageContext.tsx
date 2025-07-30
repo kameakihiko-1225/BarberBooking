@@ -89,11 +89,9 @@ const translations: Record<Language, Record<string, string>> = {
     'about.title': 'K&K Akademia Barberingu',
     'about.subtitle': 'Dlaczego Wybierz K&K',
     'about.description': 'Jako jedyna akademia w Polsce możemy pochwalić się dwoma certyfikatami jakości. Nasz zespół tworzą wyłącznie wykwalifikowani edukatorzy, którzy nie tylko zdali egzaminy czeladnicze, ale również posiadają przygotowanie pedagogiczne. Stawiamy na najwyższe standardy nauczania i realne przygotowanie do pracy w zawodzie barbera.',
-    'features.practical.title': '80% praktyki, 20% teorii',
-    'features.groups.title': 'Małe grupy (max 6 osób)',
-    'features.tools.title': 'Narzędzia w cenie kursu',
-    'features.certificates.title': 'Podwójne certyfikaty ISO i SZOE',
-    'features.funding.title': 'Wsparcie finansowe dostępne',
+    'features.practical.title': 'Certyfikaty państwowe, uznane w branży',
+    'features.groups.title': 'Praktyka na profesjonalnym sprzęcie',
+    'features.tools.title': 'Pomoc w znalezieniu pracy i dalszym rozwoju',
     
 
 
@@ -565,14 +563,12 @@ const translations: Record<Language, Record<string, string>> = {
     // About Section
     'about.title': 'About Us',
     'about.subtitle': 'Why Choose K&K Academy',
-    'about.description': 'We are the only academy with two quality certificates. We are the only academy where all educators have passed their apprenticeship exams. All educators have teaching qualifications.',
+    'about.description': 'As the only academy in Poland, we can boast two quality certificates. Our team consists exclusively of qualified educators who not only passed apprenticeship exams, but also have pedagogical preparation. We focus on the highest teaching standards and real preparation for work in the barber profession.',
     
     // Why Choose K&K Features
-    'features.practical.title': '80% hands-on practice with real clients & manikins',
-    'features.groups.title': 'Small groups for personalised mentorship',
-    'features.tools.title': 'All tools & products provided — zero hidden costs',
-    'features.certificates.title': 'Recognised certificates upon completion',
-    'features.funding.title': 'Help securing up to 100% financial support',
+    'features.practical.title': 'State certificates, recognized in the industry',
+    'features.groups.title': 'Practice with professional equipment',
+    'features.tools.title': 'Help finding work and further development',
 
     // Courses
     'courses.title': 'Our Courses',
@@ -1048,12 +1044,10 @@ const translations: Record<Language, Record<string, string>> = {
     // About Section
     'about.title': 'Про нас',
     'about.subtitle': 'Чому варто обрати K&K Academy',
-    'about.description': 'Ми єдина академія з двома сертифікатами якості. Ми єдина академія, де всі викладачі склали іспити з підмайстерства. Усі викладачі мають педагогічну кваліфікацію.',
-    'features.practical.title': '80% практики, 20% теорії',
-    'features.groups.title': 'Малі групи (макс 6 осіб)',
-    'features.tools.title': 'Інструменти в ціні курсу',
-    'features.certificates.title': 'Подвійні сертифікати ISO і SZOE',
-    'features.funding.title': 'Фінансова підтримка доступна',
+    'about.description': 'Як єдина академія в Польщі, ми можемо пишатися двома сертифікатами якості. Нашу команду складають виключно кваліфіковані викладачі, які не лише склали підмайстерські іспити, але й мають педагогічну підготовку. Ми орієнтуємося на найвищі стандарти навчання та реальну підготовку до роботи в професії барбера.',
+    'features.practical.title': 'Державні сертифікати, визнані в галузі',
+    'features.groups.title': 'Практика з професійним обладнанням',
+    'features.tools.title': 'Допомога у пошуку роботи та подальшому розвитку',
 
     // Courses
     'courses.title': 'Наші курси',
