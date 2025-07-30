@@ -106,6 +106,14 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+**July 30, 2025 - Hero Section Content Update with New Polish Text - COMPLETED**
+- Updated hero section description across all three languages with new Polish text provided by user:
+  - Polish: "Nie uczymy tylko fryzjerstwa — pomagamy budować prawdziwe kariery. To tu ambicja spotyka się z precyzją, a pasja zamienia się w zawód."
+  - English: "We don't just teach hairdressing — we help build real careers. This is where ambition meets precision, and passion transforms into profession."
+  - Ukrainian: "Ми не просто навчаємо перукарську справу — ми допомагаємо будувати справжні кар'єри. Тут амбіції зустрічаються з точністю, а пристрасть перетворюється на професію."
+- Maintained consistent messaging about career development and professional transformation across all languages
+- Updated hero messaging to emphasize practical career building rather than just teaching
+
 **July 29, 2025 - Complete Translation System Fixes and Barber Terminology Standardization - COMPLETED**
 - Successfully resolved all missing translation keys that were displaying as raw keys instead of translated text
 - Fixed critical `features.funding.title` missing translation key across all three languages:

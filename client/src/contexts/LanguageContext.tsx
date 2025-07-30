@@ -67,7 +67,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Hero Section
     'hero.title': 'K&K Akademia Barberingu',
     'hero.subtitle': 'Od Zera do Mistrzostwa',
-    'hero.description': 'Nie tylko uczymy barberingu — kształtujemy kariery. Ambicja spotyka się z precyzją w naszych salach.',
+    'hero.description': 'Nie uczymy tylko fryzjerstwa — pomagamy budować prawdziwe kariery. To tu ambicja spotyka się z precyzją, a pasja zamienia się w zawód.',
     'hero.cta.primary': 'Zapisz się na Kurs',
     'hero.cta.secondary': 'Obejrzyj Galerię',
     'hero.stats.graduates': 'Absolwentów',
@@ -541,7 +541,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Hero Section
     'hero.title': 'K&K Barber Academy',
     'hero.subtitle': 'Master the Art of Barbering with Warsaw\'s Leading Instructors',
-    'hero.description': 'We are the only academy with two quality certificates. We are the only academy where all educators have passed their apprenticeship exams. All educators have teaching qualifications.',
+    'hero.description': 'We don\'t just teach hairdressing — we help build real careers. This is where ambition meets precision, and passion transforms into profession.',
     'hero.cta.primary': 'Enroll in Course',
     'hero.cta.secondary': 'View Gallery',
     'hero.stats.graduates': 'Graduates',
@@ -1024,7 +1024,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Hero Section
     'hero.title': 'Академія барберів K&K',
     'hero.subtitle': 'Опануйте мистецтво барберінгу з провідними інструкторами Варшави',
-    'hero.description': 'Ми єдина академія з двома сертифікатами якості. Ми єдина академія, де всі викладачі склали іспити з підмайстерства. Усі викладачі мають педагогічну кваліфікацію.',
+    'hero.description': 'Ми не просто навчаємо перукарську справу — ми допомагаємо будувати справжні кар\'єри. Тут амбіції зустрічаються з точністю, а пристрасть перетворюється на професію.',
     'hero.cta.primary': 'Записатися на курс',
     'hero.cta.secondary': 'Переглянути галерею',
     'hero.stats.graduates': 'Випускників',
