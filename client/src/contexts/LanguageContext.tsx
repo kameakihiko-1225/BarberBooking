@@ -87,7 +87,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // About Section
     'about.title': 'K&K Akademia Barberingu',
-    'about.subtitle': 'Dlaczego Wybierz K&K',
+    'about.subtitle': 'Dlaczego My?',
     'about.description': 'Jako jedyna akademia w Polsce możemy pochwalić się dwoma certyfikatami jakości. Nasz zespół tworzą wyłącznie wykwalifikowani edukatorzy, którzy nie tylko zdali egzaminy czeladnicze, ale również posiadają przygotowanie pedagogiczne. Stawiamy na najwyższe standardy nauczania i realne przygotowanie do pracy w zawodzie barbera.',
     'features.practical.title': '80% zajęć to praktyka — pracujesz na manekinach i z prawdziwymi klientami',
     'features.groups.title': 'Kameralne grupy — gwarantujemy indywidualne podejście i realny mentoring',
@@ -564,7 +564,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // About Section
     'about.title': 'About Us',
-    'about.subtitle': 'Why Choose K&K Academy',
+    'about.subtitle': 'Why Us?',
     'about.description': 'As the only academy in Poland, we can boast two quality certificates. Our team consists exclusively of qualified educators who not only passed apprenticeship exams, but also have pedagogical preparation. We focus on the highest teaching standards and real preparation for work in the barber profession.',
     
     // Why Choose K&K Features
@@ -1047,7 +1047,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // About Section
     'about.title': 'Про нас',
-    'about.subtitle': 'Чому варто обрати K&K Academy',
+    'about.subtitle': 'Чому ми?',
     'about.description': 'Як єдина академія в Польщі, ми можемо пишатися двома сертифікатами якості. Нашу команду складають виключно кваліфіковані викладачі, які не лише склали підмайстерські іспити, але й мають педагогічну підготовку. Ми орієнтуємося на найвищі стандарти навчання та реальну підготовку до роботи в професії барбера.',
     'features.practical.title': '80% занять — це практика — ви працюєте з манекенами та справжніми клієнтами',
     'features.groups.title': 'Камерні групи — гарантуємо індивідуальний підхід та реальне наставництво',
