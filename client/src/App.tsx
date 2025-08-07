@@ -12,6 +12,7 @@ import GalleryPage from "@/pages/gallery";
 import StudentsGalleryPage from "@/pages/students-gallery";
 import SuccessGalleryPage from "@/pages/success-gallery";
 import ContactsPage from "@/pages/contacts";
+import AdminPage from "@/pages/admin";
 import Navigation from "@/components/navigation";
 import CourseDetails from "@/pages/course-details";
 import CoursesPage from "@/pages/courses";
@@ -32,6 +33,7 @@ function Router() {
       <Route path="/success-stories" component={SuccessGalleryPage} />
       <Route path="/course/:id" component={CourseDetails} />
       <Route path="/contact" component={ContactsPage} />
+      <Route path="/admin" component={AdminPage} />
 
       <Route component={NotFound} />
     </Switch>

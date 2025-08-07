@@ -1,4 +1,8 @@
-import { users, inquiries, mediaFiles, type User, type InsertUser, type Inquiry, type InsertInquiry, type MediaFile } from "@shared/schema";
+import { 
+  users, inquiries, mediaFiles, crmConfigs, crmLeads,
+  type User, type InsertUser, type Inquiry, type InsertInquiry, type MediaFile,
+  type CrmConfig, type InsertCrmConfig, type CrmLead, type InsertCrmLead
+} from "@shared/schema";
 import { db } from "./db";
 import { eq, desc } from "drizzle-orm";
 
@@ -9,6 +13,15 @@ export interface IStorage {
   createInquiry(inquiry: InsertInquiry): Promise<Inquiry>;
   getInquiries(): Promise<Inquiry[]>;
   getMediaFilesByRoute(route: string): Promise<MediaFile[]>;
+  
+  // CRM configuration methods
+  getActiveCrmConfig(): Promise<CrmConfig | undefined>;
+  createCrmConfig(config: InsertCrmConfig): Promise<CrmConfig>;
+  updateCrmConfig(id: number, config: Partial<InsertCrmConfig>): Promise<CrmConfig>;
+  
+  // CRM lead tracking methods
+  createCrmLead(crmLead: InsertCrmLead): Promise<CrmLead>;
+  getCrmLeadByInquiryId(inquiryId: number): Promise<CrmLead | undefined>;
 }
 
 export class MemStorage implements IStorage {
@@ -29,7 +42,7 @@ export class MemStorage implements IStorage {
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
-    for (const user of this.users.values()) {
+    for (const [_, user] of this.users) {
       if (user.username === username) return user;
     }
     return undefined;
@@ -47,7 +60,10 @@ export class MemStorage implements IStorage {
     const inquiry: Inquiry = { 
       ...insertInquiry, 
       id, 
-      createdAt: new Date() 
+      createdAt: new Date(),
+      phone: insertInquiry.phone || null,
+      program: insertInquiry.program || null,
+      message: insertInquiry.message || null
     };
     this.inquiries.set(id, inquiry);
     return inquiry;
@@ -60,6 +76,27 @@ export class MemStorage implements IStorage {
   async getMediaFilesByRoute(route: string): Promise<MediaFile[]> {
     // MemStorage fallback - return empty array since media is file-based
     return [];
+  }
+
+  // CRM methods - not implemented for MemStorage
+  async getActiveCrmConfig(): Promise<CrmConfig | undefined> {
+    throw new Error('CRM operations not supported in MemStorage');
+  }
+
+  async createCrmConfig(config: InsertCrmConfig): Promise<CrmConfig> {
+    throw new Error('CRM operations not supported in MemStorage');
+  }
+
+  async updateCrmConfig(id: number, config: Partial<InsertCrmConfig>): Promise<CrmConfig> {
+    throw new Error('CRM operations not supported in MemStorage');
+  }
+
+  async createCrmLead(crmLead: InsertCrmLead): Promise<CrmLead> {
+    throw new Error('CRM operations not supported in MemStorage');
+  }
+
+  async getCrmLeadByInquiryId(inquiryId: number): Promise<CrmLead | undefined> {
+    throw new Error('CRM operations not supported in MemStorage');
   }
 }
 
@@ -106,6 +143,57 @@ export class DatabaseStorage implements IStorage {
       console.error(`[DatabaseStorage] Error fetching media files for route ${route}:`, error);
       return [];
     }
+  }
+
+  // CRM configuration methods
+  async getActiveCrmConfig(): Promise<CrmConfig | undefined> {
+    const [config] = await db
+      .select()
+      .from(crmConfigs)
+      .where(eq(crmConfigs.isActive, 1))
+      .limit(1);
+    return config;
+  }
+
+  async createCrmConfig(config: InsertCrmConfig): Promise<CrmConfig> {
+    // Deactivate any existing active configs
+    await db
+      .update(crmConfigs)
+      .set({ isActive: 0 })
+      .where(eq(crmConfigs.isActive, 1));
+
+    const [newConfig] = await db
+      .insert(crmConfigs)
+      .values({ ...config, isActive: 1 })
+      .returning();
+    return newConfig;
+  }
+
+  async updateCrmConfig(id: number, config: Partial<InsertCrmConfig>): Promise<CrmConfig> {
+    const [updatedConfig] = await db
+      .update(crmConfigs)
+      .set({ ...config, updatedAt: new Date() })
+      .where(eq(crmConfigs.id, id))
+      .returning();
+    return updatedConfig;
+  }
+
+  // CRM lead tracking methods
+  async createCrmLead(crmLead: InsertCrmLead): Promise<CrmLead> {
+    const [newCrmLead] = await db
+      .insert(crmLeads)
+      .values(crmLead)
+      .returning();
+    return newCrmLead;
+  }
+
+  async getCrmLeadByInquiryId(inquiryId: number): Promise<CrmLead | undefined> {
+    const [crmLead] = await db
+      .select()
+      .from(crmLeads)
+      .where(eq(crmLeads.inquiryId, inquiryId))
+      .limit(1);
+    return crmLead;
   }
 }
 

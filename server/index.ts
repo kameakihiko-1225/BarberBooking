@@ -2,6 +2,7 @@ import "dotenv/config";
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import { crmService } from "./crmService";
 import path from "path";
 
 const app = express();
@@ -59,6 +60,18 @@ app.get('/social-image.svg', (req, res) => {
 });
 
 (async () => {
+  // Initialize CRM service on startup
+  try {
+    const crmInitialized = await crmService.initialize();
+    if (crmInitialized) {
+      console.log('✓ CRM integration initialized successfully');
+    } else {
+      console.log('⚠ CRM integration not configured - will save inquiries locally only');
+    }
+  } catch (error) {
+    console.error('✗ CRM initialization failed:', error);
+  }
+
   const server = await registerRoutes(app);
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {

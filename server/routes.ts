@@ -1,14 +1,15 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertInquirySchema } from "@shared/schema";
+import { insertInquirySchema, insertCrmConfigSchema } from "@shared/schema";
+import { crmService } from "./crmService";
 import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
 import { getMediaList } from "./media";
-import { blogPosts } from '../shared/schema';
 import { eq, desc } from 'drizzle-orm';
 import { db } from './db';
 import * as path from "path";
+import { join } from "path";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Security headers middleware to force HTTPS
@@ -59,16 +60,33 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.setHeader('Cache-Control', 'public, max-age=86400');
     res.sendFile(path.join(process.cwd(), 'public', 'social-image.svg'));
   });
-  // Contact form submission endpoint
+  // Contact form submission endpoint with CRM integration
   app.post("/api/contact", async (req, res) => {
     try {
       const validatedData = insertInquirySchema.parse(req.body);
-      const inquiry = await storage.createInquiry(validatedData);
+      
+      // Process the form submission with CRM integration
+      const result = await crmService.processFormSubmission(validatedData);
+      
+      let message = "Thank you for your interest! We will contact you soon.";
+      
+      if (result.crmResult) {
+        if (result.crmResult.duplicateDetected) {
+          message += " We found your previous inquiry and updated your information.";
+        } else {
+          message += " Your inquiry has been added to our system.";
+        }
+      } else if (result.error) {
+        console.warn(`[CRM] Warning: ${result.error}`);
+        // Still return success since local inquiry was saved
+      }
       
       res.json({ 
         success: true, 
-        message: "Thank you for your interest! We will contact you soon.",
-        inquiry: inquiry 
+        message,
+        inquiry: result.inquiry,
+        crmSynced: !!result.crmResult,
+        duplicateDetected: result.crmResult?.duplicateDetected || false
       });
     } catch (error) {
       if (error instanceof z.ZodError) {
@@ -190,6 +208,126 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.setHeader('Cache-Control', 'public, max-age=31536000');
     res.setHeader('X-Content-Type-Options', 'nosniff');
     res.sendFile(join(process.cwd(), 'public', 'apple-touch-icon.png'));
+  });
+
+  // CRM Configuration endpoints
+  app.get("/api/crm/config", async (req, res) => {
+    try {
+      const config = await storage.getActiveCrmConfig();
+      if (!config) {
+        return res.json({ 
+          configured: false, 
+          message: "No CRM configuration found" 
+        });
+      }
+      
+      // Don't send sensitive data to client
+      const safeConfig = {
+        id: config.id,
+        subdomain: config.subdomain,
+        isActive: config.isActive,
+        hasAccessToken: !!config.accessToken,
+        configured: true,
+        connectedFields: {
+          pipelineId: config.pipelineId,
+          statusId: config.statusId,
+          emailFieldId: config.emailFieldId,
+          phoneFieldId: config.phoneFieldId,
+          messageFieldId: config.messageFieldId
+        }
+      };
+      
+      res.json(safeConfig);
+    } catch (error) {
+      console.error("Get CRM config error:", error);
+      res.status(500).json({ 
+        success: false, 
+        message: "Internal server error" 
+      });
+    }
+  });
+
+  app.post("/api/crm/config", async (req, res) => {
+    try {
+      const validatedData = insertCrmConfigSchema.parse(req.body);
+      const config = await storage.createCrmConfig(validatedData);
+      
+      // Initialize the CRM service with new config
+      await crmService.initialize();
+      
+      res.json({ 
+        success: true, 
+        message: "CRM configuration saved successfully",
+        configId: config.id
+      });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const validationError = fromZodError(error);
+        res.status(400).json({ 
+          success: false, 
+          message: "Invalid configuration data", 
+          error: validationError.toString() 
+        });
+      } else {
+        console.error("CRM config error:", error);
+        res.status(500).json({ 
+          success: false, 
+          message: "Internal server error" 
+        });
+      }
+    }
+  });
+
+  app.get("/api/crm/status", async (req, res) => {
+    try {
+      const isAvailable = crmService.isAvailable();
+      const config = await storage.getActiveCrmConfig();
+      
+      res.json({
+        available: isAvailable,
+        configured: !!config,
+        initialized: isAvailable && !!config
+      });
+    } catch (error) {
+      console.error("CRM status error:", error);
+      res.status(500).json({ 
+        success: false, 
+        message: "Internal server error" 
+      });
+    }
+  });
+
+  app.post("/api/crm/retry/:inquiryId", async (req, res) => {
+    try {
+      const inquiryId = parseInt(req.params.inquiryId);
+      
+      if (isNaN(inquiryId)) {
+        return res.status(400).json({
+          success: false,
+          message: "Invalid inquiry ID"
+        });
+      }
+
+      const success = await crmService.retryFailedSync(inquiryId);
+      
+      if (success) {
+        res.json({
+          success: true,
+          message: "Inquiry successfully synced to CRM"
+        });
+      } else {
+        res.status(400).json({
+          success: false,
+          message: "Failed to sync inquiry to CRM"
+        });
+      }
+    } catch (error) {
+      console.error("CRM retry error:", error);
+      res.status(500).json({ 
+        success: false, 
+        message: "Internal server error" 
+      });
+    }
   });
 
   const httpServer = createServer(app);
