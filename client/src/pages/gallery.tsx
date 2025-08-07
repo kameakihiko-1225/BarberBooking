@@ -179,7 +179,7 @@ export default function GalleryPage() {
       <section className="text-center mb-12 px-4 scroll-fade-in">
         <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-4">{t('page.gallery.title')} <span className="premium-accent">{t('page.gallery.title.highlight')}</span></h1>
         <p className="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base mb-6">
-          {t('page.gallery.explore')} - {data.length} professional works
+          {t('page.gallery.explore')} - {data.length} {t('gallery.professional.works')}
         </p>
         
         {/* View Mode Toggle & Controls */}
@@ -194,7 +194,7 @@ export default function GalleryPage() {
               }`}
             >
               <List size={16} />
-              {isMobile ? 'Flow' : 'Masonry View'}
+              {isMobile ? t('gallery.flow') : t('gallery.masonry.view')}
             </button>
             <button
               onClick={() => setViewMode('grid')}
@@ -205,7 +205,7 @@ export default function GalleryPage() {
               }`}
             >
               <Grid size={16} />
-              {isMobile ? 'Grid' : 'Grid View'}
+              {isMobile ? t('gallery.grid') : t('gallery.grid.view')}
             </button>
           </div>
           
@@ -214,7 +214,7 @@ export default function GalleryPage() {
               onClick={() => setShowAll(true)}
               className="px-6 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-full text-sm font-medium transition-colors"
             >
-              Load All ({data.length - initialLimit} more)
+              {t('gallery.load.all')} ({data.length - initialLimit} {t('gallery.more.works')})
             </button>
           )}
         </div>

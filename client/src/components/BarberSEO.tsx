@@ -33,57 +33,28 @@ export default function BarberSEO() {
 
   const currentKeywords = barberKeywords[language as keyof typeof barberKeywords] || barberKeywords.pl;
 
+  const seoTitles = {
+    pl: "Kurs Barberingu Warszawa - Akademia Barberingu Polska",
+    en: "Barber School Warsaw Europe - International Barber Course", 
+    uk: "Академія барберів Польща - Курси барберів у Польщі"
+  };
+
+  const seoDescriptions = {
+    pl: "Kurs barberingu Warszawa w K&K Academy - najlepsze kursy barberingu w Polsce. Nauka barberingu od podstaw z certyfikatem. Akademia barberingu Polska.",
+    en: "Barber school Warsaw Europe at K&K Academy - leading international barber course. Professional barber training with certification. European barber academy in Poland.",
+    uk: "Академія барберів Польща у K&K Academy - найкращі курси барберів у Польщі. Школа барберів для українців у Польщі з сертифікацією."
+  };
+
+  const currentTitle = seoTitles[language as keyof typeof seoTitles] || seoTitles.pl;
+  const currentDescription = seoDescriptions[language as keyof typeof seoDescriptions] || seoDescriptions.pl;
+
   return (
     <div style={{ display: 'none' }}>
       {/* Hidden semantic content for SEO */}
-      <h1>Kurs Barberingu Warszawa - Akademia Barberingu Polska</h1>
-      <h2>Barber School Warsaw Europe - International Barber Course</h2>
-      <h3>Академія барберів Польща - Курси барберів у Польщі</h3>
-      <h4>École de Barbier Varsovie - Cours de Barbier en Pologne</h4>
-      <h5>Friseurschule Warschau - Barber Akademie Europa</h5>
-      <h6>Scuola Barbiere Varsavia - Corso Barbiere Polonia</h6>
+      <h1>{currentTitle}</h1>
       
       <div>
-        <p>
-          Kurs barberingu Warszawa w K&K Academy - najlepsze kursy barberingu w Polsce. 
-          Nauka barberingu od podstaw z certyfikatem. Akademia barberingu Polska.
-        </p>
-        <p>
-          Barber school Warsaw Europe at K&K Academy - leading international barber course. 
-          Professional barber training with certification. European barber academy in Poland.
-        </p>
-        <p>
-          Академія барберів Польща у K&K Academy - найкращі курси барберів у Польщі. 
-          Школа барберів для українців у Польщі з сертифікацією.
-        </p>
-        <p>
-          École de barbier Varsovie K&K Academy - meilleure formation de barbier en Europe. 
-          Cours de barbier professionnel avec certification en Pologne.
-        </p>
-        <p>
-          Friseurschule Warschau K&K Academy - führende Barber Akademie in Europa. 
-          Professionelle Friseurausbildung mit Zertifizierung in Polen.
-        </p>
-        <p>
-          Scuola barbiere Varsavia K&K Academy - migliore accademia barbiere in Europa. 
-          Formazione professionale barbiere con certificazione in Polonia.
-        </p>
-        <p>
-          Escuela de barbero Varsovia K&K Academy - mejor academia de barbero en Europa. 
-          Formación profesional de barbero con certificación en Polonia.
-        </p>
-        <p>
-          Академия барбера Варшава K&K Academy - ведущая школа барберов в Европе. 
-          Профессиональное обучение барберов с сертификацией в Польше.
-        </p>
-        <p>
-          Барбер академиясы Варшава K&K Academy - Еуропадағы үздік барбер мектебі. 
-          Сертификатпен кәсіби барбер дайындау Польшада.
-        </p>
-        <p>
-          Barber akademiyasi Varshava K&K Academy - Evropadagi eng yaxshi barber maktabi. 
-          Polshada sertifikat bilan professional barber ta'limi.
-        </p>
+        <p>{currentDescription}</p>
       </div>
 
       <ul>

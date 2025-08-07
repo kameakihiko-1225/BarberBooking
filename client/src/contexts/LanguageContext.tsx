@@ -184,6 +184,8 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.follow': 'Śledź nas',
     'footer.rights': 'Wszystkie prawa zastrzeżone.',
 
+
+
     // Blog
     'blog.title': 'Nasz Blog',
     'blog.subtitle': 'Najnowsze wiadomości i wskazówki',
@@ -387,6 +389,18 @@ const translations: Record<Language, Record<string, string>> = {
     'page.blog.title': 'Akademia',
     'page.blog.title.highlight': 'Wskazówki',
     'page.blog.subtitle': 'Wiadomości, porady i trendy ze świata nowoczesnego barberingu.',
+
+    // Gallery UI Elements
+    'gallery.professional.works': 'profesjonalnych prac',
+    'gallery.masonry.view': 'Widok kafelkowy',
+    'gallery.grid.view': 'Widok siatki',
+    'gallery.flow': 'Kafelki',
+    'gallery.grid': 'Siatka',
+    'gallery.load.all': 'Załaduj wszystkie',
+    'gallery.more.works': 'więcej prac',
+    'gallery.size.compact': 'Kompaktowy',
+    'gallery.size.standard': 'Standardowy',
+    'gallery.size.spacious': 'Przestronny',
 
     // Blog Post Translation Keys
     'blog.post.career.title': 'Jak rozpocząć karierę w barberingu',
@@ -655,6 +669,8 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.follow': 'Follow Us',
     'footer.rights': 'All rights reserved.',
 
+
+
     // Blog
     'blog.title': 'Our Blog',
     'blog.subtitle': 'Latest news and tips',
@@ -776,6 +792,18 @@ const translations: Record<Language, Record<string, string>> = {
     'page.blog.title': 'Academy',
     'page.blog.title.highlight': 'Insights',
     'page.blog.subtitle': 'News, tips and trends from the world of modern barbering.',
+
+    // Gallery UI Elements
+    'gallery.professional.works': 'professional works',
+    'gallery.masonry.view': 'Masonry View',
+    'gallery.grid.view': 'Grid View',
+    'gallery.flow': 'Flow',
+    'gallery.grid': 'Grid',
+    'gallery.load.all': 'Load All',
+    'gallery.more.works': 'more works',
+    'gallery.size.compact': 'Compact',
+    'gallery.size.standard': 'Standard',
+    'gallery.size.spacious': 'Spacious',
 
     // Blog Post Translation Keys
     'blog.post.career.title': 'How to Start a Career in Barbering',
@@ -1134,6 +1162,8 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.follow': 'Слідкуйте за нами',
     'footer.rights': 'Всі права захищені.',
 
+
+
     // Blog
     'blog.title': 'Наш блог',
     'blog.subtitle': 'Останні новини та поради',
@@ -1245,6 +1275,18 @@ const translations: Record<Language, Record<string, string>> = {
     'page.blog.title': 'Думки',
     'page.blog.title.highlight': 'Академії',
     'page.blog.subtitle': 'Новини, поради та тренди зі світу сучасного барберінгу.',
+
+    // Gallery UI Elements
+    'gallery.professional.works': 'професійних робіт',
+    'gallery.masonry.view': 'Плиткове відображення',
+    'gallery.grid.view': 'Відображення сітки',
+    'gallery.flow': 'Плитки',
+    'gallery.grid': 'Сітка',
+    'gallery.load.all': 'Завантажити все',
+    'gallery.more.works': 'більше робіт',
+    'gallery.size.compact': 'Компактний',
+    'gallery.size.standard': 'Стандартний',
+    'gallery.size.spacious': 'Просторий',
 
     // Blog Post Translation Keys
     'blog.post.career.title': 'Як розпочати кар\'єру в барберінгу',

@@ -201,7 +201,7 @@ export default function StudentsGalleryPage() {
               }`}
             >
               <Grid3X3 size={14} />
-              {!isMobile && 'Compact'}
+              {!isMobile && t('gallery.size.compact')}
             </button>
             <button
               onClick={() => setGridSize('comfortable')}
@@ -212,7 +212,7 @@ export default function StudentsGalleryPage() {
               }`}
             >
               <LayoutGrid size={14} />
-              {!isMobile && 'Standard'}
+              {!isMobile && t('gallery.size.standard')}
             </button>
             <button
               onClick={() => setGridSize('spacious')}
@@ -223,7 +223,7 @@ export default function StudentsGalleryPage() {
               }`}
             >
               <Grid3X3 size={14} />
-              {!isMobile && 'Spacious'}
+              {!isMobile && t('gallery.size.spacious')}
             </button>
           </div>
           
@@ -232,7 +232,7 @@ export default function StudentsGalleryPage() {
               onClick={() => setShowAll(true)}
               className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-full text-xs sm:text-sm font-medium transition-colors"
             >
-              Show All ({data.length - initialLimit} more)
+              {t('gallery.load.all')} ({data.length - initialLimit} {t('gallery.more.works')})
             </button>
           )}
         </div>
