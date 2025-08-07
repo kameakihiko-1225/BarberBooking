@@ -60,116 +60,124 @@ export default function ContactsPage() {
   const handleChange = (field: string, value: string) => setFormData((prev) => ({ ...prev, [field]: value }));
 
   return (
-    <main className="pt-36 pb-20 bg-deep-black text-white min-h-screen">
+    <main className="pt-24 sm:pt-36 pb-12 sm:pb-20 bg-deep-black text-white min-h-screen">
       {/* Intro */}
-      <section className="text-center mb-20 px-4">
-        <h1 className="font-serif text-5xl font-bold mb-4">{t('contact.page.title')} <span className="premium-accent">{t('contact.page.highlight')}</span></h1>
-        <p className="text-gray-400 max-w-2xl mx-auto">
+      <section className="text-center mb-12 sm:mb-20 px-4">
+        <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+          {t('contact.page.title')} <span className="premium-accent">{t('contact.page.highlight')}</span>
+        </h1>
+        <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">
           {t('contact.page.subtitle')}
         </p>
       </section>
 
-      <section className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12">
+      <section className="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-8 lg:gap-12">
         {/* Map & Details */}
-        <div>
-          <div className="rounded-2xl overflow-hidden shadow-lg mb-8">
+        <div className="order-2 lg:order-1">
+          <div className="rounded-2xl overflow-hidden shadow-lg mb-6 sm:mb-8">
             <iframe
               title="K&K Academy Location"
               src="https://www.google.com/maps?q=52.167610,21.012126&output=embed"
-              className="w-full h-72 sm:h-96 border-0"
+              className="w-full h-60 sm:h-72 lg:h-96 border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
-          <div className="space-y-6 text-lg">
-            <div className="flex items-start space-x-4">
-              <MapPin className="text-[var(--premium-accent)] h-7 w-7" />
+          <div className="space-y-4 sm:space-y-6 text-base sm:text-lg">
+            <div className="flex items-start space-x-3 sm:space-x-4">
+              <MapPin className="text-[var(--premium-accent)] h-6 w-6 sm:h-7 sm:w-7 mt-0.5" />
               <div>
-                <div>Aleja Wyścigowa 14A</div>
-                <div>02-681 Warszawa</div>
+                <div className="font-medium">Aleja Wyścigowa 14A</div>
+                <div className="text-gray-300">02-681 Warszawa</div>
               </div>
             </div>
-            <div className="flex items-start space-x-4">
-              <Phone className="text-[var(--premium-accent)] h-7 w-7" />
-              <a href="tel:+48729231542" className="hover:text-[var(--premium-accent)] transition-colors">+48 729 231 542</a>
+            <div className="flex items-start space-x-3 sm:space-x-4">
+              <Phone className="text-[var(--premium-accent)] h-6 w-6 sm:h-7 sm:w-7 mt-0.5" />
+              <a href="tel:+48729231542" className="hover:text-[var(--premium-accent)] transition-colors font-medium">
+                +48 729 231 542
+              </a>
             </div>
-            <div className="flex items-start space-x-4">
-              <Mail className="text-[var(--premium-accent)] h-7 w-7" />
-              <a href="mailto:Biuro@kkacademy.pl" className="hover:text-[var(--premium-accent)] transition-colors">Biuro@kkacademy.pl</a>
+            <div className="flex items-start space-x-3 sm:space-x-4">
+              <Mail className="text-[var(--premium-accent)] h-6 w-6 sm:h-7 sm:w-7 mt-0.5" />
+              <a href="mailto:Biuro@kkacademy.pl" className="hover:text-[var(--premium-accent)] transition-colors font-medium break-all">
+                Biuro@kkacademy.pl
+              </a>
             </div>
-            <div className="space-y-2 mt-6">
+            <div className="space-y-1 sm:space-y-2 mt-4 sm:mt-6">
               <p className="font-semibold text-[var(--premium-accent)]">{t('contact.hours')}:</p>
-              <p>{t('contact.hours.weekdays')}</p>
-              <p>{t('contact.hours.saturday')}</p>
-              <p>{t('contact.hours.sunday')}</p>
+              <p className="text-sm sm:text-base text-gray-300">{t('contact.hours.weekdays')}</p>
+              <p className="text-sm sm:text-base text-gray-300">{t('contact.hours.saturday')}</p>
+              <p className="text-sm sm:text-base text-gray-300">{t('contact.hours.sunday')}</p>
             </div>
           </div>
         </div>
 
         {/* Contact Form */}
-        <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 shadow-xl">
-          <h3 className="font-serif text-2xl font-bold mb-6 text-[var(--premium-accent)]">{t('contact.form.title')}</h3>
-          <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="order-1 lg:order-2 bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-xl">
+          <h3 className="font-serif text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-[var(--premium-accent)]">
+            {t('contact.form.title')}
+          </h3>
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
             <div>
-              <Label htmlFor="name" className="mb-2">{t('contact.form.first.name')} *</Label>
+              <Label htmlFor="name" className="mb-2 text-sm sm:text-base">{t('contact.form.first.name')} *</Label>
               <Input
                 id="name"
                 value={formData.name}
                 onChange={(e) => handleChange('name', e.target.value)}
-                className="bg-deep-black/50 border-gray-700 text-white placeholder-gray-400 focus:border-[var(--premium-accent)] focus:ring-[var(--premium-accent)]"
+                className="bg-deep-black/50 border-gray-700 text-white placeholder-gray-400 focus:border-[var(--premium-accent)] focus:ring-[var(--premium-accent)] h-11 sm:h-12"
                 placeholder={t('contact.form.first.name')}
                 required
               />
             </div>
             <div>
-              <Label htmlFor="email" className="mb-2">{t('contact.form.email')} *</Label>
+              <Label htmlFor="email" className="mb-2 text-sm sm:text-base">{t('contact.form.email')} *</Label>
               <Input
                 id="email"
                 type="email"
                 value={formData.email}
                 onChange={(e) => handleChange('email', e.target.value)}
-                className="bg-deep-black/50 border-gray-700 text-white placeholder-gray-400 focus:border-[var(--premium-accent)] focus:ring-[var(--premium-accent)]"
+                className="bg-deep-black/50 border-gray-700 text-white placeholder-gray-400 focus:border-[var(--premium-accent)] focus:ring-[var(--premium-accent)] h-11 sm:h-12"
                 placeholder={t('contact.form.email')}
                 required
               />
             </div>
             <div>
-              <Label htmlFor="phone" className="mb-2">{t('contact.form.phone')}</Label>
+              <Label htmlFor="phone" className="mb-2 text-sm sm:text-base">{t('contact.form.phone')}</Label>
               <Input
                 id="phone"
                 type="tel"
                 value={formData.phone}
                 onChange={(e) => handleChange('phone', e.target.value)}
-                className="bg-deep-black/50 border-gray-700 text-white placeholder-gray-400 focus:border-[var(--premium-accent)] focus:ring-[var(--premium-accent)]"
+                className="bg-deep-black/50 border-gray-700 text-white placeholder-gray-400 focus:border-[var(--premium-accent)] focus:ring-[var(--premium-accent)] h-11 sm:h-12"
                 placeholder="+48 (555) 123-4567"
               />
             </div>
             <div>
-              <Label className="mb-2">{t('contact.form.program')}</Label>
+              <Label className="mb-2 text-sm sm:text-base">{t('contact.form.program')}</Label>
               <Select value={formData.program} onValueChange={(val) => handleChange('program', val)}>
-                <SelectTrigger className="bg-deep-black/50 border-gray-700 text-white focus:border-[var(--premium-accent)] focus:ring-[var(--premium-accent)]">
+                <SelectTrigger className="bg-deep-black/50 border-gray-700 text-white focus:border-[var(--premium-accent)] focus:ring-[var(--premium-accent)] h-11 sm:h-12">
                   <SelectValue placeholder={t('contact.form.program.placeholder')} />
                 </SelectTrigger>
                 <SelectContent className="bg-deep-black text-white border-gray-700">
-                  <SelectItem value="basic">{t('contact.form.program.basic')}</SelectItem>
-                  <SelectItem value="advanced">{t('contact.form.program.advanced')}</SelectItem>
-                  <SelectItem value="complete">{t('contact.form.program.complete')}</SelectItem>
-                  <SelectItem value="free">{t('contact.form.program.free')}</SelectItem>
+                  <SelectItem value="basic">Fundamentals Program</SelectItem>
+                  <SelectItem value="advanced">Advanced Techniques</SelectItem>
+                  <SelectItem value="complete">Complete Barber Program</SelectItem>
+                  <SelectItem value="free">Free Consultation</SelectItem>
                 </SelectContent>
               </Select>
             </div>
             <div>
-              <Label htmlFor="message" className="mb-2">{t('contact.form.message')}</Label>
+              <Label htmlFor="message" className="mb-2 text-sm sm:text-base">{t('contact.form.message')}</Label>
               <Textarea
                 id="message"
                 value={formData.message}
                 onChange={(e) => handleChange('message', e.target.value)}
                 rows={4}
-                className="bg-deep-black/50 border-gray-700 text-white placeholder-gray-400 focus:border-[var(--premium-accent)] focus:ring-[var(--premium-accent)]"
+                className="bg-deep-black/50 border-gray-700 text-white placeholder-gray-400 focus:border-[var(--premium-accent)] focus:ring-[var(--premium-accent)] min-h-[100px] text-sm sm:text-base"
                 placeholder={t('contact.form.message.placeholder')}
               />
             </div>
-            <Button type="submit" className="w-full bg-[var(--premium-accent)] text-black hover:bg-[var(--premium-accent)]/80 transition-colors">
+            <Button type="submit" className="w-full bg-[var(--premium-accent)] text-black hover:bg-[var(--premium-accent)]/80 transition-colors h-11 sm:h-12 text-sm sm:text-base font-semibold">
               {t('contact.form.submit')}
             </Button>
           </form>

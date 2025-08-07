@@ -176,6 +176,13 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.form.thank.you.desc': 'Skontaktujemy się z Tobą wkrótce z więcej informacjami.',
     'contact.form.program.placeholder': 'Wybierz interesujący Cię program...',
     'contact.form.message.placeholder': 'Opowiedz nam o swoich celach i oczekiwaniach...',
+    'contact.page.title': 'Skontaktuj się z',
+    'contact.page.highlight': 'Akademią K&K',
+    'contact.page.subtitle': 'Masz pytania dotyczące naszych programów, cen lub zapisów? Skontaktuj się z nami, a nasz zespół ds. przyjęć chętnie pomoże.',
+    'contact.form.error': 'Błąd wysyłania wiadomości',
+    'contact.form.error.desc': 'Spróbuj ponownie później.',
+    'contact.form.success': 'Wiadomość wysłana!',
+    'contact.form.success.desc': 'Skontaktujemy się z Tobą wkrótce.',
 
     // Footer
     'footer.description': 'Profesjonalna akademia barberska w Warszawie oferująca kompleksowe kursy i szkolenia.',
@@ -1154,6 +1161,13 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.form.thank.you.desc': 'Ми зв\'яжемося з вами найближчим часом з додатковою інформацією.',
     'contact.form.program.placeholder': 'Оберіть програму, яка вас цікавить...',
     'contact.form.message.placeholder': 'Розкажіть нам про свої цілі та очікування...',
+    'contact.page.title': 'Зв\'яжіться з',
+    'contact.page.highlight': 'Академією K&K',
+    'contact.page.subtitle': 'Маєте питання щодо наших програм, цін або вступу? Зв\'яжіться з нами, і наша команда з прийому з радістю допоможе.',
+    'contact.form.error': 'Помилка відправки повідомлення',
+    'contact.form.error.desc': 'Будь ласка, спробуйте пізніше.',
+    'contact.form.success': 'Повідомлення надіслано!',
+    'contact.form.success.desc': 'Ми зв\'яжемося з вами найближчим часом.',
 
     // Footer
     'footer.description': 'Професійна академія барберів у Варшаві, що пропонує комплексні курси та навчання.',
