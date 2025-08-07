@@ -243,10 +243,13 @@ export default function Contact() {
                     <SelectValue placeholder={t('contact.form.program.placeholder')} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="free">{t('contact.form.program.free')}</SelectItem>
-                    <SelectItem value="basic">{t('contact.form.program.basic')}</SelectItem>
-                    <SelectItem value="advanced">{t('contact.form.program.advanced')}</SelectItem>
-                    <SelectItem value="complete">{t('contact.form.program.complete')}</SelectItem>
+                    <SelectItem value="Free Consultation">Free Consultation</SelectItem>
+                    <SelectItem value="Basic Barber Course">Basic Barber Course</SelectItem>
+                    <SelectItem value="Advanced Barber Training">Advanced Barber Training</SelectItem>
+                    <SelectItem value="Complete Barber Course">Complete Barber Course</SelectItem>
+                    <SelectItem value="Short course">Short course</SelectItem>
+                    <SelectItem value="Weekend Intensive Course">Weekend Intensive Course</SelectItem>
+                    <SelectItem value="Master Barber Certification">Master Barber Certification</SelectItem>
                   </SelectContent>
                 </Select>
               </div>

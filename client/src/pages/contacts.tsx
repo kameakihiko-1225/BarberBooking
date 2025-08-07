@@ -182,10 +182,13 @@ export default function ContactsPage() {
                   <SelectValue placeholder={t('contact.form.program.placeholder')} />
                 </SelectTrigger>
                 <SelectContent className="bg-deep-black text-white border-gray-700">
-                  <SelectItem value="basic">Fundamentals Program</SelectItem>
-                  <SelectItem value="advanced">Advanced Techniques</SelectItem>
-                  <SelectItem value="complete">Complete Barber Program</SelectItem>
-                  <SelectItem value="free">Free Consultation</SelectItem>
+                  <SelectItem value="Free Consultation">Free Consultation</SelectItem>
+                  <SelectItem value="Basic Barber Course">Basic Barber Course</SelectItem>
+                  <SelectItem value="Advanced Barber Training">Advanced Barber Training</SelectItem>
+                  <SelectItem value="Complete Barber Course">Complete Barber Course</SelectItem>
+                  <SelectItem value="Short course">Short course</SelectItem>
+                  <SelectItem value="Weekend Intensive Course">Weekend Intensive Course</SelectItem>
+                  <SelectItem value="Master Barber Certification">Master Barber Certification</SelectItem>
                 </SelectContent>
               </Select>
             </div>
