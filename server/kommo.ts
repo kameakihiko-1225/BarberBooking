@@ -294,10 +294,23 @@ export class KommoService {
         'last name', 'lastname', 'surname', 'nazwisko', 'фамилия'
       ], 'lastName');
 
-      // Find program/course field
+      // Find program/course field - specifically look for "Course Type"
       fields.program = findFieldByPatterns(allFields, [
-        'program', 'course', 'service', 'kurs', 'программа'
+        'course type', 'coursetype', 'program', 'course', 'service', 'kurs', 'программа'
       ], 'program');
+
+      // Get enum values for program field if it's a dropdown
+      if (fields.program) {
+        console.log('[CRM Discovery] Fetching enum values for Course Type field:', fields.program);
+        try {
+          const fieldDetails = await this.makeRequest<any>(`/contacts/custom_fields/${fields.program}`);
+          if (fieldDetails.enums && fieldDetails.enums.length > 0) {
+            console.log('[CRM Discovery] Available Course Type options:', fieldDetails.enums.map((e: any) => e.value));
+          }
+        } catch (error) {
+          console.log('[CRM Discovery] Could not fetch enum values for Course Type field');
+        }
+      }
 
       console.log('[CRM Discovery] Custom fields mapping:', fields);
       return fields;
@@ -444,9 +457,14 @@ export class KommoService {
       console.log('[CRM] Added message field (ID:', customFields.message, ')');
     }
 
-    // Skip program field for now (might be a dropdown with restricted values)
+    // Temporarily skip Course Type field until we confirm it's a text field
     if (formData.program && customFields.program) {
-      console.log('[CRM] Temporarily skipping program field (ID:', customFields.program, ') - may need enum values');
+      console.log('[CRM] Temporarily skipping Course Type field (ID:', customFields.program, ') - validating field type');
+      // TODO: Re-enable once confirmed as text field, not dropdown
+      // contact.custom_fields_values!.push({
+      //   field_id: customFields.program,
+      //   values: [{ value: formData.program }]
+      // });
     }
 
     return contact;
