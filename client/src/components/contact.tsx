@@ -20,7 +20,9 @@ export default function Contact() {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
@@ -33,20 +35,47 @@ export default function Contact() {
       return;
     }
 
-    toast({
-      title: t('contact.form.thank.you'),
-      description: t('contact.form.thank.you.desc'),
-    });
+    setIsSubmitting(true);
 
-    // Reset form
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      program: "",
-      message: ""
-    });
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.message || 'Failed to send message');
+      }
+
+      toast({
+        title: t('contact.form.thank.you'),
+        description: t('contact.form.thank.you.desc'),
+      });
+
+      // Reset form
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        program: "",
+        message: ""
+      });
+    } catch (error) {
+      console.error('Contact form error:', error);
+      toast({
+        title: t('contact.form.error'),
+        description: t('contact.form.error.desc'),
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -238,12 +267,13 @@ export default function Contact() {
               
               <Button
                 type="submit"
+                disabled={isSubmitting}
                 className="w-full py-4 rounded-full font-semibold text-lg
                            bg-gradient-to-r from-[var(--premium-accent)] via-[var(--golden-bronze)] to-[var(--premium-accent)]
                            text-black shadow-[0_0_12px_var(--golden-bronze)/60] hover:shadow-[0_0_18px_var(--golden-bronze)/80]
-                           transition-all hover:scale-105"
+                           transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
-{t('contact.form.submit')}
+                {isSubmitting ? t('contact.form.submitting') : t('contact.form.submit')}
               </Button>
             </form>
           </div>

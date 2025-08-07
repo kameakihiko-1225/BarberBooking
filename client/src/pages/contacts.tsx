@@ -12,16 +12,19 @@ export default function ContactsPage() {
   const { toast } = useToast();
   const { t } = useLanguage();
   const [formData, setFormData] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
     phone: '',
     program: '',
     message: '',
   });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email) {
+    if (!formData.firstName || !formData.lastName || !formData.email) {
       toast({ 
         title: t('contact.form.required'), 
         description: t('contact.form.required.desc'),
@@ -30,8 +33,10 @@ export default function ContactsPage() {
       return;
     }
 
+    setIsSubmitting(true);
+
     try {
-      const response = await fetch('/api/inquiries', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -39,21 +44,26 @@ export default function ContactsPage() {
         body: JSON.stringify(formData),
       });
 
+      const result = await response.json();
+
       if (!response.ok) {
-        throw new Error('Failed to send message');
+        throw new Error(result.message || 'Failed to send message');
       }
 
       toast({ 
-        title: t('contact.form.success'), 
-        description: t('contact.form.success.desc') 
+        title: t('contact.form.thank.you'), 
+        description: t('contact.form.thank.you.desc') 
       });
-      setFormData({ name: '', email: '', phone: '', program: '', message: '' });
+      setFormData({ firstName: '', lastName: '', email: '', phone: '', program: '', message: '' });
     } catch (error) {
+      console.error('Contact form error:', error);
       toast({ 
         title: t('contact.form.error'), 
         description: t('contact.form.error.desc'),
         variant: 'destructive' 
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -118,16 +128,29 @@ export default function ContactsPage() {
             {t('contact.form.title')}
           </h3>
           <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-            <div>
-              <Label htmlFor="name" className="mb-2 text-sm sm:text-base">{t('contact.form.first.name')} *</Label>
-              <Input
-                id="name"
-                value={formData.name}
-                onChange={(e) => handleChange('name', e.target.value)}
-                className="bg-deep-black/50 border-gray-700 text-white placeholder-gray-400 focus:border-[var(--premium-accent)] focus:ring-[var(--premium-accent)] h-11 sm:h-12"
-                placeholder={t('contact.form.first.name')}
-                required
-              />
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <Label htmlFor="firstName" className="mb-2 text-sm sm:text-base">{t('contact.form.first.name')} *</Label>
+                <Input
+                  id="firstName"
+                  value={formData.firstName}
+                  onChange={(e) => handleChange('firstName', e.target.value)}
+                  className="bg-deep-black/50 border-gray-700 text-white placeholder-gray-400 focus:border-[var(--premium-accent)] focus:ring-[var(--premium-accent)] h-11 sm:h-12"
+                  placeholder={t('contact.form.first.name')}
+                  required
+                />
+              </div>
+              <div>
+                <Label htmlFor="lastName" className="mb-2 text-sm sm:text-base">{t('contact.form.last.name')} *</Label>
+                <Input
+                  id="lastName"
+                  value={formData.lastName}
+                  onChange={(e) => handleChange('lastName', e.target.value)}
+                  className="bg-deep-black/50 border-gray-700 text-white placeholder-gray-400 focus:border-[var(--premium-accent)] focus:ring-[var(--premium-accent)] h-11 sm:h-12"
+                  placeholder={t('contact.form.last.name')}
+                  required
+                />
+              </div>
             </div>
             <div>
               <Label htmlFor="email" className="mb-2 text-sm sm:text-base">{t('contact.form.email')} *</Label>
@@ -177,8 +200,12 @@ export default function ContactsPage() {
                 placeholder={t('contact.form.message.placeholder')}
               />
             </div>
-            <Button type="submit" className="w-full bg-[var(--premium-accent)] text-black hover:bg-[var(--premium-accent)]/80 transition-colors h-11 sm:h-12 text-sm sm:text-base font-semibold">
-              {t('contact.form.submit')}
+            <Button 
+              type="submit" 
+              disabled={isSubmitting}
+              className="w-full bg-[var(--premium-accent)] text-black hover:bg-[var(--premium-accent)]/80 transition-colors h-11 sm:h-12 text-sm sm:text-base font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isSubmitting ? t('contact.form.submitting') : t('contact.form.submit')}
             </Button>
           </form>
         </div>
