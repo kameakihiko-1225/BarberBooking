@@ -44,3 +44,18 @@ Preferred communication style: Simple, everyday language.
 - **UI Components**: Radix UI
 - **Development Tools**: TypeScript
 - **Video Embedding**: YouTube iframe embed for video popups
+- **CRM Integration**: Kommo CRM API v4 with OAuth 2.0 authentication
+
+## Recent Major Updates (August 2025)
+### Complete Kommo CRM Integration
+- **Automatic Lead Management**: Contact form submissions sync to Kommo CRM with duplicate detection
+- **Database Schema**: Added `crm_configs` and `crm_leads` tables for configuration and tracking
+- **Backend Services**: 
+  - `KommoService` class for API communication with rate limiting and error handling
+  - `CrmIntegrationService` for processing form submissions with graceful fallback
+- **Admin Interface**: Full configuration panel at `/admin` for CRM setup and inquiry management
+- **Duplicate Detection**: Uses Kommo's complex leads endpoint for automatic contact merging
+- **Field Mapping**: Configurable mapping of form fields to Kommo custom fields
+- **Error Handling**: Graceful degradation - forms work normally even when CRM is unavailable
+- **Security**: Sensitive credentials stored securely, not exposed in frontend
+- **Status Tracking**: Real-time CRM connection status and sync monitoring

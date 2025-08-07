@@ -1,0 +1,11 @@
+{
+  "subdomain": "your-company",
+  "clientId": "12345678-1234-1234-1234-123456789abc",
+  "clientSecret": "your-oauth-client-secret",
+  "accessToken": "your-access-token-from-kommo",
+  "pipelineId": 123456,
+  "statusId": 654321,
+  "emailFieldId": 1551478,
+  "phoneFieldId": 1551479,
+  "messageFieldId": 1551480
+}
