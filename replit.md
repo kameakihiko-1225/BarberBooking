@@ -52,14 +52,19 @@ Preferred communication style: Simple, everyday language.
 - **Auto-Discovery System**: Intelligent discovery of pipeline structure, statuses, and custom fields
   - Pipeline ID: 11273495 (auto-detected from 3 available)
   - Status ID: 86517759 (auto-detected from pipeline statuses)
-  - Custom Fields: Email (130322), Phone (130320), Message (1350056), Program (978324)
+  - Custom Fields: Email (130322), Phone (130320), Message (1350056), Course Type (1350054)
+- **Complete Field Resolution**: Successfully identified correct contacts Course Type field vs leads field
+  - Contacts Course Type (ID: 1350054) - text field, entity_type: "contacts" ✅
+  - Leads Course Type (ID: 978324) - dropdown field, entity_type: "leads" (not usable for contacts)
 - **Pattern-Based Field Mapping**: Smart detection using multilingual patterns (Polish, English, Ukrainian)
-- **Real-Time CRM Sync**: Contact forms successfully create leads in live CRM (Lead ID: 12450710+ confirmed)
+- **Real-Time CRM Sync**: Contact forms successfully create leads in live CRM (Lead ID: 12450804+ confirmed)
+- **ALL Fields Working**: Email, Phone, Message, AND Course Type successfully syncing to Kommo CRM
 - **Backend Services**: 
   - `KommoService` with intelligent auto-discovery methods
   - `CrmIntegrationService` for processing with graceful fallback
+  - Enhanced contacts vs leads field differentiation
   - Comprehensive logging system for discovery and sync processes
 - **Duplicate Detection**: Uses Kommo's complex leads endpoint for automatic contact merging
 - **Error Handling**: Graceful degradation - forms work normally even when CRM is unavailable
 - **Zero Configuration**: No manual field mapping required - system learns CRM structure automatically
-- **Production Ready**: Successfully tested with real CRM, live lead creation confirmed
+- **Production Ready**: Successfully tested with real CRM, all contact data including course type syncing perfectly

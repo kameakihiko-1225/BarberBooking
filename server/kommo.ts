@@ -294,10 +294,24 @@ export class KommoService {
         'last name', 'lastname', 'surname', 'nazwisko', 'фамилия'
       ], 'lastName');
 
-      // Find program/course field - specifically look for "Course Type"
-      fields.program = findFieldByPatterns(allFields, [
+      // Find program/course field - specifically look for "Course Type" in contacts
+      console.log('[CRM Discovery] Searching for Course Type field in contacts custom fields...');
+      console.log('[CRM Discovery] Available contacts fields:', Object.keys(contactsFields).map(id => {
+        const field = contactsFields[id];
+        return `${field.name} (ID: ${id})`;
+      }));
+      
+      fields.program = findFieldByPatterns(contactsFields, [
         'course type', 'coursetype', 'program', 'course', 'service', 'kurs', 'программа'
       ], 'program');
+      
+      if (!fields.program) {
+        console.log('[CRM Discovery] No Course Type found in contacts, checking leads fields...');
+        const leadsProgram = findFieldByPatterns(leadsFields, [
+          'course type', 'coursetype', 'program', 'course', 'service', 'kurs', 'программа'
+        ], 'program (leads only)');
+        console.log('[CRM Discovery] Leads Course Type field found but not usable for contacts');
+      }
 
       // Get enum values for program field if it's a dropdown
       if (fields.program) {
@@ -473,32 +487,13 @@ export class KommoService {
       console.log('[CRM] Added message field (ID:', customFields.message, ')');
     }
 
-    // Add Course Type field with exact enum value mapping
+    // Add Course Type field (contacts text field - accepts any value)
     if (formData.program && customFields.program) {
-      // Map form values to exact CRM dropdown options
-      const courseTypeMapping: { [key: string]: string } = {
-        'complete barber course': 'Long course',
-        'barber course': 'Long course',
-        'full course': 'Long course',
-        'long course': 'Long course',
-        'complete course': 'Long course',
-        'short course': 'Short course',
-        'basic course': 'Short course',
-        'short 3 day course': 'Short 3 day course',
-        '3 day course': 'Short 3 day course',
-        'basic': 'Short course',
-        'advanced': 'Long course',
-        'intensive': 'Long course'
-      };
-      
-      const normalizedProgram = formData.program.toLowerCase();
-      const mappedValue = courseTypeMapping[normalizedProgram] || 'Long course'; // Default to Long course
-      
       contact.custom_fields_values!.push({
         field_id: customFields.program,
-        values: [{ value: mappedValue }]
+        values: [{ value: formData.program }]
       });
-      console.log('[CRM] Added Course Type field (ID:', customFields.program, ') with exact value:', mappedValue, '(mapped from:', formData.program, ')');
+      console.log('[CRM] Added Course Type field (ID:', customFields.program, ') with value:', formData.program);
     }
 
     return contact;
