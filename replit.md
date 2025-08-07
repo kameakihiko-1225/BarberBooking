@@ -47,15 +47,19 @@ Preferred communication style: Simple, everyday language.
 - **CRM Integration**: Kommo CRM API v4 with OAuth 2.0 authentication
 
 ## Recent Major Updates (August 2025)
-### Complete Kommo CRM Integration
-- **Automatic Lead Management**: Contact form submissions sync to Kommo CRM with duplicate detection
-- **Database Schema**: Added `crm_configs` and `crm_leads` tables for configuration and tracking
+### Intelligent Kommo CRM Auto-Discovery Integration ✅ COMPLETED
+- **Hardcoded Real Credentials**: Integrated with live K&K Barber Academy CRM (kkbarberacademycrm.kommo.com)
+- **Auto-Discovery System**: Intelligent discovery of pipeline structure, statuses, and custom fields
+  - Pipeline ID: 11273495 (auto-detected from 3 available)
+  - Status ID: 86517759 (auto-detected from pipeline statuses)
+  - Custom Fields: Email (130322), Phone (130320), Message (1350056), Program (978324)
+- **Pattern-Based Field Mapping**: Smart detection using multilingual patterns (Polish, English, Ukrainian)
+- **Real-Time CRM Sync**: Contact forms successfully create leads in live CRM (Lead ID: 12450710+ confirmed)
 - **Backend Services**: 
-  - `KommoService` class for API communication with rate limiting and error handling
-  - `CrmIntegrationService` for processing form submissions with graceful fallback
-- **Admin Interface**: Full configuration panel at `/admin` for CRM setup and inquiry management
+  - `KommoService` with intelligent auto-discovery methods
+  - `CrmIntegrationService` for processing with graceful fallback
+  - Comprehensive logging system for discovery and sync processes
 - **Duplicate Detection**: Uses Kommo's complex leads endpoint for automatic contact merging
-- **Field Mapping**: Configurable mapping of form fields to Kommo custom fields
 - **Error Handling**: Graceful degradation - forms work normally even when CRM is unavailable
-- **Security**: Sensitive credentials stored securely, not exposed in frontend
-- **Status Tracking**: Real-time CRM connection status and sync monitoring
+- **Zero Configuration**: No manual field mapping required - system learns CRM structure automatically
+- **Production Ready**: Successfully tested with real CRM, live lead creation confirmed

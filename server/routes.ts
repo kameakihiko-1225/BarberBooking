@@ -330,6 +330,37 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Test CRM discovery endpoint
+  app.get('/api/test-crm-discovery', async (req, res) => {
+    try {
+      const { KommoService } = await import('./kommo');
+      const kommoService = new KommoService();
+      
+      console.log('[Test] Testing Kommo connection...');
+      const connected = await kommoService.testConnection();
+      
+      if (!connected) {
+        return res.json({ success: false, message: 'Connection test failed' });
+      }
+
+      console.log('[Test] Running auto-discovery...');
+      const initialized = await kommoService.initialize();
+      
+      res.json({ 
+        success: true, 
+        connected,
+        initialized,
+        message: 'CRM discovery test completed'
+      });
+    } catch (error) {
+      console.error('[Test] CRM discovery test failed:', error);
+      res.json({ 
+        success: false, 
+        error: error instanceof Error ? error.message : 'Unknown error'
+      });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }

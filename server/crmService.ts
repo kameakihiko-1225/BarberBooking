@@ -7,23 +7,19 @@ export class CrmIntegrationService {
 
   async initialize(): Promise<boolean> {
     try {
-      const crmConfig = await storage.getActiveCrmConfig();
+      console.log('[CRM] Initializing with hardcoded K&K Barber Academy credentials...');
       
-      if (!crmConfig || !crmConfig.accessToken) {
-        console.log('[CRM] No active CRM configuration found');
+      // Use hardcoded credentials and auto-discovery
+      this.kommoService = new KommoService();
+      
+      // Run auto-discovery to learn pipeline structure and fields
+      const initialized = await this.kommoService.initialize();
+      if (!initialized) {
+        console.error('[CRM] Auto-discovery failed');
         return false;
       }
 
-      this.kommoService = new KommoService(crmConfig);
-      
-      // Test the connection
-      const connectionTest = await this.kommoService.testConnection();
-      if (!connectionTest) {
-        console.error('[CRM] Connection test failed');
-        return false;
-      }
-
-      console.log('[CRM] Successfully initialized Kommo integration');
+      console.log('[CRM] Successfully initialized Kommo integration with auto-discovery');
       return true;
     } catch (error) {
       console.error('[CRM] Failed to initialize:', error);
@@ -49,6 +45,7 @@ export class CrmIntegrationService {
       if (!this.kommoService) {
         const initialized = await this.initialize();
         if (!initialized) {
+          console.log('[CRM] Warning: CRM integration not available - inquiry saved locally only');
           return { 
             inquiry,
             error: 'CRM integration not available - inquiry saved locally only'
@@ -57,8 +54,13 @@ export class CrmIntegrationService {
       }
 
       try {
+        // Ensure the Kommo service is properly initialized
+        if (!this.kommoService) {
+          throw new Error('KommoService not available');
+        }
+
         // Process the CRM integration
-        const crmResult = await this.kommoService!.createLeadWithContact({
+        const crmResult = await this.kommoService.createLeadWithContact({
           firstName: inquiryData.firstName,
           lastName: inquiryData.lastName,
           email: inquiryData.email,
