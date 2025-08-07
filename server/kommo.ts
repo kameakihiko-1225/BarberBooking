@@ -303,9 +303,25 @@ export class KommoService {
       if (fields.program) {
         console.log('[CRM Discovery] Fetching enum values for Course Type field:', fields.program);
         try {
-          const fieldDetails = await this.makeRequest<any>(`/contacts/custom_fields/${fields.program}`);
-          if (fieldDetails.enums && fieldDetails.enums.length > 0) {
-            console.log('[CRM Discovery] Available Course Type options:', fieldDetails.enums.map((e: any) => e.value));
+          // Try both endpoints to get field details
+          const endpoints = [
+            `/contacts/custom_fields/${fields.program}`,
+            `/leads/custom_fields/${fields.program}`,
+            `/custom_fields/${fields.program}`
+          ];
+          
+          for (const endpoint of endpoints) {
+            try {
+              const fieldDetails = await this.makeRequest<any>(endpoint);
+              console.log('[CRM Discovery] Field details from', endpoint, ':', JSON.stringify(fieldDetails, null, 2));
+              
+              if (fieldDetails.enums && fieldDetails.enums.length > 0) {
+                console.log('[CRM Discovery] Available Course Type options:', fieldDetails.enums.map((e: any) => `"${e.value}"`));
+                break;
+              }
+            } catch (err) {
+              console.log('[CRM Discovery] Endpoint', endpoint, 'failed');
+            }
           }
         } catch (error) {
           console.log('[CRM Discovery] Could not fetch enum values for Course Type field');
@@ -457,14 +473,32 @@ export class KommoService {
       console.log('[CRM] Added message field (ID:', customFields.message, ')');
     }
 
-    // Temporarily skip Course Type field until we confirm it's a text field
+    // Add Course Type field with exact enum value mapping
     if (formData.program && customFields.program) {
-      console.log('[CRM] Temporarily skipping Course Type field (ID:', customFields.program, ') - validating field type');
-      // TODO: Re-enable once confirmed as text field, not dropdown
-      // contact.custom_fields_values!.push({
-      //   field_id: customFields.program,
-      //   values: [{ value: formData.program }]
-      // });
+      // Map form values to exact CRM dropdown options
+      const courseTypeMapping: { [key: string]: string } = {
+        'complete barber course': 'Long course',
+        'barber course': 'Long course',
+        'full course': 'Long course',
+        'long course': 'Long course',
+        'complete course': 'Long course',
+        'short course': 'Short course',
+        'basic course': 'Short course',
+        'short 3 day course': 'Short 3 day course',
+        '3 day course': 'Short 3 day course',
+        'basic': 'Short course',
+        'advanced': 'Long course',
+        'intensive': 'Long course'
+      };
+      
+      const normalizedProgram = formData.program.toLowerCase();
+      const mappedValue = courseTypeMapping[normalizedProgram] || 'Long course'; // Default to Long course
+      
+      contact.custom_fields_values!.push({
+        field_id: customFields.program,
+        values: [{ value: mappedValue }]
+      });
+      console.log('[CRM] Added Course Type field (ID:', customFields.program, ') with exact value:', mappedValue, '(mapped from:', formData.program, ')');
     }
 
     return contact;
