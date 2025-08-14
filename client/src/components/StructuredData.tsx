@@ -7,7 +7,13 @@ interface StructuredDataProps {
 }
 
 export default function StructuredData({ type = 'organization', courseData, faqData }: StructuredDataProps) {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
+
+  // Get i18n translations with fallback to hardcoded values
+  const getTranslationOrFallback = (key: string, fallback: string) => {
+    const translation = t(key);
+    return translation !== key ? translation : fallback;
+  };
 
   const getStructuredData = () => {
     const baseUrl = "https://kk-barberacademy.pl";
@@ -73,15 +79,28 @@ export default function StructuredData({ type = 'organization', courseData, faqD
       "@type": "EducationalOrganization",
       "name": "K&K Barber Academy",
       "alternateName": language === 'pl' 
-        ? ["Akademia Barberska K&K", "Barbershop Academy Warszawa", "Akademia Barberska K&K"]
+        ? [
+            getTranslationOrFallback('structured.data.altname.1', "Akademia Barberska K&K"),
+            getTranslationOrFallback('structured.data.altname.2', "Barbershop Academy Warszawa")
+          ]
         : language === 'uk'
-        ? ["Академія барберів K&K", "Барбер академія Варшава", "Школа барберів K&K"]
-        : ["K&K Barbershop Academy", "Barber Academy Warsaw Europe", "International Barber School", "European Barber Academy", "Professional Barber School"],
-      "description": language === 'pl' 
-        ? "Jedyna akademia barberska w Polsce z dwoma certyfikatami jakości - ISO 9001:2015-10 i SZOE. Profesjonalne szkolenia barberskie prowadzone przez wykwalifikowanych instruktorów z certyfikatem czeladniczym. Barbershop Academy Warszawa."
-        : language === 'uk'
-        ? "Єдина академія барберів у Польщі з двома сертифікатами якості - ISO 9001:2015-10 і SZOE. Професійне навчання барберів проводиться кваліфікованими інструкторами з сертифікатом підмайстра. Барбер академія Варшава."
-        : "The only barber academy in Poland with two quality certificates - ISO 9001:2015-10 and SZOE. Professional barber training conducted by qualified instructors with apprenticeship certificates. Barbershop Academy Warsaw.",
+        ? [
+            getTranslationOrFallback('structured.data.altname.1', "Академія барберів K&K"),
+            getTranslationOrFallback('structured.data.altname.2', "Барбер академія Варшава"),
+            getTranslationOrFallback('structured.data.altname.3', "Школа барберів K&K")
+          ]
+        : [
+            getTranslationOrFallback('structured.data.altname.1', "K&K Barbershop Academy"),
+            getTranslationOrFallback('structured.data.altname.2', "Barber Academy Warsaw Europe"),
+            getTranslationOrFallback('structured.data.altname.3', "International Barber School"),
+            getTranslationOrFallback('structured.data.altname.4', "European Barber Academy")
+          ],
+      "description": getTranslationOrFallback('structured.data.description', 
+        language === 'pl' 
+          ? "Jedyna akademia barberska w Polsce z dwoma certyfikatami jakości - ISO 9001:2015-10 i SZOE. Profesjonalne szkolenia barberskie prowadzone przez wykwalifikowanych instruktorów z certyfikatem czeladniczym. Barbershop Academy Warszawa."
+          : language === 'uk'
+          ? "Єдина академія барберів у Польщі з двома сертифікатами якості - ISO 9001:2015-10 і SZOE. Професійне навчання барберів проводиться кваліфікованими інструкторами з сертифікатом підмайстра. Барбер академія Варшава."
+          : "The only barber academy in Poland with two quality certificates - ISO 9001:2015-10 and SZOE. Professional barber training conducted by qualified instructors with apprenticeship certificates. Barbershop Academy Warsaw."),
       "url": baseUrl,
       "logo": `${baseUrl}/social-image.svg`,
       "image": `${baseUrl}/social-image.svg`,

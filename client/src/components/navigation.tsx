@@ -4,7 +4,7 @@ import { useMobileMenu } from "@/hooks/use-mobile-menu";
 import { useEffect, useState } from "react";
 import logoWhite from "@assets/K&K_Vertical_logotype_white_1750662689464.png";
 import { useLocation, Link } from "wouter";
-import LanguageSwitcher from "@/components/language-switcher";
+import LanguageSwitcher, { type Locale } from "@/components/language-switcher";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Navigation() {
@@ -12,9 +12,14 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("courses");
   const [location] = useLocation();
-  const { t } = useLanguage();
+  const { t, language, setLanguage } = useLanguage();
   const isHome = location === "/";
   const isAbout = location === "/about-us";
+
+  // Handle language change for the new switcher
+  const handleLanguageChange = (nextLocale: Locale) => {
+    setLanguage(nextLocale as any);
+  };
 
   const getInitialSection = () => {
     if (location === "/") return "courses"; // default on home
@@ -191,7 +196,10 @@ export default function Navigation() {
           {/* Language Switcher and Enroll Button */}
           <div className="hidden md:flex items-center space-x-6 ml-auto">
             <div className="opacity-70 hover:opacity-100 transition-opacity">
-              <LanguageSwitcher />
+              <LanguageSwitcher 
+                currentLocale={language as Locale}
+                onChange={handleLanguageChange}
+              />
             </div>
             <Button asChild className={`px-10 py-3 h-auto leading-none rounded-full font-semibold text-lg transition-all hover:scale-110 hover:shadow-lg ${
               isHome && !isScrolled
@@ -255,7 +263,11 @@ export default function Navigation() {
             transitionDelay: isOpen ? '500ms' : '0ms',
             transitionProperty: 'transform, opacity'
           }}>
-            <LanguageSwitcher isMobile={true} />
+            <LanguageSwitcher 
+              currentLocale={language as Locale}
+              onChange={handleLanguageChange}
+              isMobile={true} 
+            />
           </div>
 
           {isHome && (

@@ -1,4 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useEffect } from "react";
 
 interface SEOHeadProps {
   title?: string;
@@ -7,6 +8,7 @@ interface SEOHeadProps {
   image?: string;
   url?: string;
   type?: string;
+  includehreflang?: boolean;
 }
 
 export default function SEOHead({
@@ -15,12 +17,19 @@ export default function SEOHead({
   keywords,
   image,
   url,
-  type = "website"
+  type = "website",
+  includehreflang = true
 }: SEOHeadProps) {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   
   const baseUrl = "https://kk-barberacademy.pl";
   const defaultImage = `${baseUrl}/social-image.svg`;
+
+  // Get i18n translations with fallback to hardcoded values
+  const getTranslationOrFallback = (key: string, fallback: string) => {
+    const translation = t(key);
+    return translation !== key ? translation : fallback;
+  };
   
   const seoData = {
     pl: {
@@ -42,11 +51,20 @@ export default function SEOHead({
 
   const currentSEO = seoData[language as keyof typeof seoData] || seoData.pl;
   
-  const finalTitle = title || currentSEO.defaultTitle;
-  const finalDescription = description || currentSEO.defaultDescription;
-  const finalKeywords = keywords || currentSEO.defaultKeywords;
+  // Use i18n translations with fallback to hardcoded values
+  const finalTitle = title || 
+    getTranslationOrFallback('seo.title', currentSEO.defaultTitle);
+  const finalDescription = description || 
+    getTranslationOrFallback('seo.description', currentSEO.defaultDescription);
+  const finalKeywords = keywords || 
+    getTranslationOrFallback('seo.keywords', currentSEO.defaultKeywords);
   const finalImage = image || defaultImage;
   const finalUrl = url || baseUrl;
+
+  // Set document language attribute
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
 
   return (
     <>
@@ -55,12 +73,30 @@ export default function SEOHead({
       <meta name="keywords" content={finalKeywords} />
       <link rel="canonical" href={finalUrl} />
       
-      {/* Open Graph */}
+      {/* Hreflang tags for multilingual SEO */}
+      {includehreflang && (
+        <>
+          <link rel="alternate" hrefLang="pl" href={`${baseUrl}/`} />
+          <link rel="alternate" hrefLang="en" href={`${baseUrl}/?lng=en`} />
+          <link rel="alternate" hrefLang="uk" href={`${baseUrl}/?lng=uk`} />
+          <link rel="alternate" hrefLang="x-default" href={`${baseUrl}/`} />
+        </>
+      )}
+      
+      {/* Open Graph with locale */}
       <meta property="og:title" content={finalTitle} />
       <meta property="og:description" content={finalDescription} />
       <meta property="og:image" content={finalImage} />
       <meta property="og:url" content={finalUrl} />
       <meta property="og:type" content={type} />
+      <meta property="og:locale" content={
+        language === 'pl' ? 'pl_PL' : 
+        language === 'en' ? 'en_US' : 
+        language === 'uk' ? 'uk_UA' : 'pl_PL'
+      } />
+      {language !== 'pl' && <meta property="og:locale:alternate" content="pl_PL" />}
+      {language !== 'en' && <meta property="og:locale:alternate" content="en_US" />}
+      {language !== 'uk' && <meta property="og:locale:alternate" content="uk_UA" />}
       
       {/* Twitter */}
       <meta name="twitter:title" content={finalTitle} />
