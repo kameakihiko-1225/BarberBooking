@@ -294,9 +294,7 @@ const translations: Record<Language, Record<string, string>> = {
     'course.advanced.subtitle': 'Poszerz swoje umiejętności i naucz się najnowszych technik',
     'course.advanced.description': '3-dniowy bootcamp (pon-sob, 12-20) dla aktywnych barberów (min. 2 lata) skupiający się na nowoczesnych strzyżeniach, zaawansowanych fade i premium pracy z brodą.',
     'course.advanced.badge': 'Zaawansowany',
-    'course.advanced.benefits.0': 'Poszerz swoje umiejętności i naucz się najnowszych technik',
-    'course.advanced.benefits.1': 'Udoskonal technikę i podnieś status',
-    'course.advanced.benefits.2': 'Opanuj nowoczesne strzyżenia i fade',
+
     'course.advanced.skills.0': 'Zaawansowane techniki fade',
     'course.advanced.skills.1': 'Nowoczesne metody stylizacji',
     'course.advanced.skills.2': 'Premium usługi brodowe',
@@ -320,9 +318,7 @@ const translations: Record<Language, Record<string, string>> = {
     'course.specialist.subtitle': 'Odśwież umiejętności i opanuj globalne trendy',
     'course.specialist.description': '2-tygodniowy program (pon-sob, 12-19) dla barberów chcących przyjąć najnowsze globalne trendy w strzyżeniach, fade i stylizacji brody.',
     'course.specialist.badge': 'Specjalista',
-    'course.specialist.benefits.0': 'Plany zarządzania salonem',
-    'course.specialist.benefits.1': 'Podręcznik brandingu i marketingu',
-    'course.specialist.benefits.2': 'Mapa planowania finansowego',
+
     'course.specialist.skills.0': 'Zatrzymywanie klientów',
     'course.specialist.skills.1': 'Budżetowanie i finanse',
     'course.specialist.skills.2': 'Marketing lokalny',
@@ -564,6 +560,24 @@ const translations: Record<Language, Record<string, string>> = {
     'course.beginner.outcomes.1': 'Pewnie stylizować brody',
     'course.beginner.outcomes.2': 'Rozpocząć karierę barbera',
 
+    // Course benefits specific translations (Polish)
+    'course.free.benefits.0': 'Bezpłatne doświadczenie w akademii',
+    'course.free.benefits.1': 'Zobacz nasze obiekty z pierwszej ręki',
+    'course.free.benefits.2': 'Poznaj profesjonalnych instruktorów',
+    'course.free.benefits.3': 'Zadaj pytania o programy',
+    
+    'course.beginner.benefits.0': 'Szeroka praktyka na żywych modelach',
+    'course.beginner.benefits.1': 'Indywidualna uwaga dla każdego studenta',
+    'course.beginner.benefits.2': 'Wszystkie profesjonalne narzędzia na miejscu',
+    
+    'course.advanced.benefits.0': 'Zaawansowane techniki strzyżenia',
+    'course.advanced.benefits.1': 'Metody stylizacji premium brody',
+    'course.advanced.benefits.2': 'Nowoczesne warianty wygoleń',
+    
+    'course.specialist.benefits.0': 'Najnowsze globalne trendy barberskie',
+    'course.specialist.benefits.1': 'Rozwój profesjonalnego portfolio',
+    'course.specialist.benefits.2': 'Fachowy mentoring przez cały kurs',
+
 
     'course.pricing.all.modules': 'Wszystkie moduły',
     'course.pricing.contact.details': 'Skontaktuj się po szczegóły',
@@ -658,9 +672,7 @@ const translations: Record<Language, Record<string, string>> = {
     'course.free.howItWorks.2.desc': 'Porozmawiaj z naszymi ekspertami instruktorami',
 
     // Course.beginner benefits specific translations (Polish)
-    'course.beginner.benefits.0': 'Ekstensywna praktyka z żywymi modelami',
-    'course.beginner.benefits.1': 'Indywidualna uwaga dla każdego studenta',
-    'course.beginner.benefits.2': 'Wszystkie profesjonalne narzędzia na miejscu',
+
   },
 
   en: {
@@ -1019,10 +1031,23 @@ const translations: Record<Language, Record<string, string>> = {
     'course.beginner.outcomes.1': 'Confidently style beards',
     'course.beginner.outcomes.2': 'Launch barber career',
 
-    // Course.beginner benefits specific translations (English)
+    // Course benefits specific translations (English)
+    'course.free.benefits.0': 'No cost for this experience session',
+    'course.free.benefits.1': 'See our academy facilities firsthand',
+    'course.free.benefits.2': 'Meet professional instructors',
+    'course.free.benefits.3': 'Ask questions about programs',
+    
     'course.beginner.benefits.0': 'Extensive practice with live models',
     'course.beginner.benefits.1': 'Individual attention for each student',
     'course.beginner.benefits.2': 'All professional tools on-site',
+    
+    'course.advanced.benefits.0': 'Advanced cutting techniques',
+    'course.advanced.benefits.1': 'Premium beard styling methods',
+    'course.advanced.benefits.2': 'Modern fade variations',
+    
+    'course.specialist.benefits.0': 'Latest global barbering trends',
+    'course.specialist.benefits.1': 'Professional portfolio development',
+    'course.specialist.benefits.2': 'Expert mentorship throughout',
 
     'course.pricing.all.modules': 'All modules',
     'course.pricing.contact.details': 'Contact for details',
@@ -1101,9 +1126,7 @@ const translations: Record<Language, Record<string, string>> = {
     'course.advanced.subtitle': 'Expand your skills & learn the latest techniques',
     'course.advanced.description': '3-day bootcamp (Mon–Sat, 12–20) for active barbers (min 2 yrs) focusing on modern cuts, advanced fades, and premium beard work.',
     'course.advanced.badge': 'Advanced',
-    'course.advanced.benefits.0': 'Expand your skills & learn the latest techniques',
-    'course.advanced.benefits.1': 'Refine technique & elevate status',
-    'course.advanced.benefits.2': 'Master modern cuts and fades',
+
     'course.advanced.skills.0': 'Advanced fade techniques',
     'course.advanced.skills.1': 'Modern styling methods',
     'course.advanced.skills.2': 'Premium beard services',
@@ -1127,9 +1150,7 @@ const translations: Record<Language, Record<string, string>> = {
     'course.specialist.subtitle': 'Refresh skills & master global trends',
     'course.specialist.description': '2-week programme (Mon–Sat, 12–19) for barbers/hairdressers wanting to adopt the latest global trends in cuts, fades and beard styling.',
     'course.specialist.badge': 'Specialist',
-    'course.specialist.benefits.0': 'Shop management blueprints',
-    'course.specialist.benefits.1': 'Branding & marketing playbook',
-    'course.specialist.benefits.2': 'Financial planning roadmap',
+
     'course.specialist.skills.0': 'Client retention',
     'course.specialist.skills.1': 'Budgeting & finance',
     'course.specialist.skills.2': 'Local marketing',
@@ -1606,9 +1627,7 @@ const translations: Record<Language, Record<string, string>> = {
     'course.advanced.subtitle': 'Розширте свої навички та вивчіть найновіші техніки',
     'course.advanced.description': '3-денний буткемп (пн-сб, 12-20) для активних барберів (мін. 2 роки) з фокусом на сучасні стрижки, просунуті фейди та преміум роботу з бородою.',
     'course.advanced.badge': 'Просунутий',
-    'course.advanced.benefits.0': 'Розширте свої навички та вивчіть найновіші техніки',
-    'course.advanced.benefits.1': 'Удосконаліть техніку та підвищте статус',
-    'course.advanced.benefits.2': 'Опануйте сучасні стрижки та фейди',
+
     'course.advanced.skills.0': 'Просунуті техніки фейду',
     'course.advanced.skills.1': 'Сучасні методи стилізації',
     'course.advanced.skills.2': 'Преміум послуги з бороди',
@@ -1634,9 +1653,7 @@ const translations: Record<Language, Record<string, string>> = {
     'course.specialist.subtitle': 'Оновіть навички та опануйте глобальні тренди',
     'course.specialist.description': '2-тижнева програма (пн-сб, 12-19) для барберів/перукарів, які хочуть прийняти найновіші глобальні тренди в стрижках, фейдах та стилізації бороди.',
     'course.specialist.badge': 'Спеціаліст',
-    'course.specialist.benefits.0': 'Схеми управління салоном',
-    'course.specialist.benefits.1': 'Підручник з брендингу та маркетингу',
-    'course.specialist.benefits.2': 'Дорожня карта фінансового планування',
+
     'course.specialist.skills.0': 'Утримання клієнтів',
     'course.specialist.skills.1': 'Бюджетування та фінанси',
     'course.specialist.skills.2': 'Локальний маркетинг',
@@ -1658,10 +1675,7 @@ const translations: Record<Language, Record<string, string>> = {
     'course.specialist.howItWorks.2.desc': 'Стилізуйте справжніх клієнтів та отримуйте відгуки',
 
     // Course.free specific translations
-    'course.free.benefits.0': '4 години практичного досвіду — на місці',
-    'course.free.benefits.1': 'Дослідіть академію та атмосферу барбершопу',
-    'course.free.benefits.2': 'Оцініть якість власними очима',
-    'course.free.benefits.3': 'Ставте запитання та отримуйте поради',
+
     
     'course.free.skills.0': 'Дослідження академії',
     'course.free.skills.1': 'Спостереження за живими заняттями',
@@ -1691,9 +1705,7 @@ const translations: Record<Language, Record<string, string>> = {
     'course.free.howItWorks.2.desc': 'Спілкуйтеся з нашими експертними інструкторами',
 
     // Course.beginner benefits specific translations
-    'course.beginner.benefits.0': 'Обширна практика на живих моделях',
-    'course.beginner.benefits.1': 'Індивідуальна увага до кожного студента',
-    'course.beginner.benefits.2': 'Всі професійні інструменти на місці',
+
 
     // Duplicate pricing keys removed to prevent conflicts
 
@@ -1760,14 +1772,25 @@ const translations: Record<Language, Record<string, string>> = {
     'course.beginner.subtitle': 'Розпочніть нову професію з повною підготовкою та впевненістю',
     'course.beginner.description': 'Інтенсивна 24-денна програма, що перетворює людей з нульовим досвідом на професійних барберів через теорію, практику на манекенах та щоденну роботу з живими моделями (Пн-П\'ят, 12-20).',
     'course.beginner.badge': 'Початківець',
-    'course.advanced.title': 'Курс підвищеної складності для перукарів',
-    'course.advanced.subtitle': 'Розширте свої навички та вивчіть найновіші техніки',
-    'course.advanced.description': '3-денний буткемп для працюючих перукарів (мін. 2 роки досвіду), зосереджений на сучасних стрижках, просунутих фейдах та преміум догляді за бородою (Пн-П\'ят, 12-20).',
-    'course.advanced.badge': 'Підвищена складність',
-    'course.specialist.title': 'Курс спеціаліста – Тренди та нові техніки',
-    'course.specialist.subtitle': 'Оновіть свої навички та опануйте глобальні тренди',
-    'course.specialist.description': '2-тижнева програма для перукарів/стилістів, що впроваджують найновіші глобальні тренди в стрижках, фейдах та стилізації бороди (Пн-П\'ят, 12-19).',
-    'course.specialist.badge': 'Спеціаліст',
+
+    // Course benefits specific translations (Ukrainian)
+    'course.free.benefits.0': 'Безкоштовний сеанс ознайомлення з академією',
+    'course.free.benefits.1': 'Побачте наші об\'єкти з перших рук',
+    'course.free.benefits.2': 'Зустрічайтесь з професійними інструкторами',
+    'course.free.benefits.3': 'Поставте питання про програми',
+    
+    'course.beginner.benefits.0': 'Широка практика на живих моделях',
+    'course.beginner.benefits.1': 'Індивідуальна увага до кожного студента',
+    'course.beginner.benefits.2': 'Всі професійні інструменти на місці',
+    
+    'course.advanced.benefits.0': 'Передові техніки стрижки',
+    'course.advanced.benefits.1': 'Преміум методи стилізації бороди',
+    'course.advanced.benefits.2': 'Сучасні варіанти фейдів',
+    
+    'course.specialist.benefits.0': 'Найновіші глобальні тренди барберінгу',
+    'course.specialist.benefits.1': 'Розвиток професійного портфоліо',
+    'course.specialist.benefits.2': 'Експертний менторинг протягом курсу',
+
     'instructor.about.richer': 'Експерт з сучасних технік стрижки та класичних стилів перукарства з багаторічним професійним досвідом.',
     'instructor.experience.richer': 'Професійний перукар, що спеціалізується на точних стрижках та сучасному стилінгу.',
     'instructor.about.apo': 'Пристрасний викладач та талановитий перукар, присвячений вихованню нового покоління професіоналів.',
