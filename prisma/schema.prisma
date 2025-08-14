@@ -1,0 +1,67 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id               String   @id @default(uuid())
+  email            String?  @unique
+  firstName        String?  @map("first_name")
+  lastName         String?  @map("last_name")
+  profileImageUrl  String?  @map("profile_image_url")
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+
+  @@map("users")
+}
+
+model Session {
+  sid    String   @id
+  sess   Json
+  expire DateTime
+
+  @@index([expire], name: "IDX_session_expire")
+  @@map("sessions")
+}
+
+model MediaFile {
+  id        Int      @id @default(autoincrement())
+  route     String
+  filename  String
+  type      String
+  url       String
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("media_files")
+}
+
+model Inquiry {
+  id          Int      @id @default(autoincrement())
+  name        String
+  email       String
+  phone       String?
+  message     String
+  courseType  String?  @map("course_type")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@map("inquiries")
+}
+
+model BlogPost {
+  id          Int      @id @default(autoincrement())
+  title       String
+  content     String
+  slug        String   @unique
+  published   Boolean  @default(false)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("blog_posts")
+}

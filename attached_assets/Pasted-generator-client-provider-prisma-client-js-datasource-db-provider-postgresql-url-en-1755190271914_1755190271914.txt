@@ -1,0 +1,75 @@
+generator client { provider = "prisma-client-js" }
+datasource db { provider = "postgresql"; url = env("DATABASE_URL") }
+
+model GalleryItem {
+  id        String        @id @default(cuid())
+  slug      String        @unique
+  width     Int
+  height    Int
+  blurData  String?
+  createdAt DateTime      @default(now())
+  assets    GalleryAsset[]
+  i18n      GalleryI18n[]
+  tags      GalleryTag[]  @relation("ItemTags")
+}
+
+model GalleryAsset {
+  id      String      @id @default(cuid())
+  itemId  String
+  fmt     String      // 'avif' | 'webp' | 'jpg'
+  widthPx Int         // 320 | 640 | 1024 | 1600
+  url     String
+  item    GalleryItem @relation(fields: [itemId], references: [id])
+
+  @@index([itemId, fmt, widthPx])
+}
+
+model GalleryI18n {
+  id      String      @id @default(cuid())
+  itemId  String
+  locale  String      // 'en' | 'pl' | 'uk'
+  field   String      // 'title' | 'alt' | 'description'
+  value   String
+  item    GalleryItem @relation(fields: [itemId], references: [id])
+
+  @@unique([itemId, locale, field])
+}
+
+model Tag {
+  id    String     @id @default(cuid())
+  slug  String     @unique
+  i18n  TagI18n[]
+  items GalleryTag[] @relation("ItemTags")
+}
+model TagI18n {
+  id     String @id @default(cuid())
+  tagId  String
+  locale String
+  field  String // 'name'
+  value  String
+  tag    Tag    @relation(fields: [tagId], references: [id])
+  @@unique([tagId, locale, field])
+}
+model GalleryTag {
+  itemId String
+  tagId  String
+  item   GalleryItem @relation(fields: [itemId], references: [id])
+  tag    Tag         @relation(fields: [tagId], references: [id])
+  @@id([itemId, tagId])
+}
+
+model Course {
+  id    String   @id @default(cuid())
+  slug  String   @unique   // 'free-course' | 'beginner-course'
+  policy Json               // {"kind":"daily"} | {"kind":"fixedDates","dates":["2025-09-15",...]}
+  i18n  CourseI18n[]
+}
+model CourseI18n {
+  id       String  @id @default(cuid())
+  courseId String
+  locale   String
+  field    String   // 'title' | 'subtitle' | ...
+  value    String
+  course   Course   @relation(fields: [courseId], references: [id])
+  @@unique([courseId, locale, field])
+}
