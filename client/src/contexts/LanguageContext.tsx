@@ -1467,6 +1467,14 @@ const translations: Record<Language, Record<string, string>> = {
     'course.free.outcomes.2': 'Зрозумійте наш стиль викладання',
     'course.free.outcomes.3': 'Надихніться справжніми професіоналами',
 
+    // Course.free howItWorks translations
+    'course.free.howItWorks.0': 'Екскурсія академією',
+    'course.free.howItWorks.1': 'Живе спостереження',
+    'course.free.howItWorks.2': 'Знайомство з командою',
+    'course.free.howItWorks.0.desc': 'Досліджуйте наші сучасні навчальні простори',
+    'course.free.howItWorks.1.desc': 'Дивіться справжні заняття в дії',
+    'course.free.howItWorks.2.desc': 'Спілкуйтеся з нашими експертними інструкторами',
+
     // Course.beginner benefits specific translations
     'course.beginner.benefits.0': 'Обширна практика на живих моделях',
     'course.beginner.benefits.1': 'Індивідуальна увага до кожного студента',

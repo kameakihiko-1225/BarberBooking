@@ -93,9 +93,9 @@ export const courses: Course[] = [
       { q: 'What should I bring?', a: 'Just yourself and your curiosity. Everything else is provided.' },
     ],
     howItWorks: [
-      { title: 'Academy Tour', icon: 'home', desc: 'Explore our modern training spaces' },
-      { title: 'Live Observation', icon: 'eye', desc: 'Watch real classes in action' },
-      { title: 'Meet the Team', icon: 'users', desc: 'Chat with our expert instructors' },
+      { title: 'course.free.howItWorks.0', icon: 'home', desc: 'course.free.howItWorks.0.desc' },
+      { title: 'course.free.howItWorks.1', icon: 'eye', desc: 'course.free.howItWorks.1.desc' },
+      { title: 'course.free.howItWorks.2', icon: 'users', desc: 'course.free.howItWorks.2.desc' },
     ],
     localName: 'Bezpłatny jednodniowy kurs',
     upcomingDates: [
@@ -167,9 +167,9 @@ export const courses: Course[] = [
       { q: 'Are tools included?', a: 'Yes, everything is provided during training.' },
     ],
     howItWorks: [
-      { title: 'Theory', icon: 'book-open', desc: 'Interactive lectures & demos' },
-      { title: 'Practice on Mannequins', icon: 'users', desc: 'Develop muscle memory safely' },
-      { title: 'Real Clients', icon: 'scissors', desc: 'Supervised cuts on live models' },
+      { title: 'course.beginner.howItWorks.0', icon: 'book-open', desc: 'course.beginner.howItWorks.0.desc' },
+      { title: 'course.beginner.howItWorks.1', icon: 'users', desc: 'course.beginner.howItWorks.1.desc' },
+      { title: 'course.beginner.howItWorks.2', icon: 'scissors', desc: 'course.beginner.howItWorks.2.desc' },
     ],
     localName: '1 oylik kurs uchun',
     upcomingDates: ['1-avgust', '1-sentabr', '1-oktabr', '1-noyabr', '1-dekabr'],
