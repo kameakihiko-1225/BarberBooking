@@ -187,6 +187,7 @@ export default function CourseDetails() {
               <UpcomingDates 
                 courseName={course.title}
                 dates={course.upcomingDates}
+                courseId={course.id}
               />
               
               <div className="mt-8 text-center">

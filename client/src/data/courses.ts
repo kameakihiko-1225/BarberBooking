@@ -1,5 +1,5 @@
 export type Course = {
-  id: number;
+  id: string;
   title: string;
   subtitle: string;
   description: string;
@@ -29,7 +29,7 @@ export type Course = {
 
 export const courses: Course[] = [
   {
-    id: 0,
+    id: 'free',
     title: 'course.free.title',
     subtitle: 'course.free.subtitle',
     description: 'course.free.description',
@@ -105,7 +105,7 @@ export const courses: Course[] = [
     ],
   },
   {
-    id: 1,
+    id: 'beginner',
     title: 'course.beginner.title',
     subtitle: 'course.beginner.subtitle',
     description: 'course.beginner.description',
@@ -172,10 +172,10 @@ export const courses: Course[] = [
       { title: 'course.beginner.howItWorks.2', icon: 'scissors', desc: 'course.beginner.howItWorks.2.desc' },
     ],
     localName: '1 oylik kurs uchun',
-    upcomingDates: ['1-avgust', '1-sentabr', '1-oktabr', '1-noyabr', '1-dekabr'],
+    upcomingDates: ['15-Sep', '20-Oct', '24-Nov', '12-Jan'],
   },
   {
-    id: 2,
+    id: 'advanced',
     title: 'course.advanced.title',
     subtitle: 'course.advanced.subtitle',
     description: 'course.advanced.description',
@@ -242,7 +242,7 @@ export const courses: Course[] = [
     ],
   },
   {
-    id: 3,
+    id: 'specialist',
     title: 'course.specialist.title',
     subtitle: 'course.specialist.subtitle',
     description: 'course.specialist.description',
