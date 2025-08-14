@@ -154,21 +154,20 @@ async function processImage(imagePath: string, galleryDir: string, processedDir:
       where: { itemId: galleryItem.id }
     });
     
-    // Create new assets
-    for (const variant of variants) {
-      await prisma.galleryAsset.create({
-        data: {
-          itemId: galleryItem.id,
-          fmt: variant.fmt,
-          widthPx: variant.widthPx,
-          url: variant.url,
-        },
-      });
-    }
+    // Create new assets in batch
+    await prisma.galleryAsset.createMany({
+      data: variants.map(variant => ({
+        itemId: galleryItem.id,
+        fmt: variant.fmt,
+        widthPx: variant.widthPx,
+        url: variant.url,
+      }))
+    });
     
-    // Upsert i18n entries (create if missing)
+    // Upsert i18n entries (create if missing) - batch process
     const locales = ['en', 'pl', 'uk'];
     const fields = ['title', 'alt', 'description'];
+    const i18nData = [];
     
     for (const locale of locales) {
       for (const field of fields) {
@@ -192,16 +191,20 @@ async function processImage(imagePath: string, galleryDir: string, processedDir:
           }
           // PL/UK remain empty as specified
           
-          await prisma.galleryI18n.create({
-            data: {
-              itemId: galleryItem.id,
-              locale,
-              field,
-              value,
-            },
+          i18nData.push({
+            itemId: galleryItem.id,
+            locale,
+            field,
+            value,
           });
         }
       }
+    }
+    
+    if (i18nData.length > 0) {
+      await prisma.galleryI18n.createMany({
+        data: i18nData
+      });
     }
     
     console.log(`✓ Processed ${slug} (${variants.length} variants)`);
