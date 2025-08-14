@@ -452,24 +452,22 @@ export default function CourseDetails() {
                     style={{ transitionDelay: `${idx * 80}ms` }}
                   >
                     <h3 className="font-serif text-xl font-bold mb-2">
-                      {plan.plan === 'Full Payment' ? t('course.pricing.full.payment') : 
-                       plan.plan === 'Installments' ? t('course.pricing.installments') : 
-                       plan.plan}
+                      {t(plan.plan)}
                     </h3>
                     <p className="mb-4 text-gray-600">
-                      {plan.access === 'All modules' ? t('course.pricing.all.modules') : plan.access}
+                      {t(plan.access)}
                     </p>
                     {plan.extras && (
-                      <p className="text-sm mb-4">
-                        {plan.extras === '0% interest' ? t('course.pricing.interest.free') : plan.extras}
+                      <p className="text-sm mb-4 text-[var(--premium-accent)] font-medium">
+                        {t(plan.extras)}
                       </p>
                     )}
-                    <span className="text-3xl font-bold mb-6">{plan.price}</span>
+                    <span className="text-3xl font-bold mb-6">{t(plan.price)}</span>
                     <Button
                       asChild
                       className="btn-shimmer mt-auto bg-[var(--premium-accent)] text-black hover:bg-[var(--premium-accent)]/80"
                     >
-                      <a href="/contact">{t('course.pricing.contact.details')}</a>
+                      <a href="/contact">{t(plan.cta || 'course.pricing.contact.details')}</a>
                     </Button>
                   </div>
                 );

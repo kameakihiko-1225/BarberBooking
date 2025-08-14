@@ -86,7 +86,13 @@ export const courses: Course[] = [
       'course.free.outcomes.3'
     ],
     pricingPlans: [
-      { plan: 'Free Experience', access: 'Full 4-hour session', extras: 'No hidden costs', price: 'FREE' },
+      { 
+        plan: 'course.free.pricing.title', 
+        access: 'course.free.pricing.session', 
+        extras: 'course.free.pricing.no.costs', 
+        price: 'course.free.pricing.price',
+        cta: 'course.free.pricing.cta'
+      },
     ],
     faqs: [
       { q: 'Do I need any experience?', a: 'No experience required! This is perfect for complete beginners.' },
@@ -159,8 +165,20 @@ export const courses: Course[] = [
       'course.beginner.outcomes.2',
     ],
     pricingPlans: [
-      { plan: 'Full Payment', access: 'All modules', extras: '', price: '9 000 PLN' },
-      { plan: 'Installments', access: 'All modules', extras: '2× 4 600 PLN', price: '0% interest' },
+      { 
+        plan: 'course.beginner.pricing.title', 
+        access: 'course.beginner.pricing.duration', 
+        extras: 'course.beginner.pricing.certification', 
+        price: 'course.beginner.pricing.price',
+        cta: 'course.beginner.pricing.cta'
+      },
+      { 
+        plan: 'course.pricing.installments', 
+        access: 'course.beginner.pricing.tools', 
+        extras: 'course.beginner.pricing.installments', 
+        price: 'course.beginner.pricing.full.price',
+        cta: 'course.beginner.pricing.cta'
+      },
     ],
     faqs: [
       { q: 'Do I need experience?', a: 'No, this course starts from zero.' },
@@ -230,7 +248,13 @@ export const courses: Course[] = [
       'course.advanced.outcomes.2',
     ],
     pricingPlans: [
-      { plan: 'Full', access: '3-day bootcamp', extras: '', price: '3 600 PLN' },
+      { 
+        plan: 'course.advanced.pricing.title', 
+        access: 'course.advanced.pricing.duration', 
+        extras: 'course.advanced.pricing.portfolio', 
+        price: 'course.advanced.pricing.price',
+        cta: 'course.advanced.pricing.cta'
+      },
     ],
     faqs: [
       { q: 'Who can enroll?', a: 'Barbers with at least 2 years salon experience.' },
@@ -305,7 +329,13 @@ export const courses: Course[] = [
       'course.specialist.outcomes.2',
     ],
     pricingPlans: [
-      { plan: 'Full', access: 'All modules', extras: '', price: '5 500 PLN' },
+      { 
+        plan: 'course.specialist.pricing.title', 
+        access: 'course.specialist.pricing.duration', 
+        extras: 'course.specialist.pricing.trends', 
+        price: 'course.specialist.pricing.price',
+        cta: 'course.specialist.pricing.cta'
+      },
     ],
     faqs: [
       { q: 'Is accommodation included?', a: 'No, but we can recommend nearby hotels.' },

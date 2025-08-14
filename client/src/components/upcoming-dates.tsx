@@ -40,22 +40,34 @@ export function UpcomingDates({ courseName, dates = [], courseId }: UpcomingDate
   // For other courses, show specific dates
   const displayDates = showAll ? dates : dates.slice(0, 6);
 
-  // Month abbreviations by language
-  const monthAbbreviations: Record<string, Record<string, string>> = {
-    en: { Sep: 'Sep', Oct: 'Oct', Nov: 'Nov', Jan: 'Jan' },
-    pl: { Sep: 'wrz', Oct: 'paź', Nov: 'lis', Jan: 'sty' },
-    uk: { Sep: 'вер', Oct: 'жов', Nov: 'лис', Jan: 'січ' }
+  // Month abbreviations by language using translations
+  const getMonthAbbreviation = (month: string) => {
+    const monthMap: Record<string, string> = {
+      'Jan': 'months.january',
+      'Feb': 'months.february', 
+      'Mar': 'months.march',
+      'Apr': 'months.april',
+      'May': 'months.may',
+      'Jun': 'months.june',
+      'Jul': 'months.july',
+      'Aug': 'months.august',
+      'Sep': 'months.september',
+      'Oct': 'months.october',
+      'Nov': 'months.november',
+      'Dec': 'months.december'
+    };
+    return monthMap[month] ? t(monthMap[month]) : month;
   };
 
   const formatDate = (dateStr: string) => {
     // Handle specific format like "15-Sep" for beginner course
     if (dateStr.includes('-')) {
       const [day, month] = dateStr.split('-');
-      const monthAbbr = monthAbbreviations[language]?.[month] || month;
+      const monthTranslated = getMonthAbbreviation(month);
       return {
         day: day,
-        month: monthAbbr,
-        monthShort: monthAbbr,
+        month: monthTranslated,
+        monthShort: monthTranslated,
         original: dateStr
       };
     }
