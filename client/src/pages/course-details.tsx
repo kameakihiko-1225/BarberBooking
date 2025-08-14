@@ -72,7 +72,7 @@ export default function CourseDetails() {
   const { t } = useLanguage();
   const [match, params] = useRoute<{ id: string }>('/course/:id');
   if (!match) return null;
-  const course = courses.find((c) => c.id === Number(params.id));
+  const course = courses.find((c) => c.id === params.id);
   if (!course) return <div className="min-h-screen flex items-center justify-center text-white bg-deep-black">{t('course.not.found')}</div>;
 
   // Media queries for new gallery section
