@@ -490,7 +490,7 @@ const translations: Record<Language, Record<string, string>> = {
     'course.faq.tools.q': 'Czy muszę kupować własne narzędzia?',
     'course.faq.tools.a': 'Nie, wszystkie narzędzia i materiały są zapewnione podczas kursu. Otrzymasz też listę rekomendowanych narzędzi do zakupu.',
     'course.faq.job.q': 'Czy pomagacie w znalezieniu pracy?',
-    'course.faq.job.a': 'Tak, oferujemy wsparcie w znalezieniu pracy i mamy partnerstwa z lokalnymi salonami barberskimi. Ponadto oferujemy pomoc finansową na rozpoczęcie kursu.',
+    'course.faq.job.a': 'Tak, oferujemy wsparcie w znalezieniu pracy i mamy partnerstwa z lokalnymi salonami barberskimi.',
     'course.cta.final.title': 'Rozpocznij swoją podróż już dziś',
     'course.cta.final.description': 'Dołącz do setek zadowolonych absolwentów, którzy zbudowali udane kariery w barberstwie.',
     'course.cta.final.button': 'Zapisz się teraz',
