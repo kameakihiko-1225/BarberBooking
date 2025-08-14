@@ -583,6 +583,36 @@ const translations: Record<Language, Record<string, string>> = {
     'course.pricing.contact.details': 'Skontaktuj się po szczegóły',
     'course.pricing.interest.free': '0% odsetek',
 
+    // Course pricing specific translations (Polish)
+    'course.free.pricing.title': 'Darmowe Doświadczenie',
+    'course.free.pricing.session': 'Pełna 4-godzinna sesja',
+    'course.free.pricing.no.costs': 'Bez ukrytych kosztów',
+    'course.free.pricing.price': 'DARMOWE',
+    'course.free.pricing.cta': 'Skontaktuj się po szczegóły',
+    
+    'course.beginner.pricing.title': 'Kompletny Kurs dla Początkujących',
+    'course.beginner.pricing.duration': '24 dni intensywnego szkolenia',
+    'course.beginner.pricing.certification': 'Certyfikat ukończenia',
+    'course.beginner.pricing.tools': 'Wszystkie narzędzia w cenie',
+    'course.beginner.pricing.price': '9,000 PLN',
+    'course.beginner.pricing.full.price': '(Cena regularna: 11,000 PLN)',
+    'course.beginner.pricing.installments': 'Raty dostępne',
+    'course.beginner.pricing.cta': 'Zapisz się teraz',
+    
+    'course.advanced.pricing.title': 'Kurs Zaawansowany',
+    'course.advanced.pricing.duration': '3-dniowy intensywny bootcamp',
+    'course.advanced.pricing.portfolio': 'Sesja zdjęciowa portfolio',
+    'course.advanced.pricing.mentoring': 'Mentoring 1:1',
+    'course.advanced.pricing.price': '1,800 PLN',
+    'course.advanced.pricing.cta': 'Dołącz do kursu',
+    
+    'course.specialist.pricing.title': 'Kurs Specjalistyczny',
+    'course.specialist.pricing.duration': '2-tygodniowy program',
+    'course.specialist.pricing.trends': 'Najnowsze globalne trendy',
+    'course.specialist.pricing.business': 'Materiały biznesowe',
+    'course.specialist.pricing.price': '2,400 PLN',
+    'course.specialist.pricing.cta': 'Rozpocznij specjalizację',
+
     // Instructor Details Translation Keys
     'instructor.not.found': 'Instruktor nie znaleziony',
     'instructor.apply.now': 'Aplikuj teraz',
@@ -995,6 +1025,36 @@ const translations: Record<Language, Record<string, string>> = {
     'course.pricing.full.payment': 'Full Payment',
     'course.pricing.installments': 'Installment Plan',
     'course.pricing.contact': 'Contact for Details',
+
+    // Course pricing specific translations (English)
+    'course.free.pricing.title': 'Free Experience',
+    'course.free.pricing.session': 'Full 4-hour session',
+    'course.free.pricing.no.costs': 'No hidden costs',
+    'course.free.pricing.price': 'FREE',
+    'course.free.pricing.cta': 'Contact for details',
+    
+    'course.beginner.pricing.title': 'Complete Beginner Course',
+    'course.beginner.pricing.duration': '24 days intensive training',
+    'course.beginner.pricing.certification': 'Completion certificate',
+    'course.beginner.pricing.tools': 'All tools included',
+    'course.beginner.pricing.price': '9,000 PLN',
+    'course.beginner.pricing.full.price': '(Regular price: 11,000 PLN)',
+    'course.beginner.pricing.installments': 'Installments available',
+    'course.beginner.pricing.cta': 'Enroll now',
+    
+    'course.advanced.pricing.title': 'Advanced Course',
+    'course.advanced.pricing.duration': '3-day intensive bootcamp',
+    'course.advanced.pricing.portfolio': 'Portfolio photo session',
+    'course.advanced.pricing.mentoring': '1:1 mentoring',
+    'course.advanced.pricing.price': '1,800 PLN',
+    'course.advanced.pricing.cta': 'Join course',
+    
+    'course.specialist.pricing.title': 'Specialist Course',
+    'course.specialist.pricing.duration': '2-week programme',
+    'course.specialist.pricing.trends': 'Latest global trends',
+    'course.specialist.pricing.business': 'Business materials',
+    'course.specialist.pricing.price': '2,400 PLN',
+    'course.specialist.pricing.cta': 'Start specialization',
     'course.faq.title': 'Frequently Asked Questions',
     'course.faq.experience.q': 'Do I need previous experience?',
     'course.faq.experience.a': 'No, our beginner courses are designed for people with no previous barbering experience.',
@@ -1704,10 +1764,53 @@ const translations: Record<Language, Record<string, string>> = {
     'course.free.howItWorks.1.desc': 'Дивіться справжні заняття в дії',
     'course.free.howItWorks.2.desc': 'Спілкуйтеся з нашими експертними інструкторами',
 
-    // Course.beginner benefits specific translations
+    // Course pricing specific translations (Ukrainian)
+    'course.free.pricing.title': 'Безкоштовний досвід',
+    'course.free.pricing.session': 'Повна 4-годинна сесія',
+    'course.free.pricing.no.costs': 'Без прихованих витрат',
+    'course.free.pricing.price': 'БЕЗКОШТОВНО',
+    'course.free.pricing.cta': 'Звертайтесь за деталями',
+    
+    'course.beginner.pricing.title': 'Повний курс для початківців',
+    'course.beginner.pricing.duration': '24 дні інтенсивного навчання',
+    'course.beginner.pricing.certification': 'Сертифікат завершення',
+    'course.beginner.pricing.tools': 'Всі інструменти включені',
+    'course.beginner.pricing.price': '9,000 PLN',
+    'course.beginner.pricing.full.price': '(Звичайна ціна: 11,000 PLN)',
+    'course.beginner.pricing.installments': 'Розстрочка доступна',
+    'course.beginner.pricing.cta': 'Записатися зараз',
+    
+    'course.advanced.pricing.title': 'Просунутий курс',
+    'course.advanced.pricing.duration': '3-денний інтенсивний буткемп',
+    'course.advanced.pricing.portfolio': 'Фотосесія портфоліо',
+    'course.advanced.pricing.mentoring': 'Менторинг 1:1',
+    'course.advanced.pricing.price': '1,800 PLN',
+    'course.advanced.pricing.cta': 'Приєднатися до курсу',
+    
+    'course.specialist.pricing.title': 'Спеціалістський курс',
+    'course.specialist.pricing.duration': '2-тижнева програма',
+    'course.specialist.pricing.trends': 'Найновіші глобальні тренди',
+    'course.specialist.pricing.business': 'Бізнес-матеріали',
+    'course.specialist.pricing.price': '2,400 PLN',
+    'course.specialist.pricing.cta': 'Розпочати спеціалізацію',
 
-
-    // Duplicate pricing keys removed to prevent conflicts
+    // Course benefits specific translations (Ukrainian)
+    'course.free.benefits.0': 'Безкоштовний сеанс ознайомлення з академією',
+    'course.free.benefits.1': 'Побачте наші об\'єкти з перших рук',
+    'course.free.benefits.2': 'Зустрічайтесь з професійними інструкторами',
+    'course.free.benefits.3': 'Поставте питання про програми',
+    
+    'course.beginner.benefits.0': 'Широка практика на живих моделях',
+    'course.beginner.benefits.1': 'Індивідуальна увага до кожного студента',
+    'course.beginner.benefits.2': 'Всі професійні інструменти на місці',
+    
+    'course.advanced.benefits.0': 'Передові техніки стрижки',
+    'course.advanced.benefits.1': 'Преміум методи стилізації бороди',
+    'course.advanced.benefits.2': 'Сучасні варіанти фейдів',
+    
+    'course.specialist.benefits.0': 'Найновіші глобальні тренди барберінгу',
+    'course.specialist.benefits.1': 'Розвиток професійного портфоліо',
+    'course.specialist.benefits.2': 'Експертний менторинг протягом курсу',
 
     // Instructor Details Translation Keys
     'instructor.not.found': 'Інструктора не знайдено',
@@ -1772,24 +1875,6 @@ const translations: Record<Language, Record<string, string>> = {
     'course.beginner.subtitle': 'Розпочніть нову професію з повною підготовкою та впевненістю',
     'course.beginner.description': 'Інтенсивна 24-денна програма, що перетворює людей з нульовим досвідом на професійних барберів через теорію, практику на манекенах та щоденну роботу з живими моделями (Пн-П\'ят, 12-20).',
     'course.beginner.badge': 'Початківець',
-
-    // Course benefits specific translations (Ukrainian)
-    'course.free.benefits.0': 'Безкоштовний сеанс ознайомлення з академією',
-    'course.free.benefits.1': 'Побачте наші об\'єкти з перших рук',
-    'course.free.benefits.2': 'Зустрічайтесь з професійними інструкторами',
-    'course.free.benefits.3': 'Поставте питання про програми',
-    
-    'course.beginner.benefits.0': 'Широка практика на живих моделях',
-    'course.beginner.benefits.1': 'Індивідуальна увага до кожного студента',
-    'course.beginner.benefits.2': 'Всі професійні інструменти на місці',
-    
-    'course.advanced.benefits.0': 'Передові техніки стрижки',
-    'course.advanced.benefits.1': 'Преміум методи стилізації бороди',
-    'course.advanced.benefits.2': 'Сучасні варіанти фейдів',
-    
-    'course.specialist.benefits.0': 'Найновіші глобальні тренди барберінгу',
-    'course.specialist.benefits.1': 'Розвиток професійного портфоліо',
-    'course.specialist.benefits.2': 'Експертний менторинг протягом курсу',
 
     'instructor.about.richer': 'Експерт з сучасних технік стрижки та класичних стилів перукарства з багаторічним професійним досвідом.',
     'instructor.experience.richer': 'Професійний перукар, що спеціалізується на точних стрижках та сучасному стилінгу.',
