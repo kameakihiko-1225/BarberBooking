@@ -64,40 +64,9 @@ export default function BarberSEO() {
       </ul>
 
       <div>
-        <span>Kurs barberingu Warszawa</span>
-        <span>Kursy barberingu Polska</span>
-        <span>Akademia barberingu Polska</span>
-        <span>Nauka barberingu od podstaw</span>
-        <span>Barber school Warsaw Europe</span>
-        <span>International barber course</span>
-        <span>European barber training</span>
-        <span>Barber academy Europe</span>
-        <span>Академія барберів Польща</span>
-        <span>Курси барберів у Польщі</span>
-        <span>Школа барберів для українців у Польщі</span>
-        <span>École de barbier Varsovie</span>
-        <span>Cours de barbier Pologne</span>
-        <span>Formation barbier Europe</span>
-        <span>Friseurschule Warschau</span>
-        <span>Barber Akademie Europa</span>
-        <span>Friseurausbildung Polen</span>
-        <span>Scuola barbiere Varsavia</span>
-        <span>Corso barbiere Polonia</span>
-        <span>Accademia barbiere Europa</span>
-        <span>Escuela barbero Varsovia</span>
-        <span>Curso barbero Polonia</span>
-        <span>Academia barbero Europa</span>
-        <span>Академия барбера Варшава</span>
-        <span>Школа парикмахера Польша</span>
-        <span>Барбер-школа Европа</span>
-        <span>Обучение барбера</span>
-        <span>Барбер академиясы Варшава</span>
-        <span>Шаштараз мектебі Польша</span>
-        <span>Барбер оқыту Еуропа</span>
-        <span>Barber akademiyasi Varshava</span>
-        <span>Sartarosh maktabi Polsha</span>
-        <span>Barber ta'limi Yevropa</span>
-        <span>Soch kesish akademiyasi</span>
+        {currentKeywords.slice(0, 9).map((keyword, index) => (
+          <span key={index}>{keyword}</span>
+        ))}
       </div>
     </div>
   );

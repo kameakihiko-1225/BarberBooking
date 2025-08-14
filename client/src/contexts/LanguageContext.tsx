@@ -551,6 +551,13 @@ const translations: Record<Language, Record<string, string>> = {
     'instructor.4.experience': 'Doświadczenie: 10+ lat',
     'instructor.5.about': 'Mistrz klasycznego barberingu i stylizacji. Prowadzi kursy dla zaawansowanych.',
     'instructor.5.experience': 'Doświadczenie: 14+ lat',
+
+    // Course types for contact forms
+    'course.type.complete': 'Kompletny kurs barbera',
+    'course.type.advanced': 'Zaawansowane szkolenie barberskie',
+    'course.type.weekend': 'Intensywny kurs weekendowy',
+    'course.type.master': 'Certyfikat Mistrza Barbera',
+    'course.type.short': 'Krótki kurs',
   },
 
   en: {
@@ -968,6 +975,13 @@ const translations: Record<Language, Record<string, string>> = {
     'instructor.5.about': 'Master of classical barbering and styling. Leads advanced courses.',
     'instructor.5.experience': 'Experience: 14+ years',
 
+    // Course types for contact forms
+    'course.type.complete': 'Complete Barber Course',
+    'course.type.advanced': 'Advanced Barber Training',
+    'course.type.weekend': 'Weekend Intensive Course',
+    'course.type.master': 'Master Barber Certification',
+    'course.type.short': 'Short course',
+
     'course.free.title': 'One-Day Free Barbering Course',
     'course.free.subtitle': 'Get a Real Taste of the Barbering World – For Free',
     'course.free.description': 'Curious about becoming a barber, but not sure where to start? Our One-Day Free Course is the perfect way to experience what it\'s really like to be part of a professional barbering academy.',
@@ -1321,6 +1335,13 @@ const translations: Record<Language, Record<string, string>> = {
     'blog.tag.trends': 'Тренди',
     'blog.tag.tools': 'Інструменти',
     'blog.filter.all': 'Всі',
+
+    // Course types for contact forms
+    'course.type.complete': 'Повний курс барбера',
+    'course.type.advanced': 'Просунуте навчання барбера',
+    'course.type.weekend': 'Інтенсивний вихідний курс',
+    'course.type.master': 'Сертифікація майстра барбера',
+    'course.type.short': 'Короткий курс',
 
     // Contact Page Translation Keys (these are duplicates, removing to prevent conflicts)
 
