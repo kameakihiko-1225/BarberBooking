@@ -161,7 +161,7 @@ export default function CourseDetails() {
                   className="flex items-center gap-2 text-sm bg-[var(--premium-accent)]/10 text-[var(--premium-accent)] px-3 py-1 rounded-full reveal"
                   style={{ transitionDelay: `${idx * 60}ms` }}
                 >
-                  <CheckCircle className="w-3 h-3" /> {b}
+                  <CheckCircle className="w-3 h-3" /> {t(b)}
                 </span>
               ))}
             </div>
