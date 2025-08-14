@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -10,58 +7,78 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id               String   @id @default(uuid())
-  email            String?  @unique
-  firstName        String?  @map("first_name")
-  lastName         String?  @map("last_name")
-  profileImageUrl  String?  @map("profile_image_url")
-  createdAt        DateTime @default(now()) @map("created_at")
-  updatedAt        DateTime @updatedAt @map("updated_at")
-
-  @@map("users")
+model GalleryItem {
+  id        String        @id @default(cuid())
+  slug      String        @unique
+  width     Int
+  height    Int
+  blurData  String?
+  createdAt DateTime      @default(now())
+  assets    GalleryAsset[]
+  i18n      GalleryI18n[]
+  tags      GalleryTag[]  @relation("ItemTags")
 }
 
-model Session {
-  sid    String   @id
-  sess   Json
-  expire DateTime
+model GalleryAsset {
+  id      String      @id @default(cuid())
+  itemId  String
+  fmt     String      // 'avif' | 'webp' | 'jpg'
+  widthPx Int         // 320 | 640 | 1024 | 1600
+  url     String
+  item    GalleryItem @relation(fields: [itemId], references: [id])
 
-  @@index([expire], name: "IDX_session_expire")
-  @@map("sessions")
+  @@index([itemId, fmt, widthPx])
 }
 
-model MediaFile {
-  id        Int      @id @default(autoincrement())
-  route     String
-  filename  String
-  type      String
-  url       String
-  createdAt DateTime @default(now()) @map("created_at")
+model GalleryI18n {
+  id      String      @id @default(cuid())
+  itemId  String
+  locale  String      // 'en' | 'pl' | 'uk'
+  field   String      // 'title' | 'alt' | 'description'
+  value   String
+  item    GalleryItem @relation(fields: [itemId], references: [id])
 
-  @@map("media_files")
+  @@unique([itemId, locale, field])
 }
 
-model Inquiry {
-  id          Int      @id @default(autoincrement())
-  name        String
-  email       String
-  phone       String?
-  message     String
-  courseType  String?  @map("course_type")
-  createdAt   DateTime @default(now()) @map("created_at")
-
-  @@map("inquiries")
+model Tag {
+  id    String     @id @default(cuid())
+  slug  String     @unique
+  i18n  TagI18n[]
+  items GalleryTag[] @relation("ItemTags")
 }
 
-model BlogPost {
-  id          Int      @id @default(autoincrement())
-  title       String
-  content     String
-  slug        String   @unique
-  published   Boolean  @default(false)
-  createdAt   DateTime @default(now()) @map("created_at")
-  updatedAt   DateTime @updatedAt @map("updated_at")
+model TagI18n {
+  id     String @id @default(cuid())
+  tagId  String
+  locale String
+  field  String // 'name'
+  value  String
+  tag    Tag    @relation(fields: [tagId], references: [id])
+  @@unique([tagId, locale, field])
+}
 
-  @@map("blog_posts")
+model GalleryTag {
+  itemId String
+  tagId  String
+  item   GalleryItem @relation(fields: [itemId], references: [id], name: "ItemTags")
+  tag    Tag         @relation(fields: [tagId], references: [id], name: "ItemTags")
+  @@id([itemId, tagId])
+}
+
+model Course {
+  id    String   @id @default(cuid())
+  slug  String   @unique   // 'free-course' | 'beginner-course'
+  policy Json               // {"kind":"daily"} | {"kind":"fixedDates","dates":["2025-09-15",...]}
+  i18n  CourseI18n[]
+}
+
+model CourseI18n {
+  id       String  @id @default(cuid())
+  courseId String
+  locale   String
+  field    String   // 'title' | 'subtitle' | ...
+  value    String
+  course   Course   @relation(fields: [courseId], references: [id])
+  @@unique([courseId, locale, field])
 }
