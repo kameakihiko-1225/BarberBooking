@@ -415,7 +415,7 @@ export default function CourseDetails() {
           <p className="text-gray-300 mb-8">
             {t('course.certificate.description')}
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+          <div className="flex justify-center gap-12 mt-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-[var(--premium-accent)] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="w-8 h-8 text-black" />
@@ -427,12 +427,6 @@ export default function CourseDetails() {
                 <Check className="w-8 h-8 text-black" />
               </div>
               <h3 className="font-bold mb-2">{t('course.certificate.industry')}</h3>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-[var(--premium-accent)] rounded-full flex items-center justify-center mx-auto mb-4">
-                <IdCard className="w-8 h-8 text-black" />
-              </div>
-              <h3 className="font-bold mb-2">{t('course.certificate.portfolio')}</h3>
             </div>
           </div>
         </div>
