@@ -1,10 +1,13 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { getCurrentLocale, DEFAULT_LOCALE } from '@/lib/i18n-utils';
+import type { Locale } from '@/components/language-switcher';
 
 export type Language = 'pl' | 'en' | 'uk';
 
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
+  changeLanguage: (lang: Language) => void; // i18next-like API
   t: (key: string) => string;
 }
 
@@ -23,19 +26,25 @@ interface LanguageProviderProps {
 }
 
 export const LanguageProvider = ({ children }: LanguageProviderProps) => {
-  const [language, setLanguage] = useState<Language>('pl'); // Default to Polish
+  const [language, setLanguage] = useState<Language>(DEFAULT_LOCALE as Language);
 
   useEffect(() => {
-    // Load language from localStorage or default to Polish
-    const savedLanguage = localStorage.getItem('language') as Language;
-    if (savedLanguage && ['pl', 'en', 'uk'].includes(savedLanguage)) {
-      setLanguage(savedLanguage);
-    }
+    // Initialize language with priority order: query → path → storage → default
+    const currentLocale = getCurrentLocale();
+    setLanguage(currentLocale as Language);
   }, []);
 
   const handleLanguageChange = (lang: Language) => {
     setLanguage(lang);
+    // Keep backward compatibility - still save to localStorage with old key
     localStorage.setItem('language', lang);
+    // Also save with new standard key for i18n utils
+    localStorage.setItem('lng', lang);
+  };
+
+  // i18next-like changeLanguage method
+  const changeLanguage = (lang: Language) => {
+    handleLanguageChange(lang);
   };
 
   const t = (key: string): string => {
@@ -43,7 +52,12 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage: handleLanguageChange, t }}>
+    <LanguageContext.Provider value={{ 
+      language, 
+      setLanguage: handleLanguageChange, 
+      changeLanguage,
+      t 
+    }}>
       {children}
     </LanguageContext.Provider>
   );
@@ -229,6 +243,16 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Additional translations for missing components
     'our.vibe': 'Nasza Atmosfera!',
+
+    // SEO (demonstrate i18n fallback system)
+    'seo.title': 'K&K Barber Academy - Kurs Barberingu Warszawa | Akademia Barberingu Polska',
+    'seo.description': 'Najlepsza akademia barberingu w Polsce z 2 certyfikatami jakości. Kursy barberingu Warszawa - nauka barberingu od podstaw.',
+    'seo.keywords': 'kurs barberingu Warszawa, kursy barberingu Polska, akademia barberingu Polska, nauka barberingu od podstaw',
+
+    // Structured Data
+    'structured.data.description': 'Jedyna akademia barberska w Polsce z dwoma certyfikatami jakości - ISO 9001:2015-10 i SZOE. Profesjonalne szkolenia barberskie.',
+    'structured.data.altname.1': 'Akademia Barberska K&K',
+    'structured.data.altname.2': 'Barbershop Academy Warszawa',
     'programs.fundamentals': 'Podstawy Barberstwa',
     'programs.master': 'Techniki Mistrzowskie', 
     'programs.business': 'Mistrzostwo Biznesowe',

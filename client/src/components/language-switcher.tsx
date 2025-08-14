@@ -1,5 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { 
+  getCurrentLocale, 
+  getCurrentPathWithoutLocale, 
+  createLocalizedPath,
+  updateQueryParam 
+} from '@/lib/i18n-utils';
 
 export type Locale = 'en' | 'pl' | 'uk';
 
@@ -32,41 +38,39 @@ export default function LanguageSwitcher({
   className = '',
   isMobile = false, // backward compatibility
 }: LanguageSwitcherProps) {
-  const { language: contextLanguage, setLanguage: setContextLanguage } = useLanguage();
+  const { changeLanguage } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Use prop locale or fallback to context for backward compatibility
-  const activeLocale = currentLocale || contextLanguage as Locale;
+  // Use prop locale or get current locale from utils
+  const activeLocale = currentLocale || getCurrentLocale();
 
   const handleLanguageChange = (nextLocale: Locale) => {
     setIsOpen(false);
 
     if (strategy === 'path') {
-      // Build URL with locale path prefix
-      const currentPath = window.location.pathname;
-      const pathWithoutLocale = currentPath.replace(/^\/(en|pl|uk)/, '') || '/';
-      const newUrl = `/${nextLocale}${pathWithoutLocale}${window.location.search}${window.location.hash}`;
-      window.location.href = newUrl; // Full reload for path strategy
+      // Navigate to localized path (full reload)
+      const currentPathWithoutLocale = getCurrentPathWithoutLocale();
+      const newPath = createLocalizedPath(nextLocale, currentPathWithoutLocale);
+      const newUrl = `${newPath}${window.location.search}${window.location.hash}`;
+      window.location.href = newUrl;
       return;
     }
 
     if (strategy === 'query') {
-      // Update URL query parameter
-      const url = new URL(window.location.href);
-      url.searchParams.set('lng', nextLocale);
-      window.history.pushState({}, '', url.toString());
+      // Update URL query parameter without reload
+      updateQueryParam('lng', nextLocale);
     }
 
     if (strategy === 'storage') {
-      // Store in localStorage
+      // Store in localStorage (default behavior)
       localStorage.setItem(storageKey, nextLocale);
     }
 
-    // Update context and call onChange (no reload for query/storage)
-    if (setContextLanguage) {
-      setContextLanguage(nextLocale as any);
-    }
+    // Wire to i18n instance (changeLanguage method)
+    changeLanguage(nextLocale as any);
+    
+    // Call onChange callback (no reload for query/storage strategies)
     onChange(nextLocale);
   };
 

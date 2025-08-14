@@ -12,13 +12,13 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("courses");
   const [location] = useLocation();
-  const { t, language, setLanguage } = useLanguage();
+  const { t, language, changeLanguage } = useLanguage();
   const isHome = location === "/";
   const isAbout = location === "/about-us";
 
   // Handle language change for the new switcher
   const handleLanguageChange = (nextLocale: Locale) => {
-    setLanguage(nextLocale as any);
+    changeLanguage(nextLocale as any);
   };
 
   const getInitialSection = () => {
