@@ -11,6 +11,7 @@ import { eq, desc } from 'drizzle-orm';
 import { db } from './db';
 import * as path from "path";
 import { join } from "path";
+import galleryRoutes from "./routes/gallery";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Security headers middleware to force HTTPS
@@ -121,10 +122,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Media listing endpoint - optimized for sub-1s loading
+  // Register gallery routes first (more specific routes)
+  app.use(galleryRoutes);
+
+  // Media listing endpoint - optimized for sub-1s loading (fallback for legacy routes)
   app.get("/api/media/:route", async (req, res) => {
     try {
       const route = req.params.route;
+      
+      // For gallery routes, redirect to new gallery API
+      if (route === 'gallery' || route === 'students-gallery') {
+        return res.redirect(301, `/api/gallery?locale=en&pageSize=100`);
+      }
       
       // Set aggressive caching headers for faster subsequent loads
       res.set({
