@@ -44,16 +44,16 @@ export const courses: Course[] = [
     rating: 5.0,
     enrolled: '2,500+',
     benefits: [
-      '4 Hours of Hands-On Experience – On Site',
-      'Explore the Academy & Barbershop Atmosphere',
-      'See the Quality for Yourself',
-      'Ask Questions & Get Guidance'
+      'course.free.benefits.0',
+      'course.free.benefits.1',
+      'course.free.benefits.2',
+      'course.free.benefits.3'
     ],
     skills: [
-      'Academy exploration',
-      'Live class observation',
-      'Meet expert barbers',
-      'Industry Q&A session'
+      'course.free.skills.0',
+      'course.free.skills.1',
+      'course.free.skills.2',
+      'course.free.skills.3'
     ],
     curriculum: [
       { week: 'Hour 1', topic: 'Academy tour & introduction' },
@@ -62,9 +62,9 @@ export const courses: Course[] = [
       { week: 'Hour 4', topic: 'Q&A with instructors' },
     ],
     audience: [
-      'Complete beginners',
-      'Anyone interested in barbering',
-      'Career explorers',
+      'course.free.audience.0',
+      'course.free.audience.1',
+      'course.free.audience.2',
     ],
     instructors: [
       {
@@ -74,16 +74,16 @@ export const courses: Course[] = [
       },
     ],
     includes: [
-      'Academy tour',
-      'Live demonstrations',
-      'Expert guidance',
-      'No commitment required'
+      'course.free.includes.0',
+      'course.free.includes.1',
+      'course.free.includes.2',
+      'course.free.includes.3'
     ],
     outcomes: [
-      'Know if barbering is right for you',
-      'See how our academy works',
-      'Understand our teaching style',
-      'Get inspired by real professionals'
+      'course.free.outcomes.0',
+      'course.free.outcomes.1',
+      'course.free.outcomes.2',
+      'course.free.outcomes.3'
     ],
     pricingPlans: [
       { plan: 'Free Experience', access: 'Full 4-hour session', extras: 'No hidden costs', price: 'FREE' },
@@ -120,15 +120,15 @@ export const courses: Course[] = [
     rating: 4.9,
     enrolled: '18,000+',
     benefits: [
-      'Extensive hands-on practice on live models',
-      'Individual attention for each student',
-      'All professional tools on-site',
+      'course.beginner.benefits.0',
+      'course.beginner.benefits.1',
+      'course.beginner.benefits.2',
     ],
     skills: [
-      'Classic & modern haircuts',
-      'Clipper fading (low/mid/high)',
-      'Razor work & detailing',
-      'Beard shaping & care',
+      'course.beginner.skills.0',
+      'course.beginner.skills.1',
+      'course.beginner.skills.2',
+      'course.beginner.skills.3',
     ],
     curriculum: [
       { week: 'Week 1', topic: 'Tool handling & hygiene' },
@@ -137,9 +137,9 @@ export const courses: Course[] = [
       { week: 'Week 4', topic: 'Beard styling & razor work' },
     ],
     audience: [
-      'People with no experience',
-      'Career changers',
-      'Students after school',
+      'course.beginner.audience.0',
+      'course.beginner.audience.1',
+      'course.beginner.audience.2',
     ],
     instructors: [
       {
@@ -149,14 +149,14 @@ export const courses: Course[] = [
       },
     ],
     includes: [
-      'Professional scissors & comb gift',
-      'All tools provided',
-      'Certificate of completion',
+      'course.beginner.includes.0',
+      'course.beginner.includes.1',
+      'course.beginner.includes.2',
     ],
     outcomes: [
-      'Perform modern cuts & fades',
-      'Confidently style beards',
-      'Launch barber career',
+      'course.beginner.outcomes.0',
+      'course.beginner.outcomes.1',
+      'course.beginner.outcomes.2',
     ],
     pricingPlans: [
       { plan: 'Full Payment', access: 'All modules', extras: '', price: '9 000 PLN' },
@@ -190,15 +190,15 @@ export const courses: Course[] = [
     rating: 4.9,
     enrolled: '8,500+',
     benefits: [
-      'Advanced razor & fade workshops',
-      'Interactive demos with industry pros',
-      'Portfolio-ready final project',
+      'course.advanced.benefits.0',
+      'course.advanced.benefits.1',
+      'course.advanced.benefits.2',
     ],
     skills: [
-      'Skin fades & creative designs',
-      'Straight razor shaving',
-      'Client retention strategies',
-      'Social media promotion',
+      'course.advanced.skills.0',
+      'course.advanced.skills.1',
+      'course.advanced.skills.2',
+      'course.advanced.skills.3',
     ],
     curriculum: [
       { week: 'Week 1', topic: 'Refining Fundamentals' },
@@ -208,9 +208,9 @@ export const courses: Course[] = [
       { week: 'Week 5', topic: 'Personal Brand Project' },
     ],
     audience: [
-      'Licensed barbers',
-      'Experienced stylists',
-      'Freelancers looking to upskill',
+      'course.advanced.audience.0',
+      'course.advanced.audience.1',
+      'course.advanced.audience.2',
     ],
     instructors: [
       {

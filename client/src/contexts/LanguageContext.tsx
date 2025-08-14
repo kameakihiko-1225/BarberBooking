@@ -1442,6 +1442,36 @@ const translations: Record<Language, Record<string, string>> = {
     'course.beginner.outcomes.1': 'Впевнено стилізувати бороду',
     'course.beginner.outcomes.2': 'Розпочати кар\'єру барбера',
 
+    // Course.free specific translations
+    'course.free.benefits.0': '4 години практичного досвіду — на місці',
+    'course.free.benefits.1': 'Дослідіть академію та атмосферу барбершопу',
+    'course.free.benefits.2': 'Оцініть якість власними очима',
+    'course.free.benefits.3': 'Ставте запитання та отримуйте поради',
+    
+    'course.free.skills.0': 'Дослідження академії',
+    'course.free.skills.1': 'Спостереження за живими заняттями',
+    'course.free.skills.2': 'Знайомство з експертними барберами',
+    'course.free.skills.3': 'Сесія запитань та відповідей індустрії',
+    
+    'course.free.audience.0': 'Повні початківці',
+    'course.free.audience.1': 'Всі, хто цікавиться барберінгом',
+    'course.free.audience.2': 'Дослідники кар\'єри',
+    
+    'course.free.includes.0': 'Екскурсія академією',
+    'course.free.includes.1': 'Живі демонстрації',
+    'course.free.includes.2': 'Експертні поради',
+    'course.free.includes.3': 'Жодних зобов\'язань не потрібно',
+    
+    'course.free.outcomes.0': 'Дізнайтеся, чи підходить вам барберінг',
+    'course.free.outcomes.1': 'Подивіться, як працює наша академія',
+    'course.free.outcomes.2': 'Зрозумійте наш стиль викладання',
+    'course.free.outcomes.3': 'Надихніться справжніми професіоналами',
+
+    // Course.beginner benefits specific translations
+    'course.beginner.benefits.0': 'Обширна практика на живих моделях',
+    'course.beginner.benefits.1': 'Індивідуальна увага до кожного студента',
+    'course.beginner.benefits.2': 'Всі професійні інструменти на місці',
+
     // Duplicate pricing keys removed to prevent conflicts
 
     // Instructor Details Translation Keys
