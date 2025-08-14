@@ -219,8 +219,16 @@ export const courses: Course[] = [
         photo: '/attached_assets/Tomasz_1752038504331.jpg',
       },
     ],
-    includes: ['All tools provided','Gift set – scissors & comb','Certificate'],
-    outcomes: ['Master modern styles','Blend flawless fades','Premium beard services'],
+    includes: [
+      'course.advanced.includes.0',
+      'course.advanced.includes.1',
+      'course.advanced.includes.2',
+    ],
+    outcomes: [
+      'course.advanced.outcomes.0',
+      'course.advanced.outcomes.1',
+      'course.advanced.outcomes.2',
+    ],
     pricingPlans: [
       { plan: 'Full', access: '3-day bootcamp', extras: '', price: '3 600 PLN' },
     ],
@@ -228,9 +236,9 @@ export const courses: Course[] = [
       { q: 'Who can enroll?', a: 'Barbers with at least 2 years salon experience.' },
     ],
     howItWorks: [
-      { title: 'Masterclasses', icon: 'trophy', desc: 'Live demos from award-winning barbers' },
-      { title: 'Portfolio Project', icon: 'briefcase', desc: 'Photo shoot with models for Instagram' },
-      { title: '1:1 Mentorship', icon: 'users', desc: 'Personal feedback & growth plan' },
+      { title: 'course.advanced.howItWorks.0', icon: 'trophy', desc: 'course.advanced.howItWorks.0.desc' },
+      { title: 'course.advanced.howItWorks.1', icon: 'briefcase', desc: 'course.advanced.howItWorks.1.desc' },
+      { title: 'course.advanced.howItWorks.2', icon: 'users', desc: 'course.advanced.howItWorks.2.desc' },
     ],
     localName: '3 kunlik kurs uchun',
     upcomingDates: [
@@ -257,15 +265,15 @@ export const courses: Course[] = [
     rating: 4.8,
     enrolled: '5,200+',
     benefits: [
-      'Shop management blueprints',
-      'Branding & marketing playbook',
-      'Financial planning roadmap',
+      'course.specialist.benefits.0',
+      'course.specialist.benefits.1',
+      'course.specialist.benefits.2',
     ],
     skills: [
-      'Client retention',
-      'Budgeting & finance',
-      'Local marketing',
-      'Leadership & hiring',
+      'course.specialist.skills.0',
+      'course.specialist.skills.1',
+      'course.specialist.skills.2',
+      'course.specialist.skills.3',
     ],
     curriculum: [
       { week: 'Week 1', topic: 'Business Fundamentals' },
@@ -275,9 +283,9 @@ export const courses: Course[] = [
       { week: 'Week 5', topic: 'Capstone Business Plan' },
     ],
     audience: [
-      'Entrepreneurs scaling businesses',
-      'Barbershop owners',
-      'Freelancers looking to upskill',
+      'course.specialist.audience.0',
+      'course.specialist.audience.1',
+      'course.specialist.audience.2',
     ],
     instructors: [
       {
@@ -286,8 +294,16 @@ export const courses: Course[] = [
         photo: '/attached_assets/Bartosz_1752038504320.jpg',
       },
     ],
-    includes: ['Tools on-site','Professional kit gift','Certificate'],
-    outcomes: ['Master trending styles','Improve razor work','Attract new clients'],
+    includes: [
+      'course.specialist.includes.0',
+      'course.specialist.includes.1',
+      'course.specialist.includes.2',
+    ],
+    outcomes: [
+      'course.specialist.outcomes.0',
+      'course.specialist.outcomes.1',
+      'course.specialist.outcomes.2',
+    ],
     pricingPlans: [
       { plan: 'Full', access: 'All modules', extras: '', price: '5 500 PLN' },
     ],
@@ -295,9 +311,9 @@ export const courses: Course[] = [
       { q: 'Is accommodation included?', a: 'No, but we can recommend nearby hotels.' },
     ],
     howItWorks: [
-      { title: 'Trend Workshops', icon: 'book-open', desc: 'Weekly sessions on latest global cuts' },
-      { title: 'Hands-on Labs', icon: 'scissors', desc: 'Immediate practice under supervision' },
-      { title: 'Client Demos', icon: 'users', desc: 'Style real customers & receive feedback' },
+      { title: 'course.specialist.howItWorks.0', icon: 'book-open', desc: 'course.specialist.howItWorks.0.desc' },
+      { title: 'course.specialist.howItWorks.1', icon: 'scissors', desc: 'course.specialist.howItWorks.1.desc' },
+      { title: 'course.specialist.howItWorks.2', icon: 'users', desc: 'course.specialist.howItWorks.2.desc' },
     ],
     localName: '2 haftalik kurs uchun',
     upcomingDates: [
