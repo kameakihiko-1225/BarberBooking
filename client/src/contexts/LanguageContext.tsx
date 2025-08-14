@@ -582,6 +582,38 @@ const translations: Record<Language, Record<string, string>> = {
     'course.type.weekend': 'Intensywny kurs weekendowy',
     'course.type.master': 'Certyfikat Mistrza Barbera',
     'course.type.short': 'Krótki kurs',
+
+    // Course.free detailed content translations (Polish)
+    'course.free.skills.0': 'Eksploracja akademii',
+    'course.free.skills.1': 'Obserwacja zajęć na żywo',
+    'course.free.skills.2': 'Spotkanie z ekspertami barberami',
+    'course.free.skills.3': 'Sesja pytań i odpowiedzi branżowych',
+    
+    'course.free.audience.0': 'Kompletni początkujący',
+    'course.free.audience.1': 'Wszyscy zainteresowani barberingiem',
+    'course.free.audience.2': 'Badacze kariery',
+    
+    'course.free.includes.0': 'Wycieczka po akademii',
+    'course.free.includes.1': 'Demonstracje na żywo',
+    'course.free.includes.2': 'Porady ekspertów',
+    'course.free.includes.3': 'Bez żadnych zobowiązań',
+    
+    'course.free.outcomes.0': 'Zobacz, czy barbering Ci odpowiada',
+    'course.free.outcomes.1': 'Zobacz, jak działa nasza akademia',
+    'course.free.outcomes.2': 'Zrozum nasz styl nauczania',
+    'course.free.outcomes.3': 'Zainspiruj się prawdziwymi profesjonalistami',
+
+    'course.free.howItWorks.0': 'Wycieczka po akademii',
+    'course.free.howItWorks.1': 'Obserwacja na żywo',
+    'course.free.howItWorks.2': 'Poznaj zespół',
+    'course.free.howItWorks.0.desc': 'Odkryj nasze nowoczesne obiekty szkoleniowe',
+    'course.free.howItWorks.1.desc': 'Obserwuj prawdziwe zajęcia w akcji',
+    'course.free.howItWorks.2.desc': 'Porozmawiaj z naszymi ekspertami instruktorami',
+
+    // Course.beginner benefits specific translations (Polish)
+    'course.beginner.benefits.0': 'Ekstensywna praktyka z żywymi modelami',
+    'course.beginner.benefits.1': 'Indywidualna uwaga dla każdego studenta',
+    'course.beginner.benefits.2': 'Wszystkie profesjonalne narzędzia na miejscu',
   },
 
   en: {
@@ -1086,6 +1118,35 @@ const translations: Record<Language, Record<string, string>> = {
     'blog.post.top-5-fade-techniques-2025.tag': 'TRENDS',
     'blog.post.barber-toolkit-essentials.title': 'Barber Toolkit: Essentials vs. Nice-to-Have',
     'blog.post.barber-toolkit-essentials.tag': 'TOOLS',
+
+    // Course.free detailed content translations
+    'course.free.skills.0': 'Academy exploration',
+    'course.free.skills.1': 'Live class observation',
+    'course.free.skills.2': 'Meet expert barbers',
+    'course.free.skills.3': 'Industry Q&A session',
+    
+    'course.free.audience.0': 'Complete beginners',
+    'course.free.audience.1': 'Anyone interested in barbering',
+    'course.free.audience.2': 'Career explorers',
+    
+    'course.free.includes.0': 'Academy tour',
+    'course.free.includes.1': 'Live demonstrations',
+    'course.free.includes.2': 'Expert advice',
+    'course.free.includes.3': 'No commitment required',
+    
+    'course.free.outcomes.0': 'See if barbering suits you',
+    'course.free.outcomes.1': 'See how our academy works',
+    'course.free.outcomes.2': 'Understand our teaching style',
+    'course.free.outcomes.3': 'Get inspired by real professionals',
+
+    'course.free.howItWorks.0': 'Academy tour',
+    'course.free.howItWorks.1': 'Live observation',
+    'course.free.howItWorks.2': 'Meet the team',
+    'course.free.howItWorks.0.desc': 'Explore our modern training facilities',
+    'course.free.howItWorks.1.desc': 'Watch real classes in action',
+    'course.free.howItWorks.2.desc': 'Chat with our expert instructors',
+
+
   },
 
   uk: {
