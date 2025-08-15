@@ -136,14 +136,7 @@ export default function SuccessGalleryPage() {
   const displayLimit = showAll ? data.length : initialLimit;
   const displayMedia = data.slice(0, displayLimit);
 
-  // Debug logging
-  console.log('Success Gallery State:', {
-    isLoading,
-    error: !!error,
-    dataLength: data.length,
-    displayMediaLength: displayMedia.length,
-    hasGalleryResponse: !!galleryResponse
-  });
+  // Debug logging removed for production
 
   if (isLoading) {
     return (

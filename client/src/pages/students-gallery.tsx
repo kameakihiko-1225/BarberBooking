@@ -140,14 +140,7 @@ export default function StudentsGalleryPage() {
   const displayLimit = showAll ? data.length : initialLimit;
   const displayMedia = data.slice(0, displayLimit);
 
-  // Debug logging
-  console.log('Students Gallery State:', {
-    isLoading,
-    error: !!error,
-    dataLength: data.length,
-    displayMediaLength: displayMedia.length,
-    hasGalleryResponse: !!galleryResponse
-  });
+  // Debug logging removed for production
 
   const getGridClasses = () => {
     const base = isMobile ? 'grid-cols-2' : 'grid-cols-3 lg:grid-cols-4';

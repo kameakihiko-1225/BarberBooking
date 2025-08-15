@@ -67,26 +67,27 @@ Preferred communication style: Simple, everyday language.
 
 ### Gallery System Reorganization with Type-Based Separation ✅ COMPLETED (August 15, 2025)
 - **Type-Based Architecture**: Reorganized gallery system with three distinct collections
-  - **Main Gallery**: Professional work and general portfolio (type: 'main')
-  - **Students Gallery**: Student work and transformations (type: 'students') 
-  - **Success Stories**: Graduate achievements and certifications (type: 'success')
+  - **Main Gallery**: Professional work and general portfolio (type: 'main') - 57 image items
+  - **Students Gallery**: Student work and transformations (type: 'students') - 29 images
+  - **Success Stories**: Graduate achievements and certifications (type: 'success') - 14 images
 - **Database Schema Enhancement**: Added `type` field to GalleryItem model with proper default values
 - **Separate ETL Processes**: Created dedicated ingestion tools for each gallery type
-  - `tools/ingest-gallery.ts` - Main gallery (64 media files: 61 images + 3 videos)
+  - `tools/ingest-gallery.ts` - Main gallery (image processing only)
   - `tools/ingest-students-gallery.ts` - Students work (29 images processed)
   - `tools/ingest-success-gallery.ts` - Success stories (14 images processed)
 - **Directory Structure**: Organized source images by type
-  - Main: `public/gallery/` → `/gallery/_processed/` (includes videos served directly)
+  - Main: `public/gallery/` → `/gallery/_processed/` (images only, 354 JPG files)
   - Students: `public/gallery-students/` → `/gallery-students/_processed/`
   - Success: `public/gallery-success/` → `/gallery-success/_processed/`
 - **API Enhancement**: Updated gallery API with type parameter filtering
-  - `/api/gallery?type=main` - Main professional gallery (images + videos)
-  - `/api/gallery?type=students` - Student work gallery
+  - `/api/gallery?type=main` - Main professional gallery (images only)
+  - `/api/gallery?type=students` - Student work gallery  
   - `/api/gallery?type=success` - Success stories gallery
 - **Frontend Updates**: Modified gallery pages to use correct type parameters
-  - All gallery types now support both image and video content seamlessly
+  - All gallery types working with responsive image display
 - **Translation System**: Resolved duplicate translation keys across all languages
-- **Production Ready**: All three gallery types working with optimized variants and video support
+- **Video Removal**: Eliminated 343 video assets causing loading failures (August 15, 2025)
+- **Production Ready**: All three gallery types working with optimized image variants only
 
 ### Intelligent Kommo CRM Auto-Discovery Integration ✅ COMPLETED
 - **Hardcoded Real Credentials**: Integrated with live K&K Barber Academy CRM (kkbarberacademycrm.kommo.com)
