@@ -1,31 +1,22 @@
 import { useRef, useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
-import { Play } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { fetchGallery, type GalleryItem } from '@/gallery/api';
 
-type Media = { src: string; type: 'image' | 'video' };
-
-function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
+function OptimizedMediaCard({ item, index }: { item: GalleryItem; index: number }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const mediaRef = useRef<HTMLImageElement | HTMLVideoElement>(null);
+  const mediaRef = useRef<HTMLImageElement>(null);
   const [inView, setInView] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setInView(true);
-          if (mediaRef.current) {
-            if (item.type === 'image') {
-              (mediaRef.current as HTMLImageElement).src = item.src;
-            } else {
-              (mediaRef.current as HTMLVideoElement).src = item.src;
-            }
-          }
           obs.disconnect();
         }
       },
@@ -33,20 +24,7 @@ function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
     );
     if (containerRef.current) obs.observe(containerRef.current);
     return () => obs.disconnect();
-  }, [item.src, item.type]);
-
-  const handleVideoClick = () => {
-    if (item.type === 'video' && mediaRef.current) {
-      const video = mediaRef.current as HTMLVideoElement;
-      if (isPlaying) {
-        video.pause();
-        setIsPlaying(false);
-      } else {
-        video.play().catch(console.error);
-        setIsPlaying(true);
-      }
-    }
-  };
+  }, []);
 
   const animationDelay = Math.min(index * 30, 600);
 
@@ -63,38 +41,30 @@ function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
     >
       {!error ? (
         <div className="relative rounded-xl overflow-hidden group">
-          {item.type === 'image' ? (
+          <picture>
+            <source srcSet={item.srcsets.avif} type="image/avif" />
+            <source srcSet={item.srcsets.webp} type="image/webp" />
             <img
-              ref={mediaRef as React.RefObject<HTMLImageElement>}
-              alt="success story"
+              ref={mediaRef}
+              src={item.srcsets.jpg.split(' ')[0]}
+              srcSet={item.srcsets.jpg}
+              alt={item.alt || item.title}
               className={`w-full h-48 sm:h-56 md:h-64 object-cover transition-all duration-300 group-hover:scale-105 ${
                 loaded ? 'opacity-100' : 'opacity-0'
               }`}
               onLoad={() => setLoaded(true)}
               onError={() => setError(true)}
               style={{ contentVisibility: 'auto' }}
+              loading="lazy"
             />
-          ) : (
-            <div className="relative cursor-pointer" onClick={handleVideoClick}>
-              <video
-                ref={mediaRef as React.RefObject<HTMLVideoElement>}
-                className={`w-full h-48 sm:h-56 md:h-64 object-cover transition-all duration-300 ${
-                  loaded ? 'opacity-100' : 'opacity-0'
-                }`}
-                preload="metadata"
-                muted
-                loop
-                playsInline
-                onLoadedData={() => setLoaded(true)}
-                onError={() => setError(true)}
-                onPlay={() => setIsPlaying(true)}
-                onPause={() => setIsPlaying(false)}
-                style={{ contentVisibility: 'auto' }}
-              />
-              {!isPlaying && (
-                <Play className="absolute inset-0 m-auto h-12 w-12 text-white bg-black/50 rounded-full p-3 opacity-80 group-hover:opacity-100 transition-opacity hover:bg-black/70" />
-              )}
-            </div>
+          </picture>
+          {!loaded && inView && item.blurData && (
+            <img
+              src={item.blurData}
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover blur-sm scale-105"
+              style={{ filter: 'blur(10px)' }}
+            />
           )}
           {!loaded && inView && (
             <div className="absolute inset-0 bg-gray-800 animate-pulse flex items-center justify-center">
@@ -103,70 +73,101 @@ function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
           )}
         </div>
       ) : (
-        <div className="w-full h-48 sm:h-56 md:h-64 bg-gray-800 rounded-xl" />
+        <div className="w-full aspect-[4/3] bg-gray-800 rounded-xl" />
       )}
     </div>
   );
 }
 
 export default function SuccessGalleryPage() {
+  const { t } = useLanguage();
+  const isMobile = useIsMobile();
+  const [showAll, setShowAll] = useState(false);
+  
   const { data: galleryResponse, isLoading } = useQuery({
-    queryKey: ['gallery', 'pl'],
-    queryFn: () => fetchGallery({ pageSize: 100, locale: 'pl' }),
+    queryKey: ['gallery', 'success'],
+    queryFn: () => fetchGallery({ pageSize: 100, locale: 'en', tags: ['success'] }),
     staleTime: 5 * 60 * 1000, // 5 minutes
   });
 
-  const data: Media[] = galleryResponse?.items?.map((item: GalleryItem) => ({
-    src: item.srcsets.jpg.split(' ')[2] || item.srcsets.jpg.split(' ')[0], // Use 640w or fallback
-    type: 'image' as const,
-    alt: item.alt || item.title
-  })) || [];
+  const data: GalleryItem[] = galleryResponse?.items || [];
 
-  // Shuffle media for varied display
-  const shuffledMedia = [...data].sort(() => Math.random() - 0.5);
+  // Progressive loading based on device capabilities
+  const getInitialLimit = () => {
+    if (typeof window === 'undefined') return 15;
+    
+    const deviceMemory = (navigator as any).deviceMemory || 4;
+    const connectionSpeed = (navigator as any).connection?.effectiveType;
+    
+    if (isMobile) {
+      if (deviceMemory <= 2 || connectionSpeed === '2g') return 10;
+      if (deviceMemory <= 4 || connectionSpeed === '3g') return 15;
+      return 20;
+    }
+    return 24;
+  };
+
+  const initialLimit = getInitialLimit();
+  const displayLimit = showAll ? data.length : initialLimit;
+  const shuffledMedia = [...data].sort(() => Math.random() - 0.5).slice(0, displayLimit);
 
   if (isLoading) {
     return (
-      <main className="pt-32 pb-20 bg-deep-black text-white">
+      <main className="pt-36 pb-20 bg-deep-black text-white">
         <section className="text-center mb-20 px-4">
-          <h1 className="font-serif text-5xl font-bold mb-4">Success <span className="premium-accent">Stories</span></h1>
-          <p className="text-gray-300 max-w-2xl mx-auto">Celebrating our graduates' achievements</p>
+          <h1 className="font-serif text-5xl font-bold mb-4">{t('page.success.title')} <span className="premium-accent">{t('page.success.title.highlight')}</span></h1>
+          <p className="text-gray-300 max-w-2xl mx-auto">{t('page.success.explore')}</p>
         </section>
-        <section className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
-            {Array.from({ length: 12 }).map((_, i) => (
-              <div key={i} className="h-48 sm:h-56 md:h-64 bg-gray-800 animate-pulse rounded-xl" />
-            ))}
-          </div>
-        </section>
+        <div className="flex justify-center">
+          <div className="w-8 h-8 border-2 border-[var(--premium-accent)] border-t-transparent rounded-full animate-spin"></div>
+        </div>
       </main>
     );
   }
 
   return (
-    <main className="pt-32 pb-20 bg-deep-black text-white">
+    <main className="pt-36 pb-20 bg-deep-black text-white">
       <section className="text-center mb-20 px-4">
-        <h1 className="font-serif text-5xl font-bold mb-4">Success <span className="premium-accent">Stories</span></h1>
-        <p className="text-gray-300 max-w-2xl mx-auto">
-          Celebrating our graduates' achievements - {data.length} inspiring stories
+        <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+          {t('page.success.title')} <span className="premium-accent">{t('page.success.title.highlight')}</span>
+        </h1>
+        <p className="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base mb-6">
+          {t('page.success.explore')} - {data.length} {t('page.showcased.works')}
         </p>
+        
+        {!showAll && data.length > initialLimit && (
+          <button
+            onClick={() => setShowAll(true)}
+            className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-full text-xs sm:text-sm font-medium transition-colors"
+          >
+            {t('gallery.load.all')} ({data.length - initialLimit} {t('gallery.more.works')})
+          </button>
+        )}
       </section>
 
-      <section className="max-w-6xl mx-auto px-4 mb-16">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
+      <section className="max-w-7xl mx-auto px-2 sm:px-4 mb-16 scroll-scale">
+        <div className="columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-2 sm:gap-3 md:gap-4 space-y-2 sm:space-y-3 md:space-y-4">
           {shuffledMedia.map((item, index) => (
-            <OptimizedMediaCard key={`${item.src}-${index}`} item={item} index={index} />
+            <div key={`${item.slug}-${index}`} className="break-inside-avoid mb-2 sm:mb-3 md:mb-4">
+              <OptimizedMediaCard item={item} index={index} />
+            </div>
           ))}
         </div>
       </section>
 
-      <div className="text-center">
-        <Button className="bg-[var(--premium-accent)] text-black px-10 py-4 font-semibold rounded-full hover:bg-[var(--premium-accent)]/80" asChild>
-          <a href="/">Back to Home</a>
-        </Button>
-        <Button className="ml-4 bg-white text-deep-black px-10 py-4 font-semibold rounded-full hover:bg-white/90 mt-4" asChild>
-          <a href="/contacts">Apply Now</a>
-        </Button>
+      <div className="text-center px-4">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-0 justify-center items-center">
+          <Button className="bg-[var(--premium-accent)] text-black px-6 sm:px-10 py-3 sm:py-4 font-semibold rounded-full hover:bg-[var(--premium-accent)]/80 w-full sm:w-auto" asChild>
+            <a href="/" className="flex items-center justify-center">
+              <span className="block text-center">{t('page.back.home')}</span>
+            </a>
+          </Button>
+          <Button className="sm:ml-4 bg-white text-deep-black px-6 sm:px-10 py-3 sm:py-4 font-semibold rounded-full hover:bg-white/90 w-full sm:w-auto" asChild>
+            <a href="/contact" className="flex items-center justify-center">
+              <span className="block text-center">{t('page.apply.now')}</span>
+            </a>
+          </Button>
+        </div>
       </div>
     </main>
   );

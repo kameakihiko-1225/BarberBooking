@@ -150,6 +150,15 @@ const translations: Record<Language, Record<string, string>> = {
     'gallery.title.highlight': 'Galeria',
     'gallery.subtitle': 'Zobacz nasze prace',
     'gallery.description': 'Odkryj niesamowitą pracę naszych studentów i instruktorów.',
+    'gallery.view.full': 'Zobacz pełną galerię',
+    'gallery.load.all': 'Pokaż wszystkie',
+    'gallery.more.works': 'więcej prac',
+    'gallery.masonry': 'Siatka',
+    'gallery.grid': 'Kratka',
+    'gallery.grid.view': 'Widok kratki',
+    'gallery.size.compact': 'Kompaktowy',
+    'gallery.size.standard': 'Standardowy',
+    'gallery.size.spacious': 'Przestronny',
 
     // Testimonials
     'testimonials.title': 'Historie Sukcesu Studentów',
@@ -221,6 +230,21 @@ const translations: Record<Language, Record<string, string>> = {
     'cta.title': 'Rozpocznij swoją karierę już dziś',
     'cta.description': 'Dołącz do tysięcy odnoszących sukcesy absolwentów, którzy przekształcili swoją pasję w dochodową karierę.',
     'cta.button': 'Zapisz się teraz',
+    
+    // Students Gallery Page
+    'page.students.title': 'Prace',
+    'page.students.title.highlight': 'Uczniów',
+    'page.students.explore': 'Odkryj niesamowite prace naszych uczniów i zobacz, czego możesz się nauczyć',
+    'page.showcased.works': 'prezentowanych prac',
+    
+    // Success Gallery Page
+    'page.success.title': 'Historie',
+    'page.success.title.highlight': 'Sukcesu',
+    'page.success.explore': 'Zobacz prawdziwe historie sukcesu naszych absolwentów',
+    
+    // Navigation
+    'page.back.home': 'Powrót do strony głównej',
+    'page.apply.now': 'Zapisz się teraz',
     
     // CTA Enroll Section
     'cta.enroll.title': 'Gotowy na rozpoczęcie swojej drogi barbera?',
@@ -471,14 +495,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Gallery UI Elements
     'gallery.professional.works': 'profesjonalnych prac',
     'gallery.masonry.view': 'Widok kafelkowy',
-    'gallery.grid.view': 'Widok siatki',
     'gallery.flow': 'Kafelki',
-    'gallery.grid': 'Siatka',
-    'gallery.load.all': 'Załaduj wszystkie',
-    'gallery.more.works': 'więcej prac',
-    'gallery.size.compact': 'Kompaktowy',
-    'gallery.size.standard': 'Standardowy',
-    'gallery.size.spacious': 'Przestronny',
 
     // Blog Post Translation Keys
     'blog.post.career.title': 'Jak rozpocząć karierę w barberingu',
