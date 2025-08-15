@@ -91,13 +91,35 @@ export default function GalleryPage() {
   const [viewMode, setViewMode] = useState<'masonry' | 'grid'>('masonry');
   const [showAll, setShowAll] = useState(false);
   
-  const { data: galleryResponse, isLoading } = useQuery({
+  const { data: galleryResponse, isLoading, error } = useQuery({
     queryKey: ['gallery', 'pl'],
     queryFn: () => fetchGallery({ pageSize: 100, locale: 'pl' }),
     staleTime: 5 * 60 * 1000, // 5 minutes
   });
 
   const data: GalleryItem[] = galleryResponse?.items || [];
+  
+  // Debug logging
+  console.log('Gallery Debug:', { 
+    isLoading, 
+    hasError: !!error, 
+    dataCount: data?.length, 
+    hasGalleryResponse: !!galleryResponse,
+    firstItem: data?.[0]
+  });
+
+  // Add error handling
+  if (error) {
+    console.error('Gallery fetch error:', error);
+    return (
+      <main className="pt-36 pb-20 bg-deep-black text-white">
+        <section className="text-center mb-20 px-4">
+          <h1 className="font-serif text-5xl font-bold mb-4">Error Loading Gallery</h1>
+          <p className="text-gray-300">Unable to load gallery images. Please try refreshing the page.</p>
+        </section>
+      </main>
+    );
+  }
 
   // Smart performance optimization with progressive loading
   const getInitialLimit = () => {
@@ -122,8 +144,8 @@ export default function GalleryPage() {
     return (
       <main className="pt-36 pb-20 bg-deep-black text-white">
         <section className="text-center mb-20 px-4">
-          <h1 className="font-serif text-5xl font-bold mb-4">{t('page.gallery.title')} <span className="premium-accent">{t('page.gallery.title.highlight')}</span></h1>
-          <p className="text-gray-300 max-w-2xl mx-auto">{t('page.gallery.loading')}</p>
+          <h1 className="font-serif text-5xl font-bold mb-4">Loading... <span className="premium-accent">Gallery</span></h1>
+          <p className="text-gray-300 max-w-2xl mx-auto">Loading gallery images...</p>
         </section>
         <section className="max-w-6xl mx-auto px-4">
           <div className="columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-4 space-y-4">
@@ -138,12 +160,24 @@ export default function GalleryPage() {
     );
   }
 
+  // Early return if no data
+  if (!data || data.length === 0) {
+    return (
+      <main className="pt-36 pb-20 bg-deep-black text-white">
+        <section className="text-center mb-20 px-4">
+          <h1 className="font-serif text-5xl font-bold mb-4">No Images Found</h1>
+          <p className="text-gray-300 max-w-2xl mx-auto">No gallery images available at the moment.</p>
+        </section>
+      </main>
+    );
+  }
+
   return (
     <main className="pt-36 pb-20 bg-deep-black text-white scroll-container">
       <section className="text-center mb-12 px-4 scroll-fade-in">
-        <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-4">{t('page.gallery.title')} <span className="premium-accent">{t('page.gallery.title.highlight')}</span></h1>
+        <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-4">{t('gallery.title')} <span className="premium-accent">{t('gallery.title.highlight')}</span></h1>
         <p className="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base mb-6">
-          {t('page.gallery.explore')} - {data.length} {t('gallery.professional.works')}
+          {t('gallery.description')} - {data.length} profesjonalnych prac
         </p>
         
         {/* View Mode Toggle & Controls */}
@@ -158,7 +192,7 @@ export default function GalleryPage() {
               }`}
             >
               <List size={16} />
-              {isMobile ? t('gallery.flow') : t('gallery.masonry.view')}
+              {isMobile ? t('gallery.masonry') : t('gallery.masonry')}
             </button>
             <button
               onClick={() => setViewMode('grid')}
@@ -184,9 +218,12 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-2 sm:px-4 mb-16 scroll-scale">
+      <section className="max-w-7xl mx-auto px-2 sm:px-4 mb-16">
+        <div className="mb-4 text-white">
+          Debug: {shuffledMedia.length} images to display
+        </div>
         {viewMode === 'masonry' ? (
-          <div className={`columns-2 gap-2 space-y-2 gallery-container ${
+          <div className={`columns-2 gap-2 space-y-2 ${
             isMobile 
               ? 'sm:columns-2 sm:gap-3 sm:space-y-3' 
               : 'md:columns-3 lg:columns-4 xl:columns-5 md:gap-4 md:space-y-4'
