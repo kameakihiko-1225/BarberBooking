@@ -5,6 +5,7 @@ import { Play, Grid, List } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { fetchGallery, type GalleryItem, type GalleryResponse } from '@/gallery/api';
+import { getPrimaryImageSrc } from '@/gallery/utils';
 
 function OptimizedMediaCard({ item, index }: { item: GalleryItem; index: number }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -71,12 +72,12 @@ function OptimizedMediaCard({ item, index }: { item: GalleryItem; index: number 
           ) : (
             // Image element
             <picture>
-              <source srcSet={item.srcsets.avif} type="image/avif" />
-              <source srcSet={item.srcsets.webp} type="image/webp" />
+              {item.srcsets.avif && <source srcSet={item.srcsets.avif} type="image/avif" />}
+              {item.srcsets.webp && <source srcSet={item.srcsets.webp} type="image/webp" />}
               <img
                 ref={mediaRef}
-                src={item.srcsets.jpg.split(' ')[0]}
-                srcSet={item.srcsets.jpg}
+                src={getPrimaryImageSrc(item.srcsets)}
+                srcSet={item.srcsets.jpg || item.srcsets.webp || item.srcsets.avif}
                 alt={item.alt || item.title}
                 className={`w-full h-auto object-cover transition-all duration-300 group-hover:scale-105 ${
                   loaded ? 'opacity-100' : 'opacity-0'

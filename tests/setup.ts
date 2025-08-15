@@ -2,8 +2,9 @@ import '@testing-library/jest-dom';
 import { TextEncoder, TextDecoder } from 'util';
 
 // Mock global objects for Node.js environment
-global.TextEncoder = TextEncoder;
-global.TextDecoder = TextDecoder;
+// Cast through `any` to bypass mismatched DOM vs Node typings
+(global as any).TextEncoder = TextEncoder;
+(global as any).TextDecoder = TextDecoder as unknown as typeof global.TextDecoder;
 
 // Mock fetch for API tests
 global.fetch = jest.fn();
