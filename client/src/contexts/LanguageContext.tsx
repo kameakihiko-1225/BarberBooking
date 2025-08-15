@@ -231,6 +231,12 @@ const translations: Record<Language, Record<string, string>> = {
     'cta.description': 'Dołącz do tysięcy odnoszących sukcesy absolwentów, którzy przekształcili swoją pasję w dochodową karierę.',
     'cta.button': 'Zapisz się teraz',
     
+    // Gallery Pages
+    'page.gallery.title': 'Nasza',
+    'page.gallery.title.highlight': 'Galeria',
+    'page.gallery.explore': 'Odkryj naszą profesjonalną pracę i zobacz, czego możesz się nauczyć',
+    'gallery.professional.works': 'profesjonalnych prac',
+    
     // Students Gallery Page
     'page.students.title': 'Prace',
     'page.students.title.highlight': 'Uczniów',
@@ -474,16 +480,11 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Page Translation Keys (removing duplicates)
     'course.not.found': 'Kurs nie został znaleziony.',
-    'page.gallery.title': 'Pełna',
-    'page.gallery.title.highlight': 'Galeria',
-    'page.gallery.loading': 'Odkryj naszą kompletną kolekcję prac',
-    'page.gallery.explore': 'Sprawdź naszą kompletną kolekcję profesjonalnych prac i momentów treningowych',
     'page.blog.title': 'Akademia',
     'page.blog.title.highlight': 'Wskazówki',
     'page.blog.subtitle': 'Wiadomości, porady i trendy ze świata nowoczesnego barberingu.',
 
     // Gallery UI Elements
-    'gallery.professional.works': 'profesjonalnych prac',
     'gallery.masonry.view': 'Widok kafelkowy',
     'gallery.flow': 'Kafelki',
 

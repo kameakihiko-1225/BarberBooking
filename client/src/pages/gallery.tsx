@@ -121,19 +121,19 @@ export default function GalleryPage() {
     );
   }
 
-  // Smart performance optimization with progressive loading
+  // Show more images by default for gallery page
   const getInitialLimit = () => {
-    if (typeof window === 'undefined') return 12;
+    if (typeof window === 'undefined') return 30;
     
     const deviceMemory = (navigator as any).deviceMemory || 4;
     const connectionSpeed = (navigator as any).connection?.effectiveType;
     
     if (isMobile) {
-      if (deviceMemory <= 2 || connectionSpeed === '2g') return 8;
-      if (deviceMemory <= 4 || connectionSpeed === '3g') return 12;
-      return 16;
+      if (deviceMemory <= 2 || connectionSpeed === '2g') return 20;
+      if (deviceMemory <= 4 || connectionSpeed === '3g') return 30;
+      return 40;
     }
-    return 20;
+    return 50; // Show 50 images initially on desktop
   };
 
   const initialLimit = getInitialLimit();
@@ -175,9 +175,9 @@ export default function GalleryPage() {
   return (
     <main className="pt-36 pb-20 bg-deep-black text-white scroll-container">
       <section className="text-center mb-12 px-4 scroll-fade-in">
-        <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-4">{t('gallery.title')} <span className="premium-accent">{t('gallery.title.highlight')}</span></h1>
+        <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-4">{t('page.gallery.title')} <span className="premium-accent">{t('page.gallery.title.highlight')}</span></h1>
         <p className="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base mb-6">
-          {t('gallery.description')} - {data.length} profesjonalnych prac
+          {t('page.gallery.explore')} - {data.length} {t('gallery.professional.works')}
         </p>
         
         {/* View Mode Toggle & Controls */}
@@ -219,9 +219,7 @@ export default function GalleryPage() {
       </section>
 
       <section className="max-w-7xl mx-auto px-2 sm:px-4 mb-16">
-        <div className="mb-4 text-white">
-          Debug: {shuffledMedia.length} images to display
-        </div>
+
         {viewMode === 'masonry' ? (
           <div className={`columns-2 gap-2 space-y-2 ${
             isMobile 
