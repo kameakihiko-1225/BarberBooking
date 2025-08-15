@@ -90,3 +90,26 @@ Preferred communication style: Simple, everyday language.
   - Optimized caching headers (s-maxage=60, stale-while-revalidate=86400)
 - **Database Migration**: `20250814165319_init_gallery_courses` successfully applied
 - **NPM Scripts**: `etl:gallery` for automated gallery ingestion
+
+### Comprehensive Jest Testing Infrastructure ✅ COMPLETED (August 15, 2025)
+- **Testing Framework**: Jest 30.0.4 with TypeScript and ESM support
+- **Test Environment**: jsdom for React component testing with @testing-library/react
+- **Test Coverage Areas**: 
+  - **ETL Pipeline Tests** (`tests/etl/gallery-etl.test.ts`): 
+    - Image folder processing with format filtering (jpg, png, webp, heic, avif)
+    - GalleryItem creation with metadata (width, height, blur placeholders)
+    - GalleryAsset generation for 3 formats × 4 sizes (12 variants per image)
+    - GalleryI18n entries for EN/PL/UK locales with English title generation
+    - Error handling for file processing and database operations
+  - **API Tests** (`tests/api/gallery-api.test.ts`):
+    - Pagination with nextPage calculation and totalItems counting
+    - Multilingual i18n fallback (PL → EN → first available)
+    - Tag filtering and responsive srcset generation
+    - Locale-aware content serving with proper fallback chains
+  - **UI Component Tests** (`tests/ui/course-dates.test.tsx`):
+    - Course date localization: 15 Sep/20 Oct/24 Nov/12 Jan (EN)
+    - Polish month abbreviations: 15 wrz/20 paź/24 lis/12 sty (PL)  
+    - Ukrainian month abbreviations: 15 вер/20 жов/24 лис/12 січ (UK)
+    - Beginner course scheduling with capacity management
+- **Mock Infrastructure**: Comprehensive mocking for Prisma, Sharp, filesystem operations
+- **Test Configuration**: ESM-compatible Jest config with proper TypeScript integration
