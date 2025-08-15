@@ -167,7 +167,12 @@ async function processImage(imagePath: string, galleryDir: string, processedDir:
     // Upsert i18n entries (create if missing) - batch process
     const locales = ['en', 'pl', 'uk'];
     const fields = ['title', 'alt', 'description'];
-    const i18nData = [];
+    const i18nData: Array<{
+      itemId: string;
+      locale: string;
+      field: string;
+      value: string;
+    }> = [];
     
     for (const locale of locales) {
       for (const field of fields) {
