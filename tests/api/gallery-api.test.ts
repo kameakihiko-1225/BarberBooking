@@ -67,9 +67,10 @@ class GalleryAPI {
     // Transform items with locale-aware content
     const transformedItems = items.map(item => {
       // Get localized content with fallback to English
-      const i18nEntry = item.i18n.find(i => i.locale === locale) || 
-                       item.i18n.find(i => i.locale === 'en') ||
-                       item.i18n[0];
+      const localized = (item.i18n as any[]).find(i => i.locale === locale) as any;
+      const fallback = (item.i18n as any[]).find(i => i.locale === 'en') as any ||
+                       (item.i18n as any[])[0];
+      const i18nEntry = localized && localized.title ? localized : fallback;
 
       // Generate responsive srcsets
       const srcsets = {
@@ -80,20 +81,20 @@ class GalleryAPI {
 
       // Get localized tags
       const tags = item.tags.map(itemTag => {
-        const tagI18n = itemTag.tag.i18n.find(t => t.locale === locale) ||
-                       itemTag.tag.i18n.find(t => t.locale === 'en') ||
-                       itemTag.tag.i18n[0];
+        const tagI18n = (itemTag.tag.i18n as any[]).find(t => t.locale === locale) ||
+                       (itemTag.tag.i18n as any[]).find(t => t.locale === 'en') ||
+                       (itemTag.tag.i18n as any[])[0];
 
         return {
           slug: itemTag.tag.slug,
-          name: tagI18n?.name || itemTag.tag.slug
+          name: (tagI18n as any)?.name || itemTag.tag.slug
         };
       });
 
       return {
         slug: item.slug,
-        title: i18nEntry?.title || item.slug,
-        alt: i18nEntry?.alt || i18nEntry?.title || item.slug,
+        title: (i18nEntry as any)?.title || item.slug,
+        alt: (i18nEntry as any)?.alt || (i18nEntry as any)?.title || item.slug,
         w: item.width,
         h: item.height,
         srcsets,
