@@ -137,12 +137,14 @@ async function processImage(imagePath: string, galleryDir: string, processedDir:
     const galleryItem = await prisma.galleryItem.upsert({
       where: { slug },
       update: {
+        type: 'main',
         width,
         height,
         blurData,
       },
       create: {
         slug,
+        type: 'main',
         width,
         height,
         blurData,

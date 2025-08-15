@@ -10,7 +10,8 @@ const galleryQuerySchema = z.object({
   page: z.string().optional().default('1').transform(val => Math.max(1, parseInt(val, 10) || 1)),
   pageSize: z.string().optional().default('30').transform(val => Math.min(100, Math.max(1, parseInt(val, 10) || 30))),
   locale: z.string().optional().default('en').refine(val => ['en', 'pl', 'uk'].includes(val)),
-  tag: z.string().optional()
+  tag: z.string().optional(),
+  type: z.string().optional().default('main').refine(val => ['main', 'students', 'success'].includes(val))
 });
 
 interface GalleryAsset {
@@ -72,22 +73,24 @@ router.get('/api/gallery', async (req, res) => {
 
     // Validate query parameters
     const query = galleryQuerySchema.parse(req.query);
-    const { page, pageSize, locale, tag } = query;
+    const { page, pageSize, locale, tag, type } = query;
     
     const skip = (page - 1) * pageSize;
     
-    // Build where clause for tag filtering
-    const whereClause = tag 
-      ? {
-          tags: {
-            some: {
-              tag: {
-                slug: tag
-              }
-            }
+    // Build where clause for tag and type filtering
+    const whereClause: any = {
+      type: type
+    };
+    
+    if (tag) {
+      whereClause.tags = {
+        some: {
+          tag: {
+            slug: tag
           }
         }
-      : {};
+      };
+    }
 
     // Query gallery items with relationships
     const items = await prisma.galleryItem.findMany({

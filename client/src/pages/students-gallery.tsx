@@ -90,8 +90,8 @@ export default function StudentsGalleryPage() {
   const [showAll, setShowAll] = useState(false);
   
   const { data: galleryResponse, isLoading } = useQuery({
-    queryKey: ['gallery', 'pl'],
-    queryFn: () => fetchGallery({ pageSize: 100, locale: 'pl' }),
+    queryKey: ['gallery', 'students', 'pl'],
+    queryFn: () => fetch('/api/gallery?type=students&locale=pl&pageSize=100').then(res => res.json()),
     staleTime: 5 * 60 * 1000, // 5 minutes
   });
 

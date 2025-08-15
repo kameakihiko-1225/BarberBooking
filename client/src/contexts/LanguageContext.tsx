@@ -467,27 +467,17 @@ const translations: Record<Language, Record<string, string>> = {
 
     'gallery.see.all.student.works': 'Zobacz wszystkie prace uczniów',
     'gallery.all.success.stories': 'Wszystkie historie sukcesu',
-    'gallery.view.full': 'Zobacz pełną galerię',
 
 
 
 
 
-    // Page Translation Keys
+    // Page Translation Keys (removing duplicates)
     'course.not.found': 'Kurs nie został znaleziony.',
     'page.gallery.title': 'Pełna',
     'page.gallery.title.highlight': 'Galeria',
     'page.gallery.loading': 'Odkryj naszą kompletną kolekcję prac',
     'page.gallery.explore': 'Sprawdź naszą kompletną kolekcję profesjonalnych prac i momentów treningowych',
-    'page.students.title': 'Prace',
-    'page.students.title.highlight': 'Uczniów',
-    'page.students.explore': 'Zobacz niesamowite transformacje i umiejętności naszych uczniów',
-    'page.success.title': 'Historie',
-    'page.success.title.highlight': 'Sukcesu',
-    'page.success.explore': 'Poznaj inspirujące historie naszych absolwentów',
-    'page.back.home': 'Powrót do strony głównej',
-    'page.apply.now': 'Aplikuj teraz',
-    'page.showcased.works': 'prezentowanych prac',
     'page.blog.title': 'Akademia',
     'page.blog.title.highlight': 'Wskazówki',
     'page.blog.subtitle': 'Wiadomości, porady i trendy ze świata nowoczesnego barberingu.',

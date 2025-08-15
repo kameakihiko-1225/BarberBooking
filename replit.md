@@ -47,6 +47,29 @@ Preferred communication style: Simple, everyday language.
 - **CRM Integration**: Kommo CRM API v4 with OAuth 2.0 authentication
 
 ## Recent Major Updates (August 2025)
+### Gallery System Reorganization with Type-Based Separation ✅ COMPLETED (August 15, 2025)
+- **Type-Based Architecture**: Reorganized gallery system with three distinct collections
+  - **Main Gallery**: Professional work and general portfolio (type: 'main')
+  - **Students Gallery**: Student work and transformations (type: 'students') 
+  - **Success Stories**: Graduate achievements and certifications (type: 'success')
+- **Database Schema Enhancement**: Added `type` field to GalleryItem model with proper default values
+- **Separate ETL Processes**: Created dedicated ingestion tools for each gallery type
+  - `tools/ingest-gallery.ts` - Main gallery (68 images processed)
+  - `tools/ingest-students-gallery.ts` - Students work (34 images processed)
+  - `tools/ingest-success-gallery.ts` - Success stories (14 images processed)
+- **Directory Structure**: Organized source images by type
+  - Main: `public/gallery/` → `/gallery/_processed/`
+  - Students: `public/gallery-students/` → `/gallery-students/_processed/`
+  - Success: `public/gallery-success/` → `/gallery-success/_processed/`
+- **API Enhancement**: Updated gallery API with type parameter filtering
+  - `/api/gallery?type=main` - Main professional gallery
+  - `/api/gallery?type=students` - Student work gallery
+  - `/api/gallery?type=success` - Success stories gallery
+- **Frontend Updates**: Modified gallery pages to use correct type parameters
+  - Main gallery, students gallery, and success gallery pages now fetch appropriate content
+- **Translation System**: Resolved duplicate translation keys across all languages
+- **Production Ready**: All three gallery types working with optimized image variants and proper caching
+
 ### Intelligent Kommo CRM Auto-Discovery Integration ✅ COMPLETED
 - **Hardcoded Real Credentials**: Integrated with live K&K Barber Academy CRM (kkbarberacademycrm.kommo.com)
 - **Auto-Discovery System**: Intelligent discovery of pipeline structure, statuses, and custom fields

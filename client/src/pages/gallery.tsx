@@ -92,8 +92,8 @@ export default function GalleryPage() {
   const [showAll, setShowAll] = useState(false);
   
   const { data: galleryResponse, isLoading, error } = useQuery({
-    queryKey: ['gallery', 'pl'],
-    queryFn: () => fetchGallery({ pageSize: 100, locale: 'pl' }),
+    queryKey: ['gallery', 'main', 'pl'],
+    queryFn: () => fetch('/api/gallery?type=main&locale=pl&pageSize=100').then(res => res.json()),
     staleTime: 5 * 60 * 1000, // 5 minutes
   });
 

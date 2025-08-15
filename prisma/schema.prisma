@@ -10,6 +10,7 @@ datasource db {
 model GalleryItem {
   id        String        @id @default(cuid())
   slug      String        @unique
+  type      String        @default("main") // 'main' | 'students' | 'success'
   width     Int
   height    Int
   blurData  String?

@@ -85,8 +85,8 @@ export default function SuccessGalleryPage() {
   const [showAll, setShowAll] = useState(false);
   
   const { data: galleryResponse, isLoading } = useQuery({
-    queryKey: ['gallery', 'success'],
-    queryFn: () => fetchGallery({ pageSize: 100, locale: 'en', tags: ['success'] }),
+    queryKey: ['gallery', 'success', 'en'],
+    queryFn: () => fetch('/api/gallery?type=success&locale=en&pageSize=100').then(res => res.json()),
     staleTime: 5 * 60 * 1000, // 5 minutes
   });
 
