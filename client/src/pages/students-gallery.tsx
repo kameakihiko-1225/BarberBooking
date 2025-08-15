@@ -113,13 +113,22 @@ export default function StudentsGalleryPage() {
   const [gridSize, setGridSize] = useState<'compact' | 'comfortable' | 'spacious'>('comfortable');
   const [showAll, setShowAll] = useState(false);
   
-  const { data: galleryResponse, isLoading } = useQuery({
+  const { data: galleryResponse, isLoading, error } = useQuery({
     queryKey: ['gallery', 'students', 'pl'],
     queryFn: () => fetch('/api/gallery?type=students&locale=pl&pageSize=100').then(res => res.json()),
     staleTime: 5 * 60 * 1000, // 5 minutes
   });
 
   const data: GalleryItem[] = galleryResponse?.items || [];
+
+  // Debug logging
+  console.log('Students Gallery Debug:', {
+    isLoading,
+    hasError: !!error,
+    dataCount: data.length,
+    hasGalleryResponse: !!galleryResponse,
+    firstItem: data[0]
+  });
 
   // Progressive loading based on device capabilities
   const getInitialLimit = () => {
