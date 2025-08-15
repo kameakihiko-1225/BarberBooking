@@ -121,14 +121,7 @@ export default function StudentsGalleryPage() {
 
   const data: GalleryItem[] = galleryResponse?.items || [];
 
-  // Debug logging
-  console.log('Students Gallery Debug:', {
-    isLoading,
-    hasError: !!error,
-    dataCount: data.length,
-    hasGalleryResponse: !!galleryResponse,
-    firstItem: data[0]
-  });
+  // Debug logging (removed for production)
 
   // Progressive loading based on device capabilities
   const getInitialLimit = () => {
