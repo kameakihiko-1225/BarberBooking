@@ -69,8 +69,8 @@ function OptimizedMediaCard({ item, index }: { item: GalleryItem; index: number 
             </div>
           ) : (
             <picture>
-              <source srcSet={item.srcsets.avif} type="image/avif" />
-              <source srcSet={item.srcsets.webp} type="image/webp" />
+              {item.srcsets.avif && <source srcSet={item.srcsets.avif} type="image/avif" />}
+              {item.srcsets.webp && <source srcSet={item.srcsets.webp} type="image/webp" />}
               <img
                 ref={mediaRef}
                 src={item.srcsets.jpg.split(' ')[0]}
@@ -140,7 +140,12 @@ export default function StudentsGalleryPage() {
   const displayLimit = showAll ? data.length : initialLimit;
   const displayMedia = data.slice(0, displayLimit);
 
-  // Debug logging removed for production
+  // Temporary debug to verify fix
+  console.log('Students Gallery Rendering:', {
+    dataLength: data.length,
+    displayMediaLength: displayMedia.length,
+    firstItemSrcsets: displayMedia[0]?.srcsets
+  });
 
   const getGridClasses = () => {
     const base = isMobile ? 'grid-cols-2' : 'grid-cols-3 lg:grid-cols-4';
