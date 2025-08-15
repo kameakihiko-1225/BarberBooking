@@ -9,6 +9,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useIsMobile } from "@/hooks/use-mobile";
 import LazyMedia from "./LazyMedia";
 import MediaModal from "./MediaModal";
+import { fetchGallery, type GalleryItem } from "@/gallery/api";
 
 type Media = { src: string; type: "image" | "video"; alt?: string };
 
@@ -18,23 +19,19 @@ export default function Gallery() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const { data: galleryMedia = [], isLoading, error } = useQuery<Media[]>({
-    queryKey: ['media', 'gallery'],
-    queryFn: async () => {
-      const res = await fetch('/api/media/gallery');
-      if (!res.ok) {
-        throw new Error(`HTTP error! status: ${res.status}`);
-      }
-      return res.json();
-    },
+  const { data: galleryResponse, isLoading, error } = useQuery({
+    queryKey: ['gallery', 'pl', 30],
+    queryFn: () => fetchGallery({ pageSize: 30, locale: 'pl' }),
     staleTime: 5 * 60 * 1000, // 5 minutes
     retry: 3,
     retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 10000),
-    select: (data) => data.map(item => ({
-      ...item,
-      alt: item.src.split('/').pop()?.replace(/[-_]/g, ' ').replace(/\..+$/, '') || 'Gallery item'
-    })),
   });
+
+  const galleryMedia: Media[] = galleryResponse?.items?.map((item: GalleryItem) => ({
+    src: item.srcsets.jpg.split(' ')[0], // Use first (smallest) JPG for slider
+    type: 'image' as const,
+    alt: item.alt || item.title
+  })) || [];
 
   // Remove forced refetch for better performance
 
@@ -92,7 +89,7 @@ export default function Gallery() {
     created() {
       setLoaded(true);
     },
-    slideChanged(slider) {
+    slideChanged(slider: any) {
       setCurrentSlide(slider.track.details.rel);
     },
   });

@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
 import { Play } from 'lucide-react';
+import { fetchGallery, type GalleryItem } from '@/gallery/api';
 
 type Media = { src: string; type: 'image' | 'video' };
 
@@ -109,15 +110,17 @@ function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
 }
 
 export default function SuccessGalleryPage() {
-  const { data = [], isLoading } = useQuery<Media[]>({
-    queryKey: ['media', 'gallery'], // Use main gallery data
-    queryFn: async () => {
-      const res = await fetch('/api/media/gallery');
-      if (!res.ok) throw new Error('Failed to fetch gallery');
-      return res.json();
-    },
+  const { data: galleryResponse, isLoading } = useQuery({
+    queryKey: ['gallery', 'pl'],
+    queryFn: () => fetchGallery({ pageSize: 100, locale: 'pl' }),
     staleTime: 5 * 60 * 1000, // 5 minutes
   });
+
+  const data: Media[] = galleryResponse?.items?.map((item: GalleryItem) => ({
+    src: item.srcsets.jpg.split(' ')[2] || item.srcsets.jpg.split(' ')[0], // Use 640w or fallback
+    type: 'image' as const,
+    alt: item.alt || item.title
+  })) || [];
 
   // Shuffle media for varied display
   const shuffledMedia = [...data].sort(() => Math.random() - 0.5);

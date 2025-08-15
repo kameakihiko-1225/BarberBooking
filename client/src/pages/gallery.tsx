@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Play, Grid, List } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { fetchGallery, type GalleryItem } from '@/gallery/api';
 
 type Media = { src: string; type: 'image' | 'video' };
 
@@ -125,15 +126,17 @@ export default function GalleryPage() {
   const [viewMode, setViewMode] = useState<'masonry' | 'grid'>('masonry');
   const [showAll, setShowAll] = useState(false);
   
-  const { data = [], isLoading } = useQuery<Media[]>({
-    queryKey: ['media', 'gallery'],
-    queryFn: async () => {
-      const res = await fetch('/api/media/gallery');
-      if (!res.ok) throw new Error('Failed to fetch gallery');
-      return res.json();
-    },
+  const { data: galleryResponse, isLoading } = useQuery({
+    queryKey: ['gallery', 'pl'],
+    queryFn: () => fetchGallery({ pageSize: 100, locale: 'pl' }),
     staleTime: 5 * 60 * 1000, // 5 minutes
   });
+
+  const data: Media[] = galleryResponse?.items?.map((item: GalleryItem) => ({
+    src: item.srcsets.jpg.split(' ')[2] || item.srcsets.jpg.split(' ')[0], // Use 640w or fallback to smallest
+    type: 'image' as const,
+    alt: item.alt || item.title
+  })) || [];
 
   // Smart performance optimization with progressive loading
   const getInitialLimit = () => {

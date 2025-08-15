@@ -9,6 +9,7 @@ import { UpcomingDates } from '@/components/upcoming-dates';
 import { instructors } from '@/data/instructors';
 import { useLanguage } from '@/contexts/LanguageContext';
 import StructuredData from '@/components/StructuredData';
+import { fetchGallery, type GalleryItem } from '@/gallery/api';
 
 type MediaItem = { src: string; type: 'image' | 'video' };
 
@@ -76,13 +77,17 @@ export default function CourseDetails() {
   if (!course) return <div className="min-h-screen flex items-center justify-center text-white bg-deep-black">{t('course.not.found')}</div>;
 
   // Media queries for new gallery section
-  const { data: galleryMedia = [] } = useQuery<MediaItem[]>({
-    queryKey: ['media','gallery'],
-    queryFn: async () => {
-      const res = await fetch('/api/media/gallery');
-      return res.json();
-    },
+  const { data: galleryResponse } = useQuery({
+    queryKey: ['gallery', 'pl'],
+    queryFn: () => fetchGallery({ pageSize: 50, locale: 'pl' }),
+    staleTime: 5 * 60 * 1000, // 5 minutes
   });
+
+  const galleryMedia: MediaItem[] = galleryResponse?.items?.map((item: GalleryItem) => ({
+    src: item.srcsets.jpg.split(' ')[2] || item.srcsets.jpg.split(' ')[0], // Use 640w or fallback
+    type: 'image' as const,
+    alt: item.alt || item.title
+  })) || [];
   const { data: studentMedia = [] } = useQuery<MediaItem[]>({
     queryKey: ['media','students-gallery'],
     queryFn: async () => {
