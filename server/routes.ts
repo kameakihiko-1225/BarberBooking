@@ -12,6 +12,7 @@ import { db } from './db';
 import * as path from "path";
 import { join } from "path";
 import galleryRoutes from "./routes/gallery";
+import webVitalsRouter from "./routes/web-vitals";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Security headers middleware to force HTTPS
@@ -124,6 +125,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // Register gallery routes first (more specific routes)
   app.use(galleryRoutes);
+  
+  // Register web vitals routes
+  app.use('/api/web-vitals', webVitalsRouter);
 
   // Media listing endpoint - optimized for sub-1s loading (fallback for legacy routes)
   app.get("/api/media/:route", async (req, res) => {

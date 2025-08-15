@@ -10,6 +10,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import LazyMedia from "./LazyMedia";
 import MediaModal from "./MediaModal";
 import { fetchGallery, type GalleryItem } from "@/gallery/api";
+import { useWebVitalsGallery } from "@/hooks/useWebVitals";
 
 type Media = { src: string; type: "image" | "video"; alt?: string };
 
@@ -32,6 +33,13 @@ export default function Gallery() {
     type: 'image' as const,
     alt: item.alt || item.title
   })) || [];
+
+  // Web vitals logging for gallery performance
+  const { logImageLoad, logGalleryInteraction } = useWebVitalsGallery({
+    route: '/gallery',
+    itemCount: galleryMedia.length,
+    isLoading
+  });
 
   // Remove forced refetch for better performance
 

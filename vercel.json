@@ -1,0 +1,78 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "server/index.ts",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": [
+          "server/**",
+          "shared/**",
+          "prisma/**"
+        ]
+      }
+    },
+    {
+      "src": "client/**",
+      "use": "@vercel/static-build",
+      "config": {
+        "buildCommand": "npm run build",
+        "outputDirectory": "dist/client"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/gallery/(.*\\.(avif|webp|jpg))$",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Vary": "Accept",
+        "Content-Security-Policy": "default-src 'self'",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "dest": "/gallery/$1"
+    },
+    {
+      "src": "/api/gallery(.*)",
+      "headers": {
+        "Cache-Control": "s-maxage=60, stale-while-revalidate=86400",
+        "Vary": "Accept-Language, Accept-Encoding",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+      },
+      "dest": "/api/gallery$1"
+    },
+    {
+      "src": "/api/(.*)",
+      "headers": {
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "0"
+      },
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*\\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot))$",
+      "headers": {
+        "Cache-Control": "public, max-age=2592000",
+        "Vary": "Accept-Encoding"
+      },
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/server/index.ts"
+    }
+  ],
+  "functions": {
+    "server/index.ts": {
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "regions": ["fra1"],
+  "framework": null
+}

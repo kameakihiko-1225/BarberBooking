@@ -1,0 +1,97 @@
+# Apache .htaccess configuration for K&K Barber Academy
+
+# Enable rewrite engine
+RewriteEngine On
+
+# Security Headers
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-XSS-Protection "1; mode=block"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+# Gallery assets - immutable long-term caching
+<FilesMatch "^/gallery/.*\.(avif|webp|jpg)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+    Header set Vary "Accept"
+    Header set Content-Security-Policy "default-src 'self'"
+    Header set X-Content-Type-Options "nosniff"
+    
+    # Set correct MIME types
+    <IfModule mod_mime.c>
+        AddType image/avif .avif
+        AddType image/webp .webp
+        AddType image/jpeg .jpg
+    </IfModule>
+    
+    ExpiresActive On
+    ExpiresDefault "access plus 1 year"
+</FilesMatch>
+
+# Gallery API - short-term with stale-while-revalidate
+<LocationMatch "^/api/gallery">
+    Header set Cache-Control "s-maxage=60, stale-while-revalidate=86400"
+    Header set Vary "Accept-Language, Accept-Encoding"
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header set Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept"
+</LocationMatch>
+
+# Other API endpoints - no cache
+<LocationMatch "^/api/">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+</LocationMatch>
+
+# Static assets - moderate caching
+<FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$">
+    Header set Cache-Control "public, max-age=2592000"
+    Header set Vary "Accept-Encoding"
+    ExpiresActive On
+    ExpiresDefault "access plus 30 days"
+</FilesMatch>
+
+# Enable compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# Browser caching
+<IfModule mod_expires.c>
+    ExpiresActive on
+    
+    # Gallery images - 1 year
+    ExpiresByType image/avif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    
+    # Other images - 30 days
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    
+    # Fonts - 1 year
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    
+    # CSS and JS - 1 month
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    
+    # HTML - no cache
+    ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
