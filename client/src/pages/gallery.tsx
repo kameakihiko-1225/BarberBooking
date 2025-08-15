@@ -4,17 +4,14 @@ import { Button } from '@/components/ui/button';
 import { Play, Grid, List } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { fetchGallery, type GalleryItem } from '@/gallery/api';
+import { fetchGallery, type GalleryItem, type GalleryResponse } from '@/gallery/api';
 
-type Media = { src: string; type: 'image' | 'video' };
-
-function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
+function OptimizedMediaCard({ item, index }: { item: GalleryItem; index: number }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const mediaRef = useRef<HTMLImageElement | HTMLVideoElement>(null);
+  const mediaRef = useRef<HTMLImageElement>(null);
   const [inView, setInView] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -22,13 +19,6 @@ function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
       ([entry]) => {
         if (entry.isIntersecting) {
           setInView(true);
-          if (mediaRef.current) {
-            if (item.type === 'image') {
-              (mediaRef.current as HTMLImageElement).src = item.src;
-            } else {
-              (mediaRef.current as HTMLVideoElement).src = item.src;
-            }
-          }
           obs.disconnect();
         }
       },
@@ -36,20 +26,9 @@ function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
     );
     if (containerRef.current) obs.observe(containerRef.current);
     return () => obs.disconnect();
-  }, [item.src, item.type]);
+  }, []);
 
-  const handleVideoClick = () => {
-    if (item.type === 'video' && mediaRef.current) {
-      const video = mediaRef.current as HTMLVideoElement;
-      if (isPlaying) {
-        video.pause();
-        setIsPlaying(false);
-      } else {
-        video.play().catch(console.error);
-        setIsPlaying(true);
-      }
-    }
-  };
+
 
   const animationDelay = Math.min(index * 30, 600);
 
@@ -66,46 +45,30 @@ function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
     >
       {!error ? (
         <div className="relative rounded-xl overflow-hidden group">
-          {item.type === 'image' ? (
+          <picture>
+            <source srcSet={item.srcsets.avif} type="image/avif" />
+            <source srcSet={item.srcsets.webp} type="image/webp" />
             <img
-              ref={mediaRef as React.RefObject<HTMLImageElement>}
-              alt="gallery"
+              ref={mediaRef}
+              src={item.srcsets.jpg.split(' ')[0]}
+              srcSet={item.srcsets.jpg}
+              alt={item.alt || item.title}
               className={`w-full h-auto object-cover transition-all duration-300 group-hover:scale-105 ${
                 loaded ? 'opacity-100' : 'opacity-0'
               }`}
               onLoad={() => setLoaded(true)}
               onError={() => setError(true)}
               style={{ contentVisibility: 'auto' }}
+              loading="lazy"
             />
-          ) : (
-            <div className="relative cursor-pointer" onClick={handleVideoClick}>
-              <video
-                ref={mediaRef as React.RefObject<HTMLVideoElement>}
-                className={`w-full h-auto object-cover transition-all duration-300 ${
-                  loaded ? 'opacity-100' : 'opacity-0'
-                }`}
-                preload="metadata"
-                muted
-                loop
-                playsInline
-                onLoadedData={() => setLoaded(true)}
-                onError={() => setError(true)}
-                onPlay={() => setIsPlaying(true)}
-                onPause={() => setIsPlaying(false)}
-                onEnded={() => {
-                  setIsPlaying(false);
-                  if (mediaRef.current) {
-                    (mediaRef.current as HTMLVideoElement).currentTime = 0;
-                  }
-                }}
-                style={{ contentVisibility: 'auto' }}
-              />
-              {!isPlaying && (
-                <Play className={`absolute inset-0 m-auto text-white bg-black/50 rounded-full p-3 opacity-80 group-hover:opacity-100 transition-opacity hover:bg-black/70 ${
-                  isMobile ? 'h-8 w-8' : 'h-12 w-12'
-                }`} />
-              )}
-            </div>
+          </picture>
+          {!loaded && inView && item.blurData && (
+            <img
+              src={item.blurData}
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover blur-sm scale-105"
+              style={{ filter: 'blur(10px)' }}
+            />
           )}
           {!loaded && inView && (
             <div className="absolute inset-0 bg-gray-800 animate-pulse flex items-center justify-center">
@@ -114,7 +77,9 @@ function OptimizedMediaCard({ item, index }: { item: Media; index: number }) {
           )}
         </div>
       ) : (
-        <div className="w-full aspect-[4/3] bg-gray-800 rounded-xl" />
+        <div className="w-full aspect-[4/3] bg-gray-800 rounded-xl flex items-center justify-center">
+          <span className="text-white text-sm">Failed to load</span>
+        </div>
       )}
     </div>
   );
@@ -132,11 +97,7 @@ export default function GalleryPage() {
     staleTime: 5 * 60 * 1000, // 5 minutes
   });
 
-  const data: Media[] = galleryResponse?.items?.map((item: GalleryItem) => ({
-    src: item.srcsets.jpg.split(' ')[2] || item.srcsets.jpg.split(' ')[0], // Use 640w or fallback to smallest
-    type: 'image' as const,
-    alt: item.alt || item.title
-  })) || [];
+  const data: GalleryItem[] = galleryResponse?.items || [];
 
   // Smart performance optimization with progressive loading
   const getInitialLimit = () => {
@@ -231,7 +192,7 @@ export default function GalleryPage() {
               : 'md:columns-3 lg:columns-4 xl:columns-5 md:gap-4 md:space-y-4'
           }`}>
             {shuffledMedia.map((item, index) => (
-              <div key={`${item.src}-${index}`} className="break-inside-avoid mb-2 sm:mb-3 md:mb-4">
+              <div key={`${item.slug}-${index}`} className="break-inside-avoid mb-2 sm:mb-3 md:mb-4">
                 <OptimizedMediaCard item={item} index={index} />
               </div>
             ))}
@@ -243,7 +204,7 @@ export default function GalleryPage() {
               : 'grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6'
           }`}>
             {shuffledMedia.map((item, index) => (
-              <div key={`${item.src}-${index}`} className="aspect-square">
+              <div key={`${item.slug}-${index}`} className="aspect-square">
                 <OptimizedMediaCard item={item} index={index} />
               </div>
             ))}
