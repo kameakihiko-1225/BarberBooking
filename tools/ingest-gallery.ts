@@ -1,6 +1,8 @@
 import { PrismaClient } from '@prisma/client';
 import sharp from 'sharp';
 import { promises as fs } from 'fs';
+import { exec } from 'child_process';
+import { promisify } from 'util';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -8,6 +10,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const prisma = new PrismaClient();
+const execAsync = promisify(exec);
 
 interface ImageVariant {
   width: number;
@@ -36,6 +39,41 @@ async function generateBlurData(imagePath: string): Promise<string> {
     .toBuffer();
   
   return `data:image/jpeg;base64,${buffer.toString('base64')}`;
+}
+
+async function generateVideoThumbnail(videoPath: string, outputPath: string): Promise<{ width: number; height: number; blurData: string }> {
+  // Generate thumbnail at 1 second mark
+  const thumbnailPath = outputPath.replace(path.extname(outputPath), '_thumb.jpg');
+  
+  try {
+    await execAsync(`ffmpeg -i "${videoPath}" -ss 00:00:01 -frames:v 1 -q:v 2 -y "${thumbnailPath}"`);
+    
+    // Get video metadata
+    const { stdout } = await execAsync(`ffprobe -v quiet -print_format json -show_streams "${videoPath}"`);
+    const probe = JSON.parse(stdout);
+    const videoStream = probe.streams.find((s: any) => s.codec_type === 'video');
+    
+    const width = videoStream?.width || 1920;
+    const height = videoStream?.height || 1080;
+    
+    // Generate blur data from thumbnail
+    const blurData = await generateBlurData(thumbnailPath);
+    
+    return { width, height, blurData };
+  } catch (error) {
+    console.error(`Error generating video thumbnail: ${error}`);
+    // Fallback values
+    return { 
+      width: 1920, 
+      height: 1080, 
+      blurData: 'data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAUAA8DASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAwACBP/EAB8QAAICAgIDAQAAAAAAAAAAAAECAAMEERIhMUFCwf/EABYBAQEBAAAAAAAAAAAAAAAAAAEAAv/EABYRAQEBAAAAAAAAAAAAAAAAAAABQf/aAAwDAQACEQMRAD8A'
+    };
+  }
+}
+
+function isVideoFile(filePath: string): boolean {
+  const ext = path.extname(filePath).toLowerCase();
+  return ['.mov', '.mp4', '.webm', '.avi'].includes(ext);
 }
 
 async function ensureDirectory(dirPath: string): Promise<void> {
@@ -106,7 +144,7 @@ async function walkDirectory(dir: string): Promise<string[]> {
       files.push(...subFiles);
     } else if (item.isFile()) {
       const ext = path.extname(item.name).toLowerCase();
-      if (['.jpg', '.jpeg', '.png', '.webp'].includes(ext)) {
+      if (['.jpg', '.jpeg', '.png', '.webp', '.heic', '.avif', '.mov', '.mp4', '.webm'].includes(ext)) {
         files.push(fullPath);
       }
     }
@@ -115,25 +153,43 @@ async function walkDirectory(dir: string): Promise<string[]> {
   return files;
 }
 
-async function processImage(imagePath: string, galleryDir: string, processedDir: string): Promise<void> {
-  const relativePath = path.relative(galleryDir, imagePath);
+async function processMedia(mediaPath: string, galleryDir: string, processedDir: string): Promise<void> {
+  const relativePath = path.relative(galleryDir, mediaPath);
   const slug = slugify(relativePath);
   
   console.log(`Processing: ${relativePath} -> ${slug}`);
   
   try {
-    // Get image metadata
-    const metadata = await sharp(imagePath).metadata();
-    const width = metadata.width || 0;
-    const height = metadata.height || 0;
+    let width: number, height: number, blurData: string, variants: any[], isVideo = false;
     
-    // Generate blur placeholder
-    const blurData = await generateBlurData(imagePath);
+    if (isVideoFile(mediaPath)) {
+      // Process video file
+      isVideo = true;
+      const videoData = await generateVideoThumbnail(mediaPath, mediaPath);
+      width = videoData.width;
+      height = videoData.height;
+      blurData = videoData.blurData;
+      
+      // For videos, we create a single asset entry pointing to the original video
+      variants = [{
+        fmt: 'video',
+        widthPx: width,
+        url: `/gallery/${path.basename(mediaPath)}`
+      }];
+    } else {
+      // Process image file
+      const metadata = await sharp(mediaPath).metadata();
+      width = metadata.width || 0;
+      height = metadata.height || 0;
+      
+      // Generate blur placeholder
+      blurData = await generateBlurData(mediaPath);
+      
+      // Generate variants
+      variants = await generateVariants(mediaPath, slug, processedDir);
+    }
     
-    // Generate variants
-    const variants = await generateVariants(imagePath, slug, processedDir);
-    
-    // Upsert GalleryItem
+    // Upsert GalleryItem with video indicator
     const galleryItem = await prisma.galleryItem.upsert({
       where: { slug },
       update: {
@@ -241,18 +297,18 @@ async function main(): Promise<void> {
     process.exit(1);
   }
   
-  // Walk directory and find images
-  const imageFiles = await walkDirectory(galleryDir);
-  console.log(`📸 Found ${imageFiles.length} images to process`);
+  // Walk directory and find media files (images and videos)
+  const mediaFiles = await walkDirectory(galleryDir);
+  console.log(`📸 Found ${mediaFiles.length} media files to process`);
   
-  if (imageFiles.length === 0) {
-    console.log('ℹ️  No images found to process');
+  if (mediaFiles.length === 0) {
+    console.log('ℹ️  No media files found to process');
     return;
   }
   
-  // Process each image
-  for (const imagePath of imageFiles) {
-    await processImage(imagePath, galleryDir, processedDir);
+  // Process each media file
+  for (const mediaPath of mediaFiles) {
+    await processMedia(mediaPath, galleryDir, processedDir);
   }
   
   console.log('✅ Gallery ingestion completed!');

@@ -23,6 +23,8 @@ export interface GalleryItem {
     jpg: string;
   };
   blurData: string;
+  videoUrl?: string; // For video files
+  isVideo?: boolean;
   tags: Array<{
     slug: string;
     name: string;

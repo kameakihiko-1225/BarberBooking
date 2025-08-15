@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
+import { Play } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { fetchGallery, type GalleryItem } from '@/gallery/api';
@@ -41,23 +42,47 @@ function OptimizedMediaCard({ item, index }: { item: GalleryItem; index: number 
     >
       {!error ? (
         <div className="relative rounded-xl overflow-hidden group">
-          <picture>
-            <source srcSet={item.srcsets.avif} type="image/avif" />
-            <source srcSet={item.srcsets.webp} type="image/webp" />
-            <img
-              ref={mediaRef}
-              src={item.srcsets.jpg.split(' ')[0]}
-              srcSet={item.srcsets.jpg}
-              alt={item.alt || item.title}
-              className={`w-full h-48 sm:h-56 md:h-64 object-cover transition-all duration-300 group-hover:scale-105 ${
-                loaded ? 'opacity-100' : 'opacity-0'
-              }`}
-              onLoad={() => setLoaded(true)}
-              onError={() => setError(true)}
-              style={{ contentVisibility: 'auto' }}
-              loading="lazy"
-            />
-          </picture>
+          {item.isVideo && item.videoUrl ? (
+            <div className="relative">
+              <video
+                ref={mediaRef as any}
+                src={item.videoUrl}
+                className={`w-full h-48 sm:h-56 md:h-64 object-cover transition-all duration-300 group-hover:scale-105 ${
+                  loaded ? 'opacity-100' : 'opacity-0'
+                }`}
+                onLoadedData={() => setLoaded(true)}
+                onError={() => setError(true)}
+                style={{ contentVisibility: 'auto' }}
+                preload="metadata"
+                muted
+                loop
+                playsInline
+                controls
+              />
+              <div className="absolute top-2 left-2 bg-black/70 text-white px-2 py-1 rounded-md text-xs flex items-center gap-1">
+                <Play size={12} />
+                Video
+              </div>
+            </div>
+          ) : (
+            <picture>
+              <source srcSet={item.srcsets.avif} type="image/avif" />
+              <source srcSet={item.srcsets.webp} type="image/webp" />
+              <img
+                ref={mediaRef}
+                src={item.srcsets.jpg.split(' ')[0]}
+                srcSet={item.srcsets.jpg}
+                alt={item.alt || item.title}
+                className={`w-full h-48 sm:h-56 md:h-64 object-cover transition-all duration-300 group-hover:scale-105 ${
+                  loaded ? 'opacity-100' : 'opacity-0'
+                }`}
+                onLoad={() => setLoaded(true)}
+                onError={() => setError(true)}
+                style={{ contentVisibility: 'auto' }}
+                loading="lazy"
+              />
+            </picture>
+          )}
           {!loaded && inView && item.blurData && (
             <img
               src={item.blurData}

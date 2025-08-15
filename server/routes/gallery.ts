@@ -46,6 +46,14 @@ function buildSrcsets(assets: GalleryAsset[]): { avif: string; webp: string; jpg
   return srcsets as { avif: string; webp: string; jpg: string };
 }
 
+function hasVideoAsset(assets: GalleryAsset[]): { isVideo: boolean; videoUrl?: string } {
+  const videoAsset = assets.find(asset => asset.fmt === 'video');
+  return {
+    isVideo: !!videoAsset,
+    videoUrl: videoAsset?.url
+  };
+}
+
 function getLocalizedValue(i18n: Array<{ field: string; value: string; locale: string }>, field: string, locale: string, fallbackLocale = 'en'): string {
   // Try requested locale first
   const localized = i18n.find(item => item.field === field && item.locale === locale);
@@ -139,6 +147,7 @@ router.get('/api/gallery', async (req, res) => {
       const title = getLocalizedValue(item.i18n, 'title', locale) || 
                    item.slug.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase());
       const alt = getLocalizedValue(item.i18n, 'alt', locale) || title;
+      const videoInfo = hasVideoAsset(item.assets);
       
       return {
         slug: item.slug,
@@ -148,6 +157,8 @@ router.get('/api/gallery', async (req, res) => {
         h: item.height,
         srcsets: buildSrcsets(item.assets),
         blurData: item.blurData,
+        isVideo: videoInfo.isVideo,
+        ...(videoInfo.videoUrl && { videoUrl: videoInfo.videoUrl }),
         tags: item.tags.map((tagRelation: any) => ({
           slug: tagRelation.tag.slug,
           name: getLocalizedValue(tagRelation.tag.i18n, 'name', locale) || tagRelation.tag.slug

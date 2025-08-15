@@ -47,6 +47,24 @@ Preferred communication style: Simple, everyday language.
 - **CRM Integration**: Kommo CRM API v4 with OAuth 2.0 authentication
 
 ## Recent Major Updates (August 2025)
+### Video Support in Gallery System ✅ COMPLETED (August 15, 2025)
+- **Enhanced ETL Processing**: Updated gallery ingestion system to handle video files (.mov, .mp4, .webm, .avi)
+  - Added FFmpeg integration for video thumbnail generation and metadata extraction
+  - Process video files alongside images: Main gallery now has 64 total items (61 images + 3 videos)
+  - Video assets stored with 'video' format type pointing to original video files
+- **API Enhancement**: Extended gallery API to include video support
+  - Added `isVideo` boolean flag and `videoUrl` field to gallery items
+  - Enhanced `buildSrcsets` function and added `hasVideoAsset` detection
+  - Video files served directly from `/gallery/` directory with proper metadata
+- **Frontend Video Display**: Updated all gallery pages (main, students, success) with native video support
+  - Video elements with autoplay controls, loop functionality, and mobile optimization
+  - Video indicator badges showing "Video" label with play icon
+  - Consistent styling and interaction patterns across image and video content
+  - Proper loading states and error handling for video elements
+- **System Dependencies**: Added FFmpeg for video processing and thumbnail generation
+- **Type Safety**: Updated TypeScript interfaces for `GalleryItem` to include video properties
+- **Production Ready**: Full video support integrated across all gallery types with proper caching
+
 ### Gallery System Reorganization with Type-Based Separation ✅ COMPLETED (August 15, 2025)
 - **Type-Based Architecture**: Reorganized gallery system with three distinct collections
   - **Main Gallery**: Professional work and general portfolio (type: 'main')
@@ -54,21 +72,21 @@ Preferred communication style: Simple, everyday language.
   - **Success Stories**: Graduate achievements and certifications (type: 'success')
 - **Database Schema Enhancement**: Added `type` field to GalleryItem model with proper default values
 - **Separate ETL Processes**: Created dedicated ingestion tools for each gallery type
-  - `tools/ingest-gallery.ts` - Main gallery (68 images processed)
-  - `tools/ingest-students-gallery.ts` - Students work (34 images processed)
+  - `tools/ingest-gallery.ts` - Main gallery (64 media files: 61 images + 3 videos)
+  - `tools/ingest-students-gallery.ts` - Students work (29 images processed)
   - `tools/ingest-success-gallery.ts` - Success stories (14 images processed)
 - **Directory Structure**: Organized source images by type
-  - Main: `public/gallery/` → `/gallery/_processed/`
+  - Main: `public/gallery/` → `/gallery/_processed/` (includes videos served directly)
   - Students: `public/gallery-students/` → `/gallery-students/_processed/`
   - Success: `public/gallery-success/` → `/gallery-success/_processed/`
 - **API Enhancement**: Updated gallery API with type parameter filtering
-  - `/api/gallery?type=main` - Main professional gallery
+  - `/api/gallery?type=main` - Main professional gallery (images + videos)
   - `/api/gallery?type=students` - Student work gallery
   - `/api/gallery?type=success` - Success stories gallery
 - **Frontend Updates**: Modified gallery pages to use correct type parameters
-  - Main gallery, students gallery, and success gallery pages now fetch appropriate content
+  - All gallery types now support both image and video content seamlessly
 - **Translation System**: Resolved duplicate translation keys across all languages
-- **Production Ready**: All three gallery types working with optimized image variants and proper caching
+- **Production Ready**: All three gallery types working with optimized variants and video support
 
 ### Intelligent Kommo CRM Auto-Discovery Integration ✅ COMPLETED
 - **Hardcoded Real Credentials**: Integrated with live K&K Barber Academy CRM (kkbarberacademycrm.kommo.com)
