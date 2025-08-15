@@ -117,8 +117,6 @@ export default function SuccessGalleryPage() {
 
   const data: GalleryItem[] = galleryResponse?.items || [];
 
-  // Debug logging (removed for production)
-
   // Progressive loading based on device capabilities
   const getInitialLimit = () => {
     if (typeof window === 'undefined') return 15;
@@ -137,6 +135,15 @@ export default function SuccessGalleryPage() {
   const initialLimit = getInitialLimit();
   const displayLimit = showAll ? data.length : initialLimit;
   const displayMedia = data.slice(0, displayLimit);
+
+  // Debug logging
+  console.log('Success Gallery State:', {
+    isLoading,
+    error: !!error,
+    dataLength: data.length,
+    displayMediaLength: displayMedia.length,
+    hasGalleryResponse: !!galleryResponse
+  });
 
   if (isLoading) {
     return (
