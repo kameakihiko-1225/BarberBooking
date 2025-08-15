@@ -143,7 +143,7 @@ export default function SuccessGalleryPage() {
 
   const initialLimit = getInitialLimit();
   const displayLimit = showAll ? data.length : initialLimit;
-  const shuffledMedia = [...data].sort(() => Math.random() - 0.5).slice(0, displayLimit);
+  const displayMedia = data.slice(0, displayLimit);
 
   if (isLoading) {
     return (
@@ -181,7 +181,7 @@ export default function SuccessGalleryPage() {
 
       <section className="max-w-7xl mx-auto px-2 sm:px-4 mb-16 scroll-scale">
         <div className="columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-2 sm:gap-3 md:gap-4 space-y-2 sm:space-y-3 md:space-y-4">
-          {shuffledMedia.map((item, index) => (
+          {displayMedia.map((item, index) => (
             <div key={`${item.slug}-${index}`} className="break-inside-avoid mb-2 sm:mb-3 md:mb-4">
               <OptimizedMediaCard item={item} index={index} />
             </div>

@@ -147,7 +147,7 @@ export default function StudentsGalleryPage() {
 
   const initialLimit = getInitialLimit();
   const displayLimit = showAll ? data.length : initialLimit;
-  const shuffledMedia = [...data].sort(() => Math.random() - 0.5).slice(0, displayLimit);
+  const displayMedia = data.slice(0, displayLimit);
 
   const getGridClasses = () => {
     const base = isMobile ? 'grid-cols-2' : 'grid-cols-3 lg:grid-cols-4';
@@ -241,7 +241,7 @@ export default function StudentsGalleryPage() {
 
       <section className="max-w-7xl mx-auto px-2 sm:px-4 mb-16 scroll-scale">
         <div className={`grid gallery-container ${getGridClasses()}`}>
-          {shuffledMedia.map((item, index) => (
+          {displayMedia.map((item, index) => (
             <OptimizedMediaCard key={`${item.slug}-${index}`} item={item} index={index} />
           ))}
         </div>
