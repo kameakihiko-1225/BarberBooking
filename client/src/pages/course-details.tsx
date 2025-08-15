@@ -79,26 +79,17 @@ export default function CourseDetails() {
   // Media queries for new gallery section
   const { data: galleryResponse } = useQuery({
     queryKey: ['gallery', 'pl'],
-    queryFn: () => fetchGallery({ pageSize: 50, locale: 'pl' }),
+    queryFn: () => fetch('/api/gallery?locale=pl&pageSize=50').then(res => res.json()),
     staleTime: 5 * 60 * 1000, // 5 minutes
   });
 
-  const galleryMedia: MediaItem[] = galleryResponse?.items?.map((item: GalleryItem) => ({
-    src: item.srcsets.jpg.split(' ')[2] || item.srcsets.jpg.split(' ')[0], // Use 640w or fallback
+  const galleryMedia: MediaItem[] = galleryResponse?.items?.map((item: any) => ({
+    src: item.srcsets?.jpg?.split(' ')[2] || item.srcsets?.jpg?.split(' ')[0] || '/placeholder.jpg',
     type: 'image' as const,
-    alt: item.alt || item.title
+    alt: item.alt || item.title || 'Gallery image'
   })) || [];
-  const { data: studentMedia = [] } = useQuery<MediaItem[]>({
-    queryKey: ['media','students-gallery'],
-    queryFn: async () => {
-      const res = await fetch('/api/media/students-gallery');
-      return res.json();
-    },
-  });
-
-  const videos = galleryMedia.filter((m): m is MediaItem => m.type==='video');
-  const images = studentMedia.filter((m): m is MediaItem => m.type==='image');
-  const courseGallery = [...videos.slice(0,15), ...images.slice(0,10)].sort(() => Math.random() - 0.5);
+  // Use gallery images as course gallery
+  const courseGallery = galleryMedia.slice(0, 20).sort(() => Math.random() - 0.5);
 
   // Scroll-reveal animation setup
   useEffect(() => {
