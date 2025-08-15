@@ -2,11 +2,13 @@ import { PrismaClient } from '@prisma/client';
 import sharp from 'sharp';
 import { promises as fs } from 'fs';
 import path from 'path';
+import { describe, it, expect, beforeEach, jest } from '@jest/globals';
 
 // Mock dependencies
 jest.mock('@prisma/client');
 jest.mock('sharp');
 jest.mock('fs', () => ({
+  existsSync: jest.fn(),
   promises: {
     readdir: jest.fn(),
     stat: jest.fn(),
@@ -33,9 +35,10 @@ const mockPrisma = {
 (PrismaClient as jest.Mock).mockImplementation(() => mockPrisma);
 
 // Mock sharp
-const mockSharp = {
+const mockSharp: any = {
   metadata: jest.fn(),
   resize: jest.fn(),
+  blur: jest.fn(),
   avif: jest.fn(),
   webp: jest.fn(),
   jpeg: jest.fn(),
@@ -45,6 +48,7 @@ const mockSharp = {
 
 (sharp as any).mockImplementation(() => {
   mockSharp.resize.mockReturnThis();
+  mockSharp.blur.mockReturnThis();
   mockSharp.avif.mockReturnThis();
   mockSharp.webp.mockReturnThis();
   mockSharp.jpeg.mockReturnThis();
@@ -81,7 +85,7 @@ class GalleryETL {
 
   async processImage(imagePath: string) {
     const filename = path.basename(imagePath, path.extname(imagePath));
-    const slug = filename.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    const slug = filename.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
     
     // Generate metadata
     const imageBuffer = await fs.readFile(imagePath);
@@ -103,7 +107,7 @@ class GalleryETL {
         height: metadata.height!,
         blurData,
         filename
-      }
+      } as any
     });
 
     // Generate assets for different formats and sizes
@@ -123,7 +127,7 @@ class GalleryETL {
       }
     }
 
-    await this.prisma.galleryAsset.createMany({ data: assets });
+    await this.prisma.galleryAsset.createMany({ data: assets as any });
 
     // Create i18n entries
     const i18nEntries = [
@@ -150,7 +154,7 @@ class GalleryETL {
       }
     ];
 
-    await this.prisma.galleryI18n.createMany({ data: i18nEntries });
+    await this.prisma.galleryI18n.createMany({ data: i18nEntries as any });
 
     return {
       galleryItem,
@@ -201,15 +205,10 @@ describe('Gallery ETL Pipeline', () => {
     });
 
     mockSharp.toBuffer.mockResolvedValue(Buffer.from('fake-image-data'));
-    
-    mockPrisma.galleryItem.create.mockResolvedValue({
-      id: 'test-id-123',
-      slug: 'test-image',
-      width: 1600,
-      height: 1200,
-      blurData: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQ...',
-      filename: 'test-image.jpg'
-    });
+
+    mockPrisma.galleryItem.create.mockImplementation(({ data }: any) =>
+      Promise.resolve({ id: 'test-id-123', ...data })
+    );
 
     mockPrisma.galleryAsset.createMany.mockResolvedValue({ count: 12 });
     mockPrisma.galleryI18n.createMany.mockResolvedValue({ count: 3 });
@@ -225,8 +224,8 @@ describe('Gallery ETL Pipeline', () => {
         'image4.JPEG'   // Should handle case insensitivity
       ];
 
-      (fs.readdir as jest.Mock).mockResolvedValue(mockFiles);
-      (fs.readFile as jest.Mock).mockResolvedValue(Buffer.from('fake-image'));
+      (fs.readdir as any).mockResolvedValue(mockFiles);
+      (fs.readFile as any).mockResolvedValue(Buffer.from('fake-image'));
 
       const results = await etl.processImageFolder('/temp/images');
 
@@ -236,7 +235,7 @@ describe('Gallery ETL Pipeline', () => {
     });
 
     it('should handle empty folders gracefully', async () => {
-      (fs.readdir as jest.Mock).mockResolvedValue([]);
+      (fs.readdir as any).mockResolvedValue([]);
 
       const results = await etl.processImageFolder('/empty/folder');
 
@@ -247,7 +246,7 @@ describe('Gallery ETL Pipeline', () => {
 
   describe('processImage', () => {
     beforeEach(() => {
-      (fs.readFile as jest.Mock).mockResolvedValue(Buffer.from('fake-image-data'));
+      (fs.readFile as any).mockResolvedValue(Buffer.from('fake-image-data'));
     });
 
     it('should create GalleryItem with correct metadata', async () => {
@@ -397,14 +396,14 @@ describe('Gallery ETL Pipeline', () => {
 
   describe('error handling', () => {
     it('should handle image processing errors', async () => {
-      (fs.readFile as jest.Mock).mockRejectedValue(new Error('File not found'));
+      (fs.readFile as any).mockRejectedValue(new Error('File not found'));
 
       await expect(etl.processImage('/invalid/path.jpg'))
         .rejects.toThrow('File not found');
     });
 
     it('should handle database errors', async () => {
-      (fs.readFile as jest.Mock).mockResolvedValue(Buffer.from('valid-image'));
+      (fs.readFile as any).mockResolvedValue(Buffer.from('valid-image'));
       mockPrisma.galleryItem.create.mockRejectedValue(new Error('Database error'));
 
       await expect(etl.processImage('/temp/test.jpg'))

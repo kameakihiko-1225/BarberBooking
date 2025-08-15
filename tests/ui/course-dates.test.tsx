@@ -1,6 +1,13 @@
 import { render, screen } from '@testing-library/react';
+import { describe, it } from '@jest/globals';
+import '@testing-library/jest-dom';
 import { LanguageProvider } from '@/contexts/LanguageContext';
-import { courses } from '@/data/courses';
+
+const courses = [
+  { id: 'beginner', title: 'Beginner Barber Course' },
+  { id: 'advanced', title: 'Advanced Techniques' },
+  { id: 'master', title: 'Master Class' }
+];
 
 // Mock the UpcomingDates component since it's the one that handles course scheduling
 const UpcomingDates = ({ courseId, language }: { courseId: string; language: 'en' | 'pl' | 'uk' }) => {

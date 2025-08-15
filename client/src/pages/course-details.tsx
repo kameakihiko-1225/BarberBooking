@@ -10,6 +10,7 @@ import { instructors } from '@/data/instructors';
 import { useLanguage } from '@/contexts/LanguageContext';
 import StructuredData from '@/components/StructuredData';
 import { fetchGallery, type GalleryItem } from '@/gallery/api';
+import { getPrimaryImageSrc } from '@/gallery/utils';
 
 type MediaItem = { src: string; type: 'image' | 'video' };
 
@@ -83,11 +84,13 @@ export default function CourseDetails() {
     staleTime: 5 * 60 * 1000, // 5 minutes
   });
 
-  const galleryMedia: MediaItem[] = galleryResponse?.items?.map((item: any) => ({
-    src: item.srcsets?.jpg?.split(' ')[2] || item.srcsets?.jpg?.split(' ')[0] || '/placeholder.jpg',
-    type: 'image' as const,
-    alt: item.alt || item.title || 'Gallery image'
-  })) || [];
+  const galleryMedia: MediaItem[] = galleryResponse?.items
+    ?.map((item: any) => ({
+      src: item.isVideo ? item.videoUrl : getPrimaryImageSrc(item.srcsets),
+      type: (item.isVideo ? 'video' : 'image') as 'image' | 'video',
+    }))
+    .filter((m: MediaItem) => !!m.src) || [];
+
   // Use gallery images as course gallery
   const courseGallery = galleryMedia.slice(0, 20).sort(() => Math.random() - 0.5);
 

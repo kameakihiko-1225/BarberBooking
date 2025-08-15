@@ -5,6 +5,7 @@ import { Play, Grid3X3, LayoutGrid } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { fetchGallery, type GalleryItem, type GalleryResponse } from '@/gallery/api';
+import { getPrimaryImageSrc } from '@/gallery/utils';
 
 function OptimizedMediaCard({ item, index }: { item: GalleryItem; index: number }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -73,8 +74,8 @@ function OptimizedMediaCard({ item, index }: { item: GalleryItem; index: number 
               {item.srcsets.webp && <source srcSet={item.srcsets.webp} type="image/webp" />}
               <img
                 ref={mediaRef}
-                src={item.srcsets.jpg.split(' ')[0]}
-                srcSet={item.srcsets.jpg}
+                src={getPrimaryImageSrc(item.srcsets)}
+                srcSet={item.srcsets.jpg || item.srcsets.webp || item.srcsets.avif}
                 alt={item.alt || item.title}
                 className={`w-full h-auto object-cover transition-all duration-300 group-hover:scale-105 ${
                   loaded ? 'opacity-100' : 'opacity-0'
@@ -146,6 +147,20 @@ export default function StudentsGalleryPage() {
     displayMediaLength: displayMedia.length,
     firstItemSrcsets: displayMedia[0]?.srcsets
   });
+
+  if (error) {
+    console.error('Students gallery fetch error:', error);
+    return (
+      <main className="pt-36 pb-20 bg-deep-black text-white">
+        <section className="text-center mb-20 px-4">
+          <h1 className="font-serif text-5xl font-bold mb-4">
+            {t('page.students.title')} <span className="premium-accent">{t('page.students.title.highlight')}</span>
+          </h1>
+          <p className="text-gray-300 max-w-2xl mx-auto">Unable to load gallery images. Please try again later.</p>
+        </section>
+      </main>
+    );
+  }
 
   const getGridClasses = () => {
     const base = isMobile ? 'grid-cols-2' : 'grid-cols-3 lg:grid-cols-4';
